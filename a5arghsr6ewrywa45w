@@ -78,7 +78,7 @@ local function CRQDKY_fake_script() -- Credits.Script
 	wait(2)
 end
 coroutine.wrap(CRQDKY_fake_script)()
-wait(17)
+wait(20)
 MainFrame:Destroy()
 Credits:Destroy()
 
