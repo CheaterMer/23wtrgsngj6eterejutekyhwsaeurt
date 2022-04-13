@@ -1,4 +1,4 @@
-local HWIDTable = loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/reytwrhgfshetyjsdfh"))()
+local HWIDTable = loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/userlist"))()
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
 for i,v in pairs(HWIDTable) do
@@ -74,9 +74,11 @@ local function CRQDKY_fake_script() -- Credits.Script
 	wait(2)
 	setText("Mer So Cute!")
 	wait(2)
+	setText("포카 병신!")
+	wait(2)
 end
 coroutine.wrap(CRQDKY_fake_script)()
-wait(15)
+wait(17)
 MainFrame:Destroy()
 Credits:Destroy()
 
