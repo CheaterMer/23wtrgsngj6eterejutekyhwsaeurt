@@ -81,6 +81,6 @@ coroutine.wrap(CRQDKY_fake_script)()
 wait(20)
 MainFrame:Destroy()
 Credits:Destroy()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/roblox-ss-bruh--MerCute/main/EzMerCuteGuiHub"))()
 		end
     end 
