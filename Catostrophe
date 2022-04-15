@@ -162,6 +162,20 @@ val.Name = 'Wingpartslashcount'
 local num = 0
 local tab = {}
 local tab2 = {}
+for i = 1, 1, 1 do
+spawn(function()	
+	   
+        local A_1 = {
+            [1] = getrenv()._G.Pass,
+            [2] = "Knives",
+            [3] = "AirSpawn",
+            [4] = Vector3.new(154, 28, -518)
+        }
+        
+            local Event = game:GetService("ReplicatedStorage").Remotes.SFCharaMoves
+            Event:InvokeServer(A_1)    
+end)
+end
 detect = char.Attacks.ChildAdded:Connect(function(child)
 if child.Name == "Knife" then
         table.insert(tab,child)
