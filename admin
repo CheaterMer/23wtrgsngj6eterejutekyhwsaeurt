@@ -2956,25 +2956,33 @@ uiSecs.main:addButton(
     end)
 
 uiSecs.stuffs:addButton(
-    "AutoRun(For Undyne + Betty)",
-    function()
-        game:GetService("Players").LocalPlayer.Backpack.Main.WalkSpeed.Value = 60
-    end
-)
-
-uiSecs.stuffs:addButton(
-    "AutoRun(For Sakuya)",
-    function()
-        game:GetService("Players").LocalPlayer.Backpack.Main.WalkSpeed.Value = 50
-    end
-)
-
-uiSecs.stuffs:addButton(
-    "AutoRun + Esp(Don't use in betty or Undyne)",
+    "SFC <Mayhem>",
     function()
         loadstring(
             game:HttpGet(
-                "https://gist.githubusercontent.com/LiterallyATrueClown/9eb5e3162cf9906015209348a32462b3/raw/7544279d5a84e41f6732df602f590cadc2c8ad14/espop",
+                "https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/Mayhem",
+                true
+            )
+        )()
+    end)
+
+uiSecs.stuffs:addButton(
+    "SFC <divinity>",
+    function()
+        loadstring(
+            game:HttpGet(
+                "https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/divinity",
+                true
+            )
+        )()
+    end)
+
+uiSecs.stuffs:addButton(
+    "SFC <Catostrophe>",
+    function()
+        loadstring(
+            game:HttpGet(
+                "https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/Catostrophe",
                 true
             )
         )()
@@ -4633,11 +4641,11 @@ uiSecs.custom:addButton(
 )
 
 uiSecs.custom:addButton(
-    "Toxic 10 Years Old",
+    "anit Cheater",
     function()
         loadstring(
             game:HttpGet(
-                "https://raw.githubusercontent.com/LiterallyATrueClown/ClownThingies/main/Toxic_10_year_old_kid.txt",
+                "https://raw.githubusercontent.com/CheaterMer/roblox-ss-bruh--MerCute/main/antihax",
                 true
             )
         )()
