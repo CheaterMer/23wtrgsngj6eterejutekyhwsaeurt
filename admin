@@ -2138,7 +2138,7 @@ uiSecs.place3:addButton(
                 ["Type"] = "Knockback", 
                 ["HitEffect"] = "KnifeHitEffect",
                 ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
-                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Sakuya.HitPlaylist["1"],
+                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Sakuya.StarterPlaylist["1"],
                 ["Velocity"] = Vector3.new(0, 0.1, 0), 
                 ["CombatInv"] = true,
                 ["Damage"] = 0
@@ -2160,7 +2160,7 @@ uiSecs.place3:addButton(
                 ["Type"] = "Knockback", 
                 ["HitEffect"] = "KnifeHitEffect",
                 ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
-                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Sakuya.StarterPlaylist["1"],
+                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Sakuya.HitPlaylist["1"],
                 ["Velocity"] = Vector3.new(0, 0.1, 0), 
                 ["CombatInv"] = true,
                 ["Damage"] = 0
