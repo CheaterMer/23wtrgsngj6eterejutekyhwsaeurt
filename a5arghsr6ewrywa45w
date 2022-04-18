@@ -1,5 +1,8 @@
 local HWIDTable = loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/userlist"))()
+local Blacklist = loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/Blacklist"))()
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
+local Black = game:GetService("RbxAnalyticsService"):GetClientId()
+
 
 for i,v in pairs(HWIDTable) do
 	if v == HWID then
@@ -84,3 +87,12 @@ Credits:Destroy()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/roblox-ss-bruh--MerCute/main/EzMerCuteGuiHub"))()
 		end
     end 
+	
+	
+	
+	for i,v in pairs(Blacklist) do
+	if v == Black then
+		print("admin Gui")
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/admin"))()
+	end
+end
