@@ -2040,86 +2040,155 @@ uiSecs.place0:addKeybind(
 )
 
 uiSecs.place3:addButton(
-    "Necrofantasia",
+    "Stevonnie",
     function()
         --Music
-        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
-        KG.Volume = 5
-        KG.SoundId = "rbxassetid://3878888130"
-        KG.Looped = false
-        KG:Play()
+        local A_1 = getrenv()._G.Pass
+        local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
+        local A_3 = 
+            {
+                ["HitTime"] = 0.1, 
+                ["Type"] = "Knockback", 
+                ["HitEffect"] = "KnifeHitEffect",
+                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
+                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Stevonnie.StarterPlaylist["1Megalo Strike Back"],
+                ["Velocity"] = Vector3.new(0, 0.1, 0), 
+                ["CombatInv"] = true,
+                ["Damage"] = 0
+            }
+        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+        Event:InvokeServer(A_1, A_2, A_3)
+    end)
+
+uiSecs.place3:addButton(
+    "Chrar hit time",
+    function()
+        --Music
+        local A_1 = getrenv()._G.Pass
+        local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
+        local A_3 = 
+            {
+                ["HitTime"] = 0.1, 
+                ["Type"] = "Knockback", 
+                ["HitEffect"] = "KnifeHitEffect",
+                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
+                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Chara.Death2Playlist["1Megalo Strike Back"],
+                ["Velocity"] = Vector3.new(0, 0.1, 0), 
+                ["CombatInv"] = true,
+                ["Damage"] = 0
+            }
+        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+        Event:InvokeServer(A_1, A_2, A_3)
     end
 )
 
 uiSecs.place3:addButton(
-    "Bullet Hell Nitro Remix",
+    "SFChara Hit Time",
     function()
         --Music
-        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
-        KG.Volume = 5
-        KG.SoundId = "rbxassetid://5184496328"
-        KG.Looped = false
-        KG:Play()
+        local A_1 = getrenv()._G.Pass
+        local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
+        local A_3 = 
+            {
+                ["HitTime"] = 0.1, 
+                ["Type"] = "Knockback", 
+                ["HitEffect"] = "KnifeHitEffect",
+                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
+                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Chara.DeathPlaylist["1Megalo Strike Back"],
+                ["Velocity"] = Vector3.new(0, 0.1, 0), 
+                ["CombatInv"] = true,
+                ["Damage"] = 0
+            }
+        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+        Event:InvokeServer(A_1, A_2, A_3)
     end
 )
 
 uiSecs.place3:addButton(
-    "Galaxy Collapse",
-    function()
-        --Music
-        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
-        KG.Volume = 5
-        KG.SoundId = "rbxassetid://582476855"
-        KG.Looped = false
-        KG:Play()
-    end
-)
-
-uiSecs.place3:addButton(
-    "Goodbye To A World",
+    "Reaper Chara",
     function()
         --Music = Meet Me At The Hotel Room Mashup
-        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
-        KG.Volume = 5
-        KG.SoundId = "rbxassetid://343800290"
-        KG.Looped = false
-        KG:Play()
+        local A_1 = getrenv()._G.Pass
+        local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
+        local A_3 = 
+            {
+                ["HitTime"] = 0.1, 
+                ["Type"] = "Knockback", 
+                ["HitEffect"] = "KnifeHitEffect",
+                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
+                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.My.TransformedPlaylist["1Bunny"],
+                ["Velocity"] = Vector3.new(0, 0.1, 0), 
+                ["CombatInv"] = true,
+                ["Damage"] = 0
+            }
+        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+        Event:InvokeServer(A_1, A_2, A_3)
     end
 )
 
 uiSecs.place3:addButton(
-    "lb 100",
+    "Sakuya sound",
     function()
         --Music
-        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
-        KG.Volume = 5
-        KG.SoundId = "rbxassetid://7958079934"
-        KG.Looped = false
-        KG:Play()
+        local A_1 = getrenv()._G.Pass
+        local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
+        local A_3 = 
+            {
+                ["HitTime"] = 0.1, 
+                ["Type"] = "Knockback", 
+                ["HitEffect"] = "KnifeHitEffect",
+                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
+                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Sakuya.HitPlaylist["1"],
+                ["Velocity"] = Vector3.new(0, 0.1, 0), 
+                ["CombatInv"] = true,
+                ["Damage"] = 0
+            }
+        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+        Event:InvokeServer(A_1, A_2, A_3)
     end
 )
 
 uiSecs.place3:addButton(
-    "disbelief phase 1",
+    "Sakuya Hit",
     function()
         --Music
-        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
-        KG.Volume = 5
-        KG.SoundId = "rbxassetid://1046135187"
-        KG.Looped = false
-        KG:Play()
+        local A_1 = getrenv()._G.Pass
+        local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
+        local A_3 = 
+            {
+                ["HitTime"] = 0.1, 
+                ["Type"] = "Knockback", 
+                ["HitEffect"] = "KnifeHitEffect",
+                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
+                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Sakuya.StarterPlaylist["1"],
+                ["Velocity"] = Vector3.new(0, 0.1, 0), 
+                ["CombatInv"] = true,
+                ["Damage"] = 0
+            }
+        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+        Event:InvokeServer(A_1, A_2, A_3)
     end
 )
 
 uiSecs.place3:addButton(
-    "Manifest UTAU Cover",
+    "Betty 2",
     function()
         --Music
-        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
-        KG.Volume = 5
-        KG.SoundId = "rbxassetid://6726283668"
-        KG.Looped = false
-        KG:Play()
+        local A_1 = getrenv()._G.Pass
+        local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
+        local A_3 = 
+            {
+                ["HitTime"] = 0.1, 
+                ["Type"] = "Knockback", 
+                ["HitEffect"] = "KnifeHitEffect",
+                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
+                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Betty.DeathPlaylist["1"],
+                ["Velocity"] = Vector3.new(0, 0.1, 0), 
+                ["CombatInv"] = true,
+                ["Damage"] = 0
+            }
+        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+        Event:InvokeServer(A_1, A_2, A_3)
     end
 )
 
@@ -2447,23 +2516,32 @@ uiSecs.place6:addButton(
 )
 
 uiSecs.place6:addKeybind(
-    "Stevonie song",
+    "Stop Time A Player",
     nil,
     function()
-    local args = {
-        [1] = getrenv()._G.Pass,
-        [2] = game:service("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value,
-        [3] = {
-            ["Type"] = "Knockback",
-            ["HitEffect"] = "HeavyHitEffect",
-            ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
-            ["HitTime"] = 2.5,
-            ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Stevonnie.StarterPlaylist["1Megalo Strike Back"],
-            ["Damage"] = 1
+        local A_1 = {
+            [1] = getrenv()._G.Pass,
+            [2] = "Chatted",
+            [3] = "The World: Stop Time",
+            [4] = Color3.new(1, 0, 0)
         }
-    }
-    game:GetService("ReplicatedStorage").Remotes.Damage:InvokeServer(unpack(args))
-    end)
+        local Event = game:GetService("ReplicatedStorage").Remotes.Events
+        Event:FireServer(A_1)
+        local args = {
+            [1] = getrenv()._G.Pass,
+            [2] = game:service("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value,
+            [3] = {
+                ["Type"] = "Knockback",
+                ["HitEffect"] = "HeavyHitEffect",
+                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.Stunned,
+                ["HitTime"] = 2.5,
+                ["Sound"] = game:GetService("ReplicatedStorage").Sounds.Punch,
+                ["Damage"] = 1
+            }
+        }
+        game:GetService("ReplicatedStorage").Remotes.Damage:InvokeServer(unpack(args))
+    end
+)
 
 uiSecs.main:addToggle(
     "Lock True",
@@ -3173,22 +3251,48 @@ uiSecs.main:addButton(
 )
 
 uiSecs.place6:addKeybind(
-    "Chara hit time",
+    "Inf Attack",
     nil,
     function()
-            local args = {
-        [1] = getrenv()._G.Pass,
-        [2] = game:service("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value,
-        [3] = {
-            ["Type"] = "Knockback",
-            ["HitEffect"] = "HeavyHitEffect",
-            ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
-            ["HitTime"] = 2.5,
-            ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Chara.Death2Playlist["1Megalo Strike Back"],
-            ["Damage"] = 1
-        }
-    }
-    game:GetService("ReplicatedStorage").Remotes.Damage:InvokeServer(unpack(args))
+        local on = false
+
+        if on == false then
+            local plr = game:service("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
+            local lockedplr = workspace[plr.Name]
+            on = true
+
+            repeat
+                wait()
+                local args = {
+                    [1] = getrenv()._G.Pass,
+                    [2] = lockedplr,
+                    [3] = {
+                        ["HitTime"] = 2.5,
+                        ["Type"] = "Normal",
+                        ["HitEffect"] = "CarrotHitEffect",
+                        ["VictimCFrame"] = CFrame.new(
+                            Vector3.new(
+                                lockedplr.HumanoidRootPart.Position.X,
+                                lockedplr.HumanoidRootPart.Position.Y,
+                                lockedplr.HumanoidRootPart.Position.Z + 5
+                            )
+                        ),
+                        ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.Stunned,
+                        ["Velocity"] = Vector3.new(0, 0.00001, 0),
+                        ["Sound"] = game:GetService("ReplicatedStorage").Sounds.Kick,
+                        ["Damage"] = 1,
+                        ["CombatInv"] = true
+                    }
+                }
+                game:GetService("ReplicatedStorage").Remotes.Damage:InvokeServer(unpack(args))
+                if lockedplr.Humanoid.Health <= 0 then
+                    print("Done!")
+                    on = false
+                end
+            until lockedplr.Humanoid.Health <= 0
+        end
+    end,
+    function()
     end
 )
 
