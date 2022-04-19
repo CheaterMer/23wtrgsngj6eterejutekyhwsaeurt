@@ -2193,14 +2193,24 @@ uiSecs.place3:addButton(
 )
 
 uiSecs.place3:addButton(
-    "Frisk Megalovania",
+    "SFChara sound",
     function()
         --Music
-        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
-        KG.Volume = 5
-        KG.SoundId = "rbxassetid://5392903988"
-        KG.Looped = false
-        KG:Play()
+        local A_1 = getrenv()._G.Pass
+        local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
+        local A_3 = 
+            {
+                ["HitTime"] = 0.1, 
+                ["Type"] = "Knockback", 
+                ["HitEffect"] = "KnifeHitEffect",
+                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
+                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.SFChara.HurtPlaylist["1SSChara"],
+                ["Velocity"] = Vector3.new(0, 0.1, 0), 
+                ["CombatInv"] = true,
+                ["Damage"] = 0
+            }
+        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+        Event:InvokeServer(A_1, A_2, A_3)
     end
 )
 
