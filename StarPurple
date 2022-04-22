@@ -199,7 +199,7 @@ weld1.C0 = CFrame.new(0,0,0)*CFrame.Angles(0, math.rad(90), 0)
 weld1.Name = "weld1"
 
 local welds = {Orange11,Orange21,Orange31,Orange41,Orange51,Orange61}
-for i = 1,6,1 do
+for i = 1,2,1 do
     spawn(function()
 local args = {
    [1] = {
