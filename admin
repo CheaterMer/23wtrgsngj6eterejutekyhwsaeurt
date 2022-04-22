@@ -4467,17 +4467,17 @@ uiSecs.custom3:addButton(
 )
 
 teleList = {
-    "Sans Area(Small Box)",
-    "Secret house",
-    "Sans Area(Large Box)",
-    "Arena 1",
+    "Star Red",
+    "Star Orange",
+    "Star Purple",
+    "Corruption",
     "Arena 2",
     "Unsecret Room",
     "Inside The Tree In The Mountain",
     "Top Of The Tree In The Mountain"
 }
 uiSecs.place1:addDropdown(
-    "Teleportable Places",
+    "Star Glitcher Mode",
     teleList,
     function(placestp)
         worldtp = placestp
@@ -4485,36 +4485,19 @@ uiSecs.place1:addDropdown(
 )
 
 uiSecs.place1:addButton(
-    "Teleport to that place",
+    "Star Glitcher added",
     function()
-        if worldtp == "Secret house" then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                CFrame.new(
-                -385.056732,
-                1117.49927,
-                1236.89026,
-                0.0316926986,
-                -0.0196113884,
-                0.999304831,
-                0.0301083066,
-                0.999372423,
-                0.0186579525,
-                -0.999043584,
-                0.0294960812,
-                0.0322632939
-            )
+        if worldtp == "Star Orange" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/StarOrange"))()
         end
-        if worldtp == "Sans Area(Small Box)" then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                CFrame.new(1302.91138, 2847.54688, 3280.51807, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        if worldtp == "Star Red" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/StarRed"))()
         end
-        if worldtp == "Sans Area(Large Box)" then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                CFrame.new(1302.51624, 2875.9187, 3281.04077, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        if worldtp == "Star Purple" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/StarPurple"))()
         end
-        if worldtp == "Arena 1" then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                CFrame.new(11000, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        if worldtp == "Corruption" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/Corruption"))()
         end
         if worldtp == "Arena 2" then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
