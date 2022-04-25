@@ -59,7 +59,7 @@ uiSecs.place0 = uiPages.page4:addSection("XTale")
 uiSecs.place6 = uiPages.page4:addSection("Others")
 uiSecs.place4 = uiPages.page6:addSection("Script Guis")
 uiSecs.secretchar = uiPages.page6:addSection("My Own Custom Characters")
-uiSecs.place1 = uiPages.page7:addSection("Chara Star Glitcher")
+uiSecs.place1 = uiPages.page7:addSection("Places")
 uiSecs.ctthings2 = uiPages.page8:addSection("Custom Name Color")
 uiSecs.ctthings2 = uiPages.page8:addSection("Custom Name Color")
 uiSecs.ctthings3 = uiPages.page8:addSection("Custom Name Text")
@@ -2040,240 +2040,134 @@ uiSecs.place0:addKeybind(
 )
 
 uiSecs.place3:addButton(
-    "Stevonnie",
+    "Necrofantasia",
     function()
         --Music
-        local A_1 = getrenv()._G.Pass
-        local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
-        local A_3 = 
-            {
-                ["HitTime"] = 0.1, 
-                ["Type"] = "Knockback", 
-                ["HitEffect"] = "KnifeHitEffect",
-                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
-                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Stevonnie.StarterPlaylist["1Megalo Strike Back"],
-                ["Velocity"] = Vector3.new(0, 0.1, 0), 
-                ["CombatInv"] = true,
-                ["Damage"] = 0
-            }
-        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
-        Event:InvokeServer(A_1, A_2, A_3)
-    end)
-
-uiSecs.place3:addButton(
-    "Chrar hit time",
-    function()
-        --Music
-        local A_1 = getrenv()._G.Pass
-        local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
-        local A_3 = 
-            {
-                ["HitTime"] = 0.1, 
-                ["Type"] = "Knockback", 
-                ["HitEffect"] = "KnifeHitEffect",
-                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
-                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Chara.Death2Playlist["1Megalo Strike Back"],
-                ["Velocity"] = Vector3.new(0, 0.1, 0), 
-                ["CombatInv"] = true,
-                ["Damage"] = 0
-            }
-        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
-        Event:InvokeServer(A_1, A_2, A_3)
+        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
+        KG.Volume = 5
+        KG.SoundId = "rbxassetid://3878888130"
+        KG.Looped = false
+        KG:Play()
     end
 )
 
 uiSecs.place3:addButton(
-    "SFChara Hit Time",
+    "Bullet Hell Nitro Remix",
     function()
         --Music
-        local A_1 = getrenv()._G.Pass
-        local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
-        local A_3 = 
-            {
-                ["HitTime"] = 0.1, 
-                ["Type"] = "Knockback", 
-                ["HitEffect"] = "KnifeHitEffect",
-                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
-                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.SFChara.DeathPlaylist["1SSChara"],
-                ["Velocity"] = Vector3.new(0, 0.1, 0), 
-                ["CombatInv"] = true,
-                ["Damage"] = 0
-            }
-        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
-        Event:InvokeServer(A_1, A_2, A_3)
+        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
+        KG.Volume = 5
+        KG.SoundId = "rbxassetid://5184496328"
+        KG.Looped = false
+        KG:Play()
     end
 )
 
 uiSecs.place3:addButton(
-    "Reaper Chara",
+    "Galaxy Collapse",
+    function()
+        --Music
+        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
+        KG.Volume = 5
+        KG.SoundId = "rbxassetid://582476855"
+        KG.Looped = false
+        KG:Play()
+    end
+)
+
+uiSecs.place3:addButton(
+    "Goodbye To A World",
     function()
         --Music = Meet Me At The Hotel Room Mashup
-        local A_1 = getrenv()._G.Pass
-        local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
-        local A_3 = 
-            {
-                ["HitTime"] = 0.1, 
-                ["Type"] = "Knockback", 
-                ["HitEffect"] = "KnifeHitEffect",
-                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
-                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.My.TransformedPlaylist["1Bunny"],
-                ["Velocity"] = Vector3.new(0, 0.1, 0), 
-                ["CombatInv"] = true,
-                ["Damage"] = 0
-            }
-        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
-        Event:InvokeServer(A_1, A_2, A_3)
+        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
+        KG.Volume = 5
+        KG.SoundId = "rbxassetid://343800290"
+        KG.Looped = false
+        KG:Play()
     end
 )
 
 uiSecs.place3:addButton(
-    "Sakuya sound",
+    "lb 100",
     function()
         --Music
-        local A_1 = getrenv()._G.Pass
-        local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
-        local A_3 = 
-            {
-                ["HitTime"] = 0.1, 
-                ["Type"] = "Knockback", 
-                ["HitEffect"] = "KnifeHitEffect",
-                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
-                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Sakuya.StarterPlaylist["1"],
-                ["Velocity"] = Vector3.new(0, 0.1, 0), 
-                ["CombatInv"] = true,
-                ["Damage"] = 0
-            }
-        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
-        Event:InvokeServer(A_1, A_2, A_3)
+        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
+        KG.Volume = 5
+        KG.SoundId = "rbxassetid://7958079934"
+        KG.Looped = false
+        KG:Play()
     end
 )
 
 uiSecs.place3:addButton(
-    "Sakuya Hit",
+    "disbelief phase 1",
     function()
         --Music
-        local A_1 = getrenv()._G.Pass
-        local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
-        local A_3 = 
-            {
-                ["HitTime"] = 0.1, 
-                ["Type"] = "Knockback", 
-                ["HitEffect"] = "KnifeHitEffect",
-                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
-                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Sakuya.HitPlaylist["1"],
-                ["Velocity"] = Vector3.new(0, 0.1, 0), 
-                ["CombatInv"] = true,
-                ["Damage"] = 0
-            }
-        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
-        Event:InvokeServer(A_1, A_2, A_3)
+        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
+        KG.Volume = 5
+        KG.SoundId = "rbxassetid://1046135187"
+        KG.Looped = false
+        KG:Play()
     end
 )
 
 uiSecs.place3:addButton(
-    "Betty 2",
+    "Manifest UTAU Cover",
     function()
         --Music
-        local A_1 = getrenv()._G.Pass
-        local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
-        local A_3 = 
-            {
-                ["HitTime"] = 0.1, 
-                ["Type"] = "Knockback", 
-                ["HitEffect"] = "KnifeHitEffect",
-                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
-                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.Betty.DeathPlaylist["1"],
-                ["Velocity"] = Vector3.new(0, 0.1, 0), 
-                ["CombatInv"] = true,
-                ["Damage"] = 0
-            }
-        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
-        Event:InvokeServer(A_1, A_2, A_3)
+        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
+        KG.Volume = 5
+        KG.SoundId = "rbxassetid://6726283668"
+        KG.Looped = false
+        KG:Play()
     end
 )
 
 uiSecs.place3:addButton(
-    "SFChara sound",
+    "Frisk Megalovania",
     function()
         --Music
-        local A_1 = getrenv()._G.Pass
-        local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
-        local A_3 = 
-            {
-                ["HitTime"] = 0.1, 
-                ["Type"] = "Knockback", 
-                ["HitEffect"] = "KnifeHitEffect",
-                ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.SpGrab,
-                ["Sound"] = game:GetService("ReplicatedStorage").Resources.Character.CustomMusic.SFChara.HurtPlaylist["1SSChara"],
-                ["Velocity"] = Vector3.new(0, 0.1, 0), 
-                ["CombatInv"] = true,
-                ["Damage"] = 0
-            }
-        local Event = game:GetService("ReplicatedStorage").Remotes.Damage
-        Event:InvokeServer(A_1, A_2, A_3)
+        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
+        KG.Volume = 5
+        KG.SoundId = "rbxassetid://5392903988"
+        KG.Looped = false
+        KG:Play()
     end
 )
 
 uiSecs.place3:addButton(
-    "Reaper Chara SoundUP",
+    "Bad Apple",
     function()
         --Music
-local v1 = getrenv()._G.Pass
-local v2 = game.Players.LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
-local v3 = {
-    ["HitTime"] = 0.5, 
-    ["Type"] = "Knockback", 
-    ["HitEffect"] = "KnifeHitEffect", 
-    ["Velocity"] = Vector3.new(0,1,0),
-    ["CombatInv"] = true,
-    ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.Hurt3, 
-    ["Sound"] = game:GetService("StarterPlayer").StarterPlayerScripts.Music.Music["5Song"],
-    ["Damage"] = "5"
-}
-local event = game:GetService("ReplicatedStorage").Remotes.Damage
-event:InvokeServer(v1, v2, v3)
+        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
+        KG.Volume = 5
+        KG.SoundId = "rbxassetid://412333048"
+        KG.Looped = false
+        KG:Play()
     end
 )
 
 uiSecs.place3:addButton(
-    "Chara repaer",
+    "Manifest but everyone sing it",
     function()
         --Music
-local v1 = getrenv()._G.Pass
-local v2 = game.Players.LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
-local v3 = {
-    ["HitTime"] = 0.5, 
-    ["Type"] = "Knockback", 
-    ["HitEffect"] = "KnifeHitEffect", 
-    ["Velocity"] = Vector3.new(0,1,0),
-    ["CombatInv"] = true,
-    ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.Hurt3, 
-    ["Sound"] = game:GetService("StarterPlayer").StarterPlayerScripts.Music.Music["2Song"],
-    ["Damage"] = "5"
-}
-local event = game:GetService("ReplicatedStorage").Remotes.Damage
-event:InvokeServer(v1, v2, v3)
+        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
+        KG.Volume = 5
+        KG.SoundId = "rbxassetid://6871079145"
+        KG.Looped = false
+        KG:Play()
     end
 )
 
 uiSecs.place5:addButton(
-    "Op Chara song",
+    "Manifest UTAU Cover",
     function()
         --Music
-local v1 = getrenv()._G.Pass
-local v2 = game.Players.LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
-local v3 = {
-    ["HitTime"] = 0.5, 
-    ["Type"] = "Knockback", 
-    ["HitEffect"] = "KnifeHitEffect", 
-    ["Velocity"] = Vector3.new(0,1,0),
-    ["CombatInv"] = true,
-    ["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.Hurt3, 
-    ["Sound"] = game:GetService("StarterPlayer").StarterPlayerScripts.Music.Music["3Song"],
-    ["Damage"] = "5"
-}
-local event = game:GetService("ReplicatedStorage").Remotes.Damage
-event:InvokeServer(v1, v2, v3)
+        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
+        KG.Volume = 5
+        KG.SoundId = "rbxassetid://6726283668"
+        KG.Looped = true
+        KG:Play()
     end
 )
 
@@ -2376,63 +2270,7 @@ uiSecs.place5:addButton(
 uiSecs.place5:addButton(
     "remove Song",
     function()
-	
-player = game.Players.LocalPlayer.Character.HumanoidRootPart
-
-for _,v in pairs(player:GetDescendants()) do
-if v.Name == '3Song' then
-v:Destroy()
-end
-end
-
-player = game.Players.LocalPlayer.Character.HumanoidRootPart
-
-for _,v in pairs(player:GetDescendants()) do
-if v.Name == '2Song' then
-v:Destroy()
-end
-end
-
-player = game.Players.LocalPlayer.Character.HumanoidRootPart
-
-for _,v in pairs(player:GetDescendants()) do
-if v.Name == '5Song' then
-v:Destroy()
-end
-end
-
-player = game.Players.LocalPlayer.Character.HumanoidRootPart
-
-for _,v in pairs(player:GetDescendants()) do
-if v.Name == '1' then
-v:Destroy()
-end
-end
-
-player = game.Players.LocalPlayer.Character.HumanoidRootPart
-
-for _,v in pairs(player:GetDescendants()) do
-if v.Name == '1SSChara' then
-v:Destroy()
-end
-end
-
-player = game.Players.LocalPlayer.Character.HumanoidRootPart
-
-for _,v in pairs(player:GetDescendants()) do
-if v.Name == '1Bunny' then
-v:Destroy()
-end
-end
-
-player = game.Players.LocalPlayer.Character.HumanoidRootPart
-
-for _,v in pairs(player:GetDescendants()) do
-if v.Name == '1Megalo Strike Back' then
-v:Destroy()
-end
-end
-
+game.Players.LocalPlayer.Character["Sound"]:Destroy()
 end)
 
 uiSecs.main2:addButton(
@@ -4629,17 +4467,17 @@ uiSecs.custom3:addButton(
 )
 
 teleList = {
-    "Star Red",
-    "Star Orange",
-    "Star Purple",
-    "Corruption",
+    "Sans Area(Small Box)",
+    "Secret house",
+    "Sans Area(Large Box)",
+    "Arena 1",
     "Arena 2",
     "Unsecret Room",
     "Inside The Tree In The Mountain",
     "Top Of The Tree In The Mountain"
 }
 uiSecs.place1:addDropdown(
-    "Star Glitcher Mode",
+    "Teleportable Places",
     teleList,
     function(placestp)
         worldtp = placestp
@@ -4647,19 +4485,36 @@ uiSecs.place1:addDropdown(
 )
 
 uiSecs.place1:addButton(
-    "Star Glitcher added",
+    "Teleport to that place",
     function()
-        if worldtp == "Star Orange" then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/StarOrange"))()
+        if worldtp == "Secret house" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                CFrame.new(
+                -385.056732,
+                1117.49927,
+                1236.89026,
+                0.0316926986,
+                -0.0196113884,
+                0.999304831,
+                0.0301083066,
+                0.999372423,
+                0.0186579525,
+                -0.999043584,
+                0.0294960812,
+                0.0322632939
+            )
         end
-        if worldtp == "Star Red" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/StarRed"))()
+        if worldtp == "Sans Area(Small Box)" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                CFrame.new(1302.91138, 2847.54688, 3280.51807, 1, 0, 0, 0, 1, 0, 0, 0, 1)
         end
-        if worldtp == "Star Purple" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/StarPurple"))()
+        if worldtp == "Sans Area(Large Box)" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                CFrame.new(1302.51624, 2875.9187, 3281.04077, 1, 0, 0, 0, 1, 0, 0, 0, 1)
         end
-        if worldtp == "Corruption" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/Corruption"))()
+        if worldtp == "Arena 1" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                CFrame.new(11000, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
         end
         if worldtp == "Arena 2" then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
