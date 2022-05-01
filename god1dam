@@ -16,7 +16,7 @@ game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, true)
 game.Players.LocalPlayer.PlayerGui.CharacterSelection.Character.Value = "Chara"
 
 wait(1)
-
+game.Players.LocalPlayer.Character.Head:WaitForChild("HealthBar"):Destroy()
 
 game.Players.LocalPlayer.Backpack:WaitForChild("Main").CharaMoves.Animations.Walk.AnimationId = "rbxassetid://3931615526"
 game.Players.LocalPlayer.Backpack:WaitForChild("Main").CharaMoves.Animations.Idle.AnimationId = "rbxassetid://3931666874"
@@ -27,6 +27,22 @@ game.Players.LocalPlayer.Character["FullHateMode"]:Destroy()
 game.Players.LocalPlayer.Character["HateMode"]:Destroy() 
 game.Players.LocalPlayer.Character["HateArm"]:Destroy()
 game.Players.LocalPlayer.Character["RealKnife"]:Destroy()
+
+
+game.Players.LocalPlayer.Character:WaitForChild("ForceField"):Destroy()
+local v1 = {
+    [1] = getrenv()._G.Pass, 
+    [2] = "Damage", 
+    [3] = math.huge, 
+    [4] = game.Players.LocalPlayer.Character
+}
+local event = game:GetService("ReplicatedStorage").Remotes.Events
+event:FireServer(v1)
+game.Players.LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+    if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
+    game.Players.LocalPlayer.Character.Humanoid.Health = 1
+    end
+end)
 
 
 wait(1)
@@ -2032,70 +2048,6 @@ end)
 
 
 local inputBegan = {
-
-[Enum.KeyCode.KeypadZero] = function()
-
-if not debounce then
-			debounce = true
-			
-local anim = Instance.new("Animation")
-			anim.AnimationId = "rbxassetid://3197645614"
-			anim = plr.Character.Humanoid:LoadAnimation(anim)
-			anim.KeyframeReached:Connect(function(k)
-				if k == "Pause" then
-					anim:AdjustSpeed(0)
-				end
-			end)
-			local root = plr.Character.HumanoidRootPart
-			anim:Play()
-			chat("UNIVERSE RESET!")
-			universeReset = true
-			for i,v in pairs(root:GetChildren()) do
-				if v.Name == "Client" or v.Name == "Server" then
-					v.Parent = nil
-				end
-			end
-			local bodyPos = Instance.new("BodyPosition")
-			bodyPos.Name = "Client"
-			bodyPos.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
-			bodyPos.Position = root.Position
-			bodyPos.Parent = root
-			tweenS:Create(bodyPos,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Position = root.Position + Vector3.new(0,30,0)}):Play()
-			task.wait(1)
-			spawn(function()
-				for i=1,4 do
-					charaMoves:InvokeServer({ pass , "KnifeProjectileYellow", "Spawn", Vector3.new(0,0,0)})
-					task.wait(.2)
-				end
-			end)
-			task.wait(1.2)
-			chat("COLLAPSE!")
-			while uis:IsKeyDown(Enum.KeyCode.KeypadZero) do
-				charaMoves:InvokeServer({ pass , "KnifeProjectileOrange", "Spawn",Vector3.new(0,0,0)})
-				for i,p in pairs(plrs:GetPlayers()) do
-					if p.Name ~= plr.Name and p.Character and p.Character:FindFirstChildOfClass("Humanoid") then
-						local ptorso = p.Character.Torso
-						currentVictim = ptorso
-						task.wait(0.2)
-					end
-				end
-				for i,v in pairs(slashes) do
-					v:Destroy()
-					table.remove(slashes,i)
-				end
-			end
-			chat("What do you think of that?")
-			anim:AdjustSpeed(1)
-			bodyPos:Destroy()
-			universeReset = false
-			for i,v in pairs(orbiting) do
-				game.Debris:AddItem(v,5)
-			end
-			orbiting = {}
-			currentVictim = nil
-			debounce = false
-		end
-		end,
 }
 
 
@@ -2264,34 +2216,7 @@ local con
 		
 			
 
-local last = hum.Health			
-	remotes.Effects.OnClientEvent:Connect(function(p1, p2)
-		local v1 = p1[1];
-		if v1 == "Chatted" then
-			local v116 = p1[2];
-			if p1[3]:lower():match("sans is sparing") then
-				local torso = v116:FindFirstChild("Torso")
-				if torso then
-					table.insert(sparing,torso)
-					if not debounce then
-						charaMoves:InvokeServer({ pass , "KnifeProjectile", "Spawn", torso.Position});
-					end
-					spawn(function()
-						while sparing[torso] ~= nil do
-							wait(0.3)
-							if not debounce then
-								charaMoves:InvokeServer({ pass , "KnifeProjectile", "Spawn", torso.Position});
-							end
-						end
-					end)
-					spawn(function()
-						wait(4)
-						table.remove(sparing,sparing[torso])
-						end)
-					end
-				end
-			end
-		end)
+
 	
 	
 	runS.Heartbeat:Connect(function()
