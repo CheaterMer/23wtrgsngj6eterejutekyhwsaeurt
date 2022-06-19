@@ -1,0 +1,770 @@
+
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Farn2000/ShuShiHis/master/clean_ui.lua"))()
+local Window = library:CreateWindow("Mer-Cute", Enum.KeyCode.RightControl, "DiscordInv")
+
+local TabE = Window:CreateTab("Extra", "3192485759")
+local TabU = Window:CreateTab("Update Log", "3192485759")
+local TabC = Window:CreateTab("Custom C", "3192485759")
+local TabS = Window:CreateTab("Custom Stuff", "3192485759")
+local TabM = Window:CreateTab("Damage M", "3192485759")
+local TabMisc = Window:CreateTab("MISC", "3192485759")
+local TabO = Window:CreateTab("OTHERS", "3192485759")
+
+
+
+
+local LabelE = TabE:CreateLabel('Extra')
+local LabelU = TabU:CreateLabel('Update Log')
+local LabelC = TabC:CreateLabel('Custom Characters')
+local LabelS = TabS:CreateLabel('Custom Stuff')
+local LabelM = TabM:CreateLabel('Damage Modules')
+local LabelMisc = TabMisc:CreateLabel('MISC')
+local LabelO = TabO:CreateLabel('OTHER SCRIPTS')
+
+
+
+
+
+
+
+
+
+---Extra Tab Stuff
+local Credits = TabE:CreateLabel('~Credits~')
+local Credits = TabE:CreateLabel('~​Mene Brother​ - For the UI *on gitbook.io*~')
+local Credits = TabE:CreateLabel('​shifter#4049​ - Fixing scripts!')
+local Credits = TabE:CreateLabel('​void#3308​ - Giving Customs/Attack/Misc Ideas')
+
+
+
+
+
+
+
+---Update Log Tab Stuff
+local Update = TabU:CreateLabel('Version: 1.0')
+local Update = TabU:CreateLabel('Removed *Destroy gui*')
+local Update = TabU:CreateLabel('Removed *Custom Attacks tab*')
+local Update = TabU:CreateLabel('Removed *Character Selection tab*')
+local Update = TabU:CreateLabel('Added *Custom Stuff/Things tab*')
+local Update = TabU:CreateLabel('---New Stuff---')
+local Update = TabU:CreateLabel('Updated Custom stuff tab')
+local Update = TabU:CreateLabel('Added Damage module x500')
+
+
+
+
+
+
+
+
+
+
+---CUSTOM CHARACTER TAB -DEATH-
+local Custom = TabC:CreateLabel('Made-Up Customs *Use in-menu*')
+--Death
+TabC:CreateButton(
+    "-Pose Bug-",
+    function()
+
+local args = {
+    [1] = "P"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+
+wait(0.5)
+
+
+local test = game:GetService("Workspace").Living
+
+local Players = game.Players.LocalPlayer.Character
+Players.Values.Speed.PoseSpeed.Value = 26
+
+
+
+local test = game:GetService("Workspace").Living
+
+local Players = game.Players.LocalPlayer.Character
+Players.Values.Jump.PoseJump.Value = 50
+
+local args = {
+    [1] = "E"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+
+end)
+
+
+
+
+
+
+
+
+
+---CUSTOM CHARACTER TAB -GLITCH-
+TabC:CreateButton(
+    "-GodMode-",
+
+function()
+
+local test = game:GetService("Workspace").Living
+
+local Players = game.Players.LocalPlayer.Character
+
+Players.Values.Block:Destroy()
+
+end)
+
+
+
+
+
+---CUSTOM CHARACTER TAB -DIVINITY-
+TabC:CreateButton(
+    "-RTX-",
+function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/Roblox-SS/main/RTX"))()
+end)
+
+
+
+
+---CUSTOM CHARACTER TAB -VOID-
+TabC:CreateButton(
+    "-admin-",
+function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+end)
+
+
+
+---CUSTOM Stuff TAB 
+TabS:CreateTextBox(
+    "Name change",
+    false,
+    false,
+    function(Text)
+        game.Players.LocalPlayer.Character.Head.HealthBar.Frame.PName.Text = Text
+    end
+)
+local Colorpicker = TabS:CreateColorPicker(
+    "Name Color Change",
+    Color3.fromRGB(255, 255, 255),
+    false,
+    function(RBG)
+        game.Players.LocalPlayer.Character.Head.HealthBar.Frame.PName.TextColor3 = RBG
+    end
+)
+local Colorpicker = TabS:CreateColorPicker(
+    "Change Stamina Bar Color",
+    Color3.fromRGB(255, 255, 255),
+    false,
+    function(RBG)
+        game.Players.LocalPlayer.PlayerGui.UI.Ui.StaminaBar.Bar.BackgroundColor3 = RBG
+    end
+)
+local Colorpicker = TabS:CreateColorPicker(
+    "Change Mana Bar Color",
+    Color3.fromRGB(255, 255, 255),
+    false,
+    function(RGB)
+        game.Players.LocalPlayer.PlayerGui.UI.Ui.ManaBar.Bar.BackgroundColor3 = RGB
+    end
+)
+
+
+
+
+
+
+
+
+---Damage Module TAB 
+TabM:CreateButton(
+    "-Umbra Poes-",
+    function()
+        local sitstart = Instance.new("Animation") 
+sitstart.AnimationId = "rbxassetid://6821079045" 
+
+local sitstartplay = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):LoadAnimation(sitstart)
+local sitloop = Instance.new("Animation")
+ 
+sitloop.AnimationId = "rbxassetid://6929314424"
+ 
+local sitloopplay = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):LoadAnimation(sitloop)
+
+local sitend = Instance.new("Animation") 
+sitend.AnimationId = "rbxassetid://6821115515" 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local sitendplay = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):LoadAnimation(sitend) 
+
+
+
+local sitting = false 
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:Connect(function(k)
+    if k == "p" then 
+	if sitting == false then 
+        sitting = true
+        sitstartplay:Play() 
+        wait(1) 
+        sitloopplay:Play()
+    elseif sitting == true then 
+        sitting = false
+        sitloopplay:Stop() 
+        sitendplay:Play() 
+        end
+    end
+end)
+    end
+)
+
+TabM:CreateButton(
+    "-Dmg x2-",
+    function()
+                for i = 1,3 do
+                spawn(function()
+                for i = 1,5 do
+                local A_1 = getrenv()._G.Pass
+				local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
+				local A_3 = 
+					{
+						["HitTime"] = 0.1, 
+						["Type"] = "Knockback", 
+						["HitEffect"] = "KnifeHitEffect",
+						["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.Knockback2,
+						["Sound"] = game:GetService("ReplicatedStorage").Sounds.Knockback,
+						["Velocity"] = Vector3.new(0, 0, 1), 
+						["CombatInv"] = true,
+						["Damage"] = 40
+					}
+				local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+				Event:InvokeServer(A_1, A_2, A_3)
+                end
+                end)
+                wait(0.2)
+                end
+                    for i = 1,3 do
+                spawn(function()
+                for i = 1,5 do
+                local A_1 = getrenv()._G.Pass
+				local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
+				local A_3 = 
+					{
+						["HitTime"] = 0.1, 
+						["Type"] = "Knockback", 
+						["HitEffect"] = "KnifeHitEffect",
+						["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.Knockback2,
+						["Sound"] = game:GetService("ReplicatedStorage").Sounds.Knockback,
+						["Velocity"] = Vector3.new(0, 0, 1), 
+						["CombatInv"] = true,
+						["Damage"] = 40
+					}
+				local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+				Event:InvokeServer(A_1, A_2, A_3)
+                end
+                end)
+                wait(0.2)
+                end
+    end
+)
+
+
+
+
+
+
+
+
+
+
+
+
+TabM:CreateButton(
+    "-Dmg x500",
+    function()
+                for i = 1,500,500 do
+                wait(0.1)
+                local A_1 = getrenv()._G.Pass
+				local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
+				local A_3 = 
+					{
+						["HitTime"] = 0.1, 
+						["Type"] = "Knockback", 
+						["HitEffect"] = "KnifeHitEffect",
+						["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.Knockback2,
+						["Sound"] = game:GetService("ReplicatedStorage").Sounds.AreaAttackBurst,
+						["Velocity"] = Vector3.new(0, 0.1, 0), 
+						["CombatInv"] = true,
+						["Damage"] = 40
+					}
+				local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+				Event:InvokeServer(A_1, A_2, A_3)
+                end
+    end
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local LabelMisc = TabMisc:CreateLabel('Garbage Stuff')
+TabMisc:CreateButton(
+    "-FPS-",
+    function()
+
+
+	
+local UI = game:GetObjects("rbxassetid://8524217009")[1]
+if game.CoreGui:FindFirstChild("FPSCounter") then
+	game.CoreGui:FindFirstChild("FPSCounter"):Destroy()
+end
+UI.Parent = game.CoreGui
+UI.Main.Position = UDim2.new(0, 959,0, 49)
+print(UI.Main.Position)
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local DR = false
+
+if isfile and readfile then
+	local YOffset = 49
+	local XOffset = 959
+	if isfile("FPS Position Y Offset.txt") then
+		YOffset = readfile("FPS Position Y Offset.txt")
+	end
+	if isfile("FPS Position X Offset.txt") then
+		XOffset = readfile("FPS Position X Offset.txt")
+	end
+	
+	local Position = UDim2.new(0,XOffset,0,YOffset)
+	UI.Main.Position = Position
+end
+
+UI.Main.BackgroundTransparency = 1
+UI.Main.Title.TextTransparency = 1
+
+local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Back)
+local tween = TweenService:Create(UI.Main, transitionInfo, {BackgroundTransparency = 0.8})
+tween:Play()
+local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Back)
+local tween = TweenService:Create(UI.Main.Title, transitionInfo, {TextTransparency = 0.4})
+tween:Play()
+
+
+local function MakeDraggable(objecttodragfrom, object) 
+	pcall(function()
+		local dragging = false
+		local dragInput, mousePos, framePos
+
+		objecttodragfrom.InputBegan:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				dragging = true
+				DR = true
+				mousePos = input.Position
+				framePos = object.Position
+
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragging = false
+					end
+				end)
+			end
+		end)
+
+		objecttodragfrom.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement then
+				dragInput = input
+			end
+		end)
+
+		UserInputService.InputChanged:Connect(function(input)
+			if input == dragInput and dragging then
+				local delta = input.Position - mousePos
+				local transitionInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint)
+				local tween = TweenService:Create(object, transitionInfo, {Position = UDim2.new(0, framePos.X.Offset + delta.X, 0, framePos.Y.Offset + delta.Y)})
+				tween:Play()
+				wait(0.1)
+			end
+		end)
+	end)
+end
+
+MakeDraggable(UI.Main,UI.Main)
+
+UI.Main.MouseEnter:Connect(function()
+	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
+	local tween = TweenService:Create(UI.Main, transitionInfo, {BackgroundTransparency = 0.4})
+	tween:Play()
+	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
+	local tween = TweenService:Create(UI.Main.Title, transitionInfo, {TextTransparency = 0.1})
+	tween:Play()
+end)
+
+UI.Main.MouseLeave:Connect(function()
+	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
+	local tween = TweenService:Create(UI.Main, transitionInfo, {BackgroundTransparency = 0.8})
+	tween:Play()
+	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
+	local tween = TweenService:Create(UI.Main.Title, transitionInfo, {TextTransparency = 0.4})
+	tween:Play()
+end)
+
+
+local FPSLabel = UI.Main.Title
+local Heartbeat = game:GetService("RunService").Heartbeat
+
+local LastIteration, Start
+local FrameUpdateTable = { }
+
+local function HeartbeatUpdate()
+	LastIteration = tick()
+	for Index = #FrameUpdateTable, 1, -1 do
+		FrameUpdateTable[Index + 1] = (FrameUpdateTable[Index] >= LastIteration - 1) and FrameUpdateTable[Index] or nil
+	end
+	FrameUpdateTable[1] = LastIteration
+	local CurrentFPS = (tick() - Start >= 1 and #FrameUpdateTable) or (#FrameUpdateTable / (tick() - Start))
+	CurrentFPS = math.floor(CurrentFPS)
+	
+	FPSLabel.Text = tostring(CurrentFPS).." FPS"
+end
+
+Start = tick()
+Heartbeat:Connect(HeartbeatUpdate)
+
+
+while true do
+	wait(2)
+	writefile("FPS Position Y Offset.txt",UI.Main.Position.Y.Offset)
+	writefile("FPS Position X Offset.txt",UI.Main.Position.X.Offset)
+end
+
+    end
+)
+
+
+
+local LabelMisc = TabMisc:CreateLabel('Fixes')
+TabMisc:CreateButton(
+    "-kill Player-",
+    function()
+        	local Aura = false
+
+game:GetService("UserInputService").InputBegan:Connect(function(inp)
+    if inp.KeyCode == Enum.KeyCode.KeypadOne then
+	
+	 
+if Aura == true then
+		
+
+print("off")
+Aura = false
+		
+elseif Aura == false then
+		
+		Aura = true
+		
+
+print("on")
+	
+
+while Aura == true do
+spawn(function()
+local args = {
+    [1] = "LMB"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+local args = {
+    [1] = "LMB"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+local args = {
+    [1] = "LMB"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+local args = {
+    [1] = "LMB"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+local args = {
+    [1] = "LMB"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+local args = {
+    [1] = "LMB"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+local args = {
+    [1] = "LMB"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+local args = {
+    [1] = "LMB"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+local args = {
+    [1] = "LMB"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+local args = {
+    [1] = "LMB"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+end)
+wait(0.1)
+end
+end
+
+end
+end)
+
+
+game:GetService("UserInputService").InputBegan:Connect(function(inp)
+    if inp.KeyCode == Enum.KeyCode.KeypadTwo then
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,15,-13)
+
+wait(2)
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-677.578247, -396.221619, -933.891541, 0.996510088, -2.88367463e-09, -0.0834724754, 2.49623588e-09, 1, -4.74588102e-09, 0.0834724754, 4.52095117e-09, 0.996510088)
+
+end
+end)
+
+
+    end
+)
+TabMisc:CreateButton(
+    "-Skill Suff-",
+    function()
+        local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:Connect(function(k)
+	if k == "v" then
+local args = {
+    [1] = "V"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+end
+end)
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:Connect(function(k)
+	if k == "e" then
+local args = {
+    [1] = "E"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+end
+end)
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:Connect(function(k)
+	if k == "r" then
+local args = {
+    [1] = "R"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+end
+end)
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:Connect(function(k)
+	if k == "f" then
+local args = {
+    [1] = "F"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+end
+end)
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:Connect(function(k)
+	if k == "t" then
+local args = {
+    [1] = "T"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+end
+end)
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:Connect(function(k)
+	if k == "y" then
+local args = {
+    [1] = "Y"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+end
+end)
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:Connect(function(k)
+	if k == "g" then
+local args = {
+    [1] = "G"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+end
+end)
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:Connect(function(k)
+	if k == "h" then
+local args = {
+    [1] = "H"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+end
+end)
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:Connect(function(k)
+	if k == "j" then
+local args = {
+    [1] = "J"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+end
+end)
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:Connect(function(k)
+	if k == "c" then
+local args = {
+    [1] = "C"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+end
+end)
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:Connect(function(k)
+	if k == "x" then
+local args = {
+    [1] = "X"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+end
+end)
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:Connect(function(k)
+	if k == "p" then
+local args = {
+    [1] = "P"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+end
+end)
+    end
+)
+TabMisc:CreateButton(
+    "-Delete Skill-",
+    function()
+        game.Players.LocalPlayer:GetMouse():Destroy()
+    end
+)
+TabMisc:CreateButton(
+    "-Inf LMG-",
+    function()
+local Player = game.Players.LocalPlayer
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local Humanoid = Character.Humanoid
+local UIS = game:GetService("UserInputService")
+UIS.InputBegan:Connect(function(input, IsTyping)
+    if IsTyping then return end 
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+	local args = {
+    [1] = "LMB"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+	end
+	end)
+	
+    end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TabO:CreateButton(
+    "Op",
+function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/sannin9000/scripts/main/aut.lua "))()
+end)
