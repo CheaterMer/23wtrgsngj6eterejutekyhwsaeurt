@@ -32,8 +32,8 @@ local LabelO = TabO:CreateLabel('OTHER SCRIPTS')
 ---Extra Tab Stuff
 local Credits = TabE:CreateLabel('~Credits~')
 local Credits = TabE:CreateLabel('~​Mene Brother​ - For the UI *on gitbook.io*~')
-local Credits = TabE:CreateLabel('​shifter#4049​ - Fixing scripts!')
-local Credits = TabE:CreateLabel('​void#3308​ - Giving Customs/Attack/Misc Ideas')
+local Credits = TabE:CreateLabel('​Meringue​ - Fixing scripts!')
+local Credits = TabE:CreateLabel('​Meringue​ - Giving Customs/Attack/Misc Ideas')
 
 
 
@@ -42,14 +42,14 @@ local Credits = TabE:CreateLabel('​void#3308​ - Giving Customs/Attack/Misc I
 
 
 ---Update Log Tab Stuff
-local Update = TabU:CreateLabel('Version: 1.0')
+local Update = TabU:CreateLabel('Version: 1.2')
 local Update = TabU:CreateLabel('Removed *Destroy gui*')
 local Update = TabU:CreateLabel('Removed *Custom Attacks tab*')
 local Update = TabU:CreateLabel('Removed *Character Selection tab*')
 local Update = TabU:CreateLabel('Added *Custom Stuff/Things tab*')
 local Update = TabU:CreateLabel('---New Stuff---')
 local Update = TabU:CreateLabel('Updated Custom stuff tab')
-local Update = TabU:CreateLabel('Added Damage module x500')
+local Update = TabU:CreateLabel('Added module Umbra Song')
 
 
 
@@ -235,52 +235,13 @@ end)
 )
 
 TabM:CreateButton(
-    "-Dmg x2-",
+    "-Umbra Pose song-",
     function()
-                for i = 1,3 do
-                spawn(function()
-                for i = 1,5 do
-                local A_1 = getrenv()._G.Pass
-				local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
-				local A_3 = 
-					{
-						["HitTime"] = 0.1, 
-						["Type"] = "Knockback", 
-						["HitEffect"] = "KnifeHitEffect",
-						["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.Knockback2,
-						["Sound"] = game:GetService("ReplicatedStorage").Sounds.Knockback,
-						["Velocity"] = Vector3.new(0, 0, 1), 
-						["CombatInv"] = true,
-						["Damage"] = 40
-					}
-				local Event = game:GetService("ReplicatedStorage").Remotes.Damage
-				Event:InvokeServer(A_1, A_2, A_3)
-                end
-                end)
-                wait(0.2)
-                end
-                    for i = 1,3 do
-                spawn(function()
-                for i = 1,5 do
-                local A_1 = getrenv()._G.Pass
-				local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
-				local A_3 = 
-					{
-						["HitTime"] = 0.1, 
-						["Type"] = "Knockback", 
-						["HitEffect"] = "KnifeHitEffect",
-						["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.Knockback2,
-						["Sound"] = game:GetService("ReplicatedStorage").Sounds.Knockback,
-						["Velocity"] = Vector3.new(0, 0, 1), 
-						["CombatInv"] = true,
-						["Damage"] = 40
-					}
-				local Event = game:GetService("ReplicatedStorage").Remotes.Damage
-				Event:InvokeServer(A_1, A_2, A_3)
-                end
-                end)
-                wait(0.2)
-                end
+        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
+        KG.Volume = 3
+        KG.SoundId = "rbxassetid://9707799701"
+        KG.Looped = false
+        KG:Play()
     end
 )
 
@@ -296,26 +257,14 @@ TabM:CreateButton(
 
 
 TabM:CreateButton(
-    "-Dmg x500",
+    "-Umbra Pose2 song",
     function()
-                for i = 1,500,500 do
-                wait(0.1)
-                local A_1 = getrenv()._G.Pass
-				local A_2 = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value
-				local A_3 = 
-					{
-						["HitTime"] = 0.1, 
-						["Type"] = "Knockback", 
-						["HitEffect"] = "KnifeHitEffect",
-						["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.Knockback2,
-						["Sound"] = game:GetService("ReplicatedStorage").Sounds.AreaAttackBurst,
-						["Velocity"] = Vector3.new(0, 0.1, 0), 
-						["CombatInv"] = true,
-						["Damage"] = 40
-					}
-				local Event = game:GetService("ReplicatedStorage").Remotes.Damage
-				Event:InvokeServer(A_1, A_2, A_3)
-                end
+              KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
+        KG.Volume = 5
+        KG.SoundId = "rbxassetid://9806594827"
+        KG.Looped = false
+        KG.PlaybackSpeed = 0.67
+        KG:Play()
     end
 )
 
