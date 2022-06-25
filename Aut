@@ -222,7 +222,7 @@ mouse.KeyDown:Connect(function(k)
 	if sitting == false then 
         sitting = true
         sitstartplay:Play() 
-        wait(1) 
+        wait(2) 
         sitloopplay:Play()
     elseif sitting == true then 
         sitting = false
