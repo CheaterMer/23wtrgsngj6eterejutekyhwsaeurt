@@ -1,0 +1,922 @@
+local rep = game:GetService("ReplicatedStorage")
+local uis = game:GetService("UserInputService")
+local plrs = game:GetService("Players")
+local runS = game:GetService("RunService")
+local tweenS = game:GetService("TweenService")
+local remotes = rep:WaitForChild("Remotes")
+local damage = remotes:WaitForChild("Damage")
+local functions = remotes:WaitForChild("Functions")
+local events = remotes:WaitForChild("Events")
+local LoseMoves = remotes:WaitForChild("AsrielMoves")
+local main
+local plr = plrs.LocalPlayer
+local plrGui = plr:WaitForChild("PlayerGui")
+local mouse = plr:GetMouse()
+local player = game.Players.LocalPlayer
+local Players = game:GetService("Players")
+local rs = game:GetService("RunService")
+local TweenService = game:GetService("TweenService")
+local userInputService = game:GetService("UserInputService")
+sdis = false
+count = 0
+local done = {}
+local pass = 0
+local dead = 0
+local first = true
+local looped = 0
+LocalPlayer = game:GetService("Players").LocalPlayer
+
+
+game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, true)
+game.ReplicatedStorage.Remotes.Functions:InvokeServer({getrenv()._G.Pass,"ChangeSetting","MorphEnabled",false})
+game.Players.LocalPlayer.PlayerGui.CharacterSelection.Character.Value = "Asriel"
+wait(1)
+--[[
+game.Players.LocalPlayer.Character.Head:WaitForChild("HealthBar"):Destroy()
+game.Players.LocalPlayer.Character:WaitForChild("ForceField"):Destroy()
+local v1 = {
+    [1] = getrenv()._G.Pass, 
+    [2] = "Damage", 
+    [3] = math.huge, 
+    [4] = game.Players.LocalPlayer.Character
+}
+local event = game:GetService("ReplicatedStorage").Remotes.Events
+event:FireServer(v1)
+game.Players.LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+    if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
+    game.Players.LocalPlayer.Character.Humanoid.Health = 1
+    end
+end)
+]]
+
+wait(5)
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+game.Players.LocalPlayer.Character["Karma"]:Destroy()
+
+game.Players.LocalPlayer.PlayerGui.UI.Ui.Info.ServerInfo:Destroy()
+game.Players.LocalPlayer.PlayerGui.UI.Ui.Info.ServerInfo2:Destroy()
+game.Players.LocalPlayer.PlayerGui.UI.Ui.StaminaBar.ImageLabel:Destroy()
+game.Players.LocalPlayer.PlayerGui.UI.Ui.StaminaBar:Destroy()
+game.Players.LocalPlayer.PlayerGui.UI.Ui.ManaBar:Destroy()
+game.Players.LocalPlayer.PlayerGui.UI.Ui.Info.Defense:Destroy()
+game.Players.LocalPlayer.PlayerGui.UI.Ui.Info.Attack:Destroy()
+local UTInfo = Instance.new("ScreenGui")
+local utframe = Instance.new("Frame")
+local chara = Instance.new("TextLabel")
+local charadesc = Instance.new("TextLabel")
+local desc2 = Instance.new("TextLabel")
+local desc3 = Instance.new("TextLabel")
+local desc1 = Instance.new("TextLabel")
+
+--Properties:
+
+UTInfo.Name = "UTInfo"
+UTInfo.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+UTInfo.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+utframe.Name = "utframe"
+utframe.Parent = UTInfo
+utframe.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+utframe.BackgroundTransparency = 0.400
+utframe.BorderColor3 = Color3.fromRGB(255, 255, 255)
+utframe.BorderSizePixel = 5
+utframe.Position = UDim2.new(0.00678733038, 0, 0.864931822, 0)
+utframe.Size = UDim2.new(0, 513, 0, 100)
+
+chara.Name = "chara"
+chara.Parent = utframe
+chara.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+chara.BackgroundTransparency = 1.000
+chara.Position = UDim2.new(0.00735293701, 0, -0.589999974, 0)
+chara.Size = UDim2.new(0, 239, 0, 30)
+chara.Font = Enum.Font.Arcade
+chara.Text = "True Asriel"
+chara.TextColor3 = Color3.fromRGB(255, 255, 255)
+chara.TextSize = 38.000
+chara.TextStrokeTransparency = 0.000
+
+charadesc.Name = "charadesc"
+charadesc.Parent = utframe
+charadesc.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+charadesc.BackgroundTransparency = 1.000
+charadesc.Position = UDim2.new(0.00540363416, 0, -0.289999992, 0)
+charadesc.Size = UDim2.new(0, 336, 0, 20)
+charadesc.Font = Enum.Font.Arcade
+charadesc.Text = "/ Him"
+charadesc.TextColor3 = Color3.fromRGB(255, 255, 255)
+charadesc.TextScaled = true
+charadesc.TextSize = 38.000
+charadesc.TextStrokeTransparency = 0.000
+charadesc.TextWrapped = true
+
+desc2.Name = "desc2"
+desc2.Parent = utframe
+desc2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+desc2.BackgroundTransparency = 1.000
+desc2.Position = UDim2.new(0.00735291373, 0, 0.280000001, 0)
+desc2.Size = UDim2.new(0, 515, 0, 26)
+desc2.Font = Enum.Font.Arcade
+desc2.Text = "*The Actual True Power Of Asriel!"
+desc2.TextColor3 = Color3.fromRGB(255, 255, 255)
+desc2.TextScaled = true
+desc2.TextSize = 38.000
+desc2.TextStrokeTransparency = 0.000
+desc2.TextWrapped = true
+desc2.TextXAlignment = Enum.TextXAlignment.Left
+
+desc3.Name = "desc3"
+desc3.Parent = utframe
+desc3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+desc3.BackgroundTransparency = 1.000
+desc3.Position = UDim2.new(0.00735294819, 0, 0.539999962, 0)
+desc3.Size = UDim2.new(0, 515, 0, 28)
+desc3.Font = Enum.Font.Arcade
+desc3.Text = "*A strong and worthy being!"
+desc3.TextColor3 = Color3.fromRGB(255, 255, 255)
+desc3.TextScaled = true
+desc3.TextSize = 38.000
+desc3.TextStrokeTransparency = 0.000
+desc3.TextWrapped = true
+desc3.TextXAlignment = Enum.TextXAlignment.Left
+
+desc1.Name = "desc1"
+desc1.Parent = utframe
+desc1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+desc1.BackgroundTransparency = 1.000
+desc1.Position = UDim2.new(0.00735294819, 0, 0, 0)
+desc1.Size = UDim2.new(0, 515, 0, 28)
+desc1.Font = Enum.Font.Arcade
+desc1.Text = "*ATK:500 DEF:500"
+desc1.TextColor3 = Color3.fromRGB(255, 255, 255)
+desc1.TextScaled = true
+desc1.TextSize = 38.000
+desc1.TextStrokeTransparency = 0.000
+desc1.TextWrapped = true
+desc1.TextXAlignment = Enum.TextXAlignment.Left
+
+game:GetService("ReplicatedStorage").Effects.ScriptEffects:Destroy()
+        spawn(
+            function()
+                repeat
+                    wait()
+                    for _, v in pairs(game.Players.LocalPlayer.PlayerGui:GetChildren()) do
+                        if v.Name == "WhiteScreen" then
+                            v:Destroy()
+                        end
+                    end
+                until false
+            end
+        )
+        spawn(
+            function()
+                repeat
+                    wait()
+                    for _, v in pairs(game:GetService("Lighting"):GetChildren()) do
+                        if v.Name == "Blur" then
+                            v:Destroy()
+                        end
+                    end
+                until false
+            end
+        )
+
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:Destroy()
+
+local spacing = [[ 
+]]
+   local mt = getrawmetatable(game)
+    local backup = mt.__namecall
+    if setreadonly then setreadonly(mt, false) else make_writeable(mt, true) end
+    
+    mt.__namecall = newcclosure(function(...)
+        local method = getnamecallmethod()
+        local args = {...}
+        if tostring(args[1]) == "Events" and tostring(args[2][2]) == 'Chatted' then
+    msgg = tostring(args[2][3])
+    args[2][3] = '</[True Asriel]\>'..spacing..msgg
+            return backup(unpack(args)) -- return the modified remote so it goes as how you wish
+        end
+        return backup(...)
+    end)
+	
+	
+	
+	local plrs = game:GetService("Players")
+local light = game:GetService("Lighting")
+local rep = game:GetService("ReplicatedStorage")
+local starter = game:GetService("StarterGui")
+local tweenS = game:GetService("TweenService")
+local uis = game:GetService("UserInputService")
+local txtS = game:GetService("TextService")
+local debris = game:GetService("Debris")
+
+--// Variables to save for performance
+
+local tweeninfo = TweenInfo.new
+local taskwait = task.wait
+local taskspawn = task.spawn
+local cf = CFrame.new
+local angles = CFrame.Angles
+local mathrand = math.random
+local mathrad = math.rad
+local vector = Vector3.new
+
+--// Variables
+
+local params = RaycastParams.new()
+params.FilterDescendantsInstances = {workspace:WaitForChild("Map")}
+params.FilterType = Enum.RaycastFilterType.Whitelist
+local remotes = rep:WaitForChild("Remotes")
+local mainModule = require(rep:WaitForChild("ClientModules").MainModule)
+local auraModel = game:GetObjects("rbxassetid://9417360354")[1]
+workspace.FallenPartsDestroyHeight = "-nan"
+local changed = {}
+local plr = plrs.LocalPlayer
+local pass = getrenv()._G.Pass
+local currentIndex = 0
+local timesinc = 0
+local deb = false
+local sit = false
+local maxIndex = 1
+local currentPhaseBuff = 1
+local timesIncreased = 0
+local buffed = 0
+local locked
+local currentModule
+local currentScript
+local lastAdded
+local realLast
+local block
+local fun
+local index
+
+
+
+local player = game.Players.LocalPlayer
+local Players = game:GetService("Players")
+local rs = game:GetService("RunService")
+local TweenService = game:GetService("TweenService")
+local userInputService = game:GetService("UserInputService")
+
+local char = player.Character
+
+
+local function getDummy()
+	local dummy
+	for i,v in pairs(workspace:GetChildren()) do
+		if v.Name:match("Dummy") and not plrs:FindFirstChild(v.Name) and v.Name ~= "DodgingDummy" and v.PrimaryPart then
+			dummy = v
+			break
+		end
+	end
+	return dummy
+end
+
+
+
+
+
+
+local function createAura()
+	auraModel.PrimaryPart.CFrame = plr.Character.HumanoidRootPart.CFrame
+	auraModel.Name = "a"
+	auraModel.Parent = plr.Character
+	local lol = 0
+	local gottem = 0
+	local bigslashes = {}
+	local con = plr.Character.Attacks.ChildAdded:Connect(function(ch)
+		if ch.Name == "BigStar" then
+		    ch:WaitForChild("Idle"):Destroy()
+		    ch:WaitForChild("BodyVelocity")
+			
+			for i,v in pairs(auraModel:GetChildren()) do
+				if v:IsA("MeshPart") and v.Name ~= "a" then
+					ch.Name = "a"
+					v.Name = "a"
+					bigslashes[ch] = v
+					gottem = gottem + 1
+					break
+				end
+			end
+		end
+	end)
+	local canCheck = false
+	taskspawn(function()
+		while true do
+			taskspawn(function()
+				remotes.AsrielMoves:InvokeServer({pass, "StarBlazing", "Start", 1})
+			end)
+			taskwait(0.5)
+			if gottem == 1 then break end
+		end
+		con:Disconnect()
+		canCheck = true
+	end)
+	taskspawn(function()
+		while auraModel and auraModel.Parent do
+			local res = workspace:Raycast(plr.Character.HumanoidRootPart.Position,Vector3.new(0,0,0),params)
+			local pos = plr.Character.HumanoidRootPart.Position - Vector3.new(0,0,0)
+			if res and res.Position then
+				pos = res.Position
+			end
+			auraModel.PrimaryPart.CFrame = CFrame.new(pos) * CFrame.Angles(0,math.rad(lol),0)
+			lol = lol + 15
+			task.wait()
+			local current = 0
+			for i,v in pairs(bigslashes) do
+				if v and v.Parent then 
+					current = current + 1
+					i.CFrame = v.CFrame * CFrame.new(50.1899309158325, 2.817123413086, -50.7188339233398, 1, 0, 0, 0, 0, 1, 0, -1, 0)
+				end
+			end
+			if canCheck and current < 1 then
+				canCheck = false
+				auraModel:Destroy()
+				for i,v in pairs(plr.Character.Attacks:GetChildren()) do
+					if v.Name == "a" then v:Destroy() end
+				end
+				task.wait(2)
+				createAura()
+				break
+			end
+		end
+	end)
+end
+
+
+
+
+
+local function Aura()
+	auraModel.PrimaryPart.CFrame = plr.Character.HumanoidRootPart.CFrame
+	auraModel.Name = "test"
+	auraModel.Parent = plr.Character
+	local lol = 0
+	local gottem = 0
+	local bigslashes = {}
+	local con = plr.Character.Attacks.ChildAdded:Connect(function(ch)
+		if ch.Name == "Star" then
+		    ch:WaitForChild("Idle"):Destroy()
+		    ch:WaitForChild("BodyVelocity")
+			for i,v in pairs(auraModel:GetChildren()) do
+				if v:IsA("MeshPart") and v.Name ~= "test" then
+					ch.Name = "test"
+					v.Name = "test"
+					bigslashes[ch] = v
+					gottem = gottem + 1
+					break
+				end
+			end
+		end
+	end)
+	local canCheck = false
+	taskspawn(function()
+		while true do
+			taskspawn(function()
+				--remotes.AsrielMoves:InvokeServer({pass, "StarBlazing", "Start", 1})
+			end)
+			taskwait(0.5)
+			if gottem == 5 then break end
+		end
+		con:Disconnect()
+		canCheck = true
+	end)
+	taskspawn(function()
+		while auraModel and auraModel.Parent do
+			local res = workspace:Raycast(plr.Character.HumanoidRootPart.Position,Vector3.new(0,-999,0),params)
+			local pos = plr.Character.HumanoidRootPart.Position - Vector3.new(0,4,0)
+			if res and res.Position then
+				pos = res.Position
+			end
+			auraModel.PrimaryPart.CFrame = CFrame.new(pos) * CFrame.Angles(0,math.rad(lol),0)
+			lol = lol + 45
+			task.wait()
+			local current = 0
+			for i,v in pairs(bigslashes) do
+				if v and v.Parent then 
+					current = current + 1
+					i.CFrame = v.CFrame * CFrame.new(math.sin(tick())*145,2.4,0)
+				end
+			end
+			if canCheck and current < 5 then
+				canCheck = false
+				auraModel:Destroy()
+				for i,v in pairs(plr.Character.Attacks:GetChildren()) do
+					if v.Name == "test" then v:Destroy() end
+				end
+				task.wait(2)
+				Aura()
+				break
+			end
+		end
+	end)
+end
+
+
+
+
+local function test()
+	auraModel.PrimaryPart.CFrame = plr.Character.HumanoidRootPart.CFrame
+	auraModel.Name = "Aura"
+	auraModel.Parent = plr.Character
+	local lol = 0
+	local gottem = 0
+	local bigslashes = {}
+	local con = plr.Character.Attacks.ChildAdded:Connect(function(ch)
+		if ch.Name == "Missile" then
+		    ch:WaitForChild("Exploded"):Destroy()
+		    ch:WaitForChild("ServerVelocity")
+			for i,v in pairs(auraModel:GetChildren()) do
+				if v:IsA("MeshPart") and v.Name ~= "Aura" then
+					ch.Name = "Aura"
+					v.Name = "Aura"
+					bigslashes[ch] = v
+					gottem = gottem + 1
+					break
+				end
+			end
+		end
+	end)
+	local canCheck = false
+	taskspawn(function()
+		while true do
+			taskspawn(function()
+				remotes.AsrielMoves:InvokeServer({pass, "AsrielBarrageMove", "Fire", 1})
+			end)
+			taskwait(0.5)
+			if gottem == 20 then break end
+		end
+		con:Disconnect()
+		canCheck = true
+	end)
+	taskspawn(function()
+		while auraModel and auraModel.Parent do
+			local res = workspace:Raycast(plr.Character.HumanoidRootPart.Position,Vector3.new(0,0,0),params)
+			local pos = plr.Character.HumanoidRootPart.Position - Vector3.new(0,4,0)
+			if res and res.Position then
+				pos = res.Position
+			end
+			auraModel.PrimaryPart.CFrame = CFrame.new(pos) * CFrame.Angles(0,math.rad(lol),0)
+			lol = lol + 45
+			task.wait()
+			local current = 0
+			for i,v in pairs(bigslashes) do
+				if v and v.Parent then 
+					current = current + 1
+					i.CFrame = v.CFrame * CFrame.new(math.sin(tick())*145,1.4,0)
+				end
+			end
+			if canCheck and current < 20 then
+				canCheck = false
+				auraModel:Destroy()
+				for i,v in pairs(plr.Character.Attacks:GetChildren()) do
+					if v.Name == "Aura" then v:Destroy() end
+				end
+				task.wait(2)
+				test()
+				break
+			end
+		end
+	end)
+end
+
+
+local function ww()
+	auraModel.PrimaryPart.CFrame = plr.Character.HumanoidRootPart.CFrame
+	auraModel.Name = "ww"
+	auraModel.Parent = plr.Character
+	local lol = 0
+	local gottem = 0
+	local bigslashes = {}
+	local con = plr.Character.Attacks.ChildAdded:Connect(function(ch)
+		if ch.Name == "Missile" then
+		    ch:WaitForChild("Exploded"):Destroy()
+		    ch:WaitForChild("ServerVelocity")
+			for i,v in pairs(auraModel:GetChildren()) do
+				if v:IsA("MeshPart") and v.Name ~= "ww" then
+					ch.Name = "ww"
+					v.Name = "ww"
+					bigslashes[ch] = v
+					gottem = gottem + 1
+					break
+				end
+			end
+		end
+	end)
+	local canCheck = false
+	taskspawn(function()
+		while true do
+			taskspawn(function()
+				remotes.AsrielMoves:InvokeServer({pass, "AsrielBarrageMove", "Fire", 1})
+			end)
+			taskwait(0.5)
+			if gottem == 20 then break end
+		end
+		con:Disconnect()
+		canCheck = true
+	end)
+	taskspawn(function()
+		while auraModel and auraModel.Parent do
+			local res = workspace:Raycast(plr.Character.HumanoidRootPart.Position,Vector3.new(0,0,0),params)
+			local pos = plr.Character.HumanoidRootPart.Position - Vector3.new(0,4,0)
+			if res and res.Position then
+				pos = res.Position
+			end
+			auraModel.PrimaryPart.CFrame = CFrame.new(pos) * CFrame.Angles(0,math.rad(lol),45)
+			lol = lol + 10
+			task.wait()
+			local current = 0
+			for i,v in pairs(bigslashes) do
+				if v and v.Parent then 
+					current = current + 1
+					i.CFrame = v.CFrame * CFrame.new(math.sin(tick())*45,1.4,0)
+				end
+			end
+			if canCheck and current < 20 then
+				canCheck = false
+				auraModel:Destroy()
+				for i,v in pairs(plr.Character.Attacks:GetChildren()) do
+					if v.Name == "ww" then v:Destroy() end
+				end
+				task.wait(2)
+				test()
+				break
+			end
+		end
+	end)
+end
+
+
+
+local function www()
+	auraModel.PrimaryPart.CFrame = plr.Character.HumanoidRootPart.CFrame
+	auraModel.Name = "www"
+	auraModel.Parent = plr.Character
+	local lol = 0
+	local gottem = 0
+	local bigslashes = {}
+	local con = plr.Character.Attacks.ChildAdded:Connect(function(ch)
+		if ch.Name == "Missile" then
+		    ch:WaitForChild("Exploded"):Destroy()
+		    ch:WaitForChild("ServerVelocity")
+			for i,v in pairs(auraModel:GetChildren()) do
+				if v:IsA("MeshPart") and v.Name ~= "www" then
+					ch.Name = "www"
+					v.Name = "www"
+					bigslashes[ch] = v
+					gottem = gottem + 1
+					break
+				end
+			end
+		end
+	end)
+	local canCheck = false
+	taskspawn(function()
+		while true do
+			taskspawn(function()
+				remotes.AsrielMoves:InvokeServer({pass, "AsrielBarrageMove", "Fire", 1})
+			end)
+			taskwait(0.5)
+			if gottem == 20 then break end
+		end
+		con:Disconnect()
+		canCheck = true
+	end)
+	taskspawn(function()
+		while auraModel and auraModel.Parent do
+			local res = workspace:Raycast(plr.Character.HumanoidRootPart.Position,Vector3.new(0,0,0),params)
+			local pos = plr.Character.HumanoidRootPart.Position - Vector3.new(0,4,0)
+			if res and res.Position then
+				pos = res.Position
+			end
+			auraModel.PrimaryPart.CFrame = CFrame.new(pos) * CFrame.Angles(0,math.rad(lol),90)
+			lol = lol + 10
+			task.wait()
+			local current = 0
+			for i,v in pairs(bigslashes) do
+				if v and v.Parent then 
+					current = current + 1
+					i.CFrame = v.CFrame * CFrame.new(math.sin(tick())*45,1.4,0)
+				end
+			end
+			if canCheck and current < 20 then
+				canCheck = false
+				auraModel:Destroy()
+				for i,v in pairs(plr.Character.Attacks:GetChildren()) do
+					if v.Name == "www" then v:Destroy() end
+				end
+				task.wait(2)
+				test()
+				break
+			end
+		end
+	end)
+end
+
+
+
+local mapPos
+if workspace:WaitForChild("Map"):FindFirstChild("MapCFrame") then
+        mapPos = workspace:WaitForChild("Map"):FindFirstChild("MapCFrame").Value.Position
+    else
+    task.spawn(function()
+        repeat task.wait() until plr.Character
+        mapPos = plr.Character.HumanoidRootPart.CFrame
+    end)
+end
+
+
+local function createRandoms()
+	local slashes = {}
+	local con = plr.Character.Attacks.ChildAdded:Connect(function(ch)
+		if ch.Name == "Missile" then
+			ch.Name = "Random"
+			ch:WaitForChild("Exploded"):Destroy()
+			ch:WaitForChild("ServerVelocity")
+			table.insert(slashes,ch)
+		end
+	end)
+	taskspawn(function()
+		while true do
+			taskspawn(function()
+				remotes.AsrielMoves:InvokeServer({pass, "AsrielBarrageMove", "Fire" })
+			end)
+			taskwait(0.1)
+			if #slashes > 21 then break end
+		end
+		con:Disconnect()
+	end)
+	taskspawn(function()
+		repeat taskwait() until #slashes >= 1
+		while true do
+			taskwait(.07)
+			local existing = 0
+			for i,v in pairs(slashes) do
+				if v and v.Parent then
+					v.Position = mapPos + vector(mathrand(-2100,2100),mathrand(-2100,2100),mathrand(-2100,2100))
+					existing = existing + 1
+				end
+			end
+			if existing == 0 then createRandoms() break end
+		end
+	end)
+end
+
+
+
+local function StarRandoms()
+	local slashes = {}
+	local con = plr.Character.Attacks.ChildAdded:Connect(function(ch)
+		if ch.Name == "Star" then
+			ch.Name = "Random"
+			ch:WaitForChild("Idle"):Destroy()
+			ch:WaitForChild("BodyVelocity")
+			table.insert(slashes,ch)
+		end
+	end)
+	taskspawn(function()
+		while true do
+			taskspawn(function()
+				remotes.AsrielMoves:InvokeServer({pass, "StarBlazing", "Start" })
+			end)
+			taskwait(0.1)
+			if #slashes > 10 then break end
+		end
+		con:Disconnect()
+	end)
+	taskspawn(function()
+		repeat taskwait() until #slashes >= 1
+		while true do
+			taskwait(.07)
+			local existing = 0
+			for i,v in pairs(slashes) do
+				if v and v.Parent then
+					v.Position = mapPos + vector(mathrand(-2100,2100),mathrand(-2100,2100),mathrand(-2100,2100))
+					existing = existing + 1
+				end
+			end
+			if existing == 0 then createRandoms() break end
+		end
+	end)
+end
+
+
+--StarRandoms()
+createRandoms()
+wait()
+createAura()
+Aura()
+test()
+
+--ww()
+
+--www()
+		
+	game.Players.LocalPlayer.Character.Effects.ChildAdded:Connect(function(child)
+    if child.Name == "CarrotHitEffect" then
+        child:Destroy()
+end
+
+    end)
+
+game.Players.LocalPlayer.Character.Effects.ChildAdded:Connect(function(child)
+    if child.Name == "KnifeHitEffect" then
+        child:Destroy()
+end
+
+    end)
+
+local function removeInv(character)
+	character.ChildAdded:Connect(function(child)
+		if child.Name == "Inv" then
+			child.Name = "Sex"
+			task.wait()
+			child:Destroy()
+		end
+	end)
+	for i,v in pairs(character:GetChildren()) do
+		if v.Name == "Inv" then
+			v:Destroy()
+		end
+	end
+end
+for i,v in pairs(plrs:GetChildren()) do
+	if v.Name ~= plr.Name then
+		if v.Character then
+			removeInv(v.Character)
+		end
+		v.CharacterAdded:Connect(removeInv)
+	end
+end
+plrs.PlayerAdded:Connect(function(v)
+	v.CharacterAdded:Connect(removeInv)
+end)
+
+
+
+		
+local d1 = {game:GetService("ReplicatedStorage").Sounds.Stare2, game:GetService("ReplicatedStorage").Sounds.Stare}
+local d2 = {game:GetService("ReplicatedStorage").Sounds.Crack, game:GetService("ReplicatedStorage").Sounds.ChaosSaber2}
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:Connect(function(k) 
+	if k == "v" then
+local A_1 =  {
+          [1] = getrenv()._G.Pass, 
+          [2] = "Chatted", 
+          [3] = "Stay out of my way.",
+          [4] = Color3.fromRGB(255,0,0)
+    }
+    local Event = game:GetService("ReplicatedStorage").Remotes.Events
+    Event:FireServer(A_1)
+local animation = Instance.new("Animation")
+animation.AnimationId = "rbxassetid://9326843694"
+local anim = game.Players.LocalPlayer.Character.Humanoid.Animator:LoadAnimation(animation)
+anim:Play()
+wait(0.3)
+local args = {
+[1] = getrenv()._G.Pass,
+[2] = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value,
+[3] = {
+["Type"] = "Normal",
+["HitEffect"] = "HeavyHitEffect",
+["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.Knockback2,
+["HitTime"] = 1,
+["Velocity"] = Vector3.new(0,0,0.01),
+["CombatInv"] = true,
+["Sound"] = d1,
+["BlockAble"] = false,
+--["Effect"] = "stare",
+["Damage"] = 0
+}
+}
+game:GetService("ReplicatedStorage").Remotes.Damage:InvokeServer(unpack(args))
+local args = {
+[1] = getrenv()._G.Pass,
+[2] = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value,
+[3] = {
+["Type"] = "Normal",
+["HitEffect"] = "HeavyHitEffect",
+["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.Knockback2,
+["HitTime"] = 1,
+["Velocity"] = Vector3.new(0,0,0.01),
+["CombatInv"] = true,
+["Sound"] = d2,
+["BlockAble"] = false,
+--["Effect"] = "Lol",
+["Damage"] = 0
+}
+}
+game:GetService("ReplicatedStorage").Remotes.Damage:InvokeServer(unpack(args))
+local args = {
+[1] = getrenv()._G.Pass,
+[2] = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value,
+[3] = {
+["Type"] = "Knockback",
+["HitEffect"] = "HeavyHitEffect",
+["HurtAnimation"] = game:GetService("ReplicatedStorage").Animations.HurtAnimations.GrabbedLeg1,
+["HitTime"] = 1,
+["Velocity"] = Vector3.new(0,5,0),
+["Position"] = game:GetService("Players").LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value.Torso.Position + Vector3.new(0,20,0),
+["CombatInv"] = true,
+["Sound"] = game:GetService("ReplicatedStorage").Sounds.HateExplosion,
+["BlockAble"] = false,
+--["Effect"] = "Lol",
+["Damage"] = 0
+}
+}
+game:GetService("ReplicatedStorage").Remotes.Damage:InvokeServer(unpack(args))
+end
+end)
+
+
+
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:Connect(function(k) 
+	if k == "p" then
+
+
+		local pos = char.HumanoidRootPart.CFrame
+		local dummy = getDummy()
+		if not dummy then
+			dummy = rep.Resources.MoveEffects.HateBall.HateBall
+		end
+		if dummy and dummy:FindFirstChild("HumanoidRootPart") then
+			char:SetPrimaryPartCFrame(dummy.HumanoidRootPart.CFrame)
+			taskwait(0.2)
+			char:SetPrimaryPartCFrame(dummy.HumanoidRootPart.CFrame)
+			taskspawn(function()
+				remotes.Damage:InvokeServer(pass, dummy, {CombatInv=true,BlockAble=false,Type="Normal",Sound = {rep.Sounds.GTLevelUp,rep.Sounds.HyperGonerLaugh},Damage = 0,HitTime = 0,HurtAnimation = rep.Animations.HurtAnimations["Hurt1"],VictimCFrame = dummy.HumanoidRootPart.CFrame,Velocity=dummy.HumanoidRootPart.CFrame.LookVector,HitEffect="BurstEffect"})
+			end)
+			taskwait(0.09)
+			remotes.Damage:InvokeServer(pass, dummy, {CombatInv=true,BlockAble=false,Type="Normal",Sound = {game:GetService("StarterPlayer").StarterPlayerScripts.Music.Music["2Song"]},Damage = 0,HitTime = 0,HurtAnimation = rep.Animations.HurtAnimations["Hurt1"],VictimCFrame = dummy.HumanoidRootPart.CFrame,Velocity=dummy.HumanoidRootPart.CFrame.LookVector,HitEffect="BurstEffect"})
+			taskwait(0.1)
+			char:SetPrimaryPartCFrame(pos)
+		end
+		
+		
+end
+end)
+
+
+
+
+
+local inf = false
+
+game:GetService("UserInputService").InputBegan:Connect(function(inp)
+    if inp.KeyCode == Enum.KeyCode.KeypadSix then
+
+if inf == true then
+
+local A_1 = {
+                        [1] = getrenv()._G.Pass,
+                        [2] = "Chatted",
+                        [3] = [[ [ CONSOLE ] *
+START SCRIPT {Range Low}]],
+                        [4] = Color3.new(1,0,0)
+                    }
+local Event = game:GetService("ReplicatedStorage").Remotes.Events
+Event:FireServer(A_1)
+
+inf = false
+
+elseif inf == false then
+
+local A_1 = {
+                        [1] = getrenv()._G.Pass,
+                        [2] = "Chatted",
+                        [3] = [[ [ CONSOLE ] *
+START SCRIPT {Range Max}]],
+                        [4] = Color3.new(1,0,0)
+                    }
+local Event = game:GetService("ReplicatedStorage").Remotes.Events
+Event:FireServer(A_1)
+
+inf = true
+
+end
+end
+end)
+
+
+
+
+game.Players.LocalPlayer.Backpack.Main.LockOnScript.LockOn.Changed:Connect(function()
+
+--local remote = game.ReplicatedStorage.Remotes["CharaMoves"]
+--local pass = getrenv()._G.Pass
+local spot = game.Players.LocalPlayer.Character['Right Arm'].CFrame * CFrame.new(0, 99, 0)
+local mouse = game.Players.LocalPlayer:GetMouse()
+if inf == true then
+game.Players.LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value.HumanoidRootPart.Size = Vector3.new(999, 999, 999)
+print("op lock")
+else
+game.Players.LocalPlayer.Backpack.Main.LockOnScript.LockOn.Value.HumanoidRootPart.Size = Vector3.new(1.6, 1.6, 0.8)
+print("op Unlock")
+
+end
+end)
+
