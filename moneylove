@@ -4436,7 +4436,7 @@ uiSecs.custom3:addButton(
 uiSecs.custom4:addButton(
     "No CoolDown Sans",
     function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/roblox-ss-script/main/nocdsanswa?token=GHSAT0AAAAAABW5NMLSJWOL4A34JLEV7RC4YW7XHAQ"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/nope"))()
     end
 )
 
