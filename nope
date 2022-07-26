@@ -58,7 +58,7 @@ end
 		sound.Volume = 3;
 		sound.Looped = true;
 		sound.Name = "Tf";
-		sound.SoundId = getsynasset("suddenchangespap.mp3");
+--		sound.SoundId = getsynasset("suddenchangespap.mp3");
 		sound:Play()
 --game:GetService("Players").LocalPlayer.Backpack.Main.SansMoves.Name = "TimeParadoxMoves"
 --game.Players.LocalPlayer.Character.ForceField:Destroy()
