@@ -1,524 +1,38 @@
+local HWIDTable = loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/userlist"))()
+local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Farn2000/ShuShiHis/master/clean_ui.lua"))()
-local Window = library:CreateWindow("Mer-Cute", Enum.KeyCode.RightControl, "DiscordInv")
-
-local TabE = Window:CreateTab("Extra", "3192485759")
-local TabU = Window:CreateTab("Update Log", "3192485759")
-local TabC = Window:CreateTab("Custom C", "3192485759")
-local TabS = Window:CreateTab("Custom Stuff", "3192485759")
-local TabM = Window:CreateTab("Damage M", "3192485759")
-local TabMisc = Window:CreateTab("MISC", "3192485759")
-local TabO = Window:CreateTab("OTHERS", "3192485759")
+for i,v in pairs(HWIDTable) do
+	if v == HWID then
+		print("Load Script")
 
 
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "TheFallen's Gui", HidePremium = false, SaveConfig = true, ConfigFolder = "Aut Script"})
 
+--||ATab||--
 
-local LabelE = TabE:CreateLabel('Extra')
-local LabelU = TabU:CreateLabel('Update Log')
-local LabelC = TabC:CreateLabel('Custom Characters')
-local LabelS = TabS:CreateLabel('Custom Stuff')
-local LabelM = TabM:CreateLabel('Damage Modules')
-local LabelMisc = TabMisc:CreateLabel('MISC')
-local LabelO = TabO:CreateLabel('OTHER SCRIPTS')
+local ATab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
-
-
-
-
-
-
-
-
----Extra Tab Stuff
-local Credits = TabE:CreateLabel('~Credits~')
-local Credits = TabE:CreateLabel('~​Mene Brother​ - For the UI *on gitbook.io*~')
-local Credits = TabE:CreateLabel('​Meringue​ - Fixing scripts!')
-local Credits = TabE:CreateLabel('​Meringue​ - Giving Customs/Attack/Misc Ideas')
-
-
-
-
-
-
-
----Update Log Tab Stuff
-local Update = TabU:CreateLabel('Version: 1.2')
-local Update = TabU:CreateLabel('Removed *Destroy gui*')
-local Update = TabU:CreateLabel('Removed *Custom Attacks tab*')
-local Update = TabU:CreateLabel('Removed *Character Selection tab*')
-local Update = TabU:CreateLabel('Added *Custom Stuff/Things tab*')
-local Update = TabU:CreateLabel('---New Stuff---')
-local Update = TabU:CreateLabel('Updated Custom stuff tab')
-local Update = TabU:CreateLabel('Added module Umbra Song')
-
-
-
-
-
-
-
-
-
-
----CUSTOM CHARACTER TAB -DEATH-
-local Custom = TabC:CreateLabel('Made-Up Customs *Use in-menu*')
---Death
-TabC:CreateButton(
-    "-Pose Bug-",
-    function()
-
-local args = {
-    [1] = "P"
-}
-game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
-
-wait(0.5)
-
-
-local test = game:GetService("Workspace").Living
-
-local Players = game.Players.LocalPlayer.Character
-Players.Values.Speed.PoseSpeed.Value = 26
-
-
-
-local test = game:GetService("Workspace").Living
-
-local Players = game.Players.LocalPlayer.Character
-Players.Values.Jump.PoseJump.Value = 50
-
-local args = {
-    [1] = "E"
-}
-game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
-
-end)
-
-
-
-
-
-
-
-
-
----CUSTOM CHARACTER TAB -GLITCH-
-TabC:CreateButton(
-    "-GodMode-",
-
-function()
-
+ATab:AddButton({
+	Name = "GodMode!",
+	Callback = function()
+	
 local test = game:GetService("Workspace").Living
 
 local Players = game.Players.LocalPlayer.Character
 
 Players.Values.Block:Destroy()
-
-end)
-
-
-
-
-
----CUSTOM CHARACTER TAB -DIVINITY-
-TabC:CreateButton(
-    "-RTX-",
-function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/Roblox-SS/main/RTX"))()
-end)
-
-
-
-
----CUSTOM CHARACTER TAB -VOID-
-TabC:CreateButton(
-    "-admin-",
-function()
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
-end)
-
-
-
----CUSTOM Stuff TAB 
-TabS:CreateTextBox(
-    "Name change",
-    false,
-    false,
-    function(Text)
-        game.Players.LocalPlayer.Character.Head.HealthBar.Frame.PName.Text = Text
-    end
-)
-local Colorpicker = TabS:CreateColorPicker(
-    "Name Color Change",
-    Color3.fromRGB(255, 255, 255),
-    false,
-    function(RBG)
-        game.Players.LocalPlayer.Character.Head.HealthBar.Frame.PName.TextColor3 = RBG
-    end
-)
-local Colorpicker = TabS:CreateColorPicker(
-    "Change Stamina Bar Color",
-    Color3.fromRGB(255, 255, 255),
-    false,
-    function(RBG)
-        game.Players.LocalPlayer.PlayerGui.UI.Ui.StaminaBar.Bar.BackgroundColor3 = RBG
-    end
-)
-local Colorpicker = TabS:CreateColorPicker(
-    "Change Mana Bar Color",
-    Color3.fromRGB(255, 255, 255),
-    false,
-    function(RGB)
-        game.Players.LocalPlayer.PlayerGui.UI.Ui.ManaBar.Bar.BackgroundColor3 = RGB
-    end
-)
-
-
-
-
-
-
-
-
----Damage Module TAB 
-TabM:CreateButton(
-    "-Umbra Poes-",
-    function()
-        local sitstart = Instance.new("Animation") 
-sitstart.AnimationId = "rbxassetid://6821079045" 
-
-local sitstartplay = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):LoadAnimation(sitstart)
-local sitloop = Instance.new("Animation")
- 
-sitloop.AnimationId = "rbxassetid://6929314424"
- 
-local sitloopplay = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):LoadAnimation(sitloop)
-
-local sitend = Instance.new("Animation") 
-sitend.AnimationId = "rbxassetid://6821115515" 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-local sitendplay = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):LoadAnimation(sitend) 
-
-
-
-local sitting = false 
-local mouse = game.Players.LocalPlayer:GetMouse()
-mouse.KeyDown:Connect(function(k)
-    if k == "p" then 
-	if sitting == false then 
-        sitting = true
-        sitstartplay:Play() 
-        wait(2) 
-        sitloopplay:Play()
-    elseif sitting == true then 
-        sitting = false
-        sitloopplay:Stop() 
-        sitendplay:Play() 
-        end
-    end
-end)
-    end
-)
-
-TabM:CreateButton(
-    "-Umbra Pose song-",
-    function()
-        KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
-        KG.Volume = 3
-        KG.SoundId = "rbxassetid://9707799701"
-        KG.Looped = false
-        KG:Play()
-    end
-)
-
-
-
-
-
-
-
-
-
-
-
-
-TabM:CreateButton(
-    "-Umbra Pose2 song",
-    function()
-              KG = Instance.new("Sound", game.Players.LocalPlayer.Character)
-        KG.Volume = 5
-        KG.SoundId = "rbxassetid://9806594827"
-        KG.Looped = false
-        KG.PlaybackSpeed = 0.67
-        KG:Play()
-    end
-)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-local LabelMisc = TabMisc:CreateLabel('Garbage Stuff')
-TabMisc:CreateButton(
-    "-FPS-",
-    function()
-
-
+end
+})
+
+ATab:AddButton({
+	Name = "SKill Suff!",
+	Callback = function()
 	
-local UI = game:GetObjects("rbxassetid://8524217009")[1]
-if game.CoreGui:FindFirstChild("FPSCounter") then
-	game.CoreGui:FindFirstChild("FPSCounter"):Destroy()
-end
-UI.Parent = game.CoreGui
-UI.Main.Position = UDim2.new(0, 959,0, 49)
-print(UI.Main.Position)
-local UserInputService = game:GetService("UserInputService")
-local TweenService = game:GetService("TweenService")
-local DR = false
-
-if isfile and readfile then
-	local YOffset = 49
-	local XOffset = 959
-	if isfile("FPS Position Y Offset.txt") then
-		YOffset = readfile("FPS Position Y Offset.txt")
-	end
-	if isfile("FPS Position X Offset.txt") then
-		XOffset = readfile("FPS Position X Offset.txt")
-	end
-	
-	local Position = UDim2.new(0,XOffset,0,YOffset)
-	UI.Main.Position = Position
-end
-
-UI.Main.BackgroundTransparency = 1
-UI.Main.Title.TextTransparency = 1
-
-local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Back)
-local tween = TweenService:Create(UI.Main, transitionInfo, {BackgroundTransparency = 0.8})
-tween:Play()
-local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Back)
-local tween = TweenService:Create(UI.Main.Title, transitionInfo, {TextTransparency = 0.4})
-tween:Play()
-
-
-local function MakeDraggable(objecttodragfrom, object) 
-	pcall(function()
-		local dragging = false
-		local dragInput, mousePos, framePos
-
-		objecttodragfrom.InputBegan:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseButton1 then
-				dragging = true
-				DR = true
-				mousePos = input.Position
-				framePos = object.Position
-
-				input.Changed:Connect(function()
-					if input.UserInputState == Enum.UserInputState.End then
-						dragging = false
-					end
-				end)
-			end
-		end)
-
-		objecttodragfrom.InputChanged:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseMovement then
-				dragInput = input
-			end
-		end)
-
-		UserInputService.InputChanged:Connect(function(input)
-			if input == dragInput and dragging then
-				local delta = input.Position - mousePos
-				local transitionInfo = TweenInfo.new(0.4, Enum.EasingStyle.Quint)
-				local tween = TweenService:Create(object, transitionInfo, {Position = UDim2.new(0, framePos.X.Offset + delta.X, 0, framePos.Y.Offset + delta.Y)})
-				tween:Play()
-				wait(0.1)
-			end
-		end)
-	end)
-end
-
-MakeDraggable(UI.Main,UI.Main)
-
-UI.Main.MouseEnter:Connect(function()
-	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(UI.Main, transitionInfo, {BackgroundTransparency = 0.4})
-	tween:Play()
-	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(UI.Main.Title, transitionInfo, {TextTransparency = 0.1})
-	tween:Play()
-end)
-
-UI.Main.MouseLeave:Connect(function()
-	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(UI.Main, transitionInfo, {BackgroundTransparency = 0.8})
-	tween:Play()
-	local transitionInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint)
-	local tween = TweenService:Create(UI.Main.Title, transitionInfo, {TextTransparency = 0.4})
-	tween:Play()
-end)
-
-
-local FPSLabel = UI.Main.Title
-local Heartbeat = game:GetService("RunService").Heartbeat
-
-local LastIteration, Start
-local FrameUpdateTable = { }
-
-local function HeartbeatUpdate()
-	LastIteration = tick()
-	for Index = #FrameUpdateTable, 1, -1 do
-		FrameUpdateTable[Index + 1] = (FrameUpdateTable[Index] >= LastIteration - 1) and FrameUpdateTable[Index] or nil
-	end
-	FrameUpdateTable[1] = LastIteration
-	local CurrentFPS = (tick() - Start >= 1 and #FrameUpdateTable) or (#FrameUpdateTable / (tick() - Start))
-	CurrentFPS = math.floor(CurrentFPS)
-	
-	FPSLabel.Text = tostring(CurrentFPS).." FPS"
-end
-
-Start = tick()
-Heartbeat:Connect(HeartbeatUpdate)
-
-
-while true do
-	wait(2)
-	writefile("FPS Position Y Offset.txt",UI.Main.Position.Y.Offset)
-	writefile("FPS Position X Offset.txt",UI.Main.Position.X.Offset)
-end
-
-    end
-)
-
-
-
-local LabelMisc = TabMisc:CreateLabel('Fixes')
-TabMisc:CreateButton(
-    "-kill Player-",
-    function()
-        	local Aura = false
-
-game:GetService("UserInputService").InputBegan:Connect(function(inp)
-    if inp.KeyCode == Enum.KeyCode.KeypadOne then
-	
-	 
-if Aura == true then
-		
-
-print("off")
-Aura = false
-		
-elseif Aura == false then
-		
-		Aura = true
-		
-
-print("on")
-	
-
-while Aura == true do
-spawn(function()
-local args = {
-    [1] = "LMB"
-}
-game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
-local args = {
-    [1] = "LMB"
-}
-game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
-local args = {
-    [1] = "LMB"
-}
-game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
-local args = {
-    [1] = "LMB"
-}
-game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
-local args = {
-    [1] = "LMB"
-}
-game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
-local args = {
-    [1] = "LMB"
-}
-game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
-local args = {
-    [1] = "LMB"
-}
-game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
-local args = {
-    [1] = "LMB"
-}
-game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
-local args = {
-    [1] = "LMB"
-}
-game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
-local args = {
-    [1] = "LMB"
-}
-game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
-end)
-wait(0.1)
-end
-end
-
-end
-end)
-
-
-game:GetService("UserInputService").InputBegan:Connect(function(inp)
-    if inp.KeyCode == Enum.KeyCode.KeypadTwo then
-
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,15,-13)
-
-wait(2)
-
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-677.578247, -396.221619, -933.891541, 0.996510088, -2.88367463e-09, -0.0834724754, 2.49623588e-09, 1, -4.74588102e-09, 0.0834724754, 4.52095117e-09, 0.996510088)
-
-end
-end)
-
-
-    end
-)
-TabMisc:CreateButton(
-    "-Skill Suff-",
-    function()
-        local mouse = game.Players.LocalPlayer:GetMouse()
-mouse.KeyDown:Connect(function(k)
-	if k == "v" then
-local args = {
-    [1] = "V"
-}
-game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
-end
-end)
-
 local mouse = game.Players.LocalPlayer:GetMouse()
 mouse.KeyDown:Connect(function(k)
 	if k == "e" then
@@ -628,92 +142,415 @@ local args = {
 game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
 end
 end)
-    end
-)
-TabMisc:CreateButton(
-    "-Delete Skill-",
-    function()
-        game.Players.LocalPlayer:GetMouse():Destroy()
-    end
-)
-TabMisc:CreateButton(
-    "-Inf LMG-",
-    function()
-local Player = game.Players.LocalPlayer
-local Character = Player.Character or Player.CharacterAdded:Wait()
-local Humanoid = Character.Humanoid
-local UIS = game:GetService("UserInputService")
-UIS.InputBegan:Connect(function(input, IsTyping)
-    if IsTyping then return end 
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-	local args = {
-    [1] = "LMB"
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:Connect(function(k)
+	if k == "q" then
+local args = {
+    [1] = "q"
 }
 game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
-	end
-	end)
-	
-    end)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-TabO:CreateButton(
-    "Op",
-function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/sannin9000/scripts/main/aut.lua "))()
+end
 end)
+
+end
+})
+
+ATab:AddButton({
+	Name = "Delete Skill!",
+	Callback = function()
+	
+game.Players.LocalPlayer:GetMouse():Destroy()
+
+end
+})
+
+ATab:AddLabel("--Kill Player--")
+
+ATab:AddButton({
+	Name = "Flying Player",
+	Callback = function()
+	
+local part = Instance.new("Part")
+part.Parent = Game.Workspace
+part.Anchored = true
+part.Position = Vector3.new(20.4143,-143.366,3483.62)
+part.Size = Vector3.new(16,1.2,16)
+part.Name = "FlignPart"
+local part = Instance.new("Part")
+part.Parent = Game.Workspace
+part.Anchored = true
+part.CanCollide = falsed
+part.Size = Vector3.new(0.1,0.2,0.1)
+part.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+part.Name = "tp"
+--wait(5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(20.4143,-131.366,3483.62) 
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+wait(3.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.tp.CFrame
+game.Workspace.tp:Destroy()
+game.Workspace.FlignPart:Destroy()
+
+end
+})
+
+ATab:AddButton({
+	Name = "Reset",
+	Callback = function()
+	
+game.Players.LocalPlayer.Character.Humanoid.Health = 0
+
+end
+})
+
+ATab:AddLabel("--Character--")
+
+_G.SpeedValue = "16"
+_G.JumpValue = "50"
+
+_G.PoseSpeedValue = "16"
+_G.PoseJumpValue = "50"
+
+function SpeedBruh()
+local Players = game.Players.LocalPlayer.Character
+Players.Values.Speed.Default.Value = _G.SpeedValue
+end
+
+function JumpBruh()
+local Players = game.Players.LocalPlayer.Character
+Players.Values.Jump.Default.Value = _G.JumpValue
+end
+
+function PoseSpeedBruh()
+local Players = game.Players.LocalPlayer.Character
+Players.Values.Speed.PoseSpeed.Value = _G.PoseSpeedValue
+end
+
+function PoseJumpBruh()
+local Players = game.Players.LocalPlayer.Character
+Players.Values.Jump.PoseJump.Value = _G.PoseJumpValue
+end
+
+ATab:AddButton({
+	Name = "Speed Value",
+	Callback = function()
+     --_G.RemotePack = Value
+	 SpeedBruh()
+  	end    
+})
+
+ATab:AddTextbox({
+	Name = "Speed",
+	Default = "16",
+	TextDisappear = true,
+	Callback = function(Value)
+	_G.SpeedValue = Value
+	print(_G.SpeedValue)
+	--SpeedBruh()
+	end	  
+})
+
+ATab:AddButton({
+	Name = "Jump Value",
+	Callback = function()
+     --_G.RemotePack = Value
+	 JumpBruh()
+  	end    
+})
+
+ATab:AddTextbox({
+	Name = "Jump",
+	Default = "50",
+	TextDisappear = true,
+	Callback = function(Value)
+	_G.JumpValue = Value
+	print(_G.JumpValue)
+	--SpeedBruh()
+	end	  
+})
+
+ATab:AddLabel("--Pose--")
+
+ATab:AddButton({
+	Name = "Pose Speed Value",
+	Callback = function()
+     --_G.RemotePack = Value
+	 PoseSpeedBruh()
+  	end    
+})
+
+ATab:AddTextbox({
+	Name = "Pose Speed",
+	Default = "16",
+	TextDisappear = true,
+	Callback = function(Value)
+	_G.PoseSpeedValue = Value
+	print(_G.SpeedValue)
+	--SpeedBruh()
+	end	  
+})
+
+ATab:AddButton({
+	Name = "Pose Jump Value",
+	Callback = function()
+     --_G.RemotePack = Value
+	 PoseJumpBruh()
+  	end    
+})
+
+ATab:AddTextbox({
+	Name = "Pose Jump",
+	Default = "50",
+	TextDisappear = true,
+	Callback = function(Value)
+	_G.PoseJumpValue = Value
+	print(_G.JumpValue)
+	--SpeedBruh()
+	end	  
+})
+
+ATab:AddButton({
+	Name = "Pose",
+	Callback = function()
+	
+local args = {
+    [1] = "P"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+
+wait(0.5)
+
+
+local test = game:GetService("Workspace").Living
+
+local Players = game.Players.LocalPlayer.Character
+Players.Values.Speed.PoseSpeed.Value = 16
+
+
+
+local test = game:GetService("Workspace").Living
+
+local Players = game.Players.LocalPlayer.Character
+Players.Values.Jump.PoseJump.Value = 50
+
+local args = {
+    [1] = "E"
+}
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args))
+
+end
+})
+
+--||BTab||--
+
+local BTab = Window:MakeTab({
+	Name = "Emotes",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+_G.RemotePack = "DefaultDance"
+
+function StartRemote()
+game:GetService("ReplicatedStorage").ReplicatedModules.KnitPackage.Knit.Services.EmoteService.RF.Play:InvokeServer(_G.RemotePack,1)
+end
+
+BTab:AddButton({
+	Name = "Start",
+	Callback = function()
+	 StartRemote()
+  	end    
+})
+
+BTab:AddDropdown({
+	Name = "Select Remote",
+	Default = "DefaultDance",
+	Options = {"DefaultDance", "TortureDance", "CaramellDansen", "Smug", "LoseControl", "FNF", "PAC-MAN", "Backflip", "SmoothMoves", "SmoothCriminal", "Kazotsky", "IevanPolkka", "god-Step", "90s", "Rodeo", "Cshearer", "Sweet Dreams", "Peanut", "Troll", "Do The Odyssey", "Gangnam Style", "DIO's Talent", "Futsal Shuffle", "Nae-Nae", "Griddy", "Distraction Dance"},
+	Callback = function(Value)
+		_G.RemotePack = Value
+		print(_G.RemotePack)
+	end    
+})
+
+BTab:AddLabel("--Pose--")
+
+BTab:AddButton({
+	Name = "WRYYYYYY",
+	Callback = function()
+	
+	local Anim = Instance.new("Animation")
+    Anim.AnimationId = "rbxassetid://6733919900 "
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+    k:Play()
+	
+ end    
+})
+
+--||CTab||--
+
+local CTab = Window:MakeTab({
+	Name = "TeleportService",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+CTab:AddButton({
+	Name = "Park",
+	Callback = function()
+	 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(40.171875, 973.503174, 16.7041016, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07)
+  	end    
+})
+
+CTab:AddButton({
+	Name = "Field",
+	Callback = function()
+	 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-75.9248047, 973.139893, -671.351562, 0.00852715969, 0, 0.999963641, 0, 1, 0, -0.999963641, 0, 0.00852715969)
+  	end    
+})
+
+CTab:AddButton({
+	Name = "Forest",
+	Callback = function()
+	 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(458.706299, 989.008301, -832.336426, 0.428699136, 0, 0.90344727, 0, 1, 0, -0.90344727, 0, 0.428699136)
+  	end    
+})
+
+CTab:AddButton({
+	Name = "Beach",
+	Callback = function()
+	 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-231.269043, 926.44043, 681.449219, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07)
+  	end    
+})
+
+CTab:AddButton({
+	Name = "Space",
+	Callback = function()
+	 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-206.985443, 4311.79883, -456.24118, 0.589374423, -2.18712017e-08, -0.807860017, -4.03585254e-08, 1, -5.65165763e-08, 0.807860017, 6.59134614e-08, 0.589374423)
+  	end    
+})
+
+local DTab = Window:MakeTab({
+	Name = "Test",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--local Umbra = "rbxassetid://6929314424"
+--local Delta = "rbxassetid://6414352667"
+
+local sitstart = Instance.new("Animation") 
+sitstart.AnimationId = "rbxassetid://6414190677" 
+
+local sitstartplay = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):LoadAnimation(sitstart)
+
+local sitloop = Instance.new("Animation")
+
+sitloop.AnimationId = "rbxassetid://6929314424"
+ 
+local sitloopplay = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):LoadAnimation(sitloop)
+
+local sitend = Instance.new("Animation") 
+sitend.AnimationId = "rbxassetid://6414193632" 
+		
+local sitendplay = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):LoadAnimation(sitend) 
+
+local sitting = false
+
+DTab:AddButton({
+	Name = "Umbra",
+	Callback = function()
+	
+	 if sitting == false then
+        sitting = true
+        sitstartplay:Play() 
+        wait(2) 
+        sitloopplay:Play()
+    elseif sitting == true then 
+        sitting = false
+        sitloopplay:Stop() 
+        sitendplay:Play() 
+	 end
+
+  	end    
+})
+
+local e = Instance.new("Animation") 
+e.AnimationId = "rbxassetid://6414190677" 
+
+local a = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):LoadAnimation(e)
+
+local ee = Instance.new("Animation")
+
+ee.AnimationId = "rbxassetid://6414352667"
+ 
+local aaa = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):LoadAnimation(ee)
+
+local eee = Instance.new("Animation") 
+eee.AnimationId = "rbxassetid://6414193632" 
+		
+local aaaa = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):LoadAnimation(eee) 
+
+local aa = false
+
+DTab:AddButton({
+	Name = "Delta",
+	Callback = function()
+	
+	 if aa == false then
+        aa = true
+        a:Play() 
+        wait(2) 
+        aaa:Play()
+    elseif aa == true then 
+        aa = false
+        aaa:Stop() 
+        aaaa:Play() 
+	 end
+
+  	end    
+})
+
+local q = Instance.new("Animation") 
+q.AnimationId = "rbxassetid://6414190677" 
+
+local w = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):LoadAnimation(q)
+
+local qq = Instance.new("Animation")
+
+qq.AnimationId = "rbxassetid://5730215005"
+ 
+local ww = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):LoadAnimation(qq)
+
+local qqq = Instance.new("Animation") 
+qqq.AnimationId = "rbxassetid://6414193632" 
+		
+local www = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):LoadAnimation(qqq) 
+
+local h = false
+
+DTab:AddButton({
+	Name = "DTWHV",
+	Callback = function()
+	
+		 if h == false then
+        h = true
+        w:Play() 
+        wait(2) 
+        ww:Play()
+    elseif h == true then 
+        h = false
+        ww:Stop() 
+        www:Play() 
+	 end
+	
+  	end    
+})
+
+OrionLib:Init()
+
+
+		end
+    end 
