@@ -165,6 +165,1056 @@ game.Players.LocalPlayer:GetMouse():Destroy()
 end
 })
 
+_G.diebruh = true
+
+function die()
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+while _G.diebruh == true do
+game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer("G")
+wait(0.00000000000000000000000000000000001)
+end
+
+end
+
+function wthisthis()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+die()
+end
+
+ATab:AddToggle({
+	Name = "Kill Player (only Umbra)",
+	Default = false,
+	Callback = function(Value)
+		_G.diebruh = Value
+		wthisthis()
+	end    
+})
+
 ATab:AddLabel("--Kill Player--")
 
 ATab:AddButton({
@@ -344,6 +1394,34 @@ game:GetService('ReplicatedStorage').Remotes.InputFunc:InvokeServer(unpack(args)
 end
 })
 
+ATab:AddLabel("--bigha is gay--")
+
+_G.GaySly = "User Name"
+
+function wear()
+game:GetService("Workspace").Living[_G.GaySly].HumanoidRootPart.Size = Vector3.new(2999, 2999, 2999)
+end
+
+ATab:AddButton({
+	Name = "Hit Box",
+	Callback = function()
+	
+wear()
+	
+  	end    
+})
+
+ATab:AddTextbox({
+	Name = "add Player Name",
+	Default = "User Name",
+	TextDisappear = true,
+	Callback = function(Value)
+	_G.GaySly = Value
+	print(_G.GaySly)
+	--SpeedBruh()
+	end	  
+})
+
 --||BTab||--
 
 local BTab = Window:MakeTab({
@@ -433,7 +1511,7 @@ CTab:AddButton({
 })
 
 local DTab = Window:MakeTab({
-	Name = "Test",
+	Name = "Custom Pose",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
