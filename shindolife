@@ -1,0 +1,194 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Cheater_Mer's Gui", HidePremium = false, SaveConfig = true, ConfigFolder = "Soul Shatters"})
+
+local wait = task.wait
+local spawn = task.spawn
+local Player = game:GetService("Players").LocalPlayer
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local HttpService = game:GetService("HttpService")
+local Workspace = game:GetService("Workspace")
+local CoreGui = game:GetService("CoreGui")
+local VirtualInputManager = game:GetService('VirtualInputManager')
+local TeleportService = game:GetService("TeleportService")
+
+_G.Auto = true
+
+function aaaa()
+while _G.Auto == true do
+wait()
+if
+                        not Player.PlayerGui:WaitForChild("Main"):WaitForChild("ingame"):WaitForChild("Missionstory").Visible
+                     then
+                        for i, v in pairs(Workspace.missiongivers:GetChildren()) do
+                            if
+                                v:FindFirstChild("Head") and v.Head:FindFirstChild("givemission") and
+                                    v.Head.givemission.Enabled and
+                                    v.Head.givemission:FindFirstChild("color").Image ==
+                                        "http://www.roblox.com/asset/?id=5459241648"
+                             then
+                                if
+                                    Player.PlayerGui:WaitForChild("Main"):WaitForChild("ingame"):WaitForChild(
+                                        "Missionstory"
+                                    ).Visible == false
+                                 then
+                                    pcall(
+                                        function()
+                                            Player.Character:WaitForChild("HumanoidRootPart").CFrame =
+                                                CFrame.new(v.HumanoidRootPart.Position) * CFrame.new(0, -5, 3)
+                                            v:FindFirstChild("CLIENTTALK"):FireServer()
+                                            v:FindFirstChild("CLIENTTALK"):FireServer("accept")
+                                        end
+                                    )
+                                end
+                            end
+                        end
+                    end
+					
+					if Player.PlayerGui:WaitForChild("Main"):WaitForChild("ingame"):WaitForChild("Missionstory").Visible then
+                        for i, v in pairs(Workspace.npc:GetChildren()) do
+                            if
+                                v:IsA("Model") and v:FindFirstChild("npctype") and
+                                    string.find(
+                                        Player.PlayerGui:WaitForChild("Main"):WaitForChild("ingame"):WaitForChild(
+                                            "Missionstory"
+                                        ).bg.name.Text,
+                                        v.Head.mob.fram.name.info.Text
+                                    ) and v:FindFirstChild("HumanoidRootPart") and
+                                    v:FindFirstChild("Humanoid") and
+                                    v.Head.CFrame.Y > -1000
+                             then
+                                pcall(
+                                    function()
+                                        wait(0.2)
+                                        Player.Character:WaitForChild("HumanoidRootPart").CFrame =
+                                            CFrame.new(v.HumanoidRootPart.Position) * CFrame.new(0, -5, 3)
+                                        if v:FindFirstChild("antiexploit") then
+                                            v.antiexploit:remove()
+                                        end
+                                        wait(0.2)
+                                        Player.Character.combat.update:FireServer("mouse1", true)
+                                        Player.Character.combat.update:FireServer("mouse1", false)
+                                        if
+                                            v:FindFirstChild("HumanoidRootPart") and
+                                                v.Humanoid.Health < v.Humanoid.MaxHealth
+                                         then
+                                            v.Humanoid.Health = 0
+                                        end
+                                    end
+									)
+							end
+						end
+					end
+					
+					end
+end
+
+function aaa()
+while _G.Auto == true do
+wait()
+if Player.PlayerGui:WaitForChild("Main"):WaitForChild("ingame"):WaitForChild("Missionstory").Visible then
+                        for i, v in pairs(Workspace.npc:GetChildren()) do
+                            if
+                                v:IsA("Model") and v:FindFirstChild("npctype") and
+                                    string.find(
+                                        Player.PlayerGui:WaitForChild("Main"):WaitForChild("ingame"):WaitForChild(
+                                            "Missionstory"
+                                        ).bg.name.Text,
+                                        v.Head.mob.fram.name.info.Text
+                                    ) and v:FindFirstChild("HumanoidRootPart") and
+                                    v:FindFirstChild("Humanoid") and
+                                    v.Head.CFrame.Y > -1000
+                             then
+                                pcall(
+                                    function()
+                                        wait(0.2)
+                                        Player.Character:WaitForChild("HumanoidRootPart").CFrame =
+                                            CFrame.new(v.HumanoidRootPart.Position) * CFrame.new(0, -5, 3)
+                                        if v:FindFirstChild("antiexploit") then
+                                            v.antiexploit:remove()
+                                        end
+                                        wait(0.2)
+                                        Player.Character.combat.update:FireServer("mouse1", true)
+                                        Player.Character.combat.update:FireServer("mouse1", false)
+                                        if
+                                            v:FindFirstChild("HumanoidRootPart") and
+                                                v.Humanoid.Health < v.Humanoid.MaxHealth
+                                         then
+                                            v.Humanoid.Health = 0
+                                        end
+                                    end
+									)
+							end
+						end
+					end
+					end
+end
+
+function aaaaa()
+while _G.abctlqkf == true do
+wait()
+ for i, v in pairs(game.workspace.GLOBALTIME:GetChildren()) do
+                if
+                    v:IsA("Model") and v:FindFirstChild("sh") and v.sh.Position.Y > -1000 and
+                        v.sh.Position.Y < 2000
+                 then
+                    Player.Character.HumanoidRootPart.CFrame = v.sh.CFrame
+                    fireclickdetector(v.sh:FindFirstChildWhichIsA("ClickDetector"))
+                end
+            end
+            for i, v in pairs(game.workspace:GetChildren()) do
+                if
+                    v:IsA("Model") and v:FindFirstChild("sh") and v.sh.Position.Y > -1000 and
+                        v.sh.Position.Y < 2000
+                 then
+                    Player.Character.HumanoidRootPart.CFrame = v.sh.CFrame
+                    fireclickdetector(v.sh:FindFirstChildWhichIsA("ClickDetector"))
+                end
+            end
+end
+end
+
+local ATab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+ATab:AddToggle({
+	Name = "Kill mobs",
+	Default = false,
+	Callback = function(Value)
+	_G.Auto = Value
+	aaaa()
+	aaa()
+						
+	
+end
+})
+
+ATab:AddToggle({
+	Name = "Kill Boss",
+	Default = false,
+	Callback = function(Value)
+	_G.Auto = Value
+
+	aaa()
+						
+	
+end
+})
+
+ATab:AddToggle({
+	Name = "ScrollFarm",
+	Default = false,
+	Callback = function(Value)
+	_G.Auto = Value
+
+	aaaaa()
+						
+	
+end
+})
+
+OrionLib:Init()
