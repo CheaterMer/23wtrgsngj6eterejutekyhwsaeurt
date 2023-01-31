@@ -4,7 +4,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 for i,v in pairs(HWIDTable) do
 	if v == HWID then
 		print("Load Script")
-
+wait(5)
 function createweight()
 local p = Instance.new("Part",game.Players.LocalPlayer.Character)
 p.Size = Vector3.new(.5,.5,.5)
