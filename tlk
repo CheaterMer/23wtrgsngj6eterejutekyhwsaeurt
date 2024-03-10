@@ -28,7 +28,7 @@ plr.Backpack.Taser.Parent = plr.Character
 end
 end
 
-		spawn(function()
+spawn(function()
 	while wait() do
 	if noitem == true then
 		for x, v in pairs(game.Players:GetPlayers()) do
@@ -155,7 +155,6 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		taser = Value
-
 	end    
 })
 
@@ -164,8 +163,6 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		uncuff = Value
-		
-		
 	end    
 })
 
