@@ -16,9 +16,6 @@ for idx, plr in pairs(game.Players:GetPlayers()) do
     table.insert(names, plr.Name)
 end
 
-local plrs = game:GetService("Players")
-local plr = plrs.LocalPlayer
-
 function item()
 if plr.Character:FindFirstChild("Taser") then
 print("a")
@@ -33,10 +30,11 @@ spawn(function()
 	if noitem == true then
 		for x, v in pairs(game.Players:GetPlayers()) do
     if v == game:GetService("Players").LocalPlayer then
-        print("me")
+        print(v)
     else
+	print("you",v)
         local args = {
-            [1] = workspace:WaitForChild(v)
+            [1] = game:GetService("Players").v
         }
         
         game:GetService("ReplicatedStorage"):WaitForChild("UnCuffed"):FireServer(unpack(args))
