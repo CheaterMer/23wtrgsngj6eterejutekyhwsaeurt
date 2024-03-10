@@ -76,8 +76,8 @@ end
 spawn(function()
 	while wait() do
     wait()
-	item()
     if taser == true then
+		item()
         local args = {
             [1] = "Hit",
             [2] = game:GetService("Players").LocalPlayer.Character.Taser,
