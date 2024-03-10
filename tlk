@@ -29,8 +29,7 @@ plr.Backpack.Taser.Parent = plr.Character
 end
 end
 
-spawn(function()
-while noitem == ture do
+
 for x, v in pairs(game.Players:GetPlayers()) do
     if v.Name == game:GetService("Players").LocalPlayer.Name then
         print("me")
@@ -42,31 +41,7 @@ for x, v in pairs(game.Players:GetPlayers()) do
         game:GetService("ReplicatedStorage"):WaitForChild("UnCuffed"):FireServer(unpack(args))
 end
 end
-end
-end)
 
-spawn(function()
-while wait() do
-    wait()
-	item()
-    if taser == true then
-        local args = {
-            [1] = "Hit",
-            [2] = game:GetService("Players").LocalPlayer.Character.Taser,
-            [3] = game:GetService("Players"):WaitForChild(target).Character.Head
-        }
-        
-        game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-        wait()
-        local args = {
-            [1] = "Recharge",
-            [2] = game:GetService("Players").LocalPlayer.Character.Taser
-        }
-        
-        game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-    end
-end
-end)
 
 spawn(function()
 while wait() do
@@ -122,11 +97,18 @@ local Section = Tab:AddSection({
 Tab:AddButton({
 	Name = "Get all!",
 	Callback = function()
+	
       		for i,v in pairs(workspace:GetChildren()) do
     if v:IsA("Tool") then
-        fireclickdetector(v.ClickDetector)
+	if v == "Food" and v == "Broom" then
+	print(v)
+	else
+	print(v,"yes")
+	fireclickdetector(v.ClickDetector)
     end
+	end
 end
+
   	end    
 })
 
@@ -153,6 +135,28 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		taser = Value
+		
+		while wait() do
+    wait()
+	item()
+    if taser == true then
+        local args = {
+            [1] = "Hit",
+            [2] = game:GetService("Players").LocalPlayer.Character.Taser,
+            [3] = game:GetService("Players"):WaitForChild(target).Character.Head
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+        wait()
+        local args = {
+            [1] = "Recharge",
+            [2] = game:GetService("Players").LocalPlayer.Character.Taser
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+    end
+end
+		
 	end    
 })
 
