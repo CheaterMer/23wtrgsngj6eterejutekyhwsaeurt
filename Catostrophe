@@ -40,12 +40,7 @@ for _FORV_138_, _FORV_139_ in pairs(game.Workspace:GetChildren()) do
     weld.C0 = CFrame.new(0, -1, -1.2) * Angle
   end
 end
-local Anim = Instance.new("Animation") Anim.AnimationId = "rbxassetid://5869935888" local k = game.Workspace.FunnyMan.Humanoid:LoadAnimation(Anim) k:Play()
-game:GetService("Workspace").FunnyMan.Head.HealthBar.Frame.PName.TextStrokeColor3 = Color3.new(255,0,0)
-game:GetService("Workspace").FunnyMan.Head.HealthBar.Frame.PName.TextStrokeTransparency = 0
-game:GetService("Workspace").FunnyMan.Head.HealthBar.Frame.PName.TextColor3 = Color3.fromRGB(0,0,0)
-game:GetService("Workspace").FunnyMan.Head.HealthBar.Frame.Health.BackgroundColor3 = Color3.fromRGB(255,0,0)
-game:GetService("Workspace").FunnyMan.Head.HealthBar.Frame.PName.Text = " Chara"
+local Anim = Instance.new("Animation") Anim.AnimationId = "rbxassetid://" local k = game.Workspace.FunnyMan.Humanoid:LoadAnimation(Anim) k:Play()
 task.spawn(function()
 while true do
         wait()
@@ -135,7 +130,7 @@ local function MEDHLHN_fake_script() -- TextLabel.Script
 			for i = 1, #Text do
 				TextLabel.Text = string.sub(Text, 1, i)
 				TextLabel.Font = TF
-				Sound()
+				--Sound()
 				TextLabel.TextColor3 = Color3.fromRGB(c1, c2, c3)
 				wait(0.03)
 			end
