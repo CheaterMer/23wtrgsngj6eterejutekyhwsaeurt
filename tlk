@@ -63,7 +63,7 @@ local args = {
         
         game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
 		
-		wait(0.1)
+		wait(0.2)
 
 local args = {
     [1] = game:GetService("Players").LocalPlayer.Character.Handcuffs,
@@ -118,7 +118,7 @@ end)
 spawn(function()
 while wait() do
 if uncuff == true then
-if plrs.target.Character.IsCuffed == true then
+if workspace:WaitForChild(target).Character.IsCuffed == true then
     local args = {
         [1] = workspace:WaitForChild(target)
     }
@@ -183,18 +183,10 @@ Tab:AddButton({
 	Name = "Get all!",
 	Callback = function()
 	
-      		for i,v in pairs(workspace:GetChildren()) do
-    if v:IsA("Tool") then
-	if v == "Food" and v == "Broom" then
-	print(v)
-	else
-	print(v,"yes")
-	spawn(function()
-	fireclickdetector(v.ClickDetector)
-	end)
-    end
-	end
-end
+
+	fireclickdetector(workspace.Taser.ClickDetector)
+
+
 
   	end    
 })
