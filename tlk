@@ -142,7 +142,7 @@ if name:FindFirstChild('Torso') then
 
 range = (char.Torso.Position - name.Torso.Position).Magnitude
 if range < 15 and name.Name ~= player.Name then
-if name.Name == targer then
+if name.Name == target then
 plr.Backpack.Taser.Parent = plr.Character
 plr.Backpack.Handcuffs.Parent = plr.Character
 plr.Backpack.Grab.Parent = plr.Character
