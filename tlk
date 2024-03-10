@@ -82,7 +82,9 @@ Tab:AddButton({
 	print(v)
 	else
 	print(v,"yes")
+	spawn(function()
 	fireclickdetector(v.ClickDetector)
+	end)
     end
 	end
 end
