@@ -78,10 +78,12 @@ spawn(function()
     wait()
     if taser == true then
 		item()
+	for x, v in pairs(game.Players:GetPlayers()) do
+	if v.Name == target then
         local args = {
             [1] = "Hit",
             [2] = game:GetService("Players").LocalPlayer.Character.Taser,
-            [3] = workspace.target.Character.Head
+            [3] = workspace:WaitForChild(v.Name).Character.Head
         }
         
         game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
@@ -93,6 +95,8 @@ spawn(function()
         
         game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
     end
+end
+end
 end
 end)	
 
