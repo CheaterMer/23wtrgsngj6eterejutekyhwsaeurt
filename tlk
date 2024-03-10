@@ -9,6 +9,9 @@ local uncuff = false
 local unhog = false
 local noitem = false
 
+local plrs = game:GetService("Players")
+local plr = plrs.LocalPlayer
+
 local names = {}
 for idx, plr in pairs(game.Players:GetPlayers()) do
     table.insert(names, plr.Name)
