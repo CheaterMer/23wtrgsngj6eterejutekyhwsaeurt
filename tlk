@@ -136,7 +136,7 @@ local plr = plrs.LocalPlayer
 local player = game.Players.LocalPlayer
 local char = player.Character
 for _,name in pairs(game.workspace:GetChildren()) do
-
+print(name,target)
 if name == target then
 print(name,target)
 
