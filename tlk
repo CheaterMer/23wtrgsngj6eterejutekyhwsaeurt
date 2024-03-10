@@ -81,7 +81,7 @@ spawn(function()
         local args = {
             [1] = "Hit",
             [2] = game:GetService("Players").LocalPlayer.Character.Taser,
-            [3] = game:GetService("Players").target.Character.Head
+            [3] = workspace:WaitForChild(target).Character.Head
         }
         
         game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
