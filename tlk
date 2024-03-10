@@ -28,6 +28,23 @@ plr.Backpack.Taser.Parent = plr.Character
 end
 end
 
+		spawn(function()
+	while wait() do
+	if noitem == true then
+		for x, v in pairs(game.Players:GetPlayers()) do
+    if v == game:GetService("Players").LocalPlayer then
+        print("me")
+    else
+        local args = {
+            [1] = workspace:WaitForChild(v)
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("UnCuffed"):FireServer(unpack(args))
+end
+end
+end
+end
+end)
 
 spawn(function()
 while wait() do
@@ -60,6 +77,28 @@ end
 end
 )
 
+spawn(function()
+	while wait() do
+    wait()
+	item()
+    if taser == true then
+        local args = {
+            [1] = "Hit",
+            [2] = game:GetService("Players").LocalPlayer.Character.Taser,
+            [3] = game:GetService("Players"):WaitForChild(target).Character.Head
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+        wait()
+        local args = {
+            [1] = "Recharge",
+            [2] = game:GetService("Players").LocalPlayer.Character.Taser
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+    end
+end
+end)	
 
 local Tab = Window:MakeTab({
 	Name = "main",
@@ -106,23 +145,7 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		noitem = Value
-		spawn(function()
-	while wait() do
-	if noitem == true then
-		for x, v in pairs(game.Players:GetPlayers()) do
-    if v == game:GetService("Players").LocalPlayer then
-        print("me")
-    else
-        local args = {
-            [1] = workspace:WaitForChild(v)
-        }
-        
-        game:GetService("ReplicatedStorage"):WaitForChild("UnCuffed"):FireServer(unpack(args))
-end
-end
-end
-end
-end)
+
 		
 	end    
 })
@@ -132,29 +155,7 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		taser = Value
-	
-	spawn(function()
-	while wait() do
-    wait()
-	item()
-    if taser == true then
-        local args = {
-            [1] = "Hit",
-            [2] = game:GetService("Players").LocalPlayer.Character.Taser,
-            [3] = game:GetService("Players"):WaitForChild(target).Character.Head
-        }
-        
-        game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-        wait()
-        local args = {
-            [1] = "Recharge",
-            [2] = game:GetService("Players").LocalPlayer.Character.Taser
-        }
-        
-        game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-    end
-end
-end)	
+
 	end    
 })
 
