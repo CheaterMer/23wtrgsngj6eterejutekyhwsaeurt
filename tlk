@@ -25,93 +25,6 @@ plr.Backpack.Taser.Parent = plr.Character
 end
 end
 
-
-function op()
-local plrs = game:GetService("Players")
-local plr = plrs.LocalPlayer
-
-local player = game.Players.LocalPlayer
-local char = player.Character
-for _,name in pairs(game.workspace:GetChildren()) do
-
-if name:FindFirstChildOfClass('Humanoid') then
-if name:FindFirstChild('Torso') then
-
-range = (char.Torso.Position - name.Torso.Position).Magnitude
-if range < 15 and name.Name ~= player.Name then
-if name.Name == targer then
-plr.Backpack.Taser.Parent = plr.Character
-plr.Backpack.Handcuffs.Parent = plr.Character
-plr.Backpack.Grab.Parent = plr.Character
-plr.Backpack.Rope.Parent = plr.Character
-
-local part = Instance.new("Part")
-part.Parent = Game.Workspace
-part.Anchored = true
-part.CanCollide = falsed
-part.Size = Vector3.new(0.1,0.2,0.1)
-part.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-part.Name = "tp"
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(name.Torso.Position)
-wait(0.2)
-
-local args = {
-            [1] = "Hit",
-            [2] = game:GetService("Players").LocalPlayer.Character.Taser,
-            [3] = game:GetService("Players"):WaitForChild(name.Name).Character.Head
-        }
-        
-        game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-        wait()
-        local args = {
-            [1] = "Recharge",
-            [2] = game:GetService("Players").LocalPlayer.Character.Taser
-        }
-        
-        game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-		
-		wait(0.1)
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer.Character.Handcuffs,
-    [2] = workspace:WaitForChild(name.Name)
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("IsCuffed"):FireServer(unpack(args))
-
-wait(0.2)
-
-
-local args = {
-    [1] = workspace:WaitForChild(name.Name),
-    [2] = "Hog"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("IsHog"):FireServer(unpack(args))
-
-wait(0.1)
-
-local args = {
-    [1] = workspace:WaitForChild(name.Name),
-    [2] = "Grab"
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("Grab"):FireServer(unpack(args))
-
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.tp.CFrame
-game.Workspace.tp:Destroy()
-
-
-end
-end
-end
-end
-end
-
-end
-
-
-
 spawn(function()
 	while wait() do
 	if noitem == true then
@@ -217,7 +130,86 @@ Tab:AddButton({
 	Name = "Skull",
 	Callback = function()
 	
-  op()
+  local plrs = game:GetService("Players")
+local plr = plrs.LocalPlayer
+
+local player = game.Players.LocalPlayer
+local char = player.Character
+for _,name in pairs(game.workspace:GetChildren()) do
+
+if name:FindFirstChildOfClass('Humanoid') then
+if name:FindFirstChild('Torso') then
+
+range = (char.Torso.Position - name.Torso.Position).Magnitude
+if range < 15 and name.Name ~= player.Name then
+if name.Name == targer then
+plr.Backpack.Taser.Parent = plr.Character
+plr.Backpack.Handcuffs.Parent = plr.Character
+plr.Backpack.Grab.Parent = plr.Character
+plr.Backpack.Rope.Parent = plr.Character
+
+local part = Instance.new("Part")
+part.Parent = Game.Workspace
+part.Anchored = true
+part.CanCollide = falsed
+part.Size = Vector3.new(0.1,0.2,0.1)
+part.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+part.Name = "tp"
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(name.Torso.Position)
+wait(0.2)
+
+local args = {
+            [1] = "Hit",
+            [2] = game:GetService("Players").LocalPlayer.Character.Taser,
+            [3] = game:GetService("Players"):WaitForChild(name.Name).Character.Head
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+        wait()
+        local args = {
+            [1] = "Recharge",
+            [2] = game:GetService("Players").LocalPlayer.Character.Taser
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+		
+		wait(0.1)
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.Handcuffs,
+    [2] = workspace:WaitForChild(name.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("IsCuffed"):FireServer(unpack(args))
+
+wait(0.2)
+
+
+local args = {
+    [1] = workspace:WaitForChild(name.Name),
+    [2] = "Hog"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("IsHog"):FireServer(unpack(args))
+
+wait(0.1)
+
+local args = {
+    [1] = workspace:WaitForChild(name.Name),
+    [2] = "Grab"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Grab"):FireServer(unpack(args))
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.tp.CFrame
+game.Workspace.tp:Destroy()
+
+
+end
+end
+end
+end
+end
 
   	end    
 })
