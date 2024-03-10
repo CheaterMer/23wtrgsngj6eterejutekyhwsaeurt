@@ -131,7 +131,8 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		taser = Value
-		
+	
+	spawn(function()
 	while wait() do
     wait()
 	item()
@@ -152,7 +153,7 @@ Tab:AddToggle({
         game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
     end
 end
-		
+end)	
 	end    
 })
 
