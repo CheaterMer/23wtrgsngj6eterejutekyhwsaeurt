@@ -30,19 +30,6 @@ end
 end
 
 
-for x, v in pairs(game.Players:GetPlayers()) do
-    if v.Name == game:GetService("Players").LocalPlayer.Name then
-        print("me")
-    else
-        local args = {
-            [1] = workspace:WaitForChild(v)
-        }
-        
-        game:GetService("ReplicatedStorage"):WaitForChild("UnCuffed"):FireServer(unpack(args))
-end
-end
-
-
 spawn(function()
 while wait() do
 wait()
@@ -127,6 +114,23 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		noitem = Value
+		
+			while wait() do 
+	if noitem == true then
+		for x, v in pairs(game.Players:GetPlayers()) do
+    if v.Name == game:GetService("Players").LocalPlayer.Name then
+        print("me")
+    else
+        local args = {
+            [1] = workspace:WaitForChild(v)
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("UnCuffed"):FireServer(unpack(args))
+end
+end
+end
+end
+		
 	end    
 })
 
@@ -165,6 +169,8 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		uncuff = Value
+		
+		
 	end    
 })
 
