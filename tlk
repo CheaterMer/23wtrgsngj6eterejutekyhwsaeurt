@@ -30,16 +30,12 @@ spawn(function()
 	if noitem == true then
 		for x, v in pairs(game.Players:GetPlayers()) do
     if v == game:GetService("Players").LocalPlayer then
-        print(v)
     else
-	print("you",v)
-	if v.Character.IsCuffed == false then
         local args = {
             [1] = workspace:WaitForChild(v.Name)
         }
         
         game:GetService("ReplicatedStorage"):WaitForChild("UnCuffed"):FireServer(unpack(args))
-end
 end
 end
 end
@@ -85,7 +81,7 @@ spawn(function()
         local args = {
             [1] = "Hit",
             [2] = game:GetService("Players").LocalPlayer.Character.Taser,
-            [3] = game:GetService("Players"):WaitForChild(target).Character.Head
+            [3] = game:GetService("Players").target.Character.Head
         }
         
         game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
