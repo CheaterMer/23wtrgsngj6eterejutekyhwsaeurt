@@ -118,7 +118,7 @@ end)
 spawn(function()
 while wait() do
 if uncuff == true then
-if workspace.target.Character.IsCuffed == true then
+if game:GetService("Players"):WaitForChild(target).Character.IsCuffed == true then
     local args = {
         [1] = workspace:WaitForChild(target)
     }
