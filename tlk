@@ -34,7 +34,7 @@ spawn(function()
     else
 	print("you",v)
         local args = {
-            [1] = game:GetService("Players").v
+            [1] = workspace:WaitForChild(v.Name)
         }
         
         game:GetService("ReplicatedStorage"):WaitForChild("UnCuffed"):FireServer(unpack(args))
