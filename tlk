@@ -107,10 +107,10 @@ Tab:AddToggle({
 	Callback = function(Value)
 		noitem = Value
 		
-			while wait() do 
+	while wait() do 
 	if noitem == true then
 		for x, v in pairs(game.Players:GetPlayers()) do
-    if v.Name == game:GetService("Players").LocalPlayer.Name then
+    if v == game:GetService("Players").LocalPlayer then
         print("me")
     else
         local args = {
@@ -132,7 +132,7 @@ Tab:AddToggle({
 	Callback = function(Value)
 		taser = Value
 		
-		while wait() do
+	while wait() do
     wait()
 	item()
     if taser == true then
