@@ -33,11 +33,13 @@ spawn(function()
         print(v)
     else
 	print("you",v)
+	if v.Character.IsCuffed == false then
         local args = {
             [1] = workspace:WaitForChild(v.Name)
         }
         
         game:GetService("ReplicatedStorage"):WaitForChild("UnCuffed"):FireServer(unpack(args))
+end
 end
 end
 end
