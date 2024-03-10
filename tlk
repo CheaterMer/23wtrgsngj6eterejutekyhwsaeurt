@@ -17,6 +17,18 @@ for idx, plr in pairs(game.Players:GetPlayers()) do
     table.insert(names, plr.Name)
 end
 
+local plrs = game:GetService("Players")
+local plr = plrs.LocalPlayer
+
+function item()
+if plr.Character:FindFirstChild("Taser") then
+print("a")
+else 
+print("b")
+plr.Backpack.Taser.Parent = plr.Character
+end
+end
+
 spawn(function()
 while noitem == ture do
 for x, v in pairs(game.Players:GetPlayers()) do
@@ -36,6 +48,7 @@ end)
 spawn(function()
 while wait() do
     wait()
+	item()
     if taser == true then
         local args = {
             [1] = "Hit",
@@ -104,6 +117,17 @@ local Tab = Window:MakeTab({
 
 local Section = Tab:AddSection({
 	Name = "Section"
+})
+
+Tab:AddButton({
+	Name = "Get all!",
+	Callback = function()
+      		for i,v in pairs(workspace:GetChildren()) do
+    if v:IsA("Tool") then
+        fireclickdetector(v.ClickDetector)
+    end
+end
+  	end    
 })
 
 Tab:AddDropdown({
