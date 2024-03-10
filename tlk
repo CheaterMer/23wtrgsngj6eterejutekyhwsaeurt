@@ -106,8 +106,8 @@ Tab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		noitem = Value
-		
-	while wait() do 
+		spawn(function()
+	while wait() do
 	if noitem == true then
 		for x, v in pairs(game.Players:GetPlayers()) do
     if v == game:GetService("Players").LocalPlayer then
@@ -122,6 +122,7 @@ end
 end
 end
 end
+end)
 		
 	end    
 })
