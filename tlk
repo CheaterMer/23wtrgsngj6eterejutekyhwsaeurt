@@ -3466,7 +3466,7 @@ combat_channel:Toggle("KillAura", false, function(bool)
     killaura = bool
 end)
 
-combat_channel:Toggle("No Attack Me Kid",false,function(bool)
+combat_channel:Toggle("No Attack Me Kid", false, function(bool)
 	NAMK = bool
 end)
 
