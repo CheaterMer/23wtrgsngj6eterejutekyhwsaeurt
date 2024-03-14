@@ -10,8 +10,7 @@ local user
 local tag
 local userinfo = {}
 
-local player = game.Players.LocalPlayerlocal 
-local char = player.Character
+local char = LocalPlayer.Character
 local root = char.HumanoidRootPart
 local rootpart = char.HumanoidRootPart
 
