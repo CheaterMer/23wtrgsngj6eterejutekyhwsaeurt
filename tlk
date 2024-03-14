@@ -10,6 +10,11 @@ local user
 local tag
 local userinfo = {}
 
+local player = game.Players.LocalPlayerlocal char = player.Character
+local char = player.Character
+local root = char.HumanoidRootPart
+local rootpart = char.HumanoidRootPart
+
 pcall(function()
 	userinfo = HttpService:JSONDecode(readfile("discordlibinfo.txt"));
 end)
@@ -3415,8 +3420,54 @@ task.spawn(function()
     end
 end)
 
+task.spawn(function()
+	while task.wait() do
+		if NAMK == true then
+		for _,name in pairs(game.workspace:GetChildren()) do
+			if name:FindFirstChildOfClass('Humanoid') then
+			if name:FindFirstChild('Torso') then
+				range = (char.Torso.Position - name.Torso.Position).Magnitude
+				if range <25 and name.Name ~= player.Name then
+
+				local vec =  name.HumanoidRootPart.Position -root.Position
+				local direction = (vec).Unit
+				local pos = rootpart.Position + direction*((vec).magnitude+5)
+				local face= pos+direction*2
+				rootpart.CFrame = CFrame.new(pos,face)
+				char.Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
+				tar = rootpart.CFrame*CFrame.new(0,5,0)
+				char.Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
+				v2 = Instance.new('BodyPosition',rootpart) 
+				fol = Instance.new('Folder',v2)
+				v2.Name = 'Client' 
+				v2.MaxForce = Vector3.new(1,1,1)*100000 
+				v2.D = 1000 
+				v2.P = 60000 
+				v2.Position = (tar).p
+				local v3 = Instance.new('BodyGyro',rootpart)
+				v3.Name = 'Client'
+				v3.MaxTorque = Vector3.new(1,1,1)*math.huge
+				v3.D = 100 ;v3.P = 30000 
+				v3.CFrame = rootpart.CFrame
+
+				local pos = target.HumanoidRootPart.Position+Vector3.new(math.random(-30,30),math.random(0,0),math.random(-30,30))
+				v2.Position = pos
+				rootpart.CFrame = CFrame.new(pos,target.HumanoidRootPart.Position);v3.CFrame = CFrame.new(pos,name.HumanoidRootPart.Position)
+
+				end
+			end
+			end
+		end
+		end
+	end
+end)
+
 combat_channel:Toggle("KillAura", false, function(bool)
     killaura = bool
+end)
+
+combat_channel:Toggle("No Attack Me Kid",false,function(bool)
+	NAMK = bool
 end)
 
 combat_channel:Textbox("Grab Player", "Enter username", true, function(text)
