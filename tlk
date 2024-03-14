@@ -9,7 +9,7 @@ local pfp
 local user
 local tag
 local userinfo = {}
-
+--[[
 pcall(function()
 	userinfo = HttpService:JSONDecode(readfile("discordlibinfo.txt"));
 end)
@@ -24,7 +24,7 @@ local function SaveInfo()
 	userinfo["tag"] = tag
 	writefile("discordlibinfo.txt", HttpService:JSONEncode(userinfo));
 end
-
+]]
 local function MakeDraggable(topbarobject, object)
 	local Dragging = nil
 	local DragInput = nil
