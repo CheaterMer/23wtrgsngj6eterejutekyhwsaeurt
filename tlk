@@ -202,7 +202,7 @@ function DiscordLib:Window(text)
 	Userpad.BorderSizePixel = 0
 	Userpad.Position = UDim2.new(0.106243297, 0, 15.9807148, 0)
 	Userpad.Size = UDim2.new(0, 179, 0, 43)
-
+--[[
 	UserIcon.Name = "UserIcon"
 	UserIcon.Parent = Userpad
 	UserIcon.BackgroundColor3 = Color3.fromRGB(31, 33, 36)
@@ -257,7 +257,7 @@ function DiscordLib:Window(text)
 	
 	UserName.Text = user
 	UserTag.Text = "#" .. tag
-
+]]
 	ServersHoldFrame.Name = "ServersHoldFrame"
 	ServersHoldFrame.Parent = MainFrame
 	ServersHoldFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
