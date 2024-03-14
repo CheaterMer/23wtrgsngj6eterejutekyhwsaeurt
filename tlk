@@ -10,10 +10,6 @@ local user
 local tag
 local userinfo = {}
 
-local char = LocalPlayer.Character
-local root = char.HumanoidRootPart
-local rootpart = char.HumanoidRootPart
-
 pcall(function()
 	userinfo = HttpService:JSONDecode(readfile("discordlibinfo.txt"));
 end)
@@ -3427,7 +3423,10 @@ task.spawn(function()
 			if name:FindFirstChild('Torso') then
 				range = (char.Torso.Position - name.Torso.Position).Magnitude
 				if range <25 and name.Name ~= player.Name then
-
+				
+				local char = LocalPlayer.Character
+				local root = char.HumanoidRootPart
+				local rootpart = char.HumanoidRootPart
 				local vec =  name.HumanoidRootPart.Position -root.Position
 				local direction = (vec).Unit
 				local pos = rootpart.Position + direction*((vec).magnitude+5)
