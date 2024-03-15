@@ -3460,6 +3460,34 @@ task.spawn(function()
 	end
 end)
 
+task.spawn(function()
+	while task.wait() do
+		if UF then pcall(function()
+		if LP.Character.IsCuffed.Value then
+			Remotes["UnCuffed"]:FireServer(LP.Character)
+		end
+		end) end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if UH then pcall(function()
+		if LP.Character.IsHogged.Value then
+			Remotes["IsHog"]:FireServer(LP.Character,"UnHog")
+		end
+		end) end
+	end
+end)
+
+combat_channel:Toggle("uncuff", false, function(bool)
+	UF = bool
+end)
+
+combat_channel:Toggle("unhog", false, function(bool)
+	UH = bool
+end)
+
 combat_channel:Toggle("KillAura", false, function(bool)
     killaura = bool
 end)
