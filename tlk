@@ -3480,11 +3480,11 @@ task.spawn(function()
 	end
 end)
 
-combat_channel:Toggle("uncuff", false, function(bool)
+combat_channel:Toggle("Uncuff", false, function(bool)
 	UF = bool
 end)
 
-combat_channel:Toggle("unhog", false, function(bool)
+combat_channel:Toggle("Unhog", false, function(bool)
 	UH = bool
 end)
 
