@@ -1,3 +1,4 @@
 {
-    "websocket.port": 33882
+    "websocket.port": 33882,
+    "button.updateVisibility": false
 }
