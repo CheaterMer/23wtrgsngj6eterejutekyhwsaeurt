@@ -9,7 +9,6 @@ local pfp
 local user
 local tag
 local userinfo = {}
---local MainWindow = DiscordLib:Window"MasterPlayer_Mer"
 
 pcall(function()
 	userinfo = HttpService:JSONDecode(readfile("discordlibinfo.txt"));
@@ -1659,9 +1658,6 @@ function DiscordLib:Window(text)
 	MakeDraggable(TopFrame, MainFrame)
 	ServersHoldPadding.PaddingLeft = UDim.new(0, 14)
 	local ServerHold = {}
-	function ServerHold:Visible(bool)
-	    MainFrame.Visible = bool or true
-	end
 	function ServerHold:Server(text, img)
 		local fc = false
 		local currentchanneltoggled = ""
@@ -3278,8 +3274,6 @@ function DiscordLib:Window(text)
 	return ServerHold
 end
 
-return DiscordLib
-
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
@@ -3677,24 +3671,3 @@ LP.CharacterAdded:Connect(function(char)
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Shirt)
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Pants)
 end)
-
-
---MainWindow:Visible(true) -- Show
---MainWindow:Visible(false) -- Hide
---[[
-
-game:GetService("UserInputService").InputBegan:Connect(function(inp)
-    if inp.KeyCode == Enum.KeyCode.KeypadThree then
-					
-		MainWindow:Visible(true)
-end
-end)
-
--- keypad 2
-
-game:GetService("UserInputService").InputBegan:Connect(function(inp)
-    if inp.KeyCode == Enum.KeyCode.KeypadTwo then
-		MainWindow:Visible(false) 
-end
-end)
-]]
