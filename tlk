@@ -9,6 +9,7 @@ local pfp
 local user
 local tag
 local userinfo = {}
+--local MainWindow = DiscordLib:Window"MasterPlayer_Mer"
 
 pcall(function()
 	userinfo = HttpService:JSONDecode(readfile("discordlibinfo.txt"));
@@ -3279,7 +3280,6 @@ end
 
 return DiscordLib
 
-local MainWindow = DiscordLib:Window"Xsi"
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
@@ -3681,7 +3681,7 @@ end)
 
 --MainWindow:Visible(true) -- Show
 --MainWindow:Visible(false) -- Hide
-
+--[[
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.KeypadThree then
@@ -3697,3 +3697,4 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		MainWindow:Visible(false) 
 end
 end)
+]]
