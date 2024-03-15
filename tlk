@@ -3417,51 +3417,6 @@ end)
 
 task.spawn(function()
 	while task.wait() do
-		if NAMK == true then
-		for _,name in pairs(game.workspace:GetChildren()) do
-			if name:FindFirstChildOfClass('Humanoid') then
-			if name:FindFirstChild('Torso') then
-				range = (char.Torso.Position - name.Torso.Position).Magnitude
-				if range <25 and name.Name ~= player.Name then
-				
-				local char = LocalPlayer.Character
-				local root = char.HumanoidRootPart
-				local rootpart = char.HumanoidRootPart
-				local vec =  name.HumanoidRootPart.Position -root.Position
-				local direction = (vec).Unit
-				local pos = rootpart.Position + direction*((vec).magnitude+5)
-				local face= pos+direction*2
-				rootpart.CFrame = CFrame.new(pos,face)
-				char.Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
-				tar = rootpart.CFrame*CFrame.new(0,5,0)
-				char.Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
-				v2 = Instance.new('BodyPosition',rootpart) 
-				fol = Instance.new('Folder',v2)
-				v2.Name = 'Client' 
-				v2.MaxForce = Vector3.new(1,1,1)*100000 
-				v2.D = 1000 
-				v2.P = 60000 
-				v2.Position = (tar).p
-				local v3 = Instance.new('BodyGyro',rootpart)
-				v3.Name = 'Client'
-				v3.MaxTorque = Vector3.new(1,1,1)*math.huge
-				v3.D = 100 ;v3.P = 30000 
-				v3.CFrame = rootpart.CFrame
-
-				local pos = target.HumanoidRootPart.Position+Vector3.new(math.random(-30,30),math.random(0,0),math.random(-30,30))
-				v2.Position = pos
-				rootpart.CFrame = CFrame.new(pos,target.HumanoidRootPart.Position);v3.CFrame = CFrame.new(pos,name.HumanoidRootPart.Position)
-
-				end
-			end
-			end
-		end
-		end
-	end
-end)
-
-task.spawn(function()
-	while task.wait() do
 		if UF then pcall(function()
 		if LP.Character.IsCuffed.Value then
 			Remotes["UnCuffed"]:FireServer(LP.Character)
@@ -3480,6 +3435,31 @@ task.spawn(function()
 	end
 end)
 
+task.spawn(function()
+	while task.wait() do
+		if heal then pcall(function()
+	if char.Humanoid.Health < 30 then
+		if not LP.Backpack:FindFirstChild("Hamburger") then
+			wait()
+		   fireclickdetector(workspace:WaitForChild("Hamburger").ClickDetector)
+		elseif not LP.Character:FindFirstChild("Hamburger") then 
+			wait()
+			LP.Backpack.Hamburger.Parent = LP.Character
+		else
+			wait()
+			local args = {
+				[1] = LP.Character,
+				[2] = game:GetService("Players").LocalPlayer.Character.Hamburger,
+				[3] = "Heal"
+			}
+			game:GetService("ReplicatedStorage"):WaitForChild("EatingEvent"):FireServer(unpack(args))
+		end
+	end
+ end) 
+end	
+end
+end)
+	
 combat_channel:Toggle("Uncuff", false, function(bool)
 	UF = bool
 end)
@@ -3488,12 +3468,12 @@ combat_channel:Toggle("Unhog", false, function(bool)
 	UH = bool
 end)
 
-combat_channel:Toggle("KillAura", false, function(bool)
-    killaura = bool
+combat_channel:Toggle("Heal", false, function(bool)
+    heal = bool
 end)
 
-combat_channel:Toggle("No Attack Me Kid", false, function(bool)
-	NAMK = bool
+combat_channel:Toggle("KillAura", false, function(bool)
+    killaura = bool
 end)
 
 combat_channel:Textbox("Grab Player", "Enter username", true, function(text)
