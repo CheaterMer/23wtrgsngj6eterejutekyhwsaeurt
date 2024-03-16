@@ -3386,7 +3386,7 @@ task.spawn(function()
 		if AUF then pcall(function()
 			for idx, plr in pairs(Players:GetPlayers()) do
                 if plr ~= LP and plr.Character.IsCuffed.Value == true then
-			Remotes["UnCuffed"]:FireServer(plr.Character)
+					Remotes["UnCuffed"]:FireServer(plr.Character)
 				end
 				end
 		end) end
@@ -3398,7 +3398,7 @@ task.spawn(function()
 		if AUH then pcall(function()
 			for idx, plr in pairs(Players:GetPlayers()) do
                 if plr ~= LP and plr.Character.IsHogged.Value == true then
-			Remotes["IsHog"]:FireServer(plr.Character,"UnHog")
+				Remotes["IsHog"]:FireServer(plr.Character,"UnHog")
 		end end
 		end) end
 	end
