@@ -3582,6 +3582,16 @@ combat_channel:Dropdown(
 )
 
 combat_channel:Button("One", function()
+spawn(function()
+	local args = {
+		[1] = "Generate",
+		[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+		[3] = Vector3.new(game:GetService("Players").LocalPlayer.Character.Taser),
+		[4] = Vector3.new(game:GetService("Players"):WaitForChild(targetr).Character.Torso.Position)
+	}
+	
+	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+end)
 
 	local args = {
 		[1] = "Hit",
