@@ -3528,6 +3528,25 @@ combat_channel:Dropdown(
     end
 )
 
+combat_channel:Button("Chamber", function()
+	
+	local args = {
+		[1] = "Hit",
+		[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+		[3] = game:GetService("Players"):WaitForChild(targetr).Character.Head
+	}
+	
+	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+	wait()
+	local args = {
+		[1] = "Recharge",
+		[2] = game:GetService("Players").LocalPlayer.Character.Taser
+	}
+	
+	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+
+end)
+
 combat_channel:Toggle("taser", false, function(bool)
     taser = bool
 end)
