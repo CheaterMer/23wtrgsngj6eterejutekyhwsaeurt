@@ -3473,10 +3473,9 @@ task.spawn(function()
 	end
 end)
 
-task.spawn(function()
-	while task.wait() do
-		if heal then pcall(function()
-	if char.Humanoid.Health < 100 then
+function eat()
+	spawn(function()
+		if LP.Character.Humanoid.Health < 100 then
 		if not LP.Backpack:FindFirstChild("Hamburger") then
 			wait()
 		   fireclickdetector(workspace:WaitForChild("Hamburger").ClickDetector)
@@ -3493,6 +3492,14 @@ task.spawn(function()
 			game:GetService("ReplicatedStorage"):WaitForChild("EatingEvent"):FireServer(unpack(args))
 		end
 	end
+	end)
+	end
+
+task.spawn(function()
+	while task.wait() do
+		if heal then pcall(function()
+			wait(0.1)
+		eat()
  end) 
 end	
 end
