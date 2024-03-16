@@ -3551,6 +3551,42 @@ task.spawn(function ()
     end
 end)
 
+task.spawn(function()
+	while task.wait() do
+		if opendoor then pcall(function()
+for v,b in pairs(workspace.Doors:GetChildren()) do
+    if b.Value.Value == false then
+        task.wait()
+        Remotes["DoorOpener"]:FireServer(b.Name, "Open")
+	end
+end
+end) end
+end
+end)
+
+
+task.spawn(function()
+	while task.wait() do
+		if closedoor then pcall(function()
+for v,b in pairs(workspace.Doors:GetChildren()) do
+    if b.Value.Value == true then
+        task.wait()
+        Remotes["DoorOpener"]:FireServer(b.Name, "Close")
+	end
+end
+end) end
+end
+end)
+
+
+extra_channel:Toggle("Close Door", false, function (bool)
+	closedoor = bool
+end)
+
+extra_channel:Toggle("Open Door", false, function (bool)
+	opendoor = bool
+end)
+
 local delay_display = extra_channel:Label("Delay: "..tostring(delay).."s")
 extra_channel:Toggle("Lagging Server", false, function (bool)
     if bool then
@@ -3686,4 +3722,5 @@ for v,b in pairs(workspace:GetChildren()) do
         task.wait()
         b:Destroy()
     end
+end
 end)
