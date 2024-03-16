@@ -3679,3 +3679,11 @@ LP.CharacterAdded:Connect(function(char)
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Shirt)
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Pants)
 end)
+
+task.spawn(function()
+for v,b in pairs(workspace:GetChildren()) do
+    if b.Name == "Border" then
+        task.wait()
+        b:Destroy()
+    end
+end)
