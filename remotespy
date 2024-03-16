@@ -1,3 +1,7 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua"))()
+
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/tlk"))()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/trueAsriel"))()
