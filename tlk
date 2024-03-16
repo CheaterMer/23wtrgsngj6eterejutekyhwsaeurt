@@ -3632,7 +3632,10 @@ end)
 combat_channel:Textbox("Grab Player", "Enter username", true, function(text)
     local target = GetPlayer(text)
     if not target then return end
-    if target.Character and not target.Character.Hostile.Value and target.Character.Humanoid.Health == 0 then return end
+	print(target)
+    if target.Character or target.Character.Hostile.Value == false or target.Character.Humanoid.Health == 0 then 
+		return 
+	end
     local cuff = LP.Backpack:FindFirstChild("Handcuffs") or LP.Backpack:FindFirstChild("Handcuffs (fugitive)")
     do
         LP.Backpack.Taser.Parent = LP.Character
