@@ -3377,6 +3377,41 @@ block_tools_channel:Button("Get Tools", function()
     end
 end)
 
+local player_channel = server_tab:Channel("Player")
+local AUF
+local AUH
+
+task.spawn(function()
+	while task.wait() do
+		if AUF then pcall(function()
+			for idx, plr in pairs(Players:GetPlayers()) do
+                if plr ~= LP and plr.Character.IsCuffed.Value == true then
+			Remotes["UnCuffed"]:FireServer(plr.Character)
+				end
+				end
+		end) end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if AUH then pcall(function()
+			for idx, plr in pairs(Players:GetPlayers()) do
+                if plr ~= LP and plr.Character.IsHogged.Value == true then
+			Remotes["IsHog"]:FireServer(plr.Character,"UnHog")
+		end end
+		end) end
+	end
+end)
+
+player_channel:Toggle("All Un Cuff", false, function(bool)
+	AUF = bool
+end)
+
+player_channel:Toggle("All Un Hog", false, function(bool)
+	AUH = bool
+end)
+
 local combat_channel = server_tab:Channel("Combat")
 local killaura = false
 local attack_tools = {
