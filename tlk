@@ -3528,8 +3528,8 @@ combat_channel:Dropdown(
     end
 )
 
-combat_channel:Button("Chamber", function()
-	
+combat_channel:Button("One", function()
+
 	local args = {
 		[1] = "Hit",
 		[2] = game:GetService("Players").LocalPlayer.Character.Taser,
