@@ -3578,6 +3578,15 @@ end) end
 end
 end)
 
+extra_channel:Button("Chamber", function()
+	for v,b in pairs(workspace.Unfinished:GetChildren()) do
+		if b.Name == "Chamber" then
+			print(b)
+			task.wait()
+			fireclickdetector(b.Door.Hat.ClickDetector)
+		end
+	end
+end)
 
 extra_channel:Toggle("Close Door", false, function (bool)
 	closedoor = bool
