@@ -3368,13 +3368,23 @@ block_tools_channel:Toggle("Except Friends", false, function(bool)
 end)
 
 block_tools_channel:Button("Get Tools", function()
-    for i,v in pairs(workspace:GetDescendants()) do
-        if v:IsA("Tool") then
-            pcall(function ()
-                fireclickdetector(v.ClickDetector)
-            end)
-        end
-    end
+
+
+	fireclickdetector(workspace.Pickaxe.ClickDetector)
+	fireclickdetector(workspace.Axe.ClickDetector)
+	fireclickdetector(workspace.Taser.ClickDetector)
+	fireclickdetector(workspace.Rope.ClickDetector)
+	fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
+	fireclickdetector(workspace.KeyCard.ClickDetector)
+	fireclickdetector(workspace.Rope.ClickDetector)
+   -- for i,v in pairs(workspace:GetDescendants()) do
+     --  if v:IsA("Tool") then
+      --      pcall(function ()
+        --        fireclickdetector(v.ClickDetector)
+       --     end)
+     --   end
+  --  end
+
 end)
 
 local player_channel = server_tab:Channel("Player")
