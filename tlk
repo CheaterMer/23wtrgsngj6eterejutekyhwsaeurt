@@ -3451,6 +3451,7 @@ task.spawn(function()
                 end
             end
             for idx, plr in pairs(Players:GetPlayers()) do
+				if SAfekill then
                 if
                     plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15) and
                     not plr.Character.DownState.Value and
@@ -3460,6 +3461,17 @@ task.spawn(function()
                     	Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
 					else
 						Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+					end
+				elseif
+                    plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15) and
+                and
+                    plr.Character.Hostile.Value
+                then
+					if except_friendss and not plr:IsFriendsWith(LP.UserId) then
+                    	Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+					else
+						Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+					end
 					end
                 end
             end
@@ -3533,6 +3545,10 @@ end)
 
 combat_channel:Toggle("KillAura", false, function(bool)
     killaura = bool
+end)
+
+combat_channel:Toggle("Don't kill", false, function(bool)
+    SAfekill = bool
 end)
 
 combat_channel:Toggle("Except Friends", false, function(bool)
