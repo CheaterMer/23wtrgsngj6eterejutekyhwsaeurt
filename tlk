@@ -3414,6 +3414,7 @@ end)
 
 local combat_channel = server_tab:Channel("Combat")
 local killaura = false
+local except_friendss = false
 local attack_tools = {
     "Axe",
     "Pickaxe",
@@ -3445,8 +3446,11 @@ task.spawn(function()
                     not plr.Character.DownState.Value and
                     plr.Character.Hostile.Value
                 then
-                    Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
-                    task.wait(0.1)
+					if except_friendss and not plr:IsFriendsWith(LP.UserId) then
+                    	Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+					else
+						Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+					end
                 end
             end
         end) end
@@ -3521,6 +3525,10 @@ combat_channel:Toggle("KillAura", false, function(bool)
     killaura = bool
 end)
 
+combat_channel:Toggle("Except Friends", false, function(bool)
+    except_friendss = bool
+end)
+
 local GetDownitem = false
 local targetr = nil
 local taser = false
@@ -3565,8 +3573,8 @@ end)
 task.spawn(function()
 	while task.wait() do
 		if GetDownitem then
-			if game:GetService("Players"):WaitForChild(targetr).Character.IsCuffed.Value == false then
-				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):WaitForChild(targetr).Character)
+			if game:GetService("Players"):FindFirstChild(targetr).Character.IsCuffed.Value == false then
+				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character)
 			end
 		end
 		end
@@ -3582,12 +3590,14 @@ combat_channel:Dropdown(
 )
 
 combat_channel:Button("One", function()
-spawn(function()
-	local args = {
+pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
+tpos = game:GetService("Players"):WaitForChild(targetr).Character.Torso.CFrame.Position
+spawn(function()	
+local args = {
 		[1] = "Generate",
 		[2] = game:GetService("Players").LocalPlayer.Character.Taser,
-		[3] = Vector3.new(game:GetService("Players").LocalPlayer.Character.Taser),
-		[4] = Vector3.new(game:GetService("Players"):WaitForChild(targetr).Character.Torso.Position)
+		[3] = Vector3.new(pos.X,pos.Y,pos.Z),
+		[4] = Vector3.new(tpos.X,tpos.Y,tpos.Z)
 	}
 	
 	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
