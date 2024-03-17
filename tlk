@@ -1659,6 +1659,9 @@ function DiscordLib:Window(text)
 	MakeDraggable(TopFrame, MainFrame)
 	ServersHoldPadding.PaddingLeft = UDim.new(0, 14)
 	local ServerHold = {}
+	function ServerHold:Visible(bool)
+	    MainFrame.Visible = bool or true
+	end
 	function ServerHold:Server(text, img)
 		local fc = false
 		local currentchanneltoggled = ""
@@ -3275,7 +3278,7 @@ function DiscordLib:Window(text)
 	return ServerHold
 end
 
-local MainWindow = DiscordLib:Window"F"
+local MainWindow = DiscordLib:Window("A_FP")
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -4082,10 +4085,10 @@ end)
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.F then
 		if asfhafhk then
-MainWindow:Visible(true) -- Show
+MainWindow:Visible(false)
 asfhafhk = false
 		else
-MainWindow:Visible(false) -- Hide
+MainWindow:Visible(true) 
 asfhafhk = true
 		end
 	end
