@@ -3778,16 +3778,16 @@ end
 
 local click_channel = client_tab:Channel("Door ClickDetector")
 
-local cooldown = 1
-
 task.spawn(function()
 	while task.wait() do
-		if opendoor then 
+		if opendoor then pcall(function()
 		for v,b in pairs(workspace.Doors:GetChildren()) do
     	if b.Value.Value == false then
+        task.wait()
         Remotes["DoorOpener"]:FireServer(b.Name, "Open")
 		end
 		end
+		end) 
 		end
 	end
 end)
@@ -3795,14 +3795,14 @@ end)
 
 task.spawn(function()
 	while task.wait() do
-		if closedoor then 
+		if closedoor then pcall(function()
 		for v,b in pairs(workspace.Doors:GetChildren()) do
     	if b.Value.Value == true then
+        task.wait()
         Remotes["DoorOpener"]:FireServer(b.Name, "Close")
 		end
 		end
-		end
-	
+		end) end
 	end
 end)
 
@@ -3810,54 +3810,48 @@ end)
 
 task.spawn(function()
 	while task.wait() do
-		if HouseOpen then 
+		if HouseOpen then pcall(function()
 
-			for i,v in pairs(workspace:GetChildren()) do
+			for i,v in pairs(workspace:GetDescendants()) do
 				if v:IsA("ProximityPrompt") then
 				if v.Name == "OpenPrompt" then
 					if v.Parent:FindFirstChild("IsOpen").Value == false then
-						pcall(function ()
-							fireproximityprompt(v)
-						end)
+						fireproximityprompt(v)
 				end
 				end
 				end
 			end
 
-		end
-		
+		end) end
 	end
 end)
 
 task.spawn(function()
 	while task.wait() do
-		if HouseClose then 
+		if HouseClose then pcall(function()
 
-			for i,v in pairs(workspace:GetChildren()) do
+			for i,v in pairs(workspace:GetDescendants()) do
 				if v:IsA("ProximityPrompt") then
 				if v.Name == "OpenPrompt" then
 					if v.Parent:FindFirstChild("IsOpen").Value == true then
 						
-						pcall(function ()
-							fireproximityprompt(v)
-						end)
+						fireproximityprompt(v)
 					
 				end
 				end
 				end
 			end
 
-		 end
-		 
+		end) end
 	end
 end)
 
 
 task.spawn(function()
 	while task.wait() do
-		if HouseLock2 then 
+		if HouseLock2 then pcall(function()
 
-			for i,v in pairs(workspace:GetChildren()) do
+			for i,v in pairs(workspace:GetDescendants()) do
 				if v:IsA("ProximityPrompt") then
 				if v.Name == "LockPrompt" then
 					if v.Parent.Parent.Click:FindFirstChild("IsLocked").Value == true then
@@ -3869,16 +3863,15 @@ task.spawn(function()
 				end
 			end
 
-		 end
-		
+		end) end
 	end
 end)
 
 task.spawn(function()
 	while task.wait() do
-		if HouseLock1 then
+		if HouseLock1 then pcall(function()
 
-for i,v in pairs(workspace:GetChildren()) do
+for i,v in pairs(workspace:GetDescendants()) do
     if v:IsA("ProximityPrompt") then
     if v.Name == "LockPrompt" then
         if v.Parent.Parent.Click:FindFirstChild("IsLocked").Value == false then
@@ -3887,11 +3880,10 @@ for i,v in pairs(workspace:GetChildren()) do
         end)
     end
     end
-	
     end
 end
 
-		 end
+		end) end
 	end
 end)
 
