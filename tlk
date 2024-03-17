@@ -4023,15 +4023,32 @@ end)
 
 local ids = {}
 for idx, plr in pairs(Players:GetPlayers()) do
-    table.insert(ids, plr.Id)
+    table.insert(ids, plr.UserId)
 end
 
 avatar_channel:Dropdown(
     "Copy",
-    names,
+    ids,
     function(bool)
-		print(bool)
-        ids = bool
+
+        local target = bool
+        if not target then return end
+        local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(target.UserId):GetAccessories(true)
+        for _, accessoryInfo in ipairs(accessoriesTable) do 
+            ImportAsset(accessoryInfo.AssetId)
+        end
+        ImportAsset(Players:GetHumanoidDescriptionFromUserId(target.UserId).Shirt)
+        ImportAsset(Players:GetHumanoidDescriptionFromUserId(target.UserId).Pants)
+    else
+        local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(text):GetAccessories(true)
+        for _, accessoryInfo in ipairs(accessoriesTable) do 
+            ImportAsset(accessoryInfo.AssetId)
+        end
+        ImportAsset(Players:GetHumanoidDescriptionFromUserId(text).Shirt)
+        ImportAsset(Players:GetHumanoidDescriptionFromUserId(text).Pants)
+    end
+
+
     end
 )
 
