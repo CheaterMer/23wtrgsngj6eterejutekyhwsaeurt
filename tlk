@@ -3816,7 +3816,9 @@ task.spawn(function()
 				if v:IsA("ProximityPrompt") then
 				if v.Name == "OpenPrompt" then
 					if v.Parent:FindFirstChild("IsOpen").Value == false then
+					pcall(function ()
 						fireproximityprompt(v)
+					end)
 				end
 				end
 				end
@@ -3834,9 +3836,9 @@ task.spawn(function()
 				if v:IsA("ProximityPrompt") then
 				if v.Name == "OpenPrompt" then
 					if v.Parent:FindFirstChild("IsOpen").Value == true then
-						
+					pcall(function ()
 						fireproximityprompt(v)
-					
+					end)
 				end
 				end
 				end
