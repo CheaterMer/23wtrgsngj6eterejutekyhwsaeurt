@@ -4031,8 +4031,8 @@ avatar_channel:Dropdown(
     ids,
     function(bool)
 
-        local target = bool
-        if not target then return end
+        local targetrs = bool
+        if not targetrs then return end
         local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(target.UserId):GetAccessories(true)
         for _, accessoryInfo in ipairs(accessoriesTable) do 
             ImportAsset(accessoryInfo.AssetId)
