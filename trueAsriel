@@ -119,15 +119,18 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 --end
 --end
 end)
---[[
+
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
-    if inp.KeyCode == Enum.KeyCode.F then
-		local args = {
-			[1] = LP.Character,
-			[2] = game:GetService("Players").LocalPlayer.Character.Hamburger,
-			[3] = "Heal"
-		}
-		game:GetService("ReplicatedStorage"):WaitForChild("EatingEvent"):FireServer(unpack(args))
+    if inp.KeyCode == Enum.KeyCode.V then
+		char = game.Players.LocalPlayer.Character
+		local vel = Instance.new('BodyVelocity',char.HumanoidRootPart)
+		vel.Name = 'Client'
+		vel.MaxForce = Vector3.new(4000,4000,4000)*math.huge
+		vel.P = math.huge
+		vel.Velocity = (Vector3.new(0,25,0))*4 -- change the velocity
+		wait(0.5)
+		vel:Destroy()
+		char.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame*CFrame.new(0, 100, 0)
+		playerpos = char.HumanoidRootPart.Position + Vector3.new(0, 50, 0) --idk i didnt test this
 	end
 end)
-]]
