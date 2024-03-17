@@ -4030,24 +4030,14 @@ avatar_channel:Dropdown(
     "Copy",
     ids,
     function(bool)
-
-        local targetrs = bool
-        if not targetrs then return end
-        local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(target.UserId):GetAccessories(true)
-        for _, accessoryInfo in ipairs(accessoriesTable) do 
-            ImportAsset(accessoryInfo.AssetId)
-        end
-        ImportAsset(Players:GetHumanoidDescriptionFromUserId(target.UserId).Shirt)
-        ImportAsset(Players:GetHumanoidDescriptionFromUserId(target.UserId).Pants)
-    else
+		RemoveCloth(_.Name)
+task.wait(0.2)
         local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(bool):GetAccessories(true)
         for _, accessoryInfo in ipairs(accessoriesTable) do 
             ImportAsset(accessoryInfo.AssetId)
         end
-        ImportAsset(Players:GetHumanoidDescriptionFromUserId(text).Shirt)
-        ImportAsset(Players:GetHumanoidDescriptionFromUserId(text).Pants)
-    end
-
+        ImportAsset(Players:GetHumanoidDescriptionFromUserId(bool).Shirt)
+        ImportAsset(Players:GetHumanoidDescriptionFromUserId(bool).Pants)
 
     end
 )
