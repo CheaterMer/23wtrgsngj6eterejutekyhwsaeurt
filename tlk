@@ -4040,7 +4040,7 @@ avatar_channel:Dropdown(
         ImportAsset(Players:GetHumanoidDescriptionFromUserId(target.UserId).Shirt)
         ImportAsset(Players:GetHumanoidDescriptionFromUserId(target.UserId).Pants)
     else
-        local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(text):GetAccessories(true)
+        local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(bool):GetAccessories(true)
         for _, accessoryInfo in ipairs(accessoriesTable) do 
             ImportAsset(accessoryInfo.AssetId)
         end
