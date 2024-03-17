@@ -4030,8 +4030,10 @@ avatar_channel:Dropdown(
     "Copy",
     ids,
     function(bool)
-		RemoveCloth(_.Name)
-task.wait(0.2)
+		for _, _ in pairs(LP.Character:GetChildren()) do
+			RemoveCloth(_.Name)
+		end
+		task.wait(0.2)
         local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(bool):GetAccessories(true)
         for _, accessoryInfo in ipairs(accessoriesTable) do 
             ImportAsset(accessoryInfo.AssetId)
