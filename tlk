@@ -4070,17 +4070,6 @@ LP.CharacterAdded:Connect(function(char)
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Pants)
 end)
 
-local Mypos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame
-
-task.spawn(function()
-while task.wait() do
-	print(Mypos.Y, Mypos.X, Mypos.Z)
-if Mypos.Y > 1000 or Mypos.X > 1000 or Mypos.Z > 1000 then
-	char:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(282.811157, 5.99613762, -69.6557007, 0.826119781, -6.12301321e-08, 0.563494503, 6.9332371e-09, 1, 9.84968693e-08, -0.563494503, -7.74633762e-08, 0.826119781)
-end
-end
-end)
-
 task.spawn(function()
 for v,b in pairs(workspace:GetChildren()) do
     if b.Name == "Border" then
