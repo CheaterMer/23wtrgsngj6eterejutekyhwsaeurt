@@ -3275,7 +3275,7 @@ function DiscordLib:Window(text)
 	return ServerHold
 end
 
-
+local MainWindow = DiscordLib:Window"F"
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -4077,4 +4077,16 @@ for v,b in pairs(workspace:GetChildren()) do
         b:Destroy()
     end
 end
+end)
+
+game:GetService("UserInputService").InputBegan:Connect(function(inp)
+    if inp.KeyCode == Enum.KeyCode.F then
+		if asfhafhk then
+MainWindow:Visible(true) -- Show
+asfhafhk = false
+		else
+MainWindow:Visible(false) -- Hide
+asfhafhk = true
+		end
+	end
 end)
