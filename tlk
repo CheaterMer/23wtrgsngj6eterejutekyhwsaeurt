@@ -3379,7 +3379,7 @@ task.spawn(function()
 			fireclickdetector(workspace.Hamburger.ClickDetector)
 			for i,v in pairs(LP.Backpack:GetChildren()) do
 				if v.Name == "Hamburger" then
-					task.wait(0.01)
+					--task.wait(0.01)
 				v.Parent = LP.Character
 				end
 			end
@@ -3426,7 +3426,7 @@ block_tools_channel:Button("Drop Burger", function()
 
 	for i,v in pairs(LP.Character:GetChildren()) do
 		if v.Name == "Hamburger" then
-			task.wait(0.01)
+			--task.wait(0.01)
 		v.Parent = game.Workspace
 		end
 	end

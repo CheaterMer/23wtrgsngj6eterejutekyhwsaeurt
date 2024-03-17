@@ -55,7 +55,7 @@ function attack()
 		end
 		for idx, plr in pairs(Players:GetPlayers()) do
 			if
-				plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 25)
+				plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 20)
 				 and plr.Character.Hostile.Value and LP.Team ~= plr.Team
 			then
 				Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
