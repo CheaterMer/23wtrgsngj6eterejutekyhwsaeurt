@@ -3551,7 +3551,7 @@ task.spawn(function()
             for idx, plr in pairs(Players:GetPlayers()) do
                 	if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15) and plr.Character.Hostile.Value then
 							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
-							task.wait(0.05)
+							task.wait(0.1)
                 	end
             	end
         end)end
@@ -3812,7 +3812,7 @@ task.spawn(function()
 	while task.wait() do
 		if HouseOpen then pcall(function()
 
-			for i,v in pairs(workspace:GetDescendants()) do
+			for i,v in pairs(workspace.Houses:GetDescendants()) do
 				if v:IsA("ProximityPrompt") then
 				if v.Name == "OpenPrompt" then
 					if v.Parent:FindFirstChild("IsOpen").Value == false then
@@ -3832,7 +3832,7 @@ task.spawn(function()
 	while task.wait() do
 		if HouseClose then pcall(function()
 
-			for i,v in pairs(workspace:GetDescendants()) do
+			for i,v in pairs(workspace.Houses:GetDescendants()) do
 				if v:IsA("ProximityPrompt") then
 				if v.Name == "OpenPrompt" then
 					if v.Parent:FindFirstChild("IsOpen").Value == true then
@@ -3853,7 +3853,7 @@ task.spawn(function()
 	while task.wait() do
 		if HouseLock2 then pcall(function()
 
-			for i,v in pairs(workspace:GetDescendants()) do
+			for i,v in pairs(workspace.Houses:GetDescendants()) do
 				if v:IsA("ProximityPrompt") then
 				if v.Name == "LockPrompt" then
 					if v.Parent.Parent.Click:FindFirstChild("IsLocked").Value == true then
@@ -3873,7 +3873,7 @@ task.spawn(function()
 	while task.wait() do
 		if HouseLock1 then pcall(function()
 
-for i,v in pairs(workspace:GetDescendants()) do
+for i,v in pairs(workspace.Houses:GetDescendants()) do
     if v:IsA("ProximityPrompt") then
     if v.Name == "LockPrompt" then
         if v.Parent.Parent.Click:FindFirstChild("IsLocked").Value == false then
