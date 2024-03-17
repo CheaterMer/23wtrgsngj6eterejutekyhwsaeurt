@@ -124,7 +124,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.B then
 		char = game.Players.LocalPlayer.Character
           --char.Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
-          tar = char.HumanoidRootPart.CFrame*CFrame.new(0,15,0) + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 50
+          tar = char.HumanoidRootPart.CFrame*CFrame.new(0,5,0) + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 50
           --char.Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
           v2 = Instance.new('BodyPosition',char.HumanoidRootPart) 
           fol = Instance.new('Folder',v2)
