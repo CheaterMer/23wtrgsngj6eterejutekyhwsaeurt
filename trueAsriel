@@ -121,7 +121,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
-    if inp.KeyCode == Enum.KeyCode.V then
+    if inp.KeyCode == Enum.KeyCode.B then
 		char = game.Players.LocalPlayer.Character
           --char.Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
           tar = char.HumanoidRootPart.CFrame*CFrame.new(0,15,0) + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 50
@@ -133,7 +133,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
           v2.D = 2500 
           v2.P = 60000 
           v2.Position = (tar).p
-		  wait(0.2)
+		  wait(1)
 		  v2:Destroy()
 	end
 end)
