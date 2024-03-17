@@ -4023,23 +4023,24 @@ end)
 
 local ids = {}
 for idx, plr in pairs(Players:GetPlayers()) do
-    table.insert(ids, plr.UserId)
+    table.insert(ids, plr.Name)
 end
 
 avatar_channel:Dropdown(
     "Copy",
     ids,
     function(bool)
+		userfree = bool.Parent.UserId
 		for _, _ in pairs(LP.Character:GetChildren()) do
 			RemoveCloth(_.Name)
 		end
 		task.wait(0.2)
-        local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(bool):GetAccessories(true)
+        local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(userfree):GetAccessories(true)
         for _, accessoryInfo in ipairs(accessoriesTable) do 
             ImportAsset(accessoryInfo.AssetId)
         end
-        ImportAsset(Players:GetHumanoidDescriptionFromUserId(bool).Shirt)
-        ImportAsset(Players:GetHumanoidDescriptionFromUserId(bool).Pants)
+        ImportAsset(Players:GetHumanoidDescriptionFromUserId(userfree).Shirt)
+        ImportAsset(Players:GetHumanoidDescriptionFromUserId(userfree).Pants)
 
     end
 )
