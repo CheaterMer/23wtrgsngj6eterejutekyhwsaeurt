@@ -4070,7 +4070,7 @@ LP.CharacterAdded:Connect(function(char)
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Pants)
 end)
 
-local Mypos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
+local Mypos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame
 
 task.spawn(function()
 while task.wait() do
