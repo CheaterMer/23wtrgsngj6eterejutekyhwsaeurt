@@ -3704,51 +3704,6 @@ task.spawn(function ()
     end
 end)
 
-task.spawn(function()
-	while task.wait() do
-		if opendoor then pcall(function()
-for v,b in pairs(workspace.Doors:GetChildren()) do
-    if b.Value.Value == false then
-        task.wait()
-        Remotes["DoorOpener"]:FireServer(b.Name, "Open")
-	end
-end
-end) end
-end
-end)
-
-
-task.spawn(function()
-	while task.wait() do
-		if closedoor then pcall(function()
-for v,b in pairs(workspace.Doors:GetChildren()) do
-    if b.Value.Value == true then
-        task.wait()
-        Remotes["DoorOpener"]:FireServer(b.Name, "Close")
-	end
-end
-end) end
-end
-end)
-
-extra_channel:Button("Chamber", function()
-	for v,b in pairs(workspace.Unfinished:GetChildren()) do
-		if b.Name == "Chamber" then
-			print(b)
-			task.wait()
-			fireclickdetector(b.Door.Hat.ClickDetector)
-		end
-	end
-end)
-
-extra_channel:Toggle("Close Door", false, function (bool)
-	closedoor = bool
-end)
-
-extra_channel:Toggle("Open Door", false, function (bool)
-	opendoor = bool
-end)
-
 local delay_display = extra_channel:Label("Delay: "..tostring(delay).."s")
 extra_channel:Toggle("Lagging Server", false, function (bool)
     if bool then
@@ -3820,6 +3775,174 @@ end)
 if LP.Team.Name ~= "Choosing" then
     choosing_stay_button:Delete()
 end
+
+local click_channel = client_tab:Channel("Door ClickDetector")
+
+local cooldown = 1
+
+task.spawn(function()
+	while task.wait() do
+		if opendoor then 
+		for v,b in pairs(workspace.Doors:GetChildren()) do
+    	if b.Value.Value == false then
+        Remotes["DoorOpener"]:FireServer(b.Name, "Open")
+		end
+		end
+		end
+	end
+end)
+
+
+task.spawn(function()
+	while task.wait() do
+		if closedoor then 
+		for v,b in pairs(workspace.Doors:GetChildren()) do
+    	if b.Value.Value == true then
+        Remotes["DoorOpener"]:FireServer(b.Name, "Close")
+		end
+		end
+		end
+	
+	end
+end)
+
+
+
+task.spawn(function()
+	while task.wait() do
+		if HouseOpen then 
+
+			for i,v in pairs(workspace:GetChildren()) do
+				if v:IsA("ProximityPrompt") then
+				if v.Name == "OpenPrompt" then
+					if v.Parent:FindFirstChild("IsOpen").Value == false then
+						pcall(function ()
+							fireproximityprompt(v)
+						end)
+				end
+				end
+				end
+			end
+
+		end
+		
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if HouseClose then 
+
+			for i,v in pairs(workspace:GetChildren()) do
+				if v:IsA("ProximityPrompt") then
+				if v.Name == "OpenPrompt" then
+					if v.Parent:FindFirstChild("IsOpen").Value == true then
+						
+						pcall(function ()
+							fireproximityprompt(v)
+						end)
+					
+				end
+				end
+				end
+			end
+
+		 end
+		 
+	end
+end)
+
+
+task.spawn(function()
+	while task.wait() do
+		if HouseLock2 then 
+
+			for i,v in pairs(workspace:GetChildren()) do
+				if v:IsA("ProximityPrompt") then
+				if v.Name == "LockPrompt" then
+					if v.Parent.Parent.Click:FindFirstChild("IsLocked").Value == true then
+					pcall(function ()
+						fireproximityprompt(v)
+					end)
+				end
+				end
+				end
+			end
+
+		 end
+		
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if HouseLock1 then
+
+for i,v in pairs(workspace:GetChildren()) do
+    if v:IsA("ProximityPrompt") then
+    if v.Name == "LockPrompt" then
+        if v.Parent.Parent.Click:FindFirstChild("IsLocked").Value == false then
+        pcall(function ()
+            fireproximityprompt(v)
+        end)
+    end
+    end
+	
+    end
+end
+
+		 end
+	end
+end)
+
+
+click_channel:Button("Chamber", function()
+	for v,b in pairs(workspace.Unfinished:GetChildren()) do
+		if b.Name == "Chamber" then
+			print(b)
+			task.wait()
+			fireclickdetector(b.Door.Hat.ClickDetector)
+		end
+	end
+end)
+
+click_channel:Toggle("Open Door", false, function (bool)
+	opendoor = bool
+end)
+
+click_channel:Toggle("Close Door", false, function (bool)
+	closedoor = bool
+end)
+
+
+click_channel:Toggle("Open House", false, function (bool)
+	HouseOpen = bool
+end)
+
+click_channel:Toggle("Close House", false, function (bool)
+	HouseClose = bool
+end)
+
+click_channel:Toggle("Lock On House", false, function (bool)
+	HouseLock1 = bool
+end)
+
+click_channel:Toggle("Lock Off House", false, function (bool)
+	HouseLock2 = bool
+end)
+
+
+click_channel:Button("Base Main Door", function()
+    fireclickdetector(workspace.Base.Door.Handle1.ClickDetector)
+end)
+
+click_channel:Button("Base Jail1 Door", function()
+    fireclickdetector(workspace.BasementCell.BarDoor.Lock.ClickDetector)
+end)
+
+click_channel:Button("Base Jail2 Door", function()
+    fireclickdetector(workspace.BasementCell.Bar.BarDoor.Lock.ClickDetector)
+end)
 
 local avatar_channel = client_tab:Channel("Avatar")
 
