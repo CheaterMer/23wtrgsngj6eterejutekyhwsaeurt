@@ -4023,14 +4023,16 @@ end)
 
 local ids = {}
 for idx, plr in pairs(Players:GetPlayers()) do
-    table.insert(ids, plr)
+    table.insert(ids, plr.Name)
 end
 
 avatar_channel:Dropdown(
     "Copy",
     ids,
     function(bool)
-		userfree = Players:FindFirstChild(bool.UserId)
+		--print(Players:FindFirstChild(bool).UserId)
+		userfree = Players:FindFirstChild(bool).UserId
+		--print(userfree)
 		for _, _ in pairs(LP.Character:GetChildren()) do
 			RemoveCloth(_.Name)
 		end
