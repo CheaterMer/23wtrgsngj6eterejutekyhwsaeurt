@@ -3339,6 +3339,8 @@ local client_tab = win:Server("Client", getcustomasset("TLK_ASSETS/"..assets["Cl
 local block_tools_channel = server_tab:Channel("Tools")
 local except_friends = false
 local block_tools = false
+local StarterGui = game: GetService("StarterGui")
+
 _G.forcestop = false
 task.spawn(function()
     while task.wait() do
@@ -3358,6 +3360,20 @@ task.spawn(function()
             end
         end
     end) end
+end)
+
+task.spawn(function()
+    while task.wait() do
+		if backpackistrue then
+        pcall(function()
+		game.StarterGui: SetCoreGuiEnabled (Enum.CoreGuiType.Backpack, true)
+		end)
+	end
+end
+end)
+
+block_tools_channel:Toggle("My Tool is", false, function(bool)
+    backpackistrue = bool
 end)
 
 block_tools_channel:Toggle("Block Tools", false, function(bool)
