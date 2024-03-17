@@ -3387,7 +3387,7 @@ block_tools_channel:Button("Get Tools", function()
 
 end)
 
-local player_channel = server_tab:Channel("Player")
+local player_channel = server_tab:Channel("Character")
 local AUF
 local AUH
 
@@ -3420,6 +3420,105 @@ end)
 
 player_channel:Toggle("All Un Hog", false, function(bool)
 	AUH = bool
+end)
+
+local GetDownitem = false
+local targetr = nil
+local taser = false
+local plrs = game:GetService("Players")
+local plr = plrs.LocalPlayer
+
+local names = {}
+for idx, plr in pairs(game.Players:GetPlayers()) do
+    table.insert(names, plr.Name)
+end
+
+function item()
+	if plr.Character:FindFirstChild("Taser") then
+	else 
+	plr.Backpack.Taser.Parent = plr.Character
+	end
+	end
+
+task.spawn(function()
+	while task.wait() do
+		if taser then pcall(function()
+		item()
+        local args = {
+            [1] = "Hit",
+            [2] = game:GetService("Players").LocalPlayer.Character.Taser,
+            [3] = game:GetService("Players"):WaitForChild(targetr).Character.Head
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+        wait()
+        local args = {
+            [1] = "Recharge",
+            [2] = game:GetService("Players").LocalPlayer.Character.Taser
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+	end	)
+end
+end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if GetDownitem then pcall(function()
+			if game:GetService("Players"):FindFirstChild(targetr).Character.IsCuffed.Value == false then
+				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character)
+			end
+		end) end
+	end
+end)
+
+	player_channel:Dropdown(
+    "Target",
+    names,
+    function(bool)
+		print(bool)
+        targetr = bool
+    end
+)
+
+player_channel:Button("One", function()
+pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
+tpos = game:GetService("Players"):WaitForChild(targetr).Character.Torso.CFrame.Position
+spawn(function()	
+local args = {
+		[1] = "Generate",
+		[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+		[3] = Vector3.new(pos.X,pos.Y,pos.Z),
+		[4] = Vector3.new(tpos.X,tpos.Y,tpos.Z)
+	}
+	
+	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+end)
+
+	local args = {
+		[1] = "Hit",
+		[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+		[3] = game:GetService("Players"):WaitForChild(targetr).Character.Head
+	}
+	
+	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+	wait()
+	local args = {
+		[1] = "Recharge",
+		[2] = game:GetService("Players").LocalPlayer.Character.Taser
+	}
+	
+	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+
+end)
+
+player_channel:Toggle("taser", false, function(bool)
+    taser = bool
+end)
+
+player_channel:Toggle("Get Down Your item Brb", false, function(bool)
+    GetDownitem = bool
 end)
 
 local combat_channel = server_tab:Channel("Combat")
@@ -3526,106 +3625,6 @@ end)
 combat_channel:Toggle("KillAura", false, function(bool)
     killaura = bool
 end)
-
-local GetDownitem = false
-local targetr = nil
-local taser = false
-local plrs = game:GetService("Players")
-local plr = plrs.LocalPlayer
-
-local names = {}
-for idx, plr in pairs(game.Players:GetPlayers()) do
-    table.insert(names, plr.Name)
-end
-
-function item()
-	if plr.Character:FindFirstChild("Taser") then
-	else 
-	plr.Backpack.Taser.Parent = plr.Character
-	end
-	end
-
-task.spawn(function()
-	while task.wait() do
-		if taser then pcall(function()
-		item()
-        local args = {
-            [1] = "Hit",
-            [2] = game:GetService("Players").LocalPlayer.Character.Taser,
-            [3] = game:GetService("Players"):WaitForChild(targetr).Character.Head
-        }
-        
-        game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-        wait()
-        local args = {
-            [1] = "Recharge",
-            [2] = game:GetService("Players").LocalPlayer.Character.Taser
-        }
-        
-        game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-	end	)
-end
-end
-end)
-
-task.spawn(function()
-	while task.wait() do
-		if GetDownitem then
-			if game:GetService("Players"):FindFirstChild(targetr).Character.IsCuffed.Value == false then
-				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character)
-			end
-		end
-		end
-	end)
-
-combat_channel:Dropdown(
-    "Target",
-    names,
-    function(bool)
-		print(bool)
-        targetr = bool
-    end
-)
-
-combat_channel:Button("One", function()
-pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
-tpos = game:GetService("Players"):WaitForChild(targetr).Character.Torso.CFrame.Position
-spawn(function()	
-local args = {
-		[1] = "Generate",
-		[2] = game:GetService("Players").LocalPlayer.Character.Taser,
-		[3] = Vector3.new(pos.X,pos.Y,pos.Z),
-		[4] = Vector3.new(tpos.X,tpos.Y,tpos.Z)
-	}
-	
-	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-end)
-
-	local args = {
-		[1] = "Hit",
-		[2] = game:GetService("Players").LocalPlayer.Character.Taser,
-		[3] = game:GetService("Players"):WaitForChild(targetr).Character.Head
-	}
-	
-	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-	wait()
-	local args = {
-		[1] = "Recharge",
-		[2] = game:GetService("Players").LocalPlayer.Character.Taser
-	}
-	
-	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-
-end)
-
-combat_channel:Toggle("taser", false, function(bool)
-    taser = bool
-end)
-
-combat_channel:Toggle("Get Down Your item Brb", false, function(bool)
-    GetDownitem = bool
-end)
-
 
 combat_channel:Textbox("Grab Player", "Enter username", true, function(text)
     local target = GetPlayer(text)
