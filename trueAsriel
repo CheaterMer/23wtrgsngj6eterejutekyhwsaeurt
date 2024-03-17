@@ -123,14 +123,15 @@ end)
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.V then
 		char = game.Players.LocalPlayer.Character
-		local vel = Instance.new('BodyVelocity',char.HumanoidRootPart)
-		vel.Name = 'Client'
-		vel.MaxForce = Vector3.new(4000,4000,4000)*math.huge
-		vel.P = math.huge
-		vel.Velocity = (Vector3.new(0,25,0))*4 -- change the velocity
-		wait(0.5)
-		vel:Destroy()
-		char.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame*CFrame.new(0, 100, 0)
-		playerpos = char.HumanoidRootPart.Position + Vector3.new(0, 50, 0) --idk i didnt test this
+char.Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
+tar = char.HumanoidRootPart.CFrame*CFrame.new(0,50,0) + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 100
+char.Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
+v2 = Instance.new('BodyPosition',char.HumanoidRootPart) 
+fol = Instance.new('Folder',v2)
+v2.Name = 'Client' 
+v2.MaxForce = Vector3.new(1,1,1)*100000 
+v2.D = 2500 
+v2.P = 60000 
+v2.Position = (tar).p
 	end
 end)
