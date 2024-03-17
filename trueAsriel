@@ -108,6 +108,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 			anime(7562485782)
 			attack()
 			m3 = true
+		end
 	elseif player.Character:FindFirstChild("Hammer") then
 		anime(6884306689)
 		attack()
