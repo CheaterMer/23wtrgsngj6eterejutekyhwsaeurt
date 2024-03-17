@@ -3595,7 +3595,7 @@ task.spawn(function()
                 end
             end
             for idx, plr in pairs(Players:GetPlayers()) do
-                	if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 237711445) and plr.Character.Hostile.Value then
+                	if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 30) and plr.Character.Hostile.Value then
 						spawn(function()
 						plr.Character.HumanoidRootPart.Size = Vector3.new(1000,1000,1000)
 						end)	
