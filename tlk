@@ -4022,7 +4022,7 @@ avatar_channel:Textbox("Copy Player Avatar", "Enter username or userid", true, f
 end)
 
 local ids = {}
-for idx, plr in pairs(game.Players:GetPlayers()) do
+for idx, plr in pairs(Players:GetPlayers()) do
     table.insert(names, plr.Id)
 end
 
