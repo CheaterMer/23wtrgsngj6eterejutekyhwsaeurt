@@ -128,7 +128,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		vel.Name = 'Client'
 		vel.MaxForce = Vector3.new(4000,4000,4000)*math.huge
 		vel.P = math.huge
-		vel.Velocity = (Vector3.new(0,100,0))*4 -- change the velocity
+		vel.Velocity = (Vector3.new(0,50,0))*100 -- change the velocity
 		wait(0.5)
 		vel:Destroy()
 		char.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame*CFrame.new(0, 1, 0)
