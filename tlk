@@ -4021,6 +4021,20 @@ avatar_channel:Textbox("Copy Player Avatar", "Enter username or userid", true, f
     end
 end)
 
+local ids = {}
+for idx, plr in pairs(game.Players:GetPlayers()) do
+    table.insert(names, plr.Id)
+end
+
+avatar_channel:Dropdown(
+    "Target",
+    names,
+    function(bool)
+		print(bool)
+        ids = bool
+    end
+)
+
 local char_channel = client_tab:Channel("Character")
 
 char_channel:Button("Reset Character", function()
