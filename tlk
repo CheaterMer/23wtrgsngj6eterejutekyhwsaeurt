@@ -4023,7 +4023,7 @@ end)
 
 local ids = {}
 for idx, plr in pairs(Players:GetPlayers()) do
-    table.insert(names, plr.Id)
+    table.insert(ids, plr.Id)
 end
 
 avatar_channel:Dropdown(
