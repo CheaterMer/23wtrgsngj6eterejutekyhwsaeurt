@@ -100,14 +100,14 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 			m1 = true
 		end
 	elseif player.Character:FindFirstChild("Fist") then
-		if m1 == true then
+		if m3 == true then
 			anime(6884302925)
 			attack()
-			m1 = false
+			m3 = false
 		else
 			anime(7562485782)
 			attack()
-			m1 = true
+			m3 = true
 	elseif player.Character:FindFirstChild("Hammer") then
 		anime(6884306689)
 		attack()
