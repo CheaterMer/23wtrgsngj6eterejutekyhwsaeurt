@@ -3339,6 +3339,7 @@ local client_tab = win:Server("Client", getcustomasset("TLK_ASSETS/"..assets["Cl
 local block_tools_channel = server_tab:Channel("Tools")
 local except_friends = false
 local block_tools = false
+local infHamburger = false
 local StarterGui = game: GetService("StarterGui")
 
 _G.forcestop = false
@@ -3372,6 +3373,20 @@ task.spawn(function()
 end
 end)
 
+task.spawn(function()
+    while task.wait() do
+		if infHamburger then
+			fireclickdetector(workspace.Hamburger.ClickDetector)
+			for i,v in pairs(LP.Backpack:GetChildren()) do
+				if v.Name == "Hamburger" then
+					task.wait(0.01)
+				v.Parent = LP.Character
+				end
+			end
+		end
+	end
+end)
+
 block_tools_channel:Toggle("My Tool is", false, function(bool)
     backpackistrue = bool
 end)
@@ -3400,6 +3415,21 @@ block_tools_channel:Button("Get Tools", function()
        --     end)
      --   end
   --  end
+
+end)
+
+block_tools_channel:Toggle("Hamburger!!!!", false, function(bool)
+    infHamburger = bool
+end)
+
+block_tools_channel:Button("Drop Burger", function()
+
+	for i,v in pairs(LP.Character:GetChildren()) do
+		if v.Name == "Hamburger" then
+			task.wait(0.01)
+		v.Parent = game.Workspace
+		end
+	end
 
 end)
 
