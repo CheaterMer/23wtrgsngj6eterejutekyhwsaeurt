@@ -1659,9 +1659,6 @@ function DiscordLib:Window(text)
 	MakeDraggable(TopFrame, MainFrame)
 	ServersHoldPadding.PaddingLeft = UDim.new(0, 14)
 	local ServerHold = {}
-	function ServerHold:Visible(bool)
-	    MainFrame.Visible = bool or true
-	end
 	function ServerHold:Server(text, img)
 		local fc = false
 		local currentchanneltoggled = ""
@@ -3278,7 +3275,7 @@ function DiscordLib:Window(text)
 	return ServerHold
 end
 
---local MainWindow = DiscordLib:Window("F")
+
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -3598,7 +3595,7 @@ task.spawn(function()
                 end
             end
             for idx, plr in pairs(Players:GetPlayers()) do
-                	if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 30) and plr.Character.Hostile.Value then
+                	if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 25) and plr.Character.Hostile.Value then
 						spawn(function()
 						plr.Character.HumanoidRootPart.Size = Vector3.new(1000,1000,1000)
 						end)	
@@ -4081,22 +4078,3 @@ for v,b in pairs(workspace:GetChildren()) do
     end
 end
 end)
---[[
-game:GetService("UserInputService").InputBegan:Connect(function(inp)
-    if inp.KeyCode == Enum.KeyCode.F then
-
-MainWindow:Visible(false)
-
-	end
-end)
-
-game:GetService("UserInputService").InputBegan:Connect(function(inp)
-    if inp.KeyCode == Enum.KeyCode.H then
-
-
-MainWindow:Visible(true) 
-
-
-	end
-end)
-]]
