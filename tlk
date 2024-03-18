@@ -4060,42 +4060,14 @@ char_channel:Slider("WalkSpeed", 0, 500, LP.Character.Humanoid.WalkSpeed, functi
 
 end)
 
-local cosplay = nil
-local AFEEFA = false
-
-char_channel:Textbox("Start Player Avatar", "Enter username or userid", true, function(text)
-cosplay = text
-end)
-
-char_channel:Toggle("Lock Off House", false, function (bool)
-	AFEEFA = bool
-end)
-
 LP.CharacterAdded:Connect(function(char)
     if LP.Team.Name ~= "Choosing" then choosing_stay_button:Delete() end
-	if AFEEFA then
-		task wait(0.2)
-		for _, _ in pairs(LP.Character:GetChildren()) do
-			RemoveCloth(_.Name)
-		end
-        local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(cosplay):GetAccessories(true)
-        for _, accessoryInfo in ipairs(accessoriesTable) do 
-            ImportAsset(accessoryInfo.AssetId)
-        end
-        ImportAsset(Players:GetHumanoidDescriptionFromUserId(cosplay).Shirt)
-        ImportAsset(Players:GetHumanoidDescriptionFromUserId(cosplay).Pants)
-	else
-		task.wait(0.2)
-		for _, _ in pairs(LP.Character:GetChildren()) do
-			RemoveCloth(_.Name)
-		end
     local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(LP.UserId):GetAccessories(true)
     for _, accessoryInfo in ipairs(accessoriesTable) do 
         ImportAsset(accessoryInfo.AssetId)
     end
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Shirt)
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Pants)
-end
 end)
 
 task.spawn(function()
