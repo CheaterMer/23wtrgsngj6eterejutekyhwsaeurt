@@ -4060,7 +4060,7 @@ char_channel:Slider("WalkSpeed", 0, 500, LP.Character.Humanoid.WalkSpeed, functi
 
 end)
 
-local cosplay
+local cosplay = nil
 local AFEEFA = false
 
 char_channel:Textbox("Start Player Avatar", "Enter username or userid", true, function(text)
