@@ -3478,16 +3478,6 @@ for idx, plr in pairs(game.Players:GetPlayers()) do
     table.insert(names, plr.Name)
 end
 
-plrs.PlayerAdded:Connect(function(player)
-	table.insert(names, player.Name)
-	print("add",player.Name)
-  end)
-
-plrs.PlayerRemoving:Connect(function(player)
-	table.remove(names,table.find(names,player.Name))
-	print("remove",player.Name)
-  end)
-
 function item()
 	if plr.Character:FindFirstChild("Taser") then
 	else 
@@ -3531,15 +3521,31 @@ end)
 
 player_channel:Dropdown(
     "Target",
-   	while task.wait(1) do 
-		names
-	end,
+		names,
     function(bool)
 		print(bool)
         targetr = bool
     end
 )
 
+plrs.PlayerAdded:Connect(function(player)
+	drop:Clear()
+	task.wait(1)
+	for idx, plr in pairs(game.Players:GetPlayers()) do
+		drop:Add(player.Name)
+		print("add",player.Name)
+	end
+  end)
+
+plrs.PlayerRemoving:Connect(function(player)
+	drop:Clear()
+	task.wait(1)
+	for idx, plr in pairs(game.Players:GetPlayers()) do
+		drop:Add(player.Name)
+		print("add",player.Name)
+	end
+	print("remove",player.Name)
+  end)
 
 player_channel:Button("One", function()
 pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
