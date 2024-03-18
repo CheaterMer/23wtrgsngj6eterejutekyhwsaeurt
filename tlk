@@ -4073,7 +4073,7 @@ plrs.PlayerAdded:Connect(function(player)
 	copy_avatar:Clear()
 	task.wait(1)
 	for idx, plr in pairs(game.Players:GetPlayers()) do
-		copy_avatar:Add(ids.Name)
+		copy_avatar:Add(plr.Name)
 	end
   end)
 
@@ -4081,7 +4081,7 @@ plrs.PlayerRemoving:Connect(function(player)
 	copy_avatar:Clear()
 	task.wait(1)
 	for idx, plr in pairs(game.Players:GetPlayers()) do
-		copy_avatar:Add(ids.Name)
+		copy_avatar:Add(plr.Name)
 	end
   end)
 
