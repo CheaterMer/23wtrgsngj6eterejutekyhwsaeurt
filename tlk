@@ -3526,7 +3526,8 @@ task.spawn(function()
 	end
 end)
 
-	player_channel:Dropdown(
+while task.wait(5) do
+player_channel:Dropdown(
     "Target",
     names,
     function(bool)
@@ -3534,6 +3535,7 @@ end)
         targetr = bool
     end
 )
+end
 
 player_channel:Button("One", function()
 pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
