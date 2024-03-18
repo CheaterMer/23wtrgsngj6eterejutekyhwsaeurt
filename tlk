@@ -3478,6 +3478,14 @@ for idx, plr in pairs(game.Players:GetPlayers()) do
     table.insert(names, plr.Name)
 end
 
+Players.PlayerAdded:Connect(function(player)
+	table.insert(names, player.Name)
+  end)
+
+  Players.PlayerRemoving:Connect(function(player)
+	table.remove(names, player.Name)
+  end)
+
 function item()
 	if plr.Character:FindFirstChild("Taser") then
 	else 
