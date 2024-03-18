@@ -4080,6 +4080,9 @@ LP.CharacterAdded:Connect(function(char)
         ImportAsset(Players:GetHumanoidDescriptionFromUserId(cosplay).Shirt)
         ImportAsset(Players:GetHumanoidDescriptionFromUserId(cosplay).Pants)
 	else
+		for _, _ in pairs(LP.Character:GetChildren()) do
+			RemoveCloth(_.Name)
+		end
     local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(LP.UserId):GetAccessories(true)
     for _, accessoryInfo in ipairs(accessoriesTable) do 
         ImportAsset(accessoryInfo.AssetId)
