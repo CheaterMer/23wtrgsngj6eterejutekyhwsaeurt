@@ -3478,12 +3478,12 @@ for idx, plr in pairs(game.Players:GetPlayers()) do
     table.insert(names, plr.Name)
 end
 
-Players.PlayerAdded:Connect(function(player)
+plrs.PlayerAdded:Connect(function(player)
 	table.insert(names, player.Name)
 	print("add",player.Name)
   end)
 
-  Players.PlayerRemoving:Connect(function(player)
+plrs.PlayerRemoving:Connect(function(player)
 	table.remove(names, player.Name)
 	print("remove",player.Name)
   end)
