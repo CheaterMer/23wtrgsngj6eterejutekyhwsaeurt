@@ -3531,7 +3531,9 @@ end)
 
 player_channel:Dropdown(
     "Target",
-    names,
+   	while task.wait(1) do 
+		names
+	end,
     function(bool)
 		print(bool)
         targetr = bool
