@@ -4068,11 +4068,11 @@ end)
 
 LP.CharacterAdded:Connect(function(char)
     if LP.Team.Name ~= "Choosing" then choosing_stay_button:Delete() end
+	task.wait(0.2)
+	for _, _ in pairs(LP.Character:GetChildren()) do
+		RemoveCloth(_.Name)
+	end
 	if cosplay then
-		for _, _ in pairs(LP.Character:GetChildren()) do
-			RemoveCloth(_.Name)
-		end
-		task.wait(0.2)
         local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(cosplay):GetAccessories(true)
         for _, accessoryInfo in ipairs(accessoriesTable) do 
             ImportAsset(accessoryInfo.AssetId)
@@ -4080,9 +4080,6 @@ LP.CharacterAdded:Connect(function(char)
         ImportAsset(Players:GetHumanoidDescriptionFromUserId(cosplay).Shirt)
         ImportAsset(Players:GetHumanoidDescriptionFromUserId(cosplay).Pants)
 	else
-		for _, _ in pairs(LP.Character:GetChildren()) do
-			RemoveCloth(_.Name)
-		end
     local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(LP.UserId):GetAccessories(true)
     for _, accessoryInfo in ipairs(accessoriesTable) do 
         ImportAsset(accessoryInfo.AssetId)
