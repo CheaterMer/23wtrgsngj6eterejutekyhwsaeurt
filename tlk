@@ -3519,7 +3519,7 @@ task.spawn(function()
 end)
 
 
-player_channel:Dropdown(
+local playerlista = player_channel:Dropdown(
     "Target",
 		names,
     function(bool)
@@ -3529,19 +3529,19 @@ player_channel:Dropdown(
 )
 
 plrs.PlayerAdded:Connect(function(player)
-	drop:Clear()
+	playerlista:Clear()
 	task.wait(1)
 	for idx, plr in pairs(game.Players:GetPlayers()) do
-		drop:Add(player.Name)
+		playerlista:Add(player.Name)
 		print("add",player.Name)
 	end
   end)
 
 plrs.PlayerRemoving:Connect(function(player)
-	drop:Clear()
+	playerlista:Clear()
 	task.wait(1)
 	for idx, plr in pairs(game.Players:GetPlayers()) do
-		drop:Add(player.Name)
+		playerlista:Add(player.Name)
 		print("add",player.Name)
 	end
 	print("remove",player.Name)
