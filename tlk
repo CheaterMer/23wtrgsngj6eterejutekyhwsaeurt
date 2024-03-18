@@ -3533,7 +3533,7 @@ plrs.PlayerAdded:Connect(function(player)
 	task.wait(1)
 	for idx, plr in pairs(game.Players:GetPlayers()) do
 		playerlista:Add(plr.Name)
-		print("add",player.Name)
+		--print("add",player.Name)
 	end
   end)
 
@@ -3542,9 +3542,9 @@ plrs.PlayerRemoving:Connect(function(player)
 	task.wait(1)
 	for idx, plr in pairs(game.Players:GetPlayers()) do
 		playerlista:Add(plr.Name)
-		print("add",player.Name)
+		--print("add",player.Name)
 	end
-	print("remove",player.Name)
+	--print("remove",player.Name)
   end)
 
 player_channel:Button("One", function()
@@ -4048,7 +4048,7 @@ for idx, plr in pairs(Players:GetPlayers()) do
     table.insert(ids, plr.Name)
 end
 
-avatar_channel:Dropdown(
+local copy_avatar = avatar_channel:Dropdown(
     "Copy",
     ids,
     function(bool)
@@ -4068,6 +4068,22 @@ avatar_channel:Dropdown(
 
     end
 )
+
+plrs.PlayerAdded:Connect(function(player)
+	copy_avatar:Clear()
+	task.wait(1)
+	for idx, plr in pairs(game.Players:GetPlayers()) do
+		copy_avatar:Add(ids.Name)
+	end
+  end)
+
+plrs.PlayerRemoving:Connect(function(player)
+	copy_avatar:Clear()
+	task.wait(1)
+	for idx, plr in pairs(game.Players:GetPlayers()) do
+		copy_avatar:Add(ids.Name)
+	end
+  end)
 
 local char_channel = client_tab:Channel("Character")
 
