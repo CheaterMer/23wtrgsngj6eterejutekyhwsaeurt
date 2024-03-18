@@ -4072,7 +4072,7 @@ LP.CharacterAdded:Connect(function(char)
 	for _, _ in pairs(LP.Character:GetChildren()) do
 		RemoveCloth(_.Name)
 	end
-	if cosplay then
+	if not cosplay == nil then
         local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(cosplay):GetAccessories(true)
         for _, accessoryInfo in ipairs(accessoriesTable) do 
             ImportAsset(accessoryInfo.AssetId)
