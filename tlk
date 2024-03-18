@@ -3484,7 +3484,7 @@ plrs.PlayerAdded:Connect(function(player)
   end)
 
 plrs.PlayerRemoving:Connect(function(player)
-	table.remove(names, player.Name)
+	table.remove(names,table.find(names,player.Name))
 	print("remove",player.Name)
   end)
 
