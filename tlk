@@ -3532,7 +3532,7 @@ plrs.PlayerAdded:Connect(function(player)
 	playerlista:Clear()
 	task.wait(1)
 	for idx, plr in pairs(game.Players:GetPlayers()) do
-		playerlista:Add(player.Name)
+		playerlista:Add(plr.Name)
 		print("add",player.Name)
 	end
   end)
@@ -3541,7 +3541,7 @@ plrs.PlayerRemoving:Connect(function(player)
 	playerlista:Clear()
 	task.wait(1)
 	for idx, plr in pairs(game.Players:GetPlayers()) do
-		playerlista:Add(player.Name)
+		playerlista:Add(plr.Name)
 		print("add",player.Name)
 	end
 	print("remove",player.Name)
