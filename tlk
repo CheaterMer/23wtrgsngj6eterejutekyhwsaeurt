@@ -3435,6 +3435,19 @@ end)
 local player_channel = server_tab:Channel("Character")
 local AUF
 local AUH
+local AUC
+
+task.spawn(function()
+	while task.wait() do
+		if AUC then pcall(function()
+			for idx, plr in pairs(Players:GetPlayers()) do
+                if plr ~= LP and plr.Character.IsLocked.Value == true then
+					Remotes["UnCuffed"]:FireServer(plr.Character)
+				end
+				end
+		end) end
+	end
+end)
 
 task.spawn(function()
 	while task.wait() do
@@ -3464,6 +3477,10 @@ player_channel:Toggle("All Un Cuff", false, function(bool)
 end)
 
 player_channel:Toggle("All Un Hog", false, function(bool)
+	AUH = bool
+end)
+
+player_channel:Toggle("All Un Collar Aura", false, function(bool)
 	AUH = bool
 end)
 
