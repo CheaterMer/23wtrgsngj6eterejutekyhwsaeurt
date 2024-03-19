@@ -3442,7 +3442,7 @@ task.spawn(function()
 		if AUC then pcall(function()
 			for idx, plr in pairs(Players:GetPlayers()) do
                 if plr ~= LP and plr.Character.IsLocked.Value == true then
-					Remotes["UnCuffed"]:FireServer(plr.Character)
+					Remotes["CollarRemove"]:FireServer(plr.Character,"Collar")
 				end
 				end
 		end) end
