@@ -4052,10 +4052,8 @@ local copy_avatar = avatar_channel:Dropdown(
     "Copy",
     ids,
     function(bool)
-		--print(Players:FindFirstChild(bool).UserId)
-		dpname = worsk:FindFirstChild(bool).Character.Hummnoid.DisplayName
-		
-		print(dpname)
+
+		dpname = Players:FindFirstChild(bool).DisplayName
 		
 		local args = {
 			[1] = "/nick "..dpname,
