@@ -3487,6 +3487,8 @@ end)
 local GetDownitem = false
 local targetr = nil
 local taser = false
+local tuf = false
+local tuc = false
 local plrs = game:GetService("Players")
 local plr = plrs.LocalPlayer
 
@@ -3530,6 +3532,26 @@ task.spawn(function()
 		if GetDownitem then pcall(function()
 			if game:GetService("Players"):FindFirstChild(targetr).Character.IsCuffed.Value == false then
 				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character)
+			end
+		end) end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if tuc then pcall(function()
+			if game:GetService("Players"):FindFirstChild(targetr).Character.IsCuffed.Value == true then
+				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character)
+			end
+		end) end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if tuf then pcall(function()
+			if game:GetService("Players"):FindFirstChild(targetr).Character.IsHogged.Value == true then
+				Remotes["IsHog"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character,"UnHog")
 			end
 		end) end
 	end
@@ -3597,6 +3619,14 @@ end)
 
 player_channel:Toggle("taser", false, function(bool)
     taser = bool
+end)
+
+player_channel:Toggle("un cuff", false, function(bool)
+    tuf = bool
+end)
+
+player_channel:Toggle("un hog", false, function(bool)
+    tuc = bool
 end)
 
 player_channel:Toggle("Get Down Your item Brb", false, function(bool)
@@ -3746,7 +3776,6 @@ combat_channel:Textbox("Grab Player", "Enter username", true, function(text)
         Remotes["IsHog"]:FireServer(target.Character, "Hog")
         task.wait()
     until target.Character.IsHogged.Value
-
     repeat
         Remotes["Grab"]:FireServer(target.Character, "Grab")
         task.wait()
