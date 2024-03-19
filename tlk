@@ -3481,7 +3481,7 @@ player_channel:Toggle("All Un Hog", false, function(bool)
 end)
 
 player_channel:Toggle("All Un Collar Aura", false, function(bool)
-	AUH = bool
+	AUC = bool
 end)
 
 local GetDownitem = false
@@ -4058,6 +4058,12 @@ avatar_channel:Textbox("Copy Player Avatar", "Enter username or userid", true, f
         ImportAsset(Players:GetHumanoidDescriptionFromUserId(text).Shirt)
         ImportAsset(Players:GetHumanoidDescriptionFromUserId(text).Pants)
     end
+end)
+
+avatar_channel:Textbox("Copy Item", true, function(text)
+ 
+            ImportAsset(text)
+
 end)
 
 local ids = {}
