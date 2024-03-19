@@ -4060,7 +4060,7 @@ avatar_channel:Textbox("Copy Player Avatar", "Enter username or userid", true, f
     end
 end)
 
-avatar_channel:Textbox("Copy Item", true, function(text)
+avatar_channel:Textbox("Copy Item","Enter", true, function(text)
  
             ImportAsset(text)
 
