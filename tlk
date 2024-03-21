@@ -4284,7 +4284,7 @@ LP.CharacterAdded:Connect(function(char)
 end
 	if spawnfun == true then
         char:WaitForChild("HumanoidRootPart").CFrame = DiePos
-	End
+	end
 	task.wait(0.2)
 	LP.Character.Humanoid.AutoJumpEnabled = false
 end)
