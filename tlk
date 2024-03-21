@@ -4253,7 +4253,7 @@ char_channel:Toggle("Spawn Dead Point", false, function (bool)
 	spawnfun = bool
 end)
 
-char_channel:Toggle("Spawn Dead Point", false, function (bool)
+char_channel:Toggle("Furry", false, function (bool)
 	Furry = bool
 end)
 
