@@ -3801,6 +3801,20 @@ function eat()
     end)
     end
 
+	task.spawn(function()
+		while task.wait() do
+			if INFgarb == true then 
+				pcall(function()
+					LP.Character.StaminaSprintClient.Enabled = false
+			end) 
+		else if INFgarb == false then
+			pcall(function()
+				LP.Character.StaminaSprintClient.Enabled = true
+			end) 
+		end
+		end
+	end)
+
 task.spawn(function()
 	while task.wait() do
 		if heal then pcall(function()
@@ -3829,6 +3843,11 @@ combat_channel:Toggle("KillAura", false, function(bool)
     killaura = bool
 end)
 
+combat_channel:Toggle("Inf Garb", false, function(bool)
+    INFgarb = bool
+end)
+
+
 combat_channel:Textbox("Grab Player", "Enter username", true, function(text)
     local target = GetPlayer(text)
     if not target then return end
@@ -3836,6 +3855,7 @@ combat_channel:Textbox("Grab Player", "Enter username", true, function(text)
     if target.Character:FindFirstChild("Hummnoid") and target.Character.Hostile.Value == false or target.Character.Humanoid.Health == 0 then 
 		return 
 	end
+
     local cuff = LP.Backpack:FindFirstChild("Handcuffs") or LP.Backpack:FindFirstChild("Handcuffs (fugitive)")
     do
         LP.Backpack.Taser.Parent = LP.Character
