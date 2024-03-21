@@ -3898,12 +3898,18 @@ plrs.PlayerRemoving:Connect(function(player)
 	end
 
     local cuff = LP.Backpack:FindFirstChild("Handcuffs") or LP.Backpack:FindFirstChild("Handcuffs (fugitive)")
-    do
+    if LP.Team.Name == "Fugitives" then
+		local cuff = LP.Backpack:FindFirstChild("Handcuffs (fugitive)")
+	elseif LP.Team.Name == "Guard" then
+		local cuff = LP.Backpack:FindFirstChild("Handcuffs")
+	end
+
+	spawn(function()
         LP.Backpack.Taser.Parent = LP.Character
         cuff.Parent = LP.Character
         LP.Backpack.Grab.Parent = LP.Character
         LP.Backpack.Rope.Parent = LP.Character
-    end
+    end)
 
     local oldPos = LP.Character.HumanoidRootPart.CFrame
     local loop_move = RunService.Stepped:Connect(function()
