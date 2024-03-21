@@ -4239,7 +4239,7 @@ char_channel:Slider("WalkSpeed", 0, 500, LP.Character.Humanoid.WalkSpeed, functi
 
 end)
 
-avatar_channel:Textbox("Set Fake Name","Enter", true, function(text)
+char_channel:Textbox("Set Fake Name","Enter", true, function(text)
  
 	aONT = text
 
