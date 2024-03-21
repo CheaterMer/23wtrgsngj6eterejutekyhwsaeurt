@@ -4188,6 +4188,8 @@ for idx, plr in pairs(Players:GetPlayers()) do
     table.insert(ids, plr.Name)
 end
 
+local aONT = "(Don't Touch)THE_Exploiter"
+
 local copy_avatar = avatar_channel:Dropdown(
     "Copy",
     ids,
