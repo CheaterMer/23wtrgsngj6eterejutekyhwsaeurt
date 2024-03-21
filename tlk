@@ -3485,6 +3485,30 @@ player_channel:Toggle("All Un Collar Aura", false, function(bool)
 	AUC = bool
 end)
 
+player_channel:Button("OAUC", function()
+	for idx, plr in pairs(Players:GetPlayers()) do
+		if plr ~= LP and plr.Character.IsCuffed.Value == true then
+			Remotes["UnCuffed"]:FireServer(plr.Character)
+		end
+	end
+end)
+
+player_channel:Button("OAUH", function()
+	for idx, plr in pairs(Players:GetPlayers()) do
+		if plr ~= LP and plr.Character.IsHogged.Value == true then
+			Remotes["IsHog"]:FireServer(plr.Character,"UnHog")
+		end 
+	end
+end)
+
+player_channel:Button("OAUC", function()
+	for idx, plr in pairs(Players:GetPlayers()) do
+		if plr ~= LP and plr.Character.IsLocked.Value == true then
+			Remotes["CollarRemove"]:FireServer(plr.Character,"Collar")
+		end
+	end
+end)
+
 local GetDownitem = false
 local targetr = nil
 local taser = false
