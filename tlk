@@ -4239,6 +4239,12 @@ char_channel:Slider("WalkSpeed", 0, 500, LP.Character.Humanoid.WalkSpeed, functi
 
 end)
 
+avatar_channel:Textbox("Set Fake Name","Enter", true, function(text)
+ 
+	aONT = text
+
+end)
+
 char_channel:Toggle("Faka Name", false, function (bool)
 	Fakename = bool
 end)
@@ -4267,12 +4273,24 @@ LP.CharacterAdded:Connect(function(char)
     if Fakename == true then 
 		Chat["SayMessageRequest"]:FireServer( "/nick "..aONT,"All")
 	end
+	if Furry == true then
+		for _, _ in pairs(LP.Character:GetChildren()) do
+			RemoveCloth(_.Name)
+		end
+		task.wait(0.2)
+		ImportAsset(12333523895)
+		ImportAsset(12339085834)
+		ImportAsset(12339086845)
+		ImportAsset(11190054343)
+		ImportAsset(11284310004)
+	else
 	local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(LP.UserId):GetAccessories(true)
     for _, accessoryInfo in ipairs(accessoriesTable) do 
         ImportAsset(accessoryInfo.AssetId)
     end
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Shirt)
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Pants)
+end
 	if spawnfun == true then
         char:WaitForChild("HumanoidRootPart").CFrame = DiePos
 	End
