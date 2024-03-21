@@ -3313,6 +3313,14 @@ for idx, val in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
     end
 end
 
+local Chat = {}
+
+for idx, val in pairs(game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents:GetChildren()) do
+    if val:IsA("RemoteEvent") then
+        Chat[val.Name] = val
+    end
+end
+
 local function CheckRange(part1, part2, stud)
     range = (part1.Position - part2.Position).Magnitude
     if range < stud then
@@ -3332,14 +3340,14 @@ end
 
 local win = DiscordLib:Window("TLK Panel")
 
-local server_tab = win:Server("Server", getcustomasset("TLK_ASSETS/"..assets["ServerIcon"]["Name"]))
-local client_tab = win:Server("Client", getcustomasset("TLK_ASSETS/"..assets["ClientIcon"]["Name"]))
---[[
+--local server_tab = win:Server("Server", getcustomasset("TLK_ASSETS/"..assets["ServerIcon"]["Name"]))
+--local client_tab = win:Server("Client", getcustomasset("TLK_ASSETS/"..assets["ClientIcon"]["Name"]))
+
 local server_tab = 
-win:Server("Server", "https://create.roblox.com/store/asset/14932833086/Server-Failure-Icon?keyword=server+icon&pageNumber=1&pagePosition=16")
+win:Server("Server", "http://www.roblox.com/asset/?id=6031075938")
 local client_tab = 
-win:Server("Client", "https://create.roblox.com/store/asset/2691049040/PC-Icon?keyword=pc+icon&pageNumber=1&pagePosition=5&tab=reviews")
-]]
+win:Server("Client", "http://www.roblox.com/asset/?id=6031075938")
+
 
 local block_tools_channel = server_tab:Channel("Tools")
 local except_friends = false
@@ -4205,7 +4213,11 @@ end)
 
 LP.CharacterAdded:Connect(function(char)
     if LP.Team.Name ~= "Choosing" then choosing_stay_button:Delete() end
-    local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(LP.UserId):GetAccessories(true)
+    if Fakename == true then 
+		Chat["SayMessageRequest"]:FireServer( "/nick "..aONT,"All")
+	end
+
+	local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(LP.UserId):GetAccessories(true)
     for _, accessoryInfo in ipairs(accessoriesTable) do 
         ImportAsset(accessoryInfo.AssetId)
     end
