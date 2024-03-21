@@ -3912,6 +3912,7 @@ plrs.PlayerRemoving:Connect(function(player)
 
     repeat
         Remotes["Tase"]:FireServer("Hit", LP.Character.Taser, target.Character.Head)
+		task.wait(0.1)
         Remotes["Tase"]:FireServer("Recharge", LP.Character.Taser)
         task.wait()
     until target.Character.RagDoll.Value
