@@ -4245,6 +4245,10 @@ char_channel:Textbox("Set Fake Name","Enter", true, function(text)
 
 end)
 
+char_channel:Toggle("MY SKIN", false, function (bool)
+	NOsdfadfa = bool
+end)
+
 char_channel:Toggle("Faka Name", false, function (bool)
 	Fakename = bool
 end)
@@ -4278,7 +4282,9 @@ LP.CharacterAdded:Connect(function(char)
 		ImportAsset(12339086845)
 		ImportAsset(11190054343)
 		ImportAsset(11284310004)
-	elseif Furry == false then
+	end
+
+	if NOsdfadfa == true then
 		task.wait(0.2)
 		for _, _ in pairs(LP.Character:GetChildren()) do
 			RemoveCloth(_.Name)
@@ -4297,7 +4303,7 @@ LP.CharacterAdded:Connect(function(char)
 
 	task.wait(0.2)
 	LP.Character.Humanoid.AutoJumpEnabled = false
-	
+
 end)
 
 task.spawn(function()
