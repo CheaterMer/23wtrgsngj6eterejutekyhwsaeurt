@@ -3452,13 +3452,6 @@ block_tools_channel:Toggle("My Tool is", false, function(bool)
     backpackistrue = bool
 end)
 
-block_tools_channel:Toggle("Block Tools", false, function(bool)
-    block_tools = bool
-end)
-block_tools_channel:Toggle("Except Friends", false, function(bool)
-    except_friends = bool
-end)
-
 block_tools_channel:Button("Get Tools", function()
 
 
@@ -3492,6 +3485,59 @@ block_tools_channel:Button("Drop Burger", function()
 		end
 	end
 
+end)
+
+local itemlist = {}
+
+for i,v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Tool") then
+        --pcall(function ()
+        table.insert(item, v.Name)
+        --end)
+    end
+end
+
+block_tools_channel:Label("ALL Block Item")
+
+block_tools_channel:Toggle("Block Tools", false, function(bool)
+    block_tools = bool
+end)
+
+block_tools_channel:Toggle("Except Friends", false, function(bool)
+    except_friends = bool
+end)
+
+block_tools_channel:Label("One Block Item")
+
+block_tools_channel:Dropdown(
+    "Pick Item",
+		itemlist,
+    function(bool)
+		print(bool)
+        blockitempick = bool
+    end
+)
+
+block_tools_channel:Toggle("Block Item", false, function(bool)
+    BIT = bool
+end)
+
+task.spawn(function()
+    while task.wait() do
+    pcall(function()
+        if BIT then
+            for idx, plr in pairs(Players:GetPlayers()) do
+                if plr ~= LP and plr.Character.IsCuffed.Value == false and plr.Character:FindFirstChild(blockitempick) then
+                    if except_friends and not plr:IsFriendsWith(LP.UserId) then
+                        Remotes["UnCuffed"]:FireServer(plr.Character)
+                    else
+                        Remotes["UnCuffed"]:FireServer(plr.Character)
+                    end
+                end
+            end
+        end
+    end) 
+end
 end)
 
 local player_channel = server_tab:Channel("Character")
