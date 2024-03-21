@@ -4304,6 +4304,6 @@ end)
 
 game.Players.LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
     if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
-    DiePos = LP.Character.Torso.CFrame.Position
+    DiePos = LP.Character.Torso.CFrame
     end
 end)
