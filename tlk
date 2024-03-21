@@ -4261,10 +4261,12 @@ local DiePos
 
 LP.CharacterAdded:Connect(function(char)
     if LP.Team.Name ~= "Choosing" then choosing_stay_button:Delete() end
+
     if Fakename == true then 
 		task.wait(0.2)
 		Chat["SayMessageRequest"]:FireServer( "/nick "..aONT,"All")
 	end
+
 	if Furry == true then
 		task.wait(0.5)
 		for _, _ in pairs(LP.Character:GetChildren()) do
@@ -4288,11 +4290,14 @@ LP.CharacterAdded:Connect(function(char)
     	ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Shirt)
     	ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Pants)
 	end
+
 	if spawnfun == true then
         char:WaitForChild("HumanoidRootPart").CFrame = DiePos
 	end
+
 	task.wait(0.2)
 	LP.Character.Humanoid.AutoJumpEnabled = false
+	
 end)
 
 task.spawn(function()
