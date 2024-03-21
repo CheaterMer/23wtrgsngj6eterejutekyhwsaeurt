@@ -3560,7 +3560,7 @@ task.spawn(function()
     pcall(function()
         if TBI then
             for idx, plr in pairs(Players:GetPlayers()) do
-                if plr ~= LP and plr.Character.IsCuffed.Value == false and plr.Character.Team.Name == BITL then
+                if plr ~= LP and plr.Character.IsCuffed.Value == false and plr.Team.Name == BITL then
                     if except_friends and not plr:IsFriendsWith(LP.UserId) then
                         Remotes["UnCuffed"]:FireServer(plr.Character)
                     else
