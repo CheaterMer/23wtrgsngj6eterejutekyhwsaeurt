@@ -3336,9 +3336,9 @@ local win = DiscordLib:Window("TLK Panel")
 --local client_tab = win:Server("Client", getcustomasset("TLK_ASSETS/"..assets["ClientIcon"]["Name"]))
 
 local server_tab = 
-win:Server("Server", "http://www.roblox.com/asset/?id=16457715082")
+win:Server("Server", "http://www.roblox.com/asset/?id=14932833086")
 local client_tab = 
-win:Server("Client", "http://www.roblox.com/asset/?id=16504982722")
+win:Server("Client", "http://www.roblox.com/asset/?id=2691049040")
 
 
 local block_tools_channel = server_tab:Channel("Tools")
