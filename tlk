@@ -3540,6 +3540,39 @@ task.spawn(function()
 end
 end)
 
+block_tools_channel:Label("Team Block Item")
+
+block_tools_channel:Dropdown(
+    "Pick Item",
+		{"Guard","Prisoner","Fugitives","Choosing","Hostage","Civilian"},
+    function(bool)
+		print(bool)
+        BITL = bool
+    end
+)
+
+block_tools_channel:Toggle("Team Block Item", false, function(bool)
+    TBI = bool
+end)
+
+task.spawn(function()
+    while task.wait() do
+    pcall(function()
+        if TBI then
+            for idx, plr in pairs(Players:GetPlayers()) do
+                if plr ~= LP and plr.Character.IsCuffed.Value == false and plr.Character.Team.Name == BITL then
+                    if except_friends and not plr:IsFriendsWith(LP.UserId) then
+                        Remotes["UnCuffed"]:FireServer(plr.Character)
+                    else
+                        Remotes["UnCuffed"]:FireServer(plr.Character)
+                    end
+                end
+            end
+        end
+    end) 
+end
+end)
+
 local player_channel = server_tab:Channel("Character")
 local AUF
 local AUH
