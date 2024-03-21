@@ -4275,7 +4275,8 @@ LP.CharacterAdded:Connect(function(char)
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Pants)
 	if spawnfun == true then
         char:WaitForChild("HumanoidRootPart").CFrame = DiePos
-	end
+	End
+	task.wait(0.2)
 	LP.Character.Humanoid.AutoJumpEnabled = false
 end)
 
