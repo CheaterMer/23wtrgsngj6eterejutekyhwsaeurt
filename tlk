@@ -4284,7 +4284,7 @@ task.spawn(function()
 while true do
     wait(5)  -- 5초마다 반복
     local currentPartCount = countParts()
-    print("현재 파트 개수:", currentPartCount)
+    --print("현재 파트 개수:", currentPartCount)
     if currentPartCount > MAX_PART_COUNT then
         deleteExtraParts()  -- 초과된 파트 삭제
     end
