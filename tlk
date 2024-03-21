@@ -4270,7 +4270,7 @@ LP.CharacterAdded:Connect(function(char)
 		for _, _ in pairs(LP.Character:GetChildren()) do
 			RemoveCloth(_.Name)
 		end
-		task.wait(0.2)
+		--task.wait(0.2)
 		ImportAsset(12333523895)
 		ImportAsset(12339085834)
 		ImportAsset(12339086845)
