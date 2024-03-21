@@ -4277,6 +4277,7 @@ LP.CharacterAdded:Connect(function(char)
 		ImportAsset(11190054343)
 		ImportAsset(11284310004)
 	else Furry == false then
+		task.wait(0.2)
 		for _, _ in pairs(LP.Character:GetChildren()) do
 			RemoveCloth(_.Name)
 		end
