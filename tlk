@@ -4275,10 +4275,7 @@ LP.CharacterAdded:Connect(function(char)
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Pants)
 	if spawnfun == true then
 		task.wait(0.2)
-		repeat
-            char:WaitForChild("HumanoidRootPart").CFrame = DiePos
-            task.wait()
-        until char:WaitForChild("HumanoidRootPart").CFrame == DiePos
+        char:WaitForChild("HumanoidRootPart").CFrame = DiePos
 	end
 end)
 
