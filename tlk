@@ -3855,8 +3855,41 @@ combat_channel:Toggle("Inf Garb", false, function(bool)
     INFgarb = bool
 end)
 
+local GBP = {}
+for idx, plr in pairs(game.Players:GetPlayers()) do
+    table.insert(GBP, plr.Name)
+end
 
-combat_channel:Textbox("Grab Player", "Enter username", true, function(texts)
+local GarbPlayerList = combat_channel:Dropdown(
+    "Target",
+	GBP,
+    function(bool)
+		print(bool)
+        targetr = bool
+    end
+)
+
+plrs.PlayerAdded:Connect(function(player)
+	GarbPlayerList:Clear()
+	task.wait(1)
+	for idx, plr in pairs(game.Players:GetPlayers()) do
+		GarbPlayerList:Add(plr.Name)
+		--print("add",player.Name)
+	end
+  end)
+
+plrs.PlayerRemoving:Connect(function(player)
+	GarbPlayerList:Clear()
+	task.wait(1)
+	for idx, plr in pairs(game.Players:GetPlayers()) do
+		GarbPlayerList:Add(plr.Name)
+		--print("add",player.Name)
+	end
+	--print("remove",player.Name)
+  end)
+
+
+  combat_channel:Textbox("Grab Player", "Enter username", true, function(texts)
     local target = GetPlayer(texts)
     if not target then return end
 	print(target)
