@@ -4289,11 +4289,11 @@ LP.CharacterAdded:Connect(function(char)
 
     if Fakename == true then 
 		if aONT == nil then 
-			DiscordLib:Notification("Notification", "Fakename is Nil Brb", "Okay!")
+			--DiscordLib:Notification("Notification", "Fakename is Nil Brb", "Okay!")
 			Chat["SayMessageRequest"]:FireServer( "/nick NULL","All")
 		else
 		task.wait(0.2)
-		DiscordLib:Notification("Notification", "Fakename is "..aONT, "Okay!")
+		--DiscordLib:Notification("Notification", "Fakename is "..aONT, "Okay!")
 		Chat["SayMessageRequest"]:FireServer( "/nick "..aONT,"All")
 		end
 	end
