@@ -4253,17 +4253,8 @@ char_channel:Toggle("Spawn Dead Point", false, function (bool)
 	spawnfun = bool
 end)
 
-char_channel:Button("Furry", function()
-	for _, _ in pairs(LP.Character:GetChildren()) do
-		RemoveCloth(_.Name)
-	end
-	task.wait(0.2)
-	ImportAsset(12333523895)
-	ImportAsset(12339085834)
-	ImportAsset(12339086845)
-	ImportAsset(11190054343)
-	ImportAsset(11284310004)
-
+char_channel:Toggle("Spawn Dead Point", false, function (bool)
+	Furry = bool
 end)
 
 local DiePos 
