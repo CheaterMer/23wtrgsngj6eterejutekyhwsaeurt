@@ -4267,8 +4267,13 @@ LP.CharacterAdded:Connect(function(char)
     if LP.Team.Name ~= "Choosing" then choosing_stay_button:Delete() end
 
     if Fakename == true then 
+		if aONT == nil then 
+			DiscordLib:Notification("Notification", "Fakename is Nil Brb", "Okay!")
+			Chat["SayMessageRequest"]:FireServer( "/nick NULL","All")
+		else
 		task.wait(0.2)
 		Chat["SayMessageRequest"]:FireServer( "/nick "..aONT,"All")
+	end
 	end
 
 	if Furry == true then
