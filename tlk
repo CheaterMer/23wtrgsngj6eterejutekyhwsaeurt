@@ -3347,7 +3347,7 @@ task.spawn(function()
         if _G.forcestop then
             _G.forcestop = nil
             break
-        end pcall(function()
+        end --pcall(function()
         if block_tools then
             for idx, plr in pairs(Players:GetPlayers()) do
                 if plr ~= LP and plr.Character.IsCuffed.Value == false then
@@ -3359,7 +3359,8 @@ task.spawn(function()
                 end
             end
         end
-    end) end
+    --end) 
+end
 end)
 
 task.spawn(function()
