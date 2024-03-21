@@ -3291,6 +3291,19 @@ local MAX_PART_COUNT = 50  -- 최대 허용 파트 개수
 local function countParts()
     local parts = Players:GetChildren()  -- 현재 워크스페이스에 있는 모든 오브젝트 가져오기
     local partCount = 0
+
+
+	for _, part in pairs(Players:GetPlayers()) do
+        if part ~= LP then
+        for A,B in pairs(part.Character:GetChildren()) do
+        if B.Name == "A" then
+			partCount = partCount + 1
+        end
+        end
+        end
+        end
+
+--[[
     for _, part in ipairs(parts) do
 		if plr ~= LP then
         if part:IsA("Accessory") and part.Name == "A" then  -- 파트인 경우에만 카운트
@@ -3298,6 +3311,8 @@ local function countParts()
 		end
         end
     end
+]]
+
     return partCount
 end
 
@@ -3306,6 +3321,21 @@ local function deleteExtraParts()
     local parts = Players:GetChildren()
     local extraParts = countParts() - MAX_PART_COUNT  -- 초과된 파트 개수 계산
     if extraParts > 0 then
+
+		for _, part in pairs(Players:GetPlayers()) do
+			if part ~= LP then
+			for A,B in pairs(part.Character:GetChildren()) do
+			if B.Name == "A" then
+				part:Destroy()
+				extraParts = extraParts - 1
+				if extraParts <= 0 then
+                    break
+				end
+			end
+			end
+			end
+			end
+--[[
         for _, part in ipairs(parts) do
 			if plr ~= LP then
             if part:IsA("Accessory") and part.Name == "A" then
@@ -3317,6 +3347,7 @@ local function deleteExtraParts()
                 end
             end
         end
+]]
         print("초과된 파트를 삭제했습니다.")
     end
 end
