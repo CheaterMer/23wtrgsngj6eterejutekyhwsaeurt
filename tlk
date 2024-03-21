@@ -3893,7 +3893,7 @@ plrs.PlayerRemoving:Connect(function(player)
 	local target = GetPlayer(TGBP)
     if not target then return end
 	print(target)
-    if target.Character:FindFirstChild("Hummnoid") and target.Character.Hostile.Value == false or target.Character.Humanoid.Health == 0 then 
+    if target.Character:FindFirstChild("Hummnoid") and target.Character.Hostile.Value == false and target.Character.Humanoid.Health == 0 then 
 		return 
 	end
 
