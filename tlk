@@ -3894,7 +3894,7 @@ plrs.PlayerRemoving:Connect(function(player)
     if not target then return end
 	print(target)
     if target.Character.Hostile.Value == false 
-	and target.Character.Humanoid.Health == 0 then 
+	or target.Character.Humanoid.Health == 0 then 
 		return 
 	end
 
