@@ -3332,8 +3332,12 @@ end
 
 local win = DiscordLib:Window("TLK Panel")
 
-local server_tab = win:Server("Server", getcustomasset("TLK_ASSETS/"..assets["ServerIcon"]["Name"]))
-local client_tab = win:Server("Client", getcustomasset("TLK_ASSETS/"..assets["ClientIcon"]["Name"]))
+--local server_tab = win:Server("Server", getcustomasset("TLK_ASSETS/"..assets["ServerIcon"]["Name"]))
+--local client_tab = win:Server("Client", getcustomasset("TLK_ASSETS/"..assets["ClientIcon"]["Name"]))
+
+local server_tab = win:Server("Server", "https://create.roblox.com/store/asset/14932833086/Server-Failure-Icon?keyword=server+icon&pageNumber=1&pagePosition=16")
+local client_tab = win:Server("Client", "https://create.roblox.com/store/asset/2691049040/PC-Icon?keyword=pc+icon&pageNumber=1&pagePosition=5")
+
 
 local block_tools_channel = server_tab:Channel("Tools")
 local except_friends = false
