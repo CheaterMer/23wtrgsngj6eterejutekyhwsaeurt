@@ -3813,6 +3813,7 @@ function eat()
 			end) 
 		end
 		end
+		end
 	end)
 
 task.spawn(function()
