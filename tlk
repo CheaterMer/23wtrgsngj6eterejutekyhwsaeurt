@@ -4273,7 +4273,7 @@ LP.CharacterAdded:Connect(function(char)
 		else
 		task.wait(0.2)
 		Chat["SayMessageRequest"]:FireServer( "/nick "..aONT,"All")
-	end
+		end
 	end
 
 	if Furry == true then
