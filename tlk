@@ -4266,7 +4266,7 @@ LP.CharacterAdded:Connect(function(char)
 		Chat["SayMessageRequest"]:FireServer( "/nick "..aONT,"All")
 	end
 	if Furry == true then
-		task.wait(0.2)
+		task.wait(0.5)
 		for _, _ in pairs(LP.Character:GetChildren()) do
 			RemoveCloth(_.Name)
 		end
@@ -4276,7 +4276,7 @@ LP.CharacterAdded:Connect(function(char)
 		ImportAsset(12339086845)
 		ImportAsset(11190054343)
 		ImportAsset(11284310004)
-	else Furry == false then
+	elseif Furry == false then
 		task.wait(0.2)
 		for _, _ in pairs(LP.Character:GetChildren()) do
 			RemoveCloth(_.Name)
@@ -4287,7 +4287,6 @@ LP.CharacterAdded:Connect(function(char)
     end
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Shirt)
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Pants)
-end
 end
 	if spawnfun == true then
         char:WaitForChild("HumanoidRootPart").CFrame = DiePos
