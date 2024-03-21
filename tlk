@@ -4148,13 +4148,7 @@ local copy_avatar = avatar_channel:Dropdown(
 
 		dpname = Players:FindFirstChild(bool).DisplayName
 		
-		local args = {
-			[1] = "/nick "..dpname,
-			[2] = "All"
-		}
-		
-		game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest"):FireServer(unpack(args))
-		
+		Chat["SayMessageRequest"]:FireServer( "/nick "..dpname,"All")
 
 		userfree = Players:FindFirstChild(bool).UserId
 		--print(userfree)
