@@ -4267,18 +4267,19 @@ LP.CharacterAdded:Connect(function(char)
     if Fakename == true then 
 		Chat["SayMessageRequest"]:FireServer( "/nick "..aONT,"All")
 	end
-	if spawnfun then
-		repeat
-            char:WaitForChild("HumanoidRootPart").CFrame = DiePos
-            task.wait()
-        until char:WaitForChild("HumanoidRootPart").CFrame == DiePos
-	end
 	local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(LP.UserId):GetAccessories(true)
     for _, accessoryInfo in ipairs(accessoriesTable) do 
         ImportAsset(accessoryInfo.AssetId)
     end
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Shirt)
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Pants)
+	if spawnfun then
+		task.wait(0.2)
+		repeat
+            char:WaitForChild("HumanoidRootPart").CFrame = DiePos
+            task.wait()
+        until char:WaitForChild("HumanoidRootPart").CFrame == DiePos
+	end
 end)
 
 task.spawn(function()
