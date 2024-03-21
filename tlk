@@ -3543,7 +3543,7 @@ end)
 block_tools_channel:Label("Team Block Item")
 
 block_tools_channel:Dropdown(
-    "Pick Item",
+    "Pick Team",
 		{"Guard","Prisoner","Fugitives","Choosing","Hostage","Civilian"},
     function(bool)
 		print(bool)
