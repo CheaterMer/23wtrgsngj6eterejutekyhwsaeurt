@@ -3895,7 +3895,7 @@ plrs.PlayerRemoving:Connect(function(player)
 	print(targasdsdaset)
     if targasdsdaset.Character.Hostile.Value == false 
 	or targasdsdaset.Character.Humanoid.Health == 0 then 
-		return 
+		return print("nil")
 	end
 
     local cuff = LP.Backpack:FindFirstChild("Handcuffs") or LP.Backpack:FindFirstChild("Handcuffs (fugitive)")
