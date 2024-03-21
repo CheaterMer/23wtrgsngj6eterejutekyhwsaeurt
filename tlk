@@ -4243,6 +4243,9 @@ char_channel:Toggle("Faka Name", false, function (bool)
 	Fakename = bool
 end)
 
+char_channel:Toggle("Spawn Dead Point", false, function (bool)
+	spawnfun = bool
+end)
 
 char_channel:Button("Furry", function()
 	for _, _ in pairs(LP.Character:GetChildren()) do
@@ -4257,12 +4260,19 @@ char_channel:Button("Furry", function()
 
 end)
 
+local DiePos 
+
 LP.CharacterAdded:Connect(function(char)
     if LP.Team.Name ~= "Choosing" then choosing_stay_button:Delete() end
     if Fakename == true then 
 		Chat["SayMessageRequest"]:FireServer( "/nick "..aONT,"All")
 	end
-
+	if spawnfun then
+		repeat
+            char:WaitForChild("HumanoidRootPart").CFrame = DiePos
+            task.wait()
+        until char:WaitForChild("HumanoidRootPart").CFrame == DiePos
+	end
 	local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(LP.UserId):GetAccessories(true)
     for _, accessoryInfo in ipairs(accessoriesTable) do 
         ImportAsset(accessoryInfo.AssetId)
@@ -4289,4 +4299,11 @@ while true do
         deleteExtraParts()  -- 초과된 파트 삭제
     end
 end
+end)
+
+
+game.Players.LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+    if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
+    DiePos = LP.Character.Torso.CFrame.Position
+    end
 end)
