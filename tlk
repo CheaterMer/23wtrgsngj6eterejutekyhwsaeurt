@@ -3734,25 +3734,6 @@ local playerlista = player_channel:Dropdown(
     end
 )
 
-plrs.PlayerAdded:Connect(function(player)
-	playerlista:Clear()
-	task.wait(1)
-	for idx, plr in pairs(game.Players:GetPlayers()) do
-		playerlista:Add(plr.Name)
-		--print("add",player.Name)
-	end
-  end)
-
-plrs.PlayerRemoving:Connect(function(player)
-	playerlista:Clear()
-	task.wait(1)
-	for idx, plr in pairs(game.Players:GetPlayers()) do
-		playerlista:Add(plr.Name)
-		--print("add",player.Name)
-	end
-	--print("remove",player.Name)
-  end)
-
 player_channel:Button("One", function()
 pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
 tpos = game:GetService("Players"):WaitForChild(targetr).Character.Torso.CFrame.Position
@@ -3783,13 +3764,6 @@ end)
 	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
 
 end)
-
---player_channel:Button("Garb Player", function()
-
-
-
-
---end)
 
 player_channel:Toggle("taser", false, function(bool)
     taser = bool
@@ -3934,38 +3908,14 @@ combat_channel:Toggle("Inf Garb", false, function(bool)
     INFgarb = bool
 end)
 
-local GBP = {}
-for idx, plr in pairs(game.Players:GetPlayers()) do
-    table.insert(GBP, plr.Name)
-end
-
 local GarbPlayerList = combat_channel:Dropdown(
     "Target",
-	GBP,
+	names,
     function(bool)
 		print(bool)
         TGBP = bool
     end
 )
-
-plrs.PlayerAdded:Connect(function(player)
-	GarbPlayerList:Clear()
-	task.wait(1)
-	for idx, plr in pairs(game.Players:GetPlayers()) do
-		GarbPlayerList:Add(plr.Name)
-		--print("add",player.Name)
-	end
-  end)
-
-plrs.PlayerRemoving:Connect(function(player)
-	GarbPlayerList:Clear()
-	task.wait(1)
-	for idx, plr in pairs(game.Players:GetPlayers()) do
-		GarbPlayerList:Add(plr.Name)
-		--print("add",player.Name)
-	end
-	--print("remove",player.Name)
-  end)
 
   combat_channel:Button("Garb Player", function()
 
@@ -4381,14 +4331,9 @@ avatar_channel:Textbox("Copy Item","Enter", true, function(text)
 
 end)
 
-local ids = {}
-for idx, plr in pairs(Players:GetPlayers()) do
-    table.insert(ids, plr.Name)
-end
-
 local copy_avatar = avatar_channel:Dropdown(
     "Copy",
-    ids,
+    names,
     function(bool)
 
 		dpname = Players:FindFirstChild(bool).DisplayName
@@ -4410,22 +4355,6 @@ local copy_avatar = avatar_channel:Dropdown(
 
     end
 )
-
-plrs.PlayerAdded:Connect(function(player)
-	copy_avatar:Clear()
-	task.wait(1)
-	for idx, plr in pairs(game.Players:GetPlayers()) do
-		copy_avatar:Add(plr.Name)
-	end
-  end)
-
-plrs.PlayerRemoving:Connect(function(player)
-	copy_avatar:Clear()
-	task.wait(1)
-	for idx, plr in pairs(game.Players:GetPlayers()) do
-		copy_avatar:Add(plr.Name)
-	end
-  end)
 
 local char_channel = client_tab:Channel("Character")
 
@@ -4541,3 +4470,32 @@ task.spawn(function()
     end
 end
 end)
+
+
+
+plrs.PlayerAdded:Connect(function(player)
+	playerlista:Clear()
+	copy_avatar:Clear()
+	GarbPlayerList:Clear()
+	task.wait(1)
+	for idx, plr in pairs(game.Players:GetPlayers()) do
+		playerlista:Add(plr.Name)
+		copy_avatar:Add(plr.Name)
+		GarbPlayerList:Add(plr.Name)
+		--print("add",player.Name)
+	end
+  end)
+
+plrs.PlayerRemoving:Connect(function(player)
+	playerlista:Clear()
+	copy_avatar:Clear()
+	GarbPlayerList:Clear()
+	task.wait(1)
+	for idx, plr in pairs(game.Players:GetPlayers()) do
+		playerlista:Add(plr.Name)
+		copy_avatar:Add(plr.Name)
+		GarbPlayerList:Add(plr.Name)
+		--print("add",player.Name)
+	end
+	--print("remove",player.Name)
+  end)
