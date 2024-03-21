@@ -3944,7 +3944,7 @@ plrs.PlayerRemoving:Connect(function(player)
 
 end)
 
-
+--[[
   combat_channel:Textbox("Grab Player", "Enter username", true, function(texts)
     local target = GetPlayer(texts)
     if not target then return end
@@ -3989,6 +3989,8 @@ end)
     loop_move:Disconnect()
     LP.Character.HumanoidRootPart.CFrame = oldPos
 end)
+
+]]
 
 local function ImportAsset(id)
     Remotes["Import"]:FireServer(math.random(1, 10), id, tostring({}), tostring(id))
