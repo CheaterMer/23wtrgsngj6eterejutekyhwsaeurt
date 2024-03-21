@@ -3890,13 +3890,13 @@ plrs.PlayerRemoving:Connect(function(player)
 
   combat_channel:Button("Garb Player", function()
 
-	local target = GetPlayer(TGBP)
-    if not target then return end
-	print(target)
-    --if target.Character.Hostile.Value == false 
-	--or target.Character.Humanoid.Health == 0 then 
-	--	return 
-	--end
+	local targasdsdaset = GetPlayer(TGBP)
+    if not targasdsdaset then return end
+	print(targasdsdaset)
+    if targasdsdaset.Character.Hostile.Value == false 
+	or targasdsdaset.Character.Humanoid.Health == 0 then 
+		return 
+	end
 
     local cuff = LP.Backpack:FindFirstChild("Handcuffs") or LP.Backpack:FindFirstChild("Handcuffs (fugitive)")
     if LP.Team.Name == "Fugitives" then
@@ -3914,29 +3914,29 @@ plrs.PlayerRemoving:Connect(function(player)
 
     local oldPos = LP.Character.HumanoidRootPart.CFrame
     local loop_move = RunService.Stepped:Connect(function()
-        LP.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, 7, 0)
+        LP.Character.HumanoidRootPart.CFrame = targasdsdaset.Character.HumanoidRootPart.CFrame + Vector3.new(0, 7, 0)
     end)
 
     repeat
-        Remotes["Tase"]:FireServer("Hit", LP.Character.Taser, target.Character.Head)
+        Remotes["Tase"]:FireServer("Hit", LP.Character.Taser, targasdsdaset.Character.Head)
 		task.wait(0.1)
         Remotes["Tase"]:FireServer("Recharge", LP.Character.Taser)
         task.wait()
-    until target.Character.RagDoll.Value
+    until targasdsdaset.Character.RagDoll.Value
 
     repeat
-        Remotes["IsCuffed"]:FireServer(cuff, target.Character)
+        Remotes["IsCuffed"]:FireServer(cuff, targasdsdaset.Character)
         task.wait()
-    until target.Character.IsCuffed.Value
+    until targasdsdaset.Character.IsCuffed.Value
 
     repeat
-        Remotes["IsHog"]:FireServer(target.Character, "Hog")
+        Remotes["IsHog"]:FireServer(targasdsdaset.Character, "Hog")
         task.wait()
-    until target.Character.IsHogged.Value
+    until targasdsdaset.Character.IsHogged.Value
     repeat
-        Remotes["Grab"]:FireServer(target.Character, "Grab")
+        Remotes["Grab"]:FireServer(targasdsdaset.Character, "Grab")
         task.wait()
-    until target.Character.IsGrabbed.Value
+    until targasdsdaset.Character.IsGrabbed.Value
 
     loop_move:Disconnect()
     LP.Character.HumanoidRootPart.CFrame = oldPos
