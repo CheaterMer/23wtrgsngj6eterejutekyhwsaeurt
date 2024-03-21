@@ -4262,6 +4262,7 @@ local DiePos
 LP.CharacterAdded:Connect(function(char)
     if LP.Team.Name ~= "Choosing" then choosing_stay_button:Delete() end
     if Fakename == true then 
+		task.wait(0.2)
 		Chat["SayMessageRequest"]:FireServer( "/nick "..aONT,"All")
 	end
 	if Furry == true then
