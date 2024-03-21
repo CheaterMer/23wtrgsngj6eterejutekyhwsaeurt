@@ -3492,7 +3492,7 @@ local itemlist = {}
 for i,v in pairs(workspace:GetDescendants()) do
     if v:IsA("Tool") then
         --pcall(function ()
-        table.insert(item, v.Name)
+        table.insert(itemlist, v.Name)
         --end)
     end
 end
