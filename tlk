@@ -3893,10 +3893,10 @@ plrs.PlayerRemoving:Connect(function(player)
 	local target = GetPlayer(TGBP)
     if not target then return end
 	print(target)
-    if target.Character.Hostile.Value == false 
-	or target.Character.Humanoid.Health == 0 then 
-		return 
-	end
+    --if target.Character.Hostile.Value == false 
+	--or target.Character.Humanoid.Health == 0 then 
+	--	return 
+	--end
 
     local cuff = LP.Backpack:FindFirstChild("Handcuffs") or LP.Backpack:FindFirstChild("Handcuffs (fugitive)")
     if LP.Team.Name == "Fugitives" then
