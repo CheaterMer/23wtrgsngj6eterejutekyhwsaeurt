@@ -3705,6 +3705,13 @@ end)
 
 end)
 
+--player_channel:Button("Garb Player", function()
+
+
+
+
+--end)
+
 player_channel:Toggle("taser", false, function(bool)
     taser = bool
 end)
