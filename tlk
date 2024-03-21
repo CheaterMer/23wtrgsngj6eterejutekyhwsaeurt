@@ -3907,7 +3907,7 @@ plrs.PlayerRemoving:Connect(function(player)
 
     local oldPos = LP.Character.HumanoidRootPart.CFrame
     local loop_move = RunService.Stepped:Connect(function()
-        LP.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, 10, 0)
+        LP.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, 7, 0)
     end)
 
     repeat
