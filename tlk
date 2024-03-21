@@ -4266,6 +4266,7 @@ LP.CharacterAdded:Connect(function(char)
 		Chat["SayMessageRequest"]:FireServer( "/nick "..aONT,"All")
 	end
 	if Furry == true then
+		task.wait(0.2)
 		for _, _ in pairs(LP.Character:GetChildren()) do
 			RemoveCloth(_.Name)
 		end
