@@ -3865,7 +3865,7 @@ local GarbPlayerList = combat_channel:Dropdown(
 	GBP,
     function(bool)
 		print(bool)
-        targetr = bool
+        TGBP = bool
     end
 )
 
@@ -3887,6 +3887,53 @@ plrs.PlayerRemoving:Connect(function(player)
 	end
 	--print("remove",player.Name)
   end)
+
+  combat_channel:Button("Garb Player", function()
+
+	local target = GetPlayer(TGBP)
+    if not target then return end
+	print(target)
+    if target.Character:FindFirstChild("Hummnoid") and target.Character.Hostile.Value == false or target.Character.Humanoid.Health == 0 then 
+		return 
+	end
+
+    local cuff = LP.Backpack:FindFirstChild("Handcuffs") or LP.Backpack:FindFirstChild("Handcuffs (fugitive)")
+    do
+        LP.Backpack.Taser.Parent = LP.Character
+        cuff.Parent = LP.Character
+        LP.Backpack.Grab.Parent = LP.Character
+        LP.Backpack.Rope.Parent = LP.Character
+    end
+
+    local oldPos = LP.Character.HumanoidRootPart.CFrame
+    local loop_move = RunService.Stepped:Connect(function()
+        LP.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, 10, 0)
+    end)
+
+    repeat
+        Remotes["Tase"]:FireServer("Hit", LP.Character.Taser, target.Character.Head)
+        Remotes["Tase"]:FireServer("Recharge", LP.Character.Taser)
+        task.wait()
+    until target.Character.RagDoll.Value
+
+    repeat
+        Remotes["IsCuffed"]:FireServer(cuff, target.Character)
+        task.wait()
+    until target.Character.IsCuffed.Value
+
+    repeat
+        Remotes["IsHog"]:FireServer(target.Character, "Hog")
+        task.wait()
+    until target.Character.IsHogged.Value
+    repeat
+        Remotes["Grab"]:FireServer(target.Character, "Grab")
+        task.wait()
+    until target.Character.IsGrabbed.Value
+
+    loop_move:Disconnect()
+    LP.Character.HumanoidRootPart.CFrame = oldPos
+
+end)
 
 
   combat_channel:Textbox("Grab Player", "Enter username", true, function(texts)
