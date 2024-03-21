@@ -3856,8 +3856,8 @@ combat_channel:Toggle("Inf Garb", false, function(bool)
 end)
 
 
-combat_channel:Textbox("Grab Player", "Enter username", true, function(text)
-    local target = GetPlayer(text)
+combat_channel:Textbox("Grab Player", "Enter username", true, function(texts)
+    local target = GetPlayer(texts)
     if not target then return end
 	print(target)
     if target.Character:FindFirstChild("Hummnoid") and target.Character.Hostile.Value == false or target.Character.Humanoid.Health == 0 then 
