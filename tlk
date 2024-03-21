@@ -3893,7 +3893,8 @@ plrs.PlayerRemoving:Connect(function(player)
 	local target = GetPlayer(TGBP)
     if not target then return end
 	print(target)
-    if target.Character:FindFirstChild("Hummnoid") and target.Character.Hostile.Value == false and target.Character.Humanoid.Health == 0 then 
+    if target.Character.Hostile.Value == false 
+	and target.Character.Humanoid.Health == 0 then 
 		return 
 	end
 
@@ -3904,12 +3905,12 @@ plrs.PlayerRemoving:Connect(function(player)
 		local cuff = LP.Backpack:FindFirstChild("Handcuffs")
 	end
 
-	spawn(function()
+	do
         LP.Backpack.Taser.Parent = LP.Character
         cuff.Parent = LP.Character
         LP.Backpack.Grab.Parent = LP.Character
         LP.Backpack.Rope.Parent = LP.Character
-    end)
+    end
 
     local oldPos = LP.Character.HumanoidRootPart.CFrame
     local loop_move = RunService.Stepped:Connect(function()
