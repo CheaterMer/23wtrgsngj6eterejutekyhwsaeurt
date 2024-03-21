@@ -4273,7 +4273,7 @@ LP.CharacterAdded:Connect(function(char)
     end
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Shirt)
     ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Pants)
-	if spawnfun then
+	if spawnfun == true then
 		task.wait(0.2)
 		repeat
             char:WaitForChild("HumanoidRootPart").CFrame = DiePos
