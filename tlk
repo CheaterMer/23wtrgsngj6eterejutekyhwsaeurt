@@ -3489,6 +3489,8 @@ player_channel:Toggle("All Un Collar Aura", false, function(bool)
 	AUC = bool
 end)
 
+player_channel:Label("Just One Click")
+
 player_channel:Button("OAUC", function()
 	for idx, plr in pairs(Players:GetPlayers()) do
 		if plr ~= LP and plr.Character.IsCuffed.Value == true then
