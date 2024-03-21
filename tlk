@@ -4415,6 +4415,7 @@ LP.CharacterAdded:Connect(function(char)
 		ImportAsset(12339086845)
 		ImportAsset(11190054343)
 		ImportAsset(11284310004)
+		ImportAsset(11675568048)
 	end
 
 	if NOsdfadfa == true then
