@@ -4192,6 +4192,11 @@ char_channel:Slider("WalkSpeed", 0, 500, LP.Character.Humanoid.WalkSpeed, functi
 
 end)
 
+char_channel:Toggle("Faka Name", false, function (bool)
+	Fakename = bool
+end)
+
+
 char_channel:Button("Furry", function()
 	for _, _ in pairs(LP.Character:GetChildren()) do
 		RemoveCloth(_.Name)
