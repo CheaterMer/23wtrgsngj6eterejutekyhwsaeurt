@@ -4281,13 +4281,13 @@ LP.CharacterAdded:Connect(function(char)
 		for _, _ in pairs(LP.Character:GetChildren()) do
 			RemoveCloth(_.Name)
 		end
-	local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(LP.UserId):GetAccessories(true)
-    for _, accessoryInfo in ipairs(accessoriesTable) do 
+		local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(LP.UserId):GetAccessories(true)
+    	for _, accessoryInfo in ipairs(accessoriesTable) do 
         ImportAsset(accessoryInfo.AssetId)
-    end
-    ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Shirt)
-    ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Pants)
-end
+    	end
+    	ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Shirt)
+    	ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Pants)
+	end
 	if spawnfun == true then
         char:WaitForChild("HumanoidRootPart").CFrame = DiePos
 	end
