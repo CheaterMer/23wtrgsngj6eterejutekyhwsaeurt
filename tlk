@@ -3285,6 +3285,38 @@ local choosing_spawn = CFrame.new(282.811157, 5.99613762, -69.6557007, 0.8261197
 
 makefolder("TLK_ASSETS")
 
+local MAX_PART_COUNT = 50  -- 최대 허용 파트 개수
+
+-- 파트 개수 계산 함수
+local function countParts()
+    local parts = game.Workspace:GetChildren()  -- 현재 워크스페이스에 있는 모든 오브젝트 가져오기
+    local partCount = 0
+    for _, part in ipairs(parts) do
+        if part:IsA("Accessory") and part.Name == "A" then  -- 파트인 경우에만 카운트
+            partCount = partCount + 1
+        end
+    end
+    return partCount
+end
+
+-- 파트 삭제 함수
+local function deleteExtraParts()
+    local parts = game.Workspace:GetChildren()
+    local extraParts = countParts() - MAX_PART_COUNT  -- 초과된 파트 개수 계산
+    if extraParts > 0 then
+        for _, part in ipairs(parts) do
+            if part:IsA("Accessory") and part.Name == "A" then
+                part:Destroy()  -- 파트 삭제
+                extraParts = extraParts - 1
+                if extraParts <= 0 then
+                    break
+                end
+            end
+        end
+        print("초과된 파트를 삭제했습니다.")
+    end
+end
+
 local assets = {
     ["ServerIcon"] = {
         ["Name"] = "servericon.png",
@@ -4229,6 +4261,17 @@ for v,b in pairs(workspace:GetChildren()) do
     if b.Name == "Border" then
         task.wait()
         b:Destroy()
+    end
+end
+end)
+
+task.spawn(function()
+while true do
+    wait(5)  -- 5초마다 반복
+    local currentPartCount = countParts()
+    print("현재 파트 개수:", currentPartCount)
+    if currentPartCount > MAX_PART_COUNT then
+        deleteExtraParts()  -- 초과된 파트 삭제
     end
 end
 end)
