@@ -4272,6 +4272,7 @@ LP.CharacterAdded:Connect(function(char)
 			Chat["SayMessageRequest"]:FireServer( "/nick NULL","All")
 		else
 		task.wait(0.2)
+		DiscordLib:Notification("Notification", "Fakename is "..aONT, "Okay!")
 		Chat["SayMessageRequest"]:FireServer( "/nick "..aONT,"All")
 		end
 	end
