@@ -89,7 +89,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 			anime(7137385893)
 			attack()
 			m2 = true
-	end
+		end
     elseif player.Character:FindFirstChild("Pickaxe") then
 		anime(7098129399)
         attack()
