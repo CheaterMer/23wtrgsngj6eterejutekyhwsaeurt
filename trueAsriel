@@ -37,9 +37,10 @@ end
 
 function anime(id)
 	local animation1 = Instance.new("Animation")
-	animation1.Name = "AttackMove"
+	--animation1.Name = "AttackMove"
 	animation1.AnimationId = "rbxassetid://"..id
 	local anim1 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(animation1)
+	anim1.Name = "AttackMove"
 	task.wait()
 	anim1:Play()
 	spawn(function()
