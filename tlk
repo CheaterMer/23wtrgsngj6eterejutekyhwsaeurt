@@ -3986,6 +3986,10 @@ local GarbPlayerList = combat_channel:Dropdown(
 
 end)
 
+combat_channel:Button("Garb Player", function()
+	Remotes["Grab"]:FireServer(targasdsdaset.Character, "Drop")
+end)
+
 --[[
   combat_channel:Textbox("Grab Player", "Enter username", true, function(texts)
     local target = GetPlayer(texts)
