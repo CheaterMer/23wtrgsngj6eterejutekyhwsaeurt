@@ -35,13 +35,22 @@ local function CheckRange(part1, part2, stud)
     return false
 end
 
+local MAX_PART_COUNT = 1  -- 최대 허용 파트 개수
+
 function anime(id)
 
 	spawn(function()
+		local extraParts = partCount - MAX_PART_COUNT
 		for i,v in pairs(LP.Character.Humanoid:GetPlayingAnimationTracks()) do
 			if v.Name == "AttackMove" then
-				print(v)
-				v:Stop()
+				partCount = partCount + 1
+				if extraParts > 0 then
+					v:Destroy()
+					extraParts = extraParts - 1
+					if extraParts <= 0 then
+						break
+					end
+				end
 			end
 		end
 	end)
