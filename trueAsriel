@@ -38,11 +38,6 @@ end
 
 
 function anime(id)
-
-		for i,v in pairs(LP.Character.Humanoid:GetPlayingAnimationTracks()) do
-			if v:FindFirstChild("AttackMove") then
-				return
-			else
 				local animation1 = Instance.new("Animation")
 				--animation1.Name = "AttackMove"
 				animation1.AnimationId = "rbxassetid://"..id
@@ -50,10 +45,6 @@ function anime(id)
 				anim1.Name = "AttackMove"
 				task.wait()
 				anim1:Play()
-
-			end
-		end
-
 end
 
 function attack()
