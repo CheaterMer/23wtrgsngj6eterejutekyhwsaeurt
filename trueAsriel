@@ -40,10 +40,10 @@ local MAX_PART_COUNT = 1  -- 최대 허용 파트 개수
 function anime(id)
 
 	spawn(function()
-		local extraParts = partCount - MAX_PART_COUNT
 		for i,v in pairs(LP.Character.Humanoid:GetPlayingAnimationTracks()) do
 			if v.Name == "AttackMove" then
 				partCount = partCount + 1
+				extraParts = partCount - MAX_PART_COUNT
 				if extraParts > 0 then
 					v:Destroy()
 					extraParts = extraParts - 1
