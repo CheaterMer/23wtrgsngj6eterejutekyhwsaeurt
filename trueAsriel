@@ -35,33 +35,24 @@ local function CheckRange(part1, part2, stud)
     return false
 end
 
-local MAX_PART_COUNT = 1  -- 최대 허용 파트 개수
+
 
 function anime(id)
 
-	spawn(function()
 		for i,v in pairs(LP.Character.Humanoid:GetPlayingAnimationTracks()) do
-			if v.Name == "AttackMove" then
-				partCount = partCount + 1
-				extraParts = partCount - MAX_PART_COUNT
-				if extraParts > 0 then
-					v:Destroy()
-					extraParts = extraParts - 1
-					if extraParts <= 0 then
-						break
-					end
-				end
+			if not v.Name == "AttackMove" then
+				
+				local animation1 = Instance.new("Animation")
+				--animation1.Name = "AttackMove"
+				animation1.AnimationId = "rbxassetid://"..id
+				local anim1 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(animation1)
+				anim1.Name = "AttackMove"
+				task.wait()
+				anim1:Play()
+
 			end
 		end
-	end)
 
-	local animation1 = Instance.new("Animation")
-	--animation1.Name = "AttackMove"
-	animation1.AnimationId = "rbxassetid://"..id
-	local anim1 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(animation1)
-	anim1.Name = "AttackMove"
-	task.wait()
-	anim1:Play()
 end
 
 function attack()
