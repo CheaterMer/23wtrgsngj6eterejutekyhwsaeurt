@@ -3520,7 +3520,13 @@ block_tools_channel:Dropdown(
 
 block_tools_channel:Button("Get Tools", function()
 
-	fireclickdetector(workspace.blockitempick.ClickDetector)
+    for i,v in pairs(workspace:GetDescendants()) do
+       if v:IsA("Tool") and v.Name == blockitempick then
+           pcall(function ()
+            fireclickdetector(v.ClickDetector)
+          end)
+       end
+    end
 
 end)
 
