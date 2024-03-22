@@ -3949,23 +3949,28 @@ local GarbPlayerList = combat_channel:Dropdown(
 
 	do
         LP.Backpack.Taser.Parent = LP.Character
-        cuff.Parent = LP.Character
-        LP.Backpack.Grab.Parent = LP.Character
-        LP.Backpack.Rope.Parent = LP.Character
+        --cuff.Parent = LP.Character
+        --LP.Backpack.Grab.Parent = LP.Character
+        --LP.Backpack.Rope.Parent = LP.Character
     end
 
     local oldPos = LP.Character.HumanoidRootPart.CFrame
     local loop_move = RunService.Stepped:Connect(function()
         LP.Character.HumanoidRootPart.CFrame = targasdsdaset.Character.HumanoidRootPart.CFrame + Vector3.new(0, 7, 0)
     end)
-
+if LP.Team.Name == "Prisoner" then 
+	if targasdsdaset.Character:FindFirstChild(IsA("Tool")) then
     repeat
+		Remotes["UnCuffed"]:FireServer(targasdsdaset.Character)
+    until not targasdsdaset.Character:FindFirstChild(IsA("Tool"))
+else
+	repeat
         Remotes["Tase"]:FireServer("Hit", LP.Character.Taser, targasdsdaset.Character.Head)
 		task.wait(0.1)
         Remotes["Tase"]:FireServer("Recharge", LP.Character.Taser)
         task.wait()
     until targasdsdaset.Character.RagDoll.Value
-
+end
     repeat
         Remotes["IsCuffed"]:FireServer(cuff, targasdsdaset.Character)
         task.wait()
