@@ -3518,6 +3518,12 @@ block_tools_channel:Dropdown(
     end
 )
 
+block_tools_channel:Button("Get Tools", function()
+
+	fireclickdetector(workspace.blockitempick.ClickDetector)
+
+end)
+
 block_tools_channel:Toggle("Block Item", false, function(bool)
     BIT = bool
 end)
