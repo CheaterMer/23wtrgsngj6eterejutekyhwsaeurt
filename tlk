@@ -3987,7 +3987,8 @@ local GarbPlayerList = combat_channel:Dropdown(
 end)
 
 combat_channel:Button("Garb Player", function()
-	Remotes["Grab"]:FireServer(targasdsdaset.Character, "Drop")
+	local targasdsdasadsfet = Players:FindFirstChild(TGBP)
+	Remotes["Grab"]:FireServer(targasdsdasadsfet.Character, "Drop")
 end)
 
 --[[
