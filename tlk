@@ -3959,10 +3959,10 @@ local GarbPlayerList = combat_channel:Dropdown(
         LP.Character.HumanoidRootPart.CFrame = targasdsdaset.Character.HumanoidRootPart.CFrame + Vector3.new(0, 7, 0)
     end)
 if LP.Team.Name == "Prisoner" then 
-	if targasdsdaset.Character:FindFirstChild(IsA("Tool")) then
+	if targasdsdaset.Character:FindFirstChild(itemlist) then
     repeat
 		Remotes["UnCuffed"]:FireServer(targasdsdaset.Character)
-    until not targasdsdaset.Character:FindFirstChild(IsA("Tool"))
+    until not targasdsdaset.Character:FindFirstChild(itemlist)
 else
 	repeat
         Remotes["Tase"]:FireServer("Hit", LP.Character.Taser, targasdsdaset.Character.Head)
