@@ -36,20 +36,20 @@ local function CheckRange(part1, part2, stud)
 end
 
 function anime(id)
-spawn(function()
-	for i,v in pairs(LP.Character.Humanoid:GetPlayingAnimationTracks()) do
-		if v.Name == "AttackMove" then
-			pritn(v)
-			--v:Stop()
-		end
-	end
-end)
 	local animation1 = Instance.new("Animation")
 	animation1.Name = "AttackMove"
 	animation1.AnimationId = "rbxassetid://"..id
 	local anim1 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(animation1)
 	task.wait()
 	anim1:Play()
+	spawn(function()
+		for i,v in pairs(LP.Character.Humanoid:GetPlayingAnimationTracks()) do
+			if v.Name == "AttackMove" then
+				pritn(v)
+				--v:Stop()
+			end
+		end
+	end)
 end
 
 function attack()
