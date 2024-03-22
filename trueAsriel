@@ -39,7 +39,8 @@ function anime(id)
 spawn(function()
 	for i,v in pairs(LP.Character.Humanoid:GetPlayingAnimationTracks()) do
 		if v.Name == "AttackMove" then
-			v:Stop()
+			pritn(v)
+			--v:Stop()
 		end
 	end
 end)
