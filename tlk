@@ -3518,7 +3518,7 @@ block_tools_channel:Dropdown(
     end
 )
 
-block_tools_channel:Button("Get Tools", function()
+block_tools_channel:Button("Get Tool", function()
 
     for i,v in pairs(workspace:GetDescendants()) do
        if v:IsA("Tool") and v.Name == blockitempick then
