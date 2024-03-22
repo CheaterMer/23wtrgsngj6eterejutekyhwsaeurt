@@ -3390,10 +3390,9 @@ local win = DiscordLib:Window("TLK Panel")
 --local server_tab = win:Server("Server", getcustomasset("TLK_ASSETS/"..assets["ServerIcon"]["Name"]))
 --local client_tab = win:Server("Client", getcustomasset("TLK_ASSETS/"..assets["ClientIcon"]["Name"]))
 
-local server_tab = 
-win:Server("Server", "http://www.roblox.com/asset/?id=6031075938")
-local client_tab = 
-win:Server("Client", "http://www.roblox.com/asset/?id=6031075938")
+local server_tab = win:Server("Server", "http://www.roblox.com/asset/?id=6031075938")
+local client_tab = win:Server("Client", "http://www.roblox.com/asset/?id=6031075938")
+--local Troll_tab = win:Server("Troll", "http://www.roblox.com/asset/?id=6031075938")
 
 
 local block_tools_channel = server_tab:Channel("Tools")
@@ -3583,6 +3582,19 @@ task.spawn(function()
         end
     end) 
 end
+end)
+
+block_tools_channel:Button("eat all Flashlight", function()
+
+for i,v in pairs(workspace:GetChildren()) do
+    if v.Name == "Flashlight" then
+        task.wait(0.1)
+        pcall(function()
+            char:WaitForChild("HumanoidRootPart").CFrame = v.Handle.CFrame
+       end)
+    end
+ end
+
 end)
 
 local player_channel = server_tab:Channel("Character")
