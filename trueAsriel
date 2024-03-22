@@ -40,7 +40,7 @@ end
 function anime(id)
 
 		for i,v in pairs(LP.Character.Humanoid:GetPlayingAnimationTracks()) do
-			if not v.Name == "AttackMove" then
+			if v.Name ~= "AttackMove" then
 				
 				local animation1 = Instance.new("Animation")
 				--animation1.Name = "AttackMove"
