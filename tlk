@@ -3964,7 +3964,7 @@ local GarbPlayerList = combat_channel:Dropdown(
 			Remotes["UnCuffed"]:FireServer(targasdsdaset.Character)
 		until not targasdsdaset.Character:FindFirstChild(itemlist)
 	end
-	else
+	else if LP.Team.Name ~= "Prisoner" then
 		repeat
 			Remotes["Tase"]:FireServer("Hit", LP.Character.Taser, targasdsdaset.Character.Head)
 			task.wait(0.1)
@@ -3972,6 +3972,7 @@ local GarbPlayerList = combat_channel:Dropdown(
 			task.wait()
 		until targasdsdaset.Character.RagDoll.Value
 	end
+	
     repeat
         Remotes["IsCuffed"]:FireServer(cuff, targasdsdaset.Character)
         task.wait()
