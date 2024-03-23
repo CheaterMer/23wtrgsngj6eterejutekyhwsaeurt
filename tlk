@@ -3447,6 +3447,19 @@ task.spawn(function()
 	end
 end)
 
+task.spawn(function()
+    while task.wait() do
+		if infHamburgers then
+			for i,v in pairs(LP.Character:GetChildren()) do
+				if v.Name == "Hamburger" then
+					--task.wait(0.01)
+				v.Parent = game.Workspace
+				end
+			end
+		end
+	end
+end)
+
 block_tools_channel:Toggle("My Tool is", false, function(bool)
     backpackistrue = bool
 end)
@@ -3473,6 +3486,10 @@ end)
 
 block_tools_channel:Toggle("Hamburger!!!!", false, function(bool)
     infHamburger = bool
+end)
+
+block_tools_channel:Toggle("Drop Hamburger!!!!", false, function(bool)
+    infHamburgers = bool
 end)
 
 block_tools_channel:Button("Drop Burger", function()
