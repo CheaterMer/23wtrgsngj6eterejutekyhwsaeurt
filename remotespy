@@ -3511,12 +3511,14 @@ end)
 
 block_tools_channel:Label("Vending Machine")
 
+local cooldowns = 0.2
 
 task.spawn(function()
     while task.wait() do
     --pcall(function()
         i = math.random(1,9)
         if VMR then
+            task.wait(cooldowns)
             if i == 1 then
                 fireclickdetector(vmkey["1"].ClickDetector)
                 fireclickdetector(vmkey.A.ClickDetector)
@@ -3555,6 +3557,7 @@ task.spawn(function()
                 fireclickdetector(vmyes.ClickDetector)
             end
         end
+        task.wait(cooldowns)
         --end) 
     end
 end)
@@ -3562,9 +3565,11 @@ end)
 task.spawn(function()
     while task.wait() do
    -- pcall(function()
+        task.wait(cooldowns)
         if VMB then
             fireclickdetector(vmcen.ClickDetector)
         end
+        task.wait(cooldowns)
     --end)
 end
 end)
