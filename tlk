@@ -3993,22 +3993,22 @@ local GarbPlayerList = combat_channel:Dropdown(
 		task.wait(0.1)
 		Remotes["Tase"]:FireServer("Recharge", LP.Character.Taser)
 		task.wait()
-	until targasdsdaset.Character.RagDoll.Value
+	until targasdsdaset.Character.RagDoll.Value or LP.Character.Hummnoid.Health == 0
 
 
     repeat
         Remotes["IsCuffed"]:FireServer(cuff, targasdsdaset.Character)
         task.wait()
-    until targasdsdaset.Character.IsCuffed.Value
+    until targasdsdaset.Character.IsCuffed.Value or LP.Character.Hummnoid.Health == 0
 
     repeat
         Remotes["IsHog"]:FireServer(targasdsdaset.Character, "Hog")
         task.wait()
-    until targasdsdaset.Character.IsHogged.Value
+    until targasdsdaset.Character.IsHogged.Value or LP.Character.Hummnoid.Health == 0
     repeat
         Remotes["Grab"]:FireServer(targasdsdaset.Character, "Grab")
         task.wait()
-    until targasdsdaset.Character.IsGrabbed.Value
+    until targasdsdaset.Character.IsGrabbed.Value or LP.Character.Hummnoid.Health == 0
 	--repeat
     loop_move:Disconnect()
     LP.Character.HumanoidRootPart.CFrame = oldPos
