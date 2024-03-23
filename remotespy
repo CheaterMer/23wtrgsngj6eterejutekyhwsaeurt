@@ -3287,6 +3287,10 @@ makefolder("TLK_ASSETS")
 
 local MAX_PART_COUNT = 50  -- 최대 허용 파트 개수
 
+local vmkey = workspace["Vending Machine"].Keypad.Buttons.Keys
+local vmyes = workspace["Vending Machine"].Keypad.Buttons.Enter
+local vmcen = workspace["Vending Machine"].Keypad.Buttons.Cancel
+
 -- 파트 개수 계산 함수
 local function countParts()
     local parts = Players:GetChildren()  -- 현재 워크스페이스에 있는 모든 오브젝트 가져오기
@@ -3484,6 +3488,8 @@ block_tools_channel:Button("Get Tools", function()
 
 end)
 
+block_tools_channel:Label("Hamburger")
+
 block_tools_channel:Toggle("Hamburger!!!!", false, function(bool)
     infHamburger = bool
 end)
@@ -3502,6 +3508,75 @@ block_tools_channel:Button("Drop Burger", function()
 	end
 
 end)
+
+block_tools_channel:Label("Vending Machine")
+
+
+task.spawn(function()
+    while task.wait() do
+    pcall(function()
+        if VMR then
+            if i == 1 then
+                fireclickdetector(vmkey["1"].ClickDetector)
+                fireclickdetector(vmkey.A.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            elseif i == 2 then
+                fireclickdetector(vmkey["1"].ClickDetector)
+                fireclickdetector(vmkey.B.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            elseif i == 3 then
+                fireclickdetector(vmkey["1"].ClickDetector)
+                fireclickdetector(vmkey.C.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            elseif i == 4 then 
+                fireclickdetector(vmkey["2"].ClickDetector)
+                fireclickdetector(vmkey.A.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            elseif i == 5 then
+                fireclickdetector(vmkey["2"].ClickDetector)
+                fireclickdetector(vmkey.B.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            elseif i == 6 then
+                fireclickdetector(vmkey["2"].ClickDetector)
+                fireclickdetector(vmkey.C.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            elseif i == 7 then
+                fireclickdetector(vmkey["3"].ClickDetector)
+                fireclickdetector(vmkey.A.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            elseif i == 8 then
+                fireclickdetector(vmkey["3"].ClickDetector)
+                fireclickdetector(vmkey.B.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            elseif i == 9 then
+                fireclickdetector(vmkey["3"].ClickDetector)
+                fireclickdetector(vmkey.C.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            end
+        end
+        end) 
+    end
+end)
+
+task.spawn(function()
+    while task.wait() do
+    pcall(function()
+        if VMR then
+            fireclickdetector(vmcen.ClickDetector)
+        end
+    end)
+end
+end)
+
+
+block_tools_channel:Toggle("Random Food", false, function(bool)
+    VMR = bool
+end)
+
+block_tools_channel:Toggle("Block", false, function(bool)
+    VMB = bool
+end)
+
 
 local itemlist = {}
 
