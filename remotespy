@@ -4608,7 +4608,7 @@ char_channel:Toggle("SKIN??><??", false, function (bool)
 end)
 
 char_channel:Dropdown(
-    "Target",
+    "Chooings",
 	{"Furry","FurryGirl"},
     function(bool)
 		CUSKIN = bool
