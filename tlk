@@ -4518,7 +4518,6 @@ task.spawn(function()
     if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
 		--if DiePos ~= LP.Character.Torso.CFrame then
     	DiePos = LP.Character.Torso.CFrame
-		print(DiePos)
 		--end
     end
 end
