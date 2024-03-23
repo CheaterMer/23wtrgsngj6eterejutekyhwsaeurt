@@ -4603,6 +4603,10 @@ char_channel:Toggle("Spawn Dead Point", false, function (bool)
 	spawnfun = bool
 end)
 
+char_channel:Toggle("SKIN??><??", false, function (bool)
+	Furry = bool
+end)
+
 char_channel:Dropdown(
     "Target",
 	{"Furry","FurryGirl"},
