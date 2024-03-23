@@ -3514,7 +3514,7 @@ block_tools_channel:Label("Vending Machine")
 
 task.spawn(function()
     while task.wait(0.2) do
-    pcall(function()
+    --pcall(function()
         i = math.random(1,9)
         if VMR then
             if i == 1 then
@@ -3555,17 +3555,17 @@ task.spawn(function()
                 fireclickdetector(vmyes.ClickDetector)
             end
         end
-        end) 
+        --end) 
     end
 end)
 
 task.spawn(function()
     while task.wait() do
-    pcall(function()
+   -- pcall(function()
         if VMB then
             fireclickdetector(vmcen.ClickDetector)
         end
-    end)
+    --end)
 end
 end)
 
