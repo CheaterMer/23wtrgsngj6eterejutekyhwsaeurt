@@ -126,9 +126,9 @@ end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.V then
-		spawn(function()
-			--game.Players.LocalPlayer.Character.HumanoidRootPart.v2:Destroy()
-		end)
+		if char.HumanoidRootPart:FindFirstChild("Client") then
+			char.HumanoidRootPart:FindFirstChild("Client"):Destroy()
+		end
 		char = game.Players.LocalPlayer.Character
           --char.Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
           tar = char.HumanoidRootPart.CFrame*CFrame.new(0,15,0) + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 60
