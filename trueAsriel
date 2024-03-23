@@ -126,7 +126,7 @@ end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.V then
-		pacll(function()
+		spawn(function()
 			if char.HumanoidRootPart:FindFirstChild("Client") then
 				char.HumanoidRootPart:FindFirstChild("Client"):Destroy()
 			end
