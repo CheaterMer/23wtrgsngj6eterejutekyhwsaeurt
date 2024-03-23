@@ -126,9 +126,11 @@ end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.V then
-		if char.HumanoidRootPart:FindFirstChild("Client") then
-			char.HumanoidRootPart:FindFirstChild("Client"):Destroy()
-		end
+		pacll(function()
+			if char.HumanoidRootPart:FindFirstChild("Client") then
+				char.HumanoidRootPart:FindFirstChild("Client"):Destroy()
+			end
+		end)
 		char = game.Players.LocalPlayer.Character
           --char.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
           tar = char.HumanoidRootPart.CFrame*CFrame.new(0,15,0) + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 60
