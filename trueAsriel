@@ -130,9 +130,9 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 			char.HumanoidRootPart:FindFirstChild("Client"):Destroy()
 		end
 		char = game.Players.LocalPlayer.Character
-          --char.Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
+          char.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
           tar = char.HumanoidRootPart.CFrame*CFrame.new(0,15,0) + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 60
-          --char.Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
+          char.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
           v2 = Instance.new('BodyPosition',char.HumanoidRootPart) 
           fol = Instance.new('Folder',v2)
           v2.Name = 'Client' 
