@@ -4551,3 +4551,5 @@ plrs.PlayerRemoving:Connect(function(player)
 	end
 	--print("remove",player.Name)
   end)
+
+  warn("Made By Cheater_Mer & Xsinew")
