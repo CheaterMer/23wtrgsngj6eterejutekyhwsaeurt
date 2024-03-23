@@ -3992,9 +3992,10 @@ local GarbPlayerList = combat_channel:Dropdown(
         Remotes["Grab"]:FireServer(targasdsdaset.Character, "Grab")
         task.wait()
     until targasdsdaset.Character.IsGrabbed.Value
-
+	--repeat
     loop_move:Disconnect()
     LP.Character.HumanoidRootPart.CFrame = oldPos
+	--until 
 
 end)
 
@@ -4111,10 +4112,10 @@ choosing_stay_button = team_channel:Button("Stay on the Choosing", function ()
     team_frame.Parent.OpenAndClose.Visible = true
     LP.Character.Humanoid.Health = 0
     LP.CharacterAdded:Connect(function(char)
-        repeat
-            char:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(282.811157, 5.99613762, -69.6557007, 0.826119781, -6.12301321e-08, 0.563494503, 6.9332371e-09, 1, 9.84968693e-08, -0.563494503, -7.74633762e-08, 0.826119781)
-            task.wait()
-        until char:WaitForChild("HumanoidRootPart").CFrame == CFrame.new(282.811157, 5.99613762, -69.6557007, 0.826119781, -6.12301321e-08, 0.563494503, 6.9332371e-09, 1, 9.84968693e-08, -0.563494503, -7.74633762e-08, 0.826119781)
+        --repeat
+            --char:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(282.811157, 5.99613762, -69.6557007, 0.826119781, -6.12301321e-08, 0.563494503, 6.9332371e-09, 1, 9.84968693e-08, -0.563494503, -7.74633762e-08, 0.826119781)
+            task.wait(0.2)
+       -- until char:WaitForChild("HumanoidRootPart").CFrame == CFrame.new(282.811157, 5.99613762, -69.6557007, 0.826119781, -6.12301321e-08, 0.563494503, 6.9332371e-09, 1, 9.84968693e-08, -0.563494503, -7.74633762e-08, 0.826119781)
     LP.PlayerGui.Animation.Enabled = true
     LP.PlayerGui.Stamina.StaminaBarFrame.Visible = true
     team_frame.Parent.OpenAndClose.Visible = true
