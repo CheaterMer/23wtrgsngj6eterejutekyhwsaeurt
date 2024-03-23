@@ -4519,10 +4519,6 @@ task.spawn(function()
 		--if DiePos ~= LP.Character.Torso.CFrame then
     	DiePos = LP.Character.Torso.CFrame
 		print(DiePos)
-		pacll(function()
-			loop_move:Disconnect()
-			LP.Character.HumanoidRootPart.CFrame = oldPos
-		end)
 		--end
     end
 end
