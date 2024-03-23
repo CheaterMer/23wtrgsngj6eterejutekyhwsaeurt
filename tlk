@@ -3997,7 +3997,7 @@ local GarbPlayerList = combat_channel:Dropdown(
 
 
     repeat
-		if targasdsdasadsfet.Character.FrontCuffed.Value == true then
+		if targasdsdaset.Character.FrontCuffed.Value == true then
 			Remotes["UnCuffed"]:FireServer(targasdsdaset.Character)
 			repeat
 				Remotes["Tase"]:FireServer("Hit", LP.Character.Taser, targasdsdaset.Character.Head)
