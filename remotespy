@@ -3561,7 +3561,7 @@ end)
 task.spawn(function()
     while task.wait() do
     pcall(function()
-        if VMR then
+        if VMB then
             fireclickdetector(vmcen.ClickDetector)
         end
     end)
