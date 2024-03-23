@@ -4603,9 +4603,13 @@ char_channel:Toggle("Spawn Dead Point", false, function (bool)
 	spawnfun = bool
 end)
 
-char_channel:Toggle("Furry", false, function (bool)
-	Furry = bool
-end)
+char_channel:Dropdown(
+    "Target",
+	{"Furry","FurryGirl"},
+    function(bool)
+		CUSKIN = bool
+    end
+)
 
 local DiePos 
 
@@ -4628,13 +4632,24 @@ LP.CharacterAdded:Connect(function(char)
 		for _, _ in pairs(LP.Character:GetChildren()) do
 			RemoveCloth(_.Name)
 		end
-		--task.wait(0.2)
-		ImportAsset(12333523895)
-		ImportAsset(12339085834)
-		ImportAsset(12339086845)
-		ImportAsset(11190054343)
-		ImportAsset(11284310004)
-		ImportAsset(11675568048)
+        if CUSKIN == "Furry" then
+            ImportAsset(12333523895)
+            ImportAsset(12339085834)
+            ImportAsset(12339086845)
+            ImportAsset(11190054343)
+            ImportAsset(11284310004)
+            ImportAsset(11675568048)
+        elseif CUSKIN == "FurryGirl" then
+            ImportAsset(12669535992)
+            ImportAsset(10824058593)
+            ImportAsset(10929905191)
+            ImportAsset(13421707966)
+            ImportAsset(12316077627)
+            ImportAsset(15761210122)
+            ImportAsset(11189999097)
+            ImportAsset(5895034337)
+            ImportAsset(8087683763)
+        end
 	end
 
 	if NOsdfadfa == true then
