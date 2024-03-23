@@ -3654,87 +3654,6 @@ task.spawn(function()
 	end
 end)
 
-task.spawn(function()
-	while task.wait() do
-		if ATS then pcall(function()
-		for idx, plr in pairs(Players:GetPlayers()) do
-			if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
-				if except_friends and not plr:IsFriendsWith(LP.UserId) then
-					pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
-					tpos = plr.Character.Torso.CFrame.Position
-					--print(name)
-					--print(tpos)
-				spawn(function()
-					local args = {
-							[1] = "Generate",
-							[2] = game:GetService("Players").LocalPlayer.Character.Taser,
-							[3] = Vector3.new(pos.X,pos.Y,pos.Z),
-							[4] = Vector3.new(tpos.X,tpos.Y,tpos.Z)
-						}
-						
-						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-					end)
-					
-						local args = {
-							[1] = "Hit",
-							[2] = game:GetService("Players").LocalPlayer.Character.Taser,
-							[3] = plr.Character.Head
-						}
-						
-						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-				
-						wait(0.1)
-				
-						local args = {
-							[1] = "Recharge",
-							[2] = game:GetService("Players").LocalPlayer.Character.Taser
-						}
-						
-						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-		
-				
-				else
-					pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
-					tpos = plr.Character.Torso.CFrame.Position
-					--print(name)
-					--print(tpos)
-				spawn(function()
-					local args = {
-							[1] = "Generate",
-							[2] = game:GetService("Players").LocalPlayer.Character.Taser,
-							[3] = Vector3.new(pos.X,pos.Y,pos.Z),
-							[4] = Vector3.new(tpos.X,tpos.Y,tpos.Z)
-						}
-						
-						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-					end)
-					
-						local args = {
-							[1] = "Hit",
-							[2] = game:GetService("Players").LocalPlayer.Character.Taser,
-							[3] = plr.Character.Head
-						}
-						
-						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-				
-						wait(0.1)
-				
-						local args = {
-							[1] = "Recharge",
-							[2] = game:GetService("Players").LocalPlayer.Character.Taser
-						}
-						
-						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-		
-				
-				end
-			end
-		end
-end) end
-end
-end)
-
-
 player_channel:Toggle("All Un Cuff", false, function(bool)
 	AUF = bool
 end)
@@ -3745,10 +3664,6 @@ end)
 
 player_channel:Toggle("All Un Collar Aura", false, function(bool)
 	AUC = bool
-end)
-
-player_channel:Toggle("All User Taser", false, function(bool)
-	ATS = bool
 end)
 
 player_channel:Label("Just One Click")
