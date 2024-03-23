@@ -3997,15 +3997,6 @@ local GarbPlayerList = combat_channel:Dropdown(
 
 
     repeat
-		if targasdsdaset.Character.FrontCuffed.Value == true then
-			Remotes["UnCuffed"]:FireServer(targasdsdaset.Character)
-			repeat
-				Remotes["Tase"]:FireServer("Hit", LP.Character.Taser, targasdsdaset.Character.Head)
-				task.wait(0.1)
-				Remotes["Tase"]:FireServer("Recharge", LP.Character.Taser)
-				task.wait()
-			until targasdsdaset.Character.RagDoll.Value
-		end
         Remotes["IsCuffed"]:FireServer(cuff, targasdsdaset.Character)
         task.wait()
     until targasdsdaset.Character.IsCuffed.Value
