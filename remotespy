@@ -4624,7 +4624,7 @@ LP.CharacterAdded:Connect(function(char)
 	end
 
 	if Furry == true then
-		task.wait(0.5)
+		task.wait(0.7)
 		for _, _ in pairs(LP.Character:GetChildren()) do
 			RemoveCloth(_.Name)
 		end
