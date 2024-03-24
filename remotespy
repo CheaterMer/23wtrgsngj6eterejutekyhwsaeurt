@@ -3683,22 +3683,6 @@ block_tools_channel:Dropdown(
     end
 )
 
-block_tools_channel:Button("Get Tool", function()
-   
-    for i,v in pairs(workspace:GetDescendants()) do
-       if v:IsA("Tool") and v.Name == blockitempick then
-           pcall(function()
-            for a,f in pairs(v:GetChildren()) do
-                if f:FindFirstChild("ClickDetector") then
-                    fireclickdetector(f:FindFirstChild("ClickDetector"))
-                end
-            end
-          end)
-       end
-    end
-
-end)
-
 block_tools_channel:Toggle("Block Item", false, function(bool)
     BIT = bool
 end)
