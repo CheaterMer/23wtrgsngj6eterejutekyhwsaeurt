@@ -3634,7 +3634,18 @@ block_tools_channel:Toggle("Block", false, function(bool)
 end)
 
 
-local itemlist = {}
+local itemlist = {
+    "Axe",
+    "PickAex",
+    "Taser",
+    "Collar",
+    "Handcuffs",
+    "Handcuffs (fugitive)",
+    "Rope",
+    "Hamburger",
+    "Food",
+    "Bag"
+}
 
 for i,v in pairs(workspace:GetDescendants()) do
     if v:IsA("Tool") then
