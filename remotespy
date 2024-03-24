@@ -3688,10 +3688,7 @@ block_tools_channel:Button("Get Tool", function()
     for i,v in pairs(workspace:GetDescendants()) do
        if v:IsA("Tool") and v.Name == blockitempick then
            pcall(function ()
-            tool = workspace:FindFirstChild(blockitempick)
-            print(tool)
-            toolpos = tool:FindFirstChild(ClickDetector)
-            print(toolpos)
+            tool = v:FindFirstChild(ClickDetector)
             fireclickdetector(toolpos.ClickDetector)
           end)
        end
