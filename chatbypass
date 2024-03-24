@@ -1,0 +1,67 @@
+local ChatBar = game:GetService("Players").LocalPlayer.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar
+local ChatService = game:GetService("Chat")
+
+local Chat = {}
+
+for idx, val in pairs(game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents:GetChildren()) do
+    if val:IsA("RemoteEvent") then
+        Chat[val.Name] = val
+    end
+end
+
+
+-- 특수 문자로 대체할 텍스트 매핑
+local replaceMap = {
+    ["a"] = "🇦 ",
+    ["b"] = "🇧 ",
+    ["c"] = "🇨 ",
+    ["d"] = "🇩 ",
+    ["e"] = "🇪 ",
+    ["f"] = "🇫 ",
+    ["g"] = "🇬 ",
+    ["h"] = "🇭 ",
+    ["i"] = "🇮 ",
+    ["j"] = "🇯 ",
+    ["k"] = "🇰 ",
+    ["l"] = "🇱 ",
+    ["m"] = "🇲 ",
+    ["n"] = "🇳 ",
+    ["o"] = "🇴 ",
+    ["p"] = "🇵 ",
+    ["q"] = "🇶 ",
+    ["r"] = "🇷 ",
+    ["s"] = "🇸 ",
+    ["t"] = "🇹 ",
+    ["u"] = "🇹 ",
+    ["v"] = "🇻 ",
+    ["w"] = "🇼 ",
+    ["x"] = "🇽 ",
+    ["y"] = "🇾 ",
+    ["z"] = "🇿 ",
+    [" "] = "   ", -- 공백 문자는 그대로 유지
+}
+
+-- 채팅 입력 변환 함수
+local function replaceText(inputText)
+    local replacedText = ""
+    for i = 1, #inputText do
+        local char = string.lower(inputText:sub(i, i)) -- 입력된 문자를 소문자로 변환하여 사용
+        if replaceMap[char] then
+            replacedText = replacedText .. replaceMap[char]
+        else
+            replacedText = replacedText .. char
+        end
+    end
+    return replacedText
+end
+
+-- 채팅 입력 이벤트 감지 및 처리
+ChatBar.FocusLost:Connect(function(enterPressed)
+    if enterPressed then
+        local originalText = ChatBar.Text
+        local newText = replaceText(originalText)
+        --ChatService:Chat(newText)
+        Chat["SayMessageRequest"]:FireServer( newText,"All")
+        ChatBar.Text = "" -- 입력창 비우기
+    end
+end)
