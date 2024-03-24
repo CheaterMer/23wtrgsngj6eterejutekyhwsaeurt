@@ -3556,7 +3556,11 @@ block_tools_channel:Button("Drop Food", function()
 
 end)
 
+block_tools_channel:Label("  ")
+
 block_tools_channel:Label("Vending Machine")
+
+block_tools_channel:Label("  ")
 
 local cooldowns = 0.2
 
