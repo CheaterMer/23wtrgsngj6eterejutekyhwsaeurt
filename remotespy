@@ -3690,9 +3690,7 @@ block_tools_channel:Button("Get Tool", function()
            pcall(function()
             for a,f in pairs(v:GetChildren()) do
                 if f:FindFirstChild("ClickDetector") then
-                    a = f:FindFirstChild("ClickDetector")
-                    print(a)
-                    fireclickdetector(tool)
+                    fireclickdetector(f:FindFirstChild("ClickDetector"))
                 end
             end
           end)
