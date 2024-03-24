@@ -3636,7 +3636,7 @@ end)
 
 local itemlist = {
     "Axe",
-    "PickAex",
+    "PickAxe",
     "Taser",
     "Collar",
     "Handcuffs",
