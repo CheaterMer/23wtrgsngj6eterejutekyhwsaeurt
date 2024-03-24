@@ -104,4 +104,35 @@ function createweight()
 
     Player.CharacterAdded:Connect(function(char)
     createweight()
+    task.spawn(function()
+        while task.wait(0.00000001) do
+            if breakloops == true then break end
+            local function createTrail(duration)
+                local part = Instance.new("Part")
+                part.Anchored = true 
+                part.CanCollide = false
+                part.CanTouch = false
+                part.CanQuery = false
+                part.Massless = true 
+                part.Position = Player.Character.HumanoidRootPart.Position + Vector3.new(math.random(-5,5),math.random(-5,5),math.random(-5,5))
+                part.CFrame = CFrame.lookAt(part.Position, part.Position + Player.Character.HumanoidRootPart.Velocity)
+                part.CFrame = part.CFrame * CFrame.new(0,0,math.random(-3,0))
+                part.Size = Vector3.new(0.25, 0.25, 5)
+                part.Color = Color3.fromRGB(255,255,255)
+                part.Material = Enum.Material.Neon
+                part.Parent = workspace
+                game:GetService("TweenService"):Create(part, TweenInfo.new(duration), {Size = Vector3.new(0.1,0.1,part.Size.Z + 1), Transparency = 1}):Play()
+                game.Debris:AddItem(part, duration)
+                local mesh = Instance.new("SpecialMesh")
+                mesh.MeshType = Enum.MeshType.Sphere
+                mesh.Parent = part
+            end
+            velocity = Player.Character.HumanoidRootPart.Velocity
+            --print(tostring(vector.Magnitude))
+            if velocity.Magnitude >= 25 then
+                createTrail(0.5)
+                AfterImage(Color3.fromRGB(255, 0, 0), "Neon", .5, .3)
+            end
+        end
+    end)
     end)
