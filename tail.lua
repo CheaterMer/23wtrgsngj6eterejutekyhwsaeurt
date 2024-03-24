@@ -103,6 +103,7 @@ function createweight()
     end)
 
     Player.CharacterAdded:Connect(function(char)
+        task.wait(1)
         breakloops = false
     createweight()
     task.spawn(function()
