@@ -70,8 +70,6 @@ function createweight()
         end
     end
 
-    createweight()
-
     task.spawn(function()
         while task.wait(0.00000001) do
             if breakloops == true then break end
@@ -102,4 +100,8 @@ function createweight()
                 AfterImage(Color3.fromRGB(255, 0, 0), "Neon", .5, .3)
             end
         end
+    end)
+
+    Player.CharacterAdded:Connect(function(char)
+    createweight()
     end)
