@@ -3684,13 +3684,15 @@ block_tools_channel:Dropdown(
 )
 
 block_tools_channel:Button("Get Tool", function()
-
+   
     for i,v in pairs(workspace:GetDescendants()) do
        if v:IsA("Tool") and v.Name == blockitempick then
-           pcall(function ()
-            tool = v:FindFirstChild(ClickDetector)
-            print(tool)
-            fireclickdetector(tool)
+           pcall(function()
+            for a,f in pairs(v:GetChildren()) do
+                if f:FindFirstChild("ClickDetector") then
+                    fireclickdetector(tool)
+                end
+            end
           end)
        end
     end
