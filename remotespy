@@ -3687,7 +3687,9 @@ block_tools_channel:Button("Get Tool", function()
        if v:IsA("Tool") and v.Name == blockitempick then
            pcall(function ()
             tool = workspace:FindFirstChild(blockitempick)
+            print(tool)
             toolpos = tool:FindFirstChild(ClickDetector)
+            print(toolpos)
             fireclickdetector(toolpos.ClickDetector)
           end)
        end
