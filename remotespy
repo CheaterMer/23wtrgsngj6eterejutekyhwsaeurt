@@ -3285,7 +3285,7 @@ local choosing_spawn = CFrame.new(282.811157, 5.99613762, -69.6557007, 0.8261197
 
 makefolder("TLK_ASSETS")
 
-local MAX_PART_COUNT = 50  -- 최대 허용 파트 개수
+local MAX_PART_COUNT = 25  -- 최대 허용 파트 개수
 
 local vmkey = workspace["Vending Machine"].Keypad.Buttons.Keys
 local vmyes = workspace["Vending Machine"].Keypad.Buttons.Enter
