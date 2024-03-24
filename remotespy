@@ -3689,7 +3689,7 @@ block_tools_channel:Button("Get Tool", function()
        if v:IsA("Tool") and v.Name == blockitempick then
            pcall(function ()
             tool = v:FindFirstChild(ClickDetector)
-            fireclickdetector(toolpos.ClickDetector)
+            fireclickdetector(tool.ClickDetector)
           end)
        end
     end
