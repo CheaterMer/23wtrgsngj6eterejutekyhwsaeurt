@@ -3464,6 +3464,33 @@ task.spawn(function()
 	end
 end)
 
+task.spawn(function()
+    while task.wait() do
+		if infFood then
+			fireclickdetector(workspace.Food.Main.ClickDetector)
+			for i,v in pairs(LP.Backpack:GetChildren()) do
+				if v.Name == "Food" then
+					--task.wait(0.01)
+				v.Parent = LP.Character
+				end
+			end
+		end
+	end
+end)
+
+task.spawn(function()
+    while task.wait() do
+		if infFoods then
+			for i,v in pairs(LP.Character:GetChildren()) do
+				if v.Name == "Food" then
+					--task.wait(0.01)
+				v.Parent = game.Workspace
+				end
+			end
+		end
+	end
+end)
+
 block_tools_channel:Toggle("My Tool is", false, function(bool)
     backpackistrue = bool
 end)
@@ -3502,6 +3529,26 @@ block_tools_channel:Button("Drop Burger", function()
 
 	for i,v in pairs(LP.Character:GetChildren()) do
 		if v.Name == "Hamburger" then
+			--task.wait(0.01)
+		v.Parent = game.Workspace
+		end
+	end
+
+end)
+
+
+block_tools_channel:Toggle("Food!!!!", false, function(bool)
+    infFood = bool
+end)
+
+block_tools_channel:Toggle("Drop Food!!!!", false, function(bool)
+    infFoods = bool
+end)
+
+block_tools_channel:Button("Drop Food", function()
+
+	for i,v in pairs(LP.Character:GetChildren()) do
+		if v.Name == "Food" then
 			--task.wait(0.01)
 		v.Parent = game.Workspace
 		end
@@ -3680,6 +3727,41 @@ task.spawn(function()
         end
     end) 
 end
+end)
+
+task.spawn(function()
+    while task.wait() do
+		if infFlashlight then
+			fireclickdetector(workspace.Flashlight.ClickDetector)
+			for i,v in pairs(LP.Backpack:GetChildren()) do
+				if v.Name == "Flashlight" then
+					--task.wait(0.01)
+				v.Parent = LP.Character
+				end
+			end
+		end
+	end
+end)
+
+task.spawn(function()
+    while task.wait() do
+		if infFlashlights then
+			for i,v in pairs(LP.Character:GetChildren()) do
+				if v.Name == "Flashlight" then
+					--task.wait(0.01)
+				v.Parent = game.Workspace
+				end
+			end
+		end
+	end
+end)
+
+block_tools_channel:Toggle("Flashlight", false, function(bool)
+    infFlashlight = bool
+end)
+
+block_tools_channel:Toggle("Drop Flashlight", false, function(bool)
+    infFlashlights = bool
 end)
 
 block_tools_channel:Button("eat all Flashlight", function()
