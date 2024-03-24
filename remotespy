@@ -3633,7 +3633,7 @@ block_tools_channel:Toggle("Block", false, function(bool)
     VMB = bool
 end)
 
-
+--[[
 local itemlist = {
     "Axe",
     "PickAxe",
@@ -3646,7 +3646,9 @@ local itemlist = {
     "Food",
     "Bag"
 }
---[[
+]]
+local itemlist = {}
+
 for i,v in pairs(workspace:GetDescendants()) do
     if v:IsA("Tool") then
         --pcall(function ()
@@ -3654,7 +3656,7 @@ for i,v in pairs(workspace:GetDescendants()) do
         --end)
     end
 end
-]]
+
 
 block_tools_channel:Label("  ")
 
@@ -3683,13 +3685,11 @@ block_tools_channel:Button("Get Tool", function()
 
     for i,v in pairs(workspace:GetDescendants()) do
        if v:IsA("Tool") and v.Name == blockitempick then
-        if blockitempick == "Collar" then
-            fireclickdetector(workspace.table2.Collar.collar.ClickDetector)
-        else
            pcall(function ()
-            fireclickdetector(v.ClickDetector)
+            tool = workspace:FindFirstChild(blockitempick)
+            toolpos = tool:FindFirstChild(ClickDetector)
+            fireclickdetector(toolpos.ClickDetector)
           end)
-        end
        end
     end
 
