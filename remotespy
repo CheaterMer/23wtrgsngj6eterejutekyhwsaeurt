@@ -4020,6 +4020,10 @@ task.spawn(function()
 	end
 end)
 
+block_tools_channel:Label("  ")
+
+block_tools_channel:Label("Targeting Only One Player")
+
 
 local playerlista = player_channel:Dropdown(
     "Target",
