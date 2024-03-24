@@ -102,7 +102,7 @@ function createweight()
         end
     end)
 
-    Player.CharacterAdded:Connect(function(char)
+Player.CharacterAdded:Connect(function(char)
         task.wait(1)
         breakloops = false
     --createweight()
