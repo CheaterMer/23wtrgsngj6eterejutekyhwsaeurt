@@ -3683,7 +3683,7 @@ block_tools_channel:Button("Get Tool", function()
 
     for i,v in pairs(workspace:GetDescendants()) do
        if v:IsA("Tool") and v.Name == blockitempick then
-        if blockitempick.Name == "Collar" then
+        if blockitempick == "Collar" then
             fireclickdetector(workspace.table2.Collar.collar.ClickDetector)
         else
            pcall(function ()
