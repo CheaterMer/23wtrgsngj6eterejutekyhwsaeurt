@@ -3646,7 +3646,7 @@ local itemlist = {
     "Food",
     "Bag"
 }
-
+--[[
 for i,v in pairs(workspace:GetDescendants()) do
     if v:IsA("Tool") then
         --pcall(function ()
@@ -3654,6 +3654,7 @@ for i,v in pairs(workspace:GetDescendants()) do
         --end)
     end
 end
+]]
 
 block_tools_channel:Label("  ")
 
