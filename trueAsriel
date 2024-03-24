@@ -65,7 +65,7 @@ function attack()
 				if LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard" then
 				Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
 				task.wait()
-				else
+				elseif LP.Team.Name ~= "Civilian" then
 					Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
 					task.wait()
 				end
