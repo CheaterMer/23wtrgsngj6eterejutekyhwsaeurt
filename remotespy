@@ -3652,7 +3652,9 @@ local itemlist = {}
 for i,v in pairs(workspace:GetDescendants()) do
     if v:IsA("Tool") then
         --pcall(function ()
+        if not table.find(itemlist, v.Name) then
         table.insert(itemlist, v.Name)
+        end
         --end)
     end
 end
