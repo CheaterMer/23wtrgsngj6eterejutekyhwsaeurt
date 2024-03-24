@@ -3560,8 +3560,6 @@ block_tools_channel:Label("  ")
 
 block_tools_channel:Label("Vending Machine")
 
-block_tools_channel:Label("  ")
-
 local cooldowns = 0.2
 
 task.spawn(function()
@@ -3625,7 +3623,6 @@ task.spawn(function()
 end
 end)
 
-
 block_tools_channel:Toggle("Random Food", false, function(bool)
     VMR = bool
 end)
@@ -3644,6 +3641,8 @@ for i,v in pairs(workspace:GetDescendants()) do
         --end)
     end
 end
+
+block_tools_channel:Label("  ")
 
 block_tools_channel:Label("ALL Block Item")
 
@@ -3699,6 +3698,8 @@ task.spawn(function()
     end) 
 end
 end)
+
+block_tools_channel:Label("  ")
 
 block_tools_channel:Label("Team Block Item")
 
