@@ -3941,7 +3941,9 @@ local plr = plrs.LocalPlayer
 
 local names = {}
 for idx, plr in pairs(game.Players:GetPlayers()) do
+	if not table.find(userOwner, v.Name) then
     table.insert(names, plr.Name)
+	end
 end
 
 function item()
@@ -3953,7 +3955,7 @@ function item()
 
 task.spawn(function()
 	while task.wait() do
-		if taser and targetr ~= userOwner then pcall(function()
+		if taser and targetr.Name ~= userOwner then pcall(function()
 		item()
         local args = {
             [1] = "Hit",
@@ -3996,7 +3998,7 @@ end)
 
 task.spawn(function()
 	while task.wait() do
-		if tuf and targetr:FindFirstChild(userOwner) then pcall(function()
+		if tuf and targetr ~= userOwner then pcall(function()
 			if game:GetService("Players"):FindFirstChild(targetr).Character.IsHogged.Value == true then
 				Remotes["IsHog"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character,"UnHog")
 			end
@@ -4032,6 +4034,7 @@ local args = {
 	
 	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
 end)
+if targetr ~= userOwner then
 	local args = {
 		[1] = "Hit",
 		[2] = game:GetService("Players").LocalPlayer.Character.Taser,
@@ -4046,6 +4049,7 @@ end)
 	}
 	
 	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+end
 end)
 
 player_channel:Toggle("taser", false, function(bool)
@@ -4801,9 +4805,11 @@ plrs.PlayerAdded:Connect(function(player)
 	GarbPlayerList:Clear()
 	task.wait(1)
 	for idx, plr in pairs(game.Players:GetPlayers()) do
+		if not table.find(userOwner, v.Name) then
 		playerlista:Add(plr.Name)
 		copy_avatar:Add(plr.Name)
 		GarbPlayerList:Add(plr.Name)
+		end
 		--print("add",player.Name)
 	end
   end)
@@ -4814,9 +4820,11 @@ plrs.PlayerRemoving:Connect(function(player)
 	GarbPlayerList:Clear()
 	task.wait(1)
 	for idx, plr in pairs(game.Players:GetPlayers()) do
+		if not table.find(userOwner, v.Name) then
 		playerlista:Add(plr.Name)
 		copy_avatar:Add(plr.Name)
 		GarbPlayerList:Add(plr.Name)
+		end
 		--print("add",player.Name)
 	end
 	--print("remove",player.Name)
