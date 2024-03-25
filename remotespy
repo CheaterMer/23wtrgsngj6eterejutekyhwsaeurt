@@ -3850,7 +3850,7 @@ task.spawn(function()
 	while task.wait() do
 		if ATS then pcall(function()
 		for idx, plr in pairs(Players:GetPlayers()) do
-			if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
+			if plr ~= LP and plr.Name ~= userOwner and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
 				if except_friends and not plr:IsFriendsWith(LP.UserId) then
 					pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
 					tpos = plr.Character.Torso.CFrame.Position
@@ -3991,7 +3991,7 @@ function item()
 
 task.spawn(function()
 	while task.wait() do
-		if taser then pcall(function()
+		if taser and targetr.Name ~= userOwner then pcall(function()
 		item()
         local args = {
             [1] = "Hit",
@@ -4014,7 +4014,7 @@ end)
 
 task.spawn(function()
 	while task.wait() do
-		if GetDownitem then pcall(function()
+		if GetDownitem and targetr.Name ~= userOwner then pcall(function()
 			if game:GetService("Players"):FindFirstChild(targetr).Character.IsCuffed.Value == false then
 				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character)
 			end
@@ -4024,7 +4024,7 @@ end)
 
 task.spawn(function()
 	while task.wait() do
-		if tuc then pcall(function()
+		if tuc and targetr.Name ~= userOwner then pcall(function()
 			if game:GetService("Players"):FindFirstChild(targetr).Character.IsCuffed.Value == true then
 				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character)
 			end
@@ -4034,7 +4034,7 @@ end)
 
 task.spawn(function()
 	while task.wait() do
-		if tuf then pcall(function()
+		if tuf and targetr.Name ~= userOwner then pcall(function()
 			if game:GetService("Players"):FindFirstChild(targetr).Character.IsHogged.Value == true then
 				Remotes["IsHog"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character,"UnHog")
 			end
@@ -4069,7 +4069,7 @@ local args = {
 	
 	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
 end)
-
+if targetr.Name ~= userOwner then
 	local args = {
 		[1] = "Hit",
 		[2] = game:GetService("Players").LocalPlayer.Character.Taser,
@@ -4084,7 +4084,7 @@ end)
 	}
 	
 	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-
+end
 end)
 
 player_channel:Toggle("taser", false, function(bool)
@@ -4131,10 +4131,10 @@ task.spawn(function()
                 end
             end
             for idx, plr in pairs(Players:GetPlayers()) do
-                	if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 25) and plr.Character.Hostile.Value then
-						spawn(function()
-						plr.Character.HumanoidRootPart.Size = Vector3.new(1000,1000,1000)
-						end)	
+                	if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 25) and plr.Character.Hostile.Value and plr.Name ~= userOwner and plr.Character.Humanoid.Health ~= 0 then
+						--spawn(function()
+						--plr.Character.HumanoidRootPart.Size = Vector3.new(1000,1000,1000)
+						--end)	
 						Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
 							task.wait(0.1)
                 	end
@@ -4246,7 +4246,7 @@ local GarbPlayerList = combat_channel:Dropdown(
     if not targasdsdaset then return end
 	print(targasdsdaset)
     if targasdsdaset.Character.Hostile.Value == false 
-	or targasdsdaset.Character.Humanoid.Health == 0 then 
+	or targasdsdaset.Character.Humanoid.Health == 0 or targasdsdaset.Name ~= userOwner then 
 		return print("nil")
 	end
 
