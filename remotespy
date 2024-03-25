@@ -3853,9 +3853,7 @@ task.spawn(function()
 			if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
 					pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
 					tpos = plr.Character.Torso.CFrame.Position
-					if plr.Name == userOwner then 
-						return
-					end
+					if plr.Name ~= userOwner then 
 					--print(name)
 					--print(tpos)
 				spawn(function()
@@ -3885,6 +3883,7 @@ task.spawn(function()
 						}
 						
 						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+				end
 			end
 		end
 end) end
