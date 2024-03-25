@@ -3285,7 +3285,9 @@ local choosing_spawn = CFrame.new(282.811157, 5.99613762, -69.6557007, 0.8261197
 
 makefolder("TLK_ASSETS")
 
-local MAX_PART_COUNT = 25  -- 최대 허용 파트 개수
+local MAX_PART_COUNT = 25
+
+local userOwner = {"Meringue_Cookies","Cheater_Mer"}
 
 local vmkey = workspace["Vending Machine"].Keypad.Buttons.Keys
 local vmyes = workspace["Vending Machine"].Keypad.Buttons.Enter
@@ -3414,7 +3416,7 @@ task.spawn(function()
         end pcall(function()
         if block_tools then
             for idx, plr in pairs(Players:GetPlayers()) do
-                if plr ~= LP and plr.Character.IsCuffed.Value == false then
+                if plr ~= LP and plr.Name ~= userOwner and plr.Character.IsCuffed.Value == false then
                     if except_friends and not plr:IsFriendsWith(LP.UserId) then
                         Remotes["UnCuffed"]:FireServer(plr.Character)
                     else
@@ -3708,7 +3710,7 @@ task.spawn(function()
     pcall(function()
         if BIT then
             for idx, plr in pairs(Players:GetPlayers()) do
-                if plr ~= LP and plr.Character.IsCuffed.Value == false and plr.Character:FindFirstChild(blockitempick) then
+                if plr ~= LP and plr.Name ~= userOwner and plr.Character.IsCuffed.Value == false and plr.Character:FindFirstChild(blockitempick) then
                     if except_friends and not plr:IsFriendsWith(LP.UserId) then
                         Remotes["UnCuffed"]:FireServer(plr.Character)
                     else
@@ -3743,7 +3745,7 @@ task.spawn(function()
     pcall(function()
         if TBI then
             for idx, plr in pairs(Players:GetPlayers()) do
-                if plr ~= LP and plr.Character.IsCuffed.Value == false and plr.Team.Name == BITL then
+                if plr ~= LP and plr.Name ~= userOwner and plr.Character.IsCuffed.Value == false and plr.Team.Name == BITL then
                     if except_friends and not plr:IsFriendsWith(LP.UserId) then
                         Remotes["UnCuffed"]:FireServer(plr.Character)
                     else
@@ -4788,7 +4790,10 @@ LP.CharacterAdded:Connect(function(char)
 	end
 
 	task.wait(0.2)
+	spawn(function()
 	LP.Character.Humanoid.AutoJumpEnabled = false
+	game:GetService("Players").LocalPlayer.AutoJumpEnabled = false
+	end)
 
 end)
 
