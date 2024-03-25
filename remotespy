@@ -3955,7 +3955,7 @@ function item()
 
 task.spawn(function()
 	while task.wait() do
-		if taser and targetr.Name ~= userOwner then pcall(function()
+		if taser then pcall(function()
 		item()
         local args = {
             [1] = "Hit",
@@ -3998,7 +3998,7 @@ end)
 
 task.spawn(function()
 	while task.wait() do
-		if tuf and targetr ~= userOwner then pcall(function()
+		if tuf then pcall(function()
 			if game:GetService("Players"):FindFirstChild(targetr).Character.IsHogged.Value == true then
 				Remotes["IsHog"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character,"UnHog")
 			end
