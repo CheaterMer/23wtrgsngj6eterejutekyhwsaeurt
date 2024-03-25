@@ -3953,7 +3953,7 @@ function item()
 
 task.spawn(function()
 	while task.wait() do
-		if taser and targetr.Name ~= userOwner then pcall(function()
+		if taser and targetr ~= userOwner then pcall(function()
 		item()
         local args = {
             [1] = "Hit",
