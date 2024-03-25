@@ -3850,7 +3850,7 @@ task.spawn(function()
 	while task.wait() do
 		if ATS then pcall(function()
 		for idx, plr in pairs(Players:GetPlayers()) do
-			if plr ~= LP and not table.find(userOwner, plr.Name) and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
+			if plr ~= LP and userOwner ~= plr.Name and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
 					pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
 					tpos = plr.Character.Torso.CFrame.Position
 					--print(name)
