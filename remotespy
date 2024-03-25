@@ -3416,12 +3416,8 @@ task.spawn(function()
         end pcall(function()
         if block_tools then
             for idx, plr in pairs(Players:GetPlayers()) do
-                if plr ~= LP and not table.find(userOwner, plr.Name) and plr.Character.IsCuffed.Value == false then
-                    if except_friends and not plr:IsFriendsWith(LP.UserId) then
+                if plr ~= LP and not table.find(userOwner, plr.Name) and plr.Character.IsCuffed.Value == false then       
                         Remotes["UnCuffed"]:FireServer(plr.Character)
-                    else
-                        Remotes["UnCuffed"]:FireServer(plr.Character)
-                    end
                 end
             end
         end
