@@ -3996,7 +3996,7 @@ end)
 
 task.spawn(function()
 	while task.wait() do
-		if tuf and targetr ~= userOwner then pcall(function()
+		if tuf and targetr:FindFirstChild(userOwner) then pcall(function()
 			if game:GetService("Players"):FindFirstChild(targetr).Character.IsHogged.Value == true then
 				Remotes["IsHog"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character,"UnHog")
 			end
