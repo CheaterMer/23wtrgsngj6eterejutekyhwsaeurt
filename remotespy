@@ -3855,7 +3855,6 @@ task.spawn(function()
 					tpos = plr.Character.Torso.CFrame.Position
 					if plr.Name == userOwner then 
 						return
-						print("239huqrhuaefhiashui")
 					end
 					--print(name)
 					--print(tpos)
