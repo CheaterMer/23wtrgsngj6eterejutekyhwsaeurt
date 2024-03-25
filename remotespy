@@ -3978,7 +3978,7 @@ end)
 
 task.spawn(function()
 	while task.wait() do
-		if GetDownitem and targetr ~= userOwner then pcall(function()
+		if GetDownitem then pcall(function()
 			if game:GetService("Players"):FindFirstChild(targetr).Character.IsCuffed.Value == false then
 				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character)
 			end
@@ -3988,7 +3988,7 @@ end)
 
 task.spawn(function()
 	while task.wait() do
-		if tuc and targetr ~= userOwner then pcall(function()
+		if tuc then pcall(function()
 			if game:GetService("Players"):FindFirstChild(targetr).Character.IsCuffed.Value == true then
 				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character)
 			end
