@@ -4099,10 +4099,10 @@ task.spawn(function()
                 	if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 25) and plr.Character.Hostile.Value and plr.Name ~= userOwner and plr.Character.Humanoid.Health ~= 0 then
 						if LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard" then
 							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
-							task.wait()
+							task.wait(0.1)
 						elseif LP.Team.Name ~= "Civilian" then
 							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
-							task.wait()
+							task.wait(0.1)
 						end
                 	end
             	end
@@ -4213,7 +4213,7 @@ local GarbPlayerList = combat_channel:Dropdown(
     if not targasdsdaset then return end
 	print(targasdsdaset)
     if targasdsdaset.Character.Hostile.Value == false 
-	or targasdsdaset.Character.Humanoid.Health == 0 or targasdsdaset.Name ~= userOwner then 
+	or targasdsdaset.Character.Humanoid.Health == 0 then 
 		return print("nil")
 	end
 
