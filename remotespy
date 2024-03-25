@@ -4034,7 +4034,7 @@ local args = {
 	
 	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
 end)
-if targetr ~= userOwner then
+
 	local args = {
 		[1] = "Hit",
 		[2] = game:GetService("Players").LocalPlayer.Character.Taser,
@@ -4049,7 +4049,7 @@ if targetr ~= userOwner then
 	}
 	
 	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-end
+
 end)
 
 player_channel:Toggle("taser", false, function(bool)
