@@ -4233,7 +4233,7 @@ local GarbPlayerList = combat_channel:Dropdown(
 
     local oldPos = LP.Character.HumanoidRootPart.CFrame
     local loop_move = RunService.Stepped:Connect(function()
-        LP.Character.HumanoidRootPart.CFrame = targasdsdaset.Character.HumanoidRootPart.CFrame + Vector3.new(0, 7, 0)
+        LP.Character.HumanoidRootPart.CFrame = targasdsdaset.Character.HumanoidRootPart.CFrame + Vector3.new(0 , 5 , 0)
     end)
 
 	repeat
