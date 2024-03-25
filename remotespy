@@ -4014,7 +4014,7 @@ end)
 
 task.spawn(function()
 	while task.wait() do
-		if GetDownitem and targetr.Name ~= userOwner then pcall(function()
+		if GetDownitem and targetr ~= userOwner then pcall(function()
 			if game:GetService("Players"):FindFirstChild(targetr).Character.IsCuffed.Value == false then
 				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character)
 			end
@@ -4024,7 +4024,7 @@ end)
 
 task.spawn(function()
 	while task.wait() do
-		if tuc and targetr.Name ~= userOwner then pcall(function()
+		if tuc and targetr ~= userOwner then pcall(function()
 			if game:GetService("Players"):FindFirstChild(targetr).Character.IsCuffed.Value == true then
 				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character)
 			end
@@ -4034,7 +4034,7 @@ end)
 
 task.spawn(function()
 	while task.wait() do
-		if tuf and targetr.Name ~= userOwner then pcall(function()
+		if tuf and targetr ~= userOwner then pcall(function()
 			if game:GetService("Players"):FindFirstChild(targetr).Character.IsHogged.Value == true then
 				Remotes["IsHog"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character,"UnHog")
 			end
@@ -4069,7 +4069,7 @@ local args = {
 	
 	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
 end)
-if targetr.Name ~= userOwner then
+if targetr ~= userOwner then
 	local args = {
 		[1] = "Hit",
 		[2] = game:GetService("Players").LocalPlayer.Character.Taser,
