@@ -4691,7 +4691,7 @@ end)
 
 char_channel:Dropdown(
     "Chooings",
-	{"Furry","FurryGirl"},
+	{"Furry"},
     function(bool)
 		CUSKIN = bool
     end
