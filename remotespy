@@ -3941,7 +3941,7 @@ local plr = plrs.LocalPlayer
 
 local names = {}
 for idx, plr in pairs(game.Players:GetPlayers()) do
-	if not table.find(userOwner, v.Name) then
+	if not table.find(userOwner, plr.Name) then
     table.insert(names, plr.Name)
 	end
 end
@@ -4805,7 +4805,7 @@ plrs.PlayerAdded:Connect(function(player)
 	GarbPlayerList:Clear()
 	task.wait(1)
 	for idx, plr in pairs(game.Players:GetPlayers()) do
-		if not table.find(userOwner, v.Name) then
+		if not table.find(userOwner, plr.Name) then
 		playerlista:Add(plr.Name)
 		copy_avatar:Add(plr.Name)
 		GarbPlayerList:Add(plr.Name)
@@ -4820,7 +4820,7 @@ plrs.PlayerRemoving:Connect(function(player)
 	GarbPlayerList:Clear()
 	task.wait(1)
 	for idx, plr in pairs(game.Players:GetPlayers()) do
-		if not table.find(userOwner, v.Name) then
+		if not table.find(userOwner, plr.Name) then
 		playerlista:Add(plr.Name)
 		copy_avatar:Add(plr.Name)
 		GarbPlayerList:Add(plr.Name)
