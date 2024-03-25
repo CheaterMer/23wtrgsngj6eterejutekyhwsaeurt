@@ -4776,7 +4776,7 @@ end)
 task.spawn(function()
 while true do
     wait(5) 
-	pacll(function() -- 5초마다 반복
+	pcall(function() -- 5초마다 반복
     local currentPartCount = countParts()
     --print("현재 파트 개수:", currentPartCount)
     if currentPartCount > MAX_PART_COUNT then
