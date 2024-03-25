@@ -3854,7 +3854,7 @@ task.spawn(function()
 					pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
 					tpos = plr.Character.Torso.CFrame.Position
 					if plr.Name ~= userOwner then 
-						print("doneasdfasdf")
+						print(plr.Name)
 					end
 					--print(name)
 					--print(tpos)
