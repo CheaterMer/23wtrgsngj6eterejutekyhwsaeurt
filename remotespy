@@ -3853,8 +3853,9 @@ task.spawn(function()
 			if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
 					pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
 					tpos = plr.Character.Torso.CFrame.Position
-					if plr.Name ~= userOwner then 
-						print(plr.Name)
+					if plr.Name == userOwner then 
+						return
+						print("239huqrhuaefhiashui")
 					end
 					--print(name)
 					--print(tpos)
