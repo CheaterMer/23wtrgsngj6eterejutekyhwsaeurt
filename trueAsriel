@@ -47,6 +47,22 @@ function anime(id)
 				anim1:Play()
 end
 
+function grabRemote()
+	pcall(function()
+		for idx, plr in pairs(Players:GetPlayers()) do
+			if plr ~= LP 
+            and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 20)
+			and plr.Character.Hostile.Value 
+            --and LP.Team ~= plr.Team 
+            and plr.Character.Humanoid.Health ~= 0 
+			then
+                print(plr)
+				Remotes["Grab"]:FireServer(plr.Character, "Grab")
+			end
+		end
+	end) 
+end
+
 function attack()
 	pcall(function()
 		local tool
@@ -127,6 +143,12 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 --end
 --end
 --end
+end)
+
+game:GetService("UserInputService").InputBegan:Connect(function(inp)
+    if inp.KeyCode == Enum.KeyCode.C then
+		grabRemote()
+	end
 end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
