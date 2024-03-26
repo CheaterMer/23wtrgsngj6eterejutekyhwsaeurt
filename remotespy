@@ -4165,7 +4165,7 @@ function Getattacker()
             if LOCKON == true then
                 LOCKED = plr
             end
-		elseif LP.Team.Name ~= "Guard" or LP.Team.Name ~= "Civilian" then
+		elseif not LP.Team.Name == "Guard" or not LP.Team.Name == "Civilian" then
             if LOCKON == true then
                 LOCKED = plr
             end
