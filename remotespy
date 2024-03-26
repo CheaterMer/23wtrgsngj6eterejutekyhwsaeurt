@@ -4181,7 +4181,7 @@ task.spawn(function()
     end
 end)
 
-task.wait(function()
+task.spawn(function()
 	game.Players.LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
 		if game.Players.LocalPlayer.Character.Humanoid.Health < 100 and LOCKON == false and donttry == true then
 			LOCKON = true
