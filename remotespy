@@ -4285,7 +4285,7 @@ combat_channel:Button("Drop Grabed Player", function()
 	--local targasdsdasadsfet = Players:FindFirstChild(TGBP)
 	GW = LP.Character.GrabbingWhom.Value
 	WTP = Players:FindFirstChild(GW)
-	Remotes["Grab"]:FireServer(targasdsdasadsfet.Character, "Drop")
+	Remotes["Grab"]:FireServer(WTP.Character, "Drop")
 end)
 
 --[[
