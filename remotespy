@@ -4206,7 +4206,7 @@ local GarbPlayerList = combat_channel:Dropdown(
     end
 )
 
-  combat_channel:Button("Garb Player", function()
+  combat_channel:Button("Grab Player", function()
 
 	--local targasdsdaset = GetPlayer(TGBP)
 	local targasdsdaset = Players:FindFirstChild(TGBP)
@@ -4265,8 +4265,26 @@ local GarbPlayerList = combat_channel:Dropdown(
 
 end)
 
-combat_channel:Button("Drop Garbed Player", function()
-	local targasdsdasadsfet = Players:FindFirstChild(TGBP)
+combat_channel:Button("NO tp Grab Player", function()
+	pcall(function()
+		for idx, plr in pairs(Players:GetPlayers()) do
+			if plr ~= LP 
+            and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 20)
+			and plr.Character.Hostile.Value 
+            --and LP.Team ~= plr.Team 
+            and plr.Character.Humanoid.Health ~= 0 
+			then
+                print(plr)
+				Remotes["Grab"]:FireServer(plr.Character, "Grab")
+			end
+		end
+	end) 
+end)
+
+combat_channel:Button("Drop Grabed Player", function()
+	--local targasdsdasadsfet = Players:FindFirstChild(TGBP)
+	GW = LP.Character.GrabbingWhom.Value
+	WTP = Players:FindFirstChild(GW)
 	Remotes["Grab"]:FireServer(targasdsdasadsfet.Character, "Drop")
 end)
 
