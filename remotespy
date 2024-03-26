@@ -4110,6 +4110,102 @@ task.spawn(function()
     end
 end)
 
+function DontTrykillmeBruh()
+	pcall(function()
+		local tool
+		for i,v in pairs(attack_tools) do
+			local t = LP.Character:FindFirstChild(v)
+			if t then
+				tool = t
+				break
+			end
+		end
+		for idx, plr in pairs(Players:GetPlayers()) do
+			if
+				plr ~= LP 
+                and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 20)
+				and plr.Character.Hostile.Value 
+                and LP.Team ~= plr.Team 
+                --and plr.Name == LOCKED.Name
+                and plr.Character.Humanoid.Health ~= 0 
+			then
+				if LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard" then
+				Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+				task.wait(0.1)
+				elseif LP.Team.Name ~= "Civilian" then
+					Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+					task.wait(0.1)
+				end
+			end
+		end
+	end) 
+end
+
+function Getattacker()
+    pcall(function()
+	for idx, plr in pairs(Players:GetPlayers()) do
+		if
+        plr ~= LP 
+        and CheckRange(
+        LP.Character.HumanoidRootPart, 
+        plr.Character.HumanoidRootPart, 
+        15
+        )
+        and plr.Character.Hostile.Value 
+        and LP.Team ~= plr.Team
+        and plr.Character.Humanoid.Health ~= 0 
+    then
+        if LP.Team.Name == "Guard" and plr.Team.Name ~= "Civilian" then
+            if LOCKON == true then
+                LOCKED = plr
+            end
+        elseif LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard" then
+            if LOCKON == true then
+                LOCKED = plr
+            end
+        end
+    end
+	end
+	end)
+end
+
+task.spawn(function()
+    while task.wait() do
+        pcall(function()
+        if donttry == true and LOCKON == true and LOCKED ~= nil then
+        LP.Character.HumanoidRootPart.CFrame = LOCKED.Character.HumanoidRootPart.CFrame + Vector3.new(0 , 5 , 0)
+        end
+    end)
+    end
+end)
+
+task.wait(function()
+	game.Players.LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+		if game.Players.LocalPlayer.Character.Humanoid.Health < 100 and LOCKON == false and donttry == true then
+			LOCKON = true
+			task.wait(0.1)
+			Getattacker()
+			local oldPos = LP.Character.HumanoidRootPart.CFrame
+			--local loop_move = RunService.Stepped:Connect(function()
+	
+			print(LOCKED)
+	
+				repeat
+				DontTrykillmeBruh()
+				print(LOCKED.Character.Humanoid.Health)
+				task.wait(0.1)
+				until LOCKED.Character.Humanoid.Health == 0
+	
+				task.wait(0.5)
+	
+			--loop_move:Disconnect()
+			LP.Character.HumanoidRootPart.CFrame = oldPos
+			LOCKON = false
+			LOCKED = nil
+		end
+	end)
+end)
+
 task.spawn(function()
 	while task.wait() do
 		if UF then pcall(function()
@@ -4191,6 +4287,10 @@ end)
 
 combat_channel:Toggle("KillAura", false, function(bool)
     killaura = bool
+end)
+
+combat_channel:Toggle("Don't try kill me", false, function(bool)
+    donttry = bool
 end)
 
 combat_channel:Toggle("Inf Garb", false, function(bool)
