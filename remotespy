@@ -4463,7 +4463,7 @@ while task.wait() do
 			for idx, plr in pairs(Players:GetPlayers()) do
 				if
 					plr ~= LP 
-					and CheckRange(safezone, plr.Character.HumanoidRootPart, 25)
+					and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 25)
 					--and LP.Team ~= plr.Team
 				then
 					Remotes["UnCuffed"]:FireServer(plr.Character)
