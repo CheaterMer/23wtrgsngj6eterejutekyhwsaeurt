@@ -4169,6 +4169,10 @@ function Getattacker()
             if LOCKON == true then
                 LOCKED = plr
             end
+		else
+			if LOCKON == true then
+                LOCKED = plr
+            end
         end
     end
 	end
