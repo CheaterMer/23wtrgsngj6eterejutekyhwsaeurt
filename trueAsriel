@@ -151,7 +151,17 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 	elseif player.Character:FindFirstChild("Hammer") then
 		anime(6884398841)
 		attack()
-	end
+	elseif player.Character:FindFirstChild("Food") then
+		Remotes["EatingEvent"]:FireServer(
+			LP.Character,
+			game:GetService("Players").LocalPlayer.Character.Food,
+			"Heal")
+	elseif player.Character:FindFirstChild("Hamburger") then
+		Remotes["EatingEvent"]:FireServer(
+			LP.Character,
+			game:GetService("Players").LocalPlayer.Character.Hamburger,
+			"Heal")
+ 	end
 	end
 --end
 --end
