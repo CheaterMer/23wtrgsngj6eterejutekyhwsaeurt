@@ -4165,11 +4165,22 @@ function Getattacker()
             if LOCKON == true then
                 LOCKED = plr
             end
-		elseif not LP.Team.Name == "Guard" or not LP.Team.Name == "Civilian" then
+		elseif LP.Team.Name == "Prisoner" then
             if LOCKON == true then
                 LOCKED = plr
             end
-
+		elseif LP.Team.Name == "Choosing" then
+			if LOCKON == true then
+				LOCKED = plr
+			end
+		elseif LP.Team.Name == "Hostage" then
+			if LOCKON == true then
+				LOCKED = plr
+			end
+		elseif LP.Team.Name == "Fugitives" then
+			if LOCKON == true then
+				LOCKED = plr
+			end
         end
     end
 	end
