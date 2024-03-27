@@ -4453,6 +4453,34 @@ end
 local extra_channel = server_tab:Channel("Extra")
 local safezone = workspace.Trees.Trunk
 local Ring
+local LPRing
+local LPzoneValue
+
+task.spawn(function()
+while task.wait() do
+	if LPzoneValue == true then
+		pcall(function()
+			for idx, plr in pairs(Players:GetPlayers()) do
+				if
+					plr ~= LP 
+					and CheckRange(safezone, plr.Character.HumanoidRootPart, 25)
+				then
+					Remotes["UnCuffed"]:FireServer(plr.Character)
+				end
+			end
+		end)
+	end
+end
+end)
+
+extra_channel:Slider("Range", 0, 50, LPRing, function(value)
+end)
+
+extra_channel:Toggle("LP Zone Enable", false, function (bool)
+	LPzoneValue = bool
+end)
+
+extra_channel:Label("  ")
 
 task.spawn(function()
 	while task.wait() do
