@@ -47,6 +47,19 @@ function anime(id)
 				anim1:Play()
 end
 
+task.spawn(function()
+while task.wait() do
+task.wait(0.1)
+	if ch:FindFirstChild("Animate") then
+		for i,v in ipairs(hm:GetPlayingAnimationTracks()) do
+			if v.Name == "" and LP.Character.IsCuffed.Value == false then
+			v:Stop()
+			end 
+		end 
+	end
+end
+end)
+
 function grabRemote()
 	pcall(function()
 		for idx, plr in pairs(Players:GetPlayers()) do
