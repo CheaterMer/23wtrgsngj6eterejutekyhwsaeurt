@@ -50,7 +50,7 @@ end
 task.spawn(function()
 while task.wait() do
 task.wait(0.1)
-	if ch:FindFirstChild("Animate") then
+	if char:FindFirstChild("Animate") then
 		for i,v in ipairs(hm:GetPlayingAnimationTracks()) do
 			print(v)
 			--if v.Name == "" and LP.Character.IsCuffed.Value == false then
