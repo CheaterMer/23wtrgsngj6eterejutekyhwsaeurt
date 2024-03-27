@@ -4451,11 +4451,31 @@ function RemoveCloth(type)
 end
 
 local extra_channel = server_tab:Channel("Extra")
+local safezone = workspace.Trees.Trunk
 local Ring
 
-char_channel:Slider("Range", 0, 500 function(value)
-	Ring = value
-	print(Ring)
+task.spawn(function()
+	while task.wait() do
+		if safezoneValue == true then
+			pcall(function()
+				for idx, plr in pairs(Players:GetPlayers()) do
+					if
+						plr ~= LP 
+						and CheckRange(safezone, plr.Character.HumanoidRootPart, 25)
+					then
+						Remotes["UnCuffed"]:FireServer(plr.Character)
+					end
+				end
+			end)
+		end
+	end
+end)
+
+extra_channel:Slider("Range", 0, 50, Ring, function(value)
+end)
+
+extra_channel:Toggle("Safezone Enable", false, function (bool)
+	safezoneValue = bool
 end)
 
 extra_channel:Label("  ")
