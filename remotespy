@@ -4451,6 +4451,14 @@ function RemoveCloth(type)
 end
 
 local extra_channel = server_tab:Channel("Extra")
+local Ring
+
+char_channel:Slider("Range", 0, 500 function(value)
+	Ring = value
+	print(Ring)
+end)
+
+extra_channel:Label("  ")
 
 local lagging = "Stop"
 local delay = 1
