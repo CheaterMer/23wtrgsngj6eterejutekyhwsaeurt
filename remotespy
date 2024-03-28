@@ -3868,7 +3868,7 @@ task.spawn(function()
 					
 						local args = {
 							[1] = "Hit",
-							[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+							[2] = game:GetService("Players").LocalPlayer.Backpack.Taser,
 							[3] = plr.Character.Head
 						}
 						
@@ -3878,7 +3878,7 @@ task.spawn(function()
 				
 						local args = {
 							[1] = "Recharge",
-							[2] = game:GetService("Players").LocalPlayer.Character.Taser
+							[2] = game:GetService("Players").LocalPlayer.Backpack.Taser
 						}
 						
 						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
@@ -4037,7 +4037,7 @@ end)
 
 	local args = {
 		[1] = "Hit",
-		[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+		[2] = game:GetService("Players").LocalPlayer.Backpack.Taser,
 		[3] = game:GetService("Players"):WaitForChild(targetr).Character.Head
 	}
 	
@@ -4045,7 +4045,7 @@ end)
 	wait()
 	local args = {
 		[1] = "Recharge",
-		[2] = game:GetService("Players").LocalPlayer.Character.Taser
+		[2] = game:GetService("Players").LocalPlayer.Backpack.Taser
 	}
 	
 	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
@@ -4343,7 +4343,7 @@ local GarbPlayerList = combat_channel:Dropdown(
 	end
 
 	do
-        LP.Backpack.Taser.Parent = LP.Character
+        --LP.Backpack.Taser.Parent = LP.Character
         --cuff.Parent = LP.Character
         --LP.Backpack.Grab.Parent = LP.Character
         --LP.Backpack.Rope.Parent = LP.Character
@@ -4355,9 +4355,9 @@ local GarbPlayerList = combat_channel:Dropdown(
     end)
 
 	repeat
-		Remotes["Tase"]:FireServer("Hit", LP.Character.Taser, targasdsdaset.Character.Head)
+		Remotes["Tase"]:FireServer("Hit", LP.Backpack.Taser, targasdsdaset.Character.Head)
 		task.wait(0.1)
-		Remotes["Tase"]:FireServer("Recharge", LP.Character.Taser)
+		Remotes["Tase"]:FireServer("Recharge", LP.Backpack.Taser)
 		task.wait()
 	until targasdsdaset.Character.RagDoll.Value
 
