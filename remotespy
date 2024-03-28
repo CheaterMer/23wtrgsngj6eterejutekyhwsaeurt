@@ -4250,10 +4250,13 @@ function eat()
         if not LP.Backpack:FindFirstChild("Hamburger") then
             task.wait()
            fireclickdetector(workspace:WaitForChild("Hamburger").ClickDetector)
+        elseif LP.Backpack:FindFirstChild("Hamburger") then
+			task.wait()
+            LP.Backpack.Hamburger.Parent = LP.Character
         end
 		local args = {
 			[1] = LP.Character,
-			[2] = game:GetService("Players").LocalPlayer.Backpack.Hamburger,
+			[2] = game:GetService("Players").LocalPlayer.Character.Hamburger,
 			[3] = "Heal"
 		}
 		game:GetService("ReplicatedStorage"):WaitForChild("EatingEvent"):FireServer(unpack(args))
