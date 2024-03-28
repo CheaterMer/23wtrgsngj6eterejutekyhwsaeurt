@@ -4368,13 +4368,14 @@ local GarbPlayerList = combat_channel:Dropdown(
 	--repeat
 	while task.wait() do
 
+	pcall(function()
 		if targasdsdaset.Character.IsGrabbed.Value == false then
 		Remotes["Tase"]:FireServer("Hit", LP.Backpack.Taser, targasdsdaset.Character.Head)
 		task.wait(0.1)
 		Remotes["Tase"]:FireServer("Recharge", LP.Backpack.Taser)
 		task.wait()
 		end
-	
+	end)
 	--until targasdsdaset.Character.RagDoll.Value
 
 
