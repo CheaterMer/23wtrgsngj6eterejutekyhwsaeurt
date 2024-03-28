@@ -3959,7 +3959,7 @@ task.spawn(function()
 		--item()
         local args = {
             [1] = "Hit",
-            [2] = game:GetService("Players").LocalPlayer.Character.Taser,
+            [2] = game:GetService("Players").LocalPlayer.Backpack.Taser,
             [3] = game:GetService("Players"):WaitForChild(targetr).Character.Head
         }
         
@@ -3967,7 +3967,7 @@ task.spawn(function()
         wait()
         local args = {
             [1] = "Recharge",
-            [2] = game:GetService("Players").LocalPlayer.Character.Taser
+            [2] = game:GetService("Players").LocalPlayer.Backpack.Taser
         }
         
         game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
