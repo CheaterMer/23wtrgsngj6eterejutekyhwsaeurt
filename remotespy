@@ -4371,7 +4371,7 @@ local GarbPlayerList = combat_channel:Dropdown(
 	pcall(function()
 		if targasdsdaset.Character.RagDoll.Value == false then
 		Remotes["Tase"]:FireServer("Hit", LP.Backpack.Taser, targasdsdaset.Character.Head)
-		task.wait(0.1)
+		task.wait(0.35)
 		Remotes["Tase"]:FireServer("Recharge", LP.Backpack.Taser)
 		task.wait()
 		end
