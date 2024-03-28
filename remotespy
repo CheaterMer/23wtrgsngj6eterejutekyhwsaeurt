@@ -4401,7 +4401,7 @@ local GarbPlayerList = combat_channel:Dropdown(
    -- loop_move:Disconnect()
     --LP.Character.HumanoidRootPart.CFrame = oldPos
 	--until 
-	if targasdsdaset.Character.IsGrabbed.Value then
+	if targasdsdaset.Character.IsGrabbed.Value == true then
 		loop_move:Disconnect()
     	LP.Character.HumanoidRootPart.CFrame = oldPos
 		break
