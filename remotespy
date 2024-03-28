@@ -4378,26 +4378,31 @@ local GarbPlayerList = combat_channel:Dropdown(
 	end)
 	--until targasdsdaset.Character.RagDoll.Value
 
-
+	pcall(function()
     --repeat
 	if targasdsdaset.Character.IsCuffed.Value == false then
         Remotes["IsCuffed"]:FireServer(cuff, targasdsdaset.Character)
-        task.wait()
+        task.wait(0.1)
 	end
     --until targasdsdaset.Character.IsCuffed.Value
+	end)
 
     --repeat
+	pcall(function()
 	if targasdsdaset.Character.IsHogged.Value == false then
         Remotes["IsHog"]:FireServer(targasdsdaset.Character, "Hog")
-        task.wait()
+        task.wait(0.1)
 	end
+end)
    -- until targasdsdaset.Character.IsHogged.Value
 
    -- repeat
+   pcall(function()
    if targasdsdaset.Character.IsGrabbed.Value == false then
         Remotes["Grab"]:FireServer(targasdsdaset.Character, "Grab")
-        task.wait()
+        task.wait(0.1)
    end
+end)
    -- until targasdsdaset.Character.IsGrabbed.Value
 	--repeat
    -- loop_move:Disconnect()
