@@ -4379,7 +4379,7 @@ local GarbPlayerList = combat_channel:Dropdown(
 
 
     --repeat
-	if targasdsdaset.Character.IsCuffed.Value == false then
+	if targasdsdaset.Character.IsCuffed.Value <= false then
         Remotes["IsCuffed"]:FireServer(cuff, targasdsdaset.Character)
         task.wait()
 	end
