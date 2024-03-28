@@ -4368,7 +4368,7 @@ local GarbPlayerList = combat_channel:Dropdown(
 	--repeat
 	while task.wait() do
 
-		if targasdsdaset.Character.IsCuffed.Value == false then
+		if targasdsdaset.Character.IsGrabbed.Value == false then
 		Remotes["Tase"]:FireServer("Hit", LP.Backpack.Taser, targasdsdaset.Character.Head)
 		task.wait(0.1)
 		Remotes["Tase"]:FireServer("Recharge", LP.Backpack.Taser)
