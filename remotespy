@@ -4315,6 +4315,24 @@ combat_channel:Toggle("Inf Garb", false, function(bool)
     INFgarb = bool
 end)
 
+task.spawn(function()
+	while task.wait() do 
+		if LOOPTP == true then
+			pcall(function()
+		--local targasdsdaset = GetPlayer(TGBP)
+		local asdfgw = Players:FindFirstChild(TGBP)
+		if not asdfgw then return end
+		print(asdfgw)
+		if asdfgw.Character.Hostile.Value == false 
+		or asdfgw.Character.Humanoid.Health == 0 then 
+			return print("nil")
+		end
+		LP.Character.HumanoidRootPart.CFrame = targasdsdaset.Character.HumanoidRootPart.CFrame + Vector3.new(0 , 5 , 0)
+	end)	
+	end
+	end
+end)
+
 local GarbPlayerList = combat_channel:Dropdown(
     "Target",
 	names,
@@ -4324,7 +4342,11 @@ local GarbPlayerList = combat_channel:Dropdown(
     end
 )
 
-  combat_channel:Button("Grab Player", function()
+combat_channel:Toggle("Loop Tp", false, function(bool)
+    LOOPTP = bool
+end)
+
+combat_channel:Button("Grab Player", function()
 
 	--local targasdsdaset = GetPlayer(TGBP)
 	local targasdsdaset = Players:FindFirstChild(TGBP)
@@ -4393,7 +4415,7 @@ local GarbPlayerList = combat_channel:Dropdown(
         Remotes["IsHog"]:FireServer(targasdsdaset.Character, "Hog")
         task.wait(0.1)
 	end
-end)
+	end)
    -- until targasdsdaset.Character.IsHogged.Value
 
    -- repeat
@@ -4402,7 +4424,7 @@ end)
         Remotes["Grab"]:FireServer(targasdsdaset.Character, "Grab")
         task.wait(0.1)
    end
-end)
+	end)
    -- until targasdsdaset.Character.IsGrabbed.Value
 	--repeat
    -- loop_move:Disconnect()
