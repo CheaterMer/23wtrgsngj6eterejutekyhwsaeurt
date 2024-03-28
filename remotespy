@@ -4366,9 +4366,8 @@ local GarbPlayerList = combat_channel:Dropdown(
 
 	--repeat
 	while task.wait() do
-		if Players:FindFirstChild(TGBP) then
 
-		if not targasdsdaset.Character.IsGrabbed.Value then
+		if targasdsdaset.Character.IsGrabbed.Value == false then
 		Remotes["Tase"]:FireServer("Hit", LP.Backpack.Taser, targasdsdaset.Character.Head)
 		task.wait(0.1)
 		Remotes["Tase"]:FireServer("Recharge", LP.Backpack.Taser)
@@ -4379,21 +4378,21 @@ local GarbPlayerList = combat_channel:Dropdown(
 
 
     --repeat
-	if targasdsdaset.Character.RagDoll.Value then
+	if targasdsdaset.Character.IsCuffed.Value == false then
         Remotes["IsCuffed"]:FireServer(cuff, targasdsdaset.Character)
         task.wait()
 	end
     --until targasdsdaset.Character.IsCuffed.Value
 
     --repeat
-	if targasdsdaset.Character.IsCuffed.Value then
+	if targasdsdaset.Character.IsHogged.Value == false then
         Remotes["IsHog"]:FireServer(targasdsdaset.Character, "Hog")
         task.wait()
 	end
    -- until targasdsdaset.Character.IsHogged.Value
 
    -- repeat
-   if targasdsdaset.Character.IsHogged.Value then
+   if targasdsdaset.Character.IsGrabbed.Value == false then
         Remotes["Grab"]:FireServer(targasdsdaset.Character, "Grab")
         task.wait()
    end
@@ -4408,7 +4407,6 @@ local GarbPlayerList = combat_channel:Dropdown(
 		break
 	end
 
-		end
 	end
 end)
 
