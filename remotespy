@@ -4092,7 +4092,7 @@ task.spawn(function()
             for i,v in pairs(attack_tools) do
                 local t = LP.Character:FindFirstChild(v) or LP.Backpack:FindFirstChild(v)
                 if t then
-                    t.Parent = LP.Character
+                    --t.Parent = LP.Character
                     tool = t
                     break
                 end
