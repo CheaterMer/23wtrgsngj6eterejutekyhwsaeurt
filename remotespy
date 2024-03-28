@@ -4327,7 +4327,7 @@ task.spawn(function()
 		or asdfgw.Character.Humanoid.Health == 0 then 
 			return print("nil")
 		end
-		LP.Character.HumanoidRootPart.CFrame = targasdsdaset.Character.HumanoidRootPart.CFrame + Vector3.new(0 , 5 , 0)
+		LP.Character.HumanoidRootPart.CFrame = asdfgw.Character.HumanoidRootPart.CFrame + Vector3.new(0 , 5 , 0)
 	end)	
 	end
 	end
