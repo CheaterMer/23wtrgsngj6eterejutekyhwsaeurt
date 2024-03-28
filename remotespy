@@ -4364,33 +4364,49 @@ local GarbPlayerList = combat_channel:Dropdown(
         LP.Character.HumanoidRootPart.CFrame = targasdsdaset.Character.HumanoidRootPart.CFrame + Vector3.new(0 , 5 , 0)
     end)
 
-	repeat
+	--repeat
+	while task.wait() do
+		if not targasdsdaset.Character.IsGrabbed.Value then
 		Remotes["Tase"]:FireServer("Hit", LP.Backpack.Taser, targasdsdaset.Character.Head)
 		task.wait(0.1)
 		Remotes["Tase"]:FireServer("Recharge", LP.Backpack.Taser)
 		task.wait()
-	until targasdsdaset.Character.RagDoll.Value
+		end
+	
+	--until targasdsdaset.Character.RagDoll.Value
 
 
-    repeat
+    --repeat
+	if targasdsdaset.Character.RagDoll.Value then
         Remotes["IsCuffed"]:FireServer(cuff, targasdsdaset.Character)
         task.wait()
-    until targasdsdaset.Character.IsCuffed.Value
+	end
+    --until targasdsdaset.Character.IsCuffed.Value
 
-    repeat
+    --repeat
+	if targasdsdaset.Character.IsCuffed.Value then
         Remotes["IsHog"]:FireServer(targasdsdaset.Character, "Hog")
         task.wait()
-    until targasdsdaset.Character.IsHogged.Value
+	end
+   -- until targasdsdaset.Character.IsHogged.Value
 
-    repeat
+   -- repeat
+   if targasdsdaset.Character.IsHogged.Value then
         Remotes["Grab"]:FireServer(targasdsdaset.Character, "Grab")
         task.wait()
-    until targasdsdaset.Character.IsGrabbed.Value
+   end
+   -- until targasdsdaset.Character.IsGrabbed.Value
 	--repeat
-    loop_move:Disconnect()
-    LP.Character.HumanoidRootPart.CFrame = oldPos
+   -- loop_move:Disconnect()
+    --LP.Character.HumanoidRootPart.CFrame = oldPos
 	--until 
+	if targasdsdaset.Character.IsGrabbed.Value then
+		loop_move:Disconnect()
+    	LP.Character.HumanoidRootPart.CFrame = oldPos
+		break
+	end
 
+	end
 end)
 
 combat_channel:Button("NO tp Grab Player", function()
