@@ -4351,7 +4351,7 @@ local GarbPlayerList = combat_channel:Dropdown(
 		fireclickdetector(workspace.KeyCard.ClickDetector)
 		fireclickdetector(workspace.Rope.ClickDetector)
 	end)
-
+	task.wait(0.5)
 	--do
         --LP.Backpack.Taser.Parent = LP.Character
         --cuff.Parent = LP.Character
@@ -4401,9 +4401,10 @@ local GarbPlayerList = combat_channel:Dropdown(
    -- loop_move:Disconnect()
     --LP.Character.HumanoidRootPart.CFrame = oldPos
 	--until 
-	if targasdsdaset.Character.IsGrabbed.Value == true 
-	or not Players:FindFirstChild(targasdsdaset.Name) 
-	or LP.Character.Humanoid.Health <= 0
+	if	
+		targasdsdaset.Character.IsGrabbed.Value == true 
+		or not Players:FindFirstChild(targasdsdaset.Name) 
+		or LP.Character.Humanoid.Health <= 0
 	then
 		loop_move:Disconnect()
     	LP.Character.HumanoidRootPart.CFrame = oldPos
