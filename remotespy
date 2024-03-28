@@ -3956,7 +3956,7 @@ function item()
 task.spawn(function()
 	while task.wait() do
 		if taser then pcall(function()
-		item()
+		--item()
         local args = {
             [1] = "Hit",
             [2] = game:GetService("Players").LocalPlayer.Character.Taser,
