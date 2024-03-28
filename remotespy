@@ -4342,15 +4342,15 @@ local GarbPlayerList = combat_channel:Dropdown(
 		local cuff = LP.Backpack:FindFirstChild("Handcuffs")
 	end
 
-		spawn(function()
-	fireclickdetector(workspace.Pickaxe.ClickDetector)
-	fireclickdetector(workspace.Axe.ClickDetector)
-	fireclickdetector(workspace.Taser.ClickDetector)
-	fireclickdetector(workspace.Rope.ClickDetector)
-	fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
-	fireclickdetector(workspace.KeyCard.ClickDetector)
-	fireclickdetector(workspace.Rope.ClickDetector)
-		end)
+	spawn(function()
+		fireclickdetector(workspace.Pickaxe.ClickDetector)
+		fireclickdetector(workspace.Axe.ClickDetector)
+		fireclickdetector(workspace.Taser.ClickDetector)
+		fireclickdetector(workspace.Rope.ClickDetector)
+		fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
+		fireclickdetector(workspace.KeyCard.ClickDetector)
+		fireclickdetector(workspace.Rope.ClickDetector)
+	end)
 
 	--do
         --LP.Backpack.Taser.Parent = LP.Character
@@ -4401,7 +4401,10 @@ local GarbPlayerList = combat_channel:Dropdown(
    -- loop_move:Disconnect()
     --LP.Character.HumanoidRootPart.CFrame = oldPos
 	--until 
-	if targasdsdaset.Character.IsGrabbed.Value == true then
+	if targasdsdaset.Character.IsGrabbed.Value == true 
+	or not Players:FindFirstChild(targasdsdaset.Name) 
+	or LP.Character.Humanoid.Health <= 0
+	then
 		loop_move:Disconnect()
     	LP.Character.HumanoidRootPart.CFrame = oldPos
 		break
