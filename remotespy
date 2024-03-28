@@ -4352,12 +4352,12 @@ local GarbPlayerList = combat_channel:Dropdown(
 	fireclickdetector(workspace.Rope.ClickDetector)
 		end)
 
-	do
+	--do
         --LP.Backpack.Taser.Parent = LP.Character
         --cuff.Parent = LP.Character
         --LP.Backpack.Grab.Parent = LP.Character
         --LP.Backpack.Rope.Parent = LP.Character
-    end
+   -- end
 
     local oldPos = LP.Character.HumanoidRootPart.CFrame
     local loop_move = RunService.Stepped:Connect(function()
@@ -4366,6 +4366,8 @@ local GarbPlayerList = combat_channel:Dropdown(
 
 	--repeat
 	while task.wait() do
+		if Players:FindFirstChild(TGBP) then
+
 		if not targasdsdaset.Character.IsGrabbed.Value then
 		Remotes["Tase"]:FireServer("Hit", LP.Backpack.Taser, targasdsdaset.Character.Head)
 		task.wait(0.1)
@@ -4406,6 +4408,7 @@ local GarbPlayerList = combat_channel:Dropdown(
 		break
 	end
 
+		end
 	end
 end)
 
