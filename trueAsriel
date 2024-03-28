@@ -183,7 +183,9 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 				char.HumanoidRootPart:FindFirstChild("Client"):Destroy()
 			end
 		end)
+		spawn(function()
 		anime(7568092298)
+		end)
           --char.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
           tar = char.HumanoidRootPart.CFrame*CFrame.new(0,15,0) + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 60
           --char.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
