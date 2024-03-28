@@ -4351,7 +4351,8 @@ local GarbPlayerList = combat_channel:Dropdown(
 		fireclickdetector(workspace.KeyCard.ClickDetector)
 		fireclickdetector(workspace.Rope.ClickDetector)
 	end)
-	task.wait(0.5)
+
+	task.wait(1)
 	--do
         --LP.Backpack.Taser.Parent = LP.Character
         --cuff.Parent = LP.Character
