@@ -147,6 +147,22 @@ local nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLa
 local previousTarget = nil
 local targetlp
 -- 정보 업데이트 함수
+-- 호스트일 값을 업데이트하는 함수
+local function updateHostileLabel(value)
+    hostileLabel.Text = "Hostile: " .. tostring(value)
+end
+
+-- 수갑 여부를 업데이트하는 함수
+local function updateIsCuffedLabel(value)
+    isCuffedLabel.Text = "IsCuffed: " .. tostring(value)
+end
+
+-- 매어놓은 상태를 업데이트하는 함수
+local function updateIsHoggedLabel(value)
+    isHoggedLabel.Text = "IsHogged: " .. tostring(value)
+end
+
+-- updateInfo 함수 수정 후
 local function updateInfo(target)
     -- 타겟이 있으면 정보 업데이트
     if target then
@@ -159,8 +175,8 @@ local function updateInfo(target)
         
         -- 채력 정보 업데이트
         if target.Character and target.Character:FindFirstChild("Humanoid") then
-            local health = math.floor(target.Character.Humanoid.Health)
-            healthLabel.Text = "Health: " .. tostring(health)
+            local health = target.Character.Humanoid.Health
+            healthLabel.Text = "Health: " .. string.format("%.0f", health)
         else
             healthLabel.Text = "Health: N/A"
         end
@@ -200,6 +216,7 @@ local function updateInfo(target)
         previousTarget = nil
     end
 end
+
 
 -- GUI 생성 및 정보 업데이트
 updateInfo(nil) -- 초기화
