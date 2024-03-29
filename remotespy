@@ -4990,8 +4990,10 @@ local WLT = whitelist:Dropdown(
 end)
 
 whitelist:Button("Add White List", function()
-	table.insert(whitelistuser,WLA)
-	print("added",WLA)
+	if not table.find(whitelistuser, WLA) then
+		table.insert(whitelistuser,WLA)
+		print("added",WLA)
+	end
 end)
 
 whitelist:Button("Remove White List", function()
