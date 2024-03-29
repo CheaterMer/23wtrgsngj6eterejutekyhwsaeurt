@@ -1,4 +1,4 @@
-_G.targetr
+_G.targetr = nil
 
 local m1 = true
 
