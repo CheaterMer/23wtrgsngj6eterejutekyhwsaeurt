@@ -11,6 +11,14 @@ Frame.BackgroundTransparency = 0.5
 Frame.BackgroundColor3 = Color3.new(0, 0, 0)
 Frame.Parent = ScreenGui
 
+local displayNameLabel = Instance.new("TextLabel")
+displayNameLabel.Name = "displayNameLabel"
+displayNameLabel.Text = "Display Name: N/A"
+displayNameLabel.Position = UDim2.new(0, 0, 0, -20)
+displayNameLabel.TextColor3 = Color3.new(1, 1, 1)
+displayNameLabel.Size = UDim2.new(1, 0, 0, 20)
+displayNameLabel.Parent = Frame
+
 -- 이름 레이블
 local nameLabel = Instance.new("TextLabel")
 nameLabel.Name = "NameLabel"
@@ -173,6 +181,13 @@ local previousTarget = nil
 
 
 local function updateInfo(target)
+
+    if target then
+        displayNameLabel.Text = "Display Name: " .. (target.DisplayName or "N/A")
+    else
+        displayNameLabel.Text = "Display Name: N/A"
+    end
+
     -- 이름 레이블 업데이트
     if target then
         nameLabel.Text = "Name: " .. (target.Name or "N/A")
