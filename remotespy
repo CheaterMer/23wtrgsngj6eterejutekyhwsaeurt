@@ -4038,7 +4038,7 @@ local playerlista = player_channel:Dropdown(
 player_channel:Button("One", function()
 	pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
 	tpos = game:GetService("Players"):WaitForChild(_G.targetr).Character.Torso.CFrame.Position
-	if LP.Character.FindFirstChild("Taser") then
+	if LP.Character:FindFirstChild("Taser") then
 			spawn(function()	
 			local args = {
 					[1] = "Generate",
@@ -4065,7 +4065,7 @@ player_channel:Button("One", function()
 			
 			game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
 		
-		elseif LP.Backpack.FindFirstChild("Taser") then
+		elseif LP.Backpack:FindFirstChild("Taser") then
 
 			local args = {
 				[1] = "Hit",
