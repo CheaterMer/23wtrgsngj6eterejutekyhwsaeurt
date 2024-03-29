@@ -4051,7 +4051,7 @@ player_channel:Button("One", function()
 
 	local args = {
 		[1] = "Hit",
-		[2] = game:GetService("Players").LocalPlayer.Backpack.Taser,
+		[2] = game:GetService("Players").LocalPlayer.Character.Taser,
 		[3] = game:GetService("Players"):WaitForChild(targetr).Character.Head
 	}
 	
@@ -4059,7 +4059,7 @@ player_channel:Button("One", function()
 	wait()
 	local args = {
 		[1] = "Recharge",
-		[2] = game:GetService("Players").LocalPlayer.Backpack.Taser
+		[2] = game:GetService("Players").LocalPlayer.Character.Taser
 	}
 	
 	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
