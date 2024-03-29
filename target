@@ -313,23 +313,23 @@ local function updateInfo(target)
     else
         grabbedByWhomLabel.Text = "GrabbedByWhom: N/A"
 
-    elseif not game:GetService("Players"):FindFirstChild(_G.targetr) then
-        -- 타겟이 없으면 GUI를 초기화
-        displayNameLabel.Text = "Name: N/A"
-        nameLabel.Text = "Name: N/A"
-        teamLabel.Text = "Team: N/A"
-        healthLabel.Text = "Health: N/A"
-        hostileLabel.Text = "Hostile: N/A"
-        isCuffedLabel.Text = "IsCuffed: N/A"
-        isHoggedLabel.Text = "IsHogged: N/A"
-        isLockedLabel.Text = "IsLocked: N/A"
-        frontCuffedLabel.Text = "FrontCuffed: N/A"
-        grabbingLabel.Text = "Grabbing: N/A"
-        downStateLabel.Text = "DownState: N/A"
-        grabbingWhomLabel.Text = "GrabbingWhom: N/A"
-        grabbedByWhomLabel.Text = "GrabbedByWhom: N/A"
-        previousTarget = nil
-
+        if not game:GetService("Players"):FindFirstChild(_G.targetr) then
+            -- 타겟이 없으면 GUI를 초기화
+            displayNameLabel.Text = "Name: N/A"
+            nameLabel.Text = "Name: N/A"
+            teamLabel.Text = "Team: N/A"
+            healthLabel.Text = "Health: N/A"
+            hostileLabel.Text = "Hostile: N/A"
+            isCuffedLabel.Text = "IsCuffed: N/A"
+            isHoggedLabel.Text = "IsHogged: N/A"
+            isLockedLabel.Text = "IsLocked: N/A"
+            frontCuffedLabel.Text = "FrontCuffed: N/A"
+            grabbingLabel.Text = "Grabbing: N/A"
+            downStateLabel.Text = "DownState: N/A"
+            grabbingWhomLabel.Text = "GrabbingWhom: N/A"
+            grabbedByWhomLabel.Text = "GrabbedByWhom: N/A"
+            previousTarget = nil
+        end
     end
 end
 
