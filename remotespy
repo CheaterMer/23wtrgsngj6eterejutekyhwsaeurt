@@ -3994,7 +3994,7 @@ task.spawn(function()
 	while task.wait() do
 		if GetDownitem then pcall(function()
 			if game:GetService("Players"):FindFirstChild(_G.targetr).Character.IsCuffed.Value == false then
-				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character)
+				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(_G.targetr).Character)
 			end
 		end) end
 	end
