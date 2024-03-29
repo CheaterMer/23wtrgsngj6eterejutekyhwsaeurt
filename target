@@ -57,6 +57,92 @@ end)
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
+-- 이전 타겟 초기화
+local previousTarget = nil
+
+-- 정보를 업데이트하는 함수
+local function updateLabel(label, value)
+    label.Text = label.Name .. ": " .. tostring(value)
+end
+
+-- updateInfo 함수 수정 후
+local function updateInfo(target)
+    -- 타겟이 있으면 정보 업데이트
+    if target then
+        -- 이전 타겟과 현재 타겟이 같은지 확인하여 변경되지 않도록 함
+        if target ~= previousTarget then
+            nameLabel.Text = "Name: " .. target.Name
+            teamLabel.Text = "Team: " .. target.Team.Name
+            
+            -- 채력 정보 업데이트
+            if target.Character and target.Character:FindFirstChild("Humanoid") then
+                local health = target.Character.Humanoid.Health
+                healthLabel.Text = "Health: " .. string.format("%.0f", health)
+            else
+                healthLabel.Text = "Health: N/A"
+            end
+            
+            -- Hostile
+            local hostileValue = target.Character and target.Character:FindFirstChild("Hostile") and target.Character.Hostile.Value or "Not available"
+            updateLabel(HostileLabel, hostileValue)
+            
+            -- IsCuffed
+            local isCuffedValue = target.Character and target.Character:FindFirstChild("IsCuffed") and target.Character.IsCuffed.Value or "Not available"
+            updateLabel(IsCuffedLabel, isCuffedValue)
+            
+            -- IsHogged
+            local isHoggedValue = target.Character and target.Character:FindFirstChild("IsHogged") and target.Character.IsHogged.Value or "Not available"
+            updateLabel(IsHoggedLabel, isHoggedValue)
+            
+            -- IsLocked
+            local isLockedValue = target.Character and target.Character:FindFirstChild("IsLocked") and target.Character.IsLocked.Value or "Not available"
+            updateLabel(IsLockedLabel, isLockedValue)
+            
+            -- FrontCuffed
+            local frontCuffedValue = target.Character and target.Character:FindFirstChild("FrontCuffed") and target.Character.FrontCuffed.Value or "Not available"
+            updateLabel(FrontCuffedLabel, frontCuffedValue)
+            
+            -- Grabbing
+            local grabbingValue = target.Character and target.Character:FindFirstChild("Grabbing") and target.Character.Grabbing.Value or "Not available"
+            updateLabel(GrabbingLabel, grabbingValue)
+            
+            -- DownState
+            local downStateValue = target.Character and target.Character:FindFirstChild("DownState") and target.Character.DownState.Value or "Not available"
+            updateLabel(DownStateLabel, downStateValue)
+            
+            -- GrabbingWhom
+            local grabbingWhomValue = target.Character and target.Character:FindFirstChild("GrabbingWhom") and target.Character.GrabbingWhom.Value or "Not available"
+            updateLabel(GrabbingWhomLabel, grabbingWhomValue)
+            
+            -- GrabbedByWhom
+            local grabbedByWhomValue = target.Character and target.Character:FindFirstChild("GrabbedByWhom") and target.Character.GrabbedByWhom.Value or "Not available"
+            updateLabel(GrabbedByWhomLabel, grabbedByWhomValue)
+            
+            previousTarget = target
+        end
+        
+    else
+        -- 타겟이 없으면 기본값으로 설정
+        nameLabel.Text = "Name: N/A"
+        teamLabel.Text = "Team: N/A"
+        healthLabel.Text = "Health: N/A"
+        
+        -- 다른 정보 초기화
+        local defaultValues = "Not available"
+        updateLabel(HostileLabel, defaultValues)
+        updateLabel(IsCuffedLabel, defaultValues)
+        updateLabel(IsHoggedLabel, defaultValues)
+        updateLabel(IsLockedLabel, defaultValues)
+        updateLabel(FrontCuffedLabel, defaultValues)
+        updateLabel(GrabbingLabel, defaultValues)
+        updateLabel(DownStateLabel, defaultValues)
+        updateLabel(GrabbingWhomLabel, defaultValues)
+        updateLabel(GrabbedByWhomLabel, defaultValues)
+        
+        previousTarget = nil
+    end
+end
+
 -- GUI 생성
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -96,95 +182,27 @@ healthLabel.TextColor3 = Color3.new(1, 1, 1)
 healthLabel.Parent = Frame
 
 -- 추가 정보 레이블들
-local attributeLabels = {
-    "HostileLabel",
-    "IsCuffedLabel",
-    "IsHoggedLabel",
-    "IsLockedLabel",
-    "FrontCuffedLabel",
-    "GrabbingLabel",
-    "DownStateLabel",
-    "GrabbingWhomLabel",
-    "GrabbedByWhomLabel"
+local labels = {
+    {"HostileLabel", "Hostile"},
+    {"IsCuffedLabel", "Cuffed"},
+    {"IsHoggedLabel", "Hogged"},
+    {"IsLockedLabel", "Locked"},
+    {"FrontCuffedLabel", "FrontCuffed"},
+    {"GrabbingLabel", "Grabbing"},
+    {"DownStateLabel", "DownState"},
+    {"GrabbingWhomLabel", "GrabbingWhom"},
+    {"GrabbedByWhomLabel", "GrabbedByWhom"}
 }
 
-for i, labelName in ipairs(attributeLabels) do
+for _, data in ipairs(labels) do
     local label = Instance.new("TextLabel")
-    label.Name = labelName
+    label.Name = data[1]
     label.Size = UDim2.new(1, 0, 0, 20)
-    label.Position = UDim2.new(0, 0, 0, 40 + (20 * i))
+    label.Position = UDim2.new(0, 0, 0, 40)
     label.Text = label.Name .. ": N/A"
     label.TextColor3 = Color3.new(1, 1, 1)
     label.Parent = Frame
 end
-
--- 이전 타겟 정보
-local previousTarget = nil
-local targetlp
-
-local function updateLabel(label, value)
-    label.Text = label.Name .. ": " .. tostring(value)
-end
-
--- updateInfo 함수 수정 후
-local function updateInfo(target)
-    -- 타겟이 있으면 정보 업데이트
-    if target then
-        -- 이전 타겟과 현재 타겟이 같은지 확인하여 변경되지 않도록 함
-        if target ~= previousTarget then
-            nameLabel.Text = "Name: " .. target.Name
-            teamLabel.Text = "Team: " .. target.Team.Name
-            
-            -- 채력 정보 업데이트
-            if target.Character and target.Character:FindFirstChild("Humanoid") then
-                local health = target.Character.Humanoid.Health
-                healthLabel.Text = "Health: " .. string.format("%.0f", health)
-            else
-                healthLabel.Text = "Health: N/A"
-            end
-            
-            -- 다양한 값 업데이트
-            local attributes = {
-                {Name = "Hostile", Label = "Hostile"},
-                {Name = "IsCuffed", Label = "IsCuffed"},
-                {Name = "IsHogged", Label = "IsHogged"},
-                {Name = "IsLocked", Label = "IsLocked"},
-                {Name = "FrontCuffed", Label = "FrontCuffed"},
-                {Name = "Grabbing", Label = "Grabbing"},
-                {Name = "DownState", Label = "DownState"},
-                {Name = "GrabbingWhom", Label = "GrabbingWhom"},
-                {Name = "GrabbedByWhom", Label = "GrabbedByWhom"}
-            }
-            
-            for _, attribute in ipairs(attributes) do
-                local attributeName = attribute.Name
-                local labelName = attribute.Label
-                
-                if target.Character and target.Character:FindFirstChild(attributeName) then
-                    local value = target.Character:FindFirstChild(attributeName).Value
-                    updateLabel(_G[labelName .. "Label"], value)
-                else
-                    updateLabel(_G[labelName .. "Label"], "Not available")
-                end
-            end
-            
-            previousTarget = target
-        end
-        
-    else
-        -- 타겟이 없으면 기본값으로 설정
-        nameLabel.Text = "Name: N/A"
-        teamLabel.Text = "Team: N/A"
-        healthLabel.Text = "Health: N/A"
-        for _, attribute in ipairs(attributes) do
-            local labelName = attribute.Label
-            updateLabel(_G[labelName .. "Label"], "Not available")
-        end
-        
-        previousTarget = nil
-    end
-end
-
 
 
 -- GUI 생성 및 정보 업데이트
