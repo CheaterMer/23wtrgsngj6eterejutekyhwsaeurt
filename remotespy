@@ -3966,7 +3966,7 @@ task.spawn(function()
 	while task.wait() do
 		if taser then pcall(function()
 		--item()
-		Remotes["Tase"]:FireServer("Hit", LP.Backpack.Taser,  game:GetService("Players"):WaitForChild(targetr).Character.Head)
+		Remotes["Tase"]:FireServer("Hit", LP.Backpack.Taser,  game:GetService("Players"):WaitForChild(_G.targetr).Character.Head)
 		--[[
 			local args = {
 				[1] = "Hit",
@@ -3993,7 +3993,7 @@ end)
 task.spawn(function()
 	while task.wait() do
 		if GetDownitem then pcall(function()
-			if game:GetService("Players"):FindFirstChild(targetr).Character.IsCuffed.Value == false then
+			if game:GetService("Players"):FindFirstChild(_G.targetr).Character.IsCuffed.Value == false then
 				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character)
 			end
 		end) end
@@ -4003,7 +4003,7 @@ end)
 task.spawn(function()
 	while task.wait() do
 		if tuc then pcall(function()
-			if game:GetService("Players"):FindFirstChild(targetr).Character.IsCuffed.Value == true then
+			if game:GetService("Players"):FindFirstChild(_G.targetr).Character.IsCuffed.Value == true then
 				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character)
 			end
 		end) end
@@ -4013,7 +4013,7 @@ end)
 task.spawn(function()
 	while task.wait() do
 		if tuf then pcall(function()
-			if game:GetService("Players"):FindFirstChild(targetr).Character.IsHogged.Value == true then
+			if game:GetService("Players"):FindFirstChild(_G.targetr).Character.IsHogged.Value == true then
 				Remotes["IsHog"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character,"UnHog")
 			end
 		end) end
@@ -4030,14 +4030,14 @@ local playerlista = player_channel:Dropdown(
 		names,
     function(bool)
 		print(bool)
-        targetr = bool
-		print(targetr , userOwner)
+        _G.targetr = bool
+		print(_G.targetr , userOwner)
     end
 )
 
 player_channel:Button("One", function()
 	pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
-	tpos = game:GetService("Players"):WaitForChild(targetr).Character.Torso.CFrame.Position
+	tpos = game:GetService("Players"):WaitForChild(_G.targetr).Character.Torso.CFrame.Position
 	spawn(function()	
 	local args = {
 			[1] = "Generate",
@@ -4052,7 +4052,7 @@ player_channel:Button("One", function()
 	local args = {
 		[1] = "Hit",
 		[2] = game:GetService("Players").LocalPlayer.Character.Taser,
-		[3] = game:GetService("Players"):WaitForChild(targetr).Character.Head
+		[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
 	}
 	
 	game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
