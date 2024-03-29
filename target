@@ -1,5 +1,116 @@
 _G.targetr = nil
 
+-- GUI 생성
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local Frame = Instance.new("Frame")
+Frame.Size = UDim2.new(0, 200, 0, 250)
+Frame.Position = UDim2.new(0, 10, 0.5, -125)
+Frame.BackgroundTransparency = 0.5
+Frame.BackgroundColor3 = Color3.new(0, 0, 0)
+Frame.Parent = ScreenGui
+
+-- 이름 레이블
+local nameLabel = Instance.new("TextLabel")
+nameLabel.Name = "NameLabel"
+nameLabel.Size = UDim2.new(1, 0, 0, 20)
+nameLabel.Position = UDim2.new(0, 0, 0, 0)
+nameLabel.Text = "Name: N/A"
+nameLabel.TextColor3 = Color3.new(1, 1, 1)
+nameLabel.Parent = Frame
+
+-- 팀 레이블
+local teamLabel = Instance.new("TextLabel")
+teamLabel.Name = "TeamLabel"
+teamLabel.Size = UDim2.new(1, 0, 0, 20)
+teamLabel.Position = UDim2.new(0, 0, 0, 20)
+teamLabel.Text = "Team: N/A"
+teamLabel.TextColor3 = Color3.new(1, 1, 1)
+teamLabel.Parent = Frame
+
+-- 채력 레이블
+local healthLabel = Instance.new("TextLabel")
+healthLabel.Name = "HealthLabel"
+healthLabel.Size = UDim2.new(1, 0, 0, 20)
+healthLabel.Position = UDim2.new(0, 0, 0, 40)
+healthLabel.Text = "Health: N/A"
+healthLabel.TextColor3 = Color3.new(1, 1, 1)
+healthLabel.Parent = Frame
+
+-- 추가 정보 레이블들
+local hostileLabel = Instance.new("TextLabel")
+hostileLabel.Name = "HostileLabel"
+hostileLabel.Size = UDim2.new(1, 0, 0, 20)
+hostileLabel.Position = UDim2.new(0, 0, 0, 60)
+hostileLabel.Text = "Hostile: N/A"
+hostileLabel.TextColor3 = Color3.new(1, 1, 1)
+hostileLabel.Parent = Frame
+
+local isCuffedLabel = Instance.new("TextLabel")
+isCuffedLabel.Name = "IsCuffedLabel"
+isCuffedLabel.Size = UDim2.new(1, 0, 0, 20)
+isCuffedLabel.Position = UDim2.new(0, 0, 0, 80)
+isCuffedLabel.Text = "IsCuffed: N/A"
+isCuffedLabel.TextColor3 = Color3.new(1, 1, 1)
+isCuffedLabel.Parent = Frame
+
+local isHoggedLabel = Instance.new("TextLabel")
+isHoggedLabel.Name = "IsHoggedLabel"
+isHoggedLabel.Size = UDim2.new(1, 0, 0, 20)
+isHoggedLabel.Position = UDim2.new(0, 0, 0, 100)
+isHoggedLabel.Text = "IsHogged: N/A"
+isHoggedLabel.TextColor3 = Color3.new(1, 1, 1)
+isHoggedLabel.Parent = Frame
+
+local isLockedLabel = Instance.new("TextLabel")
+isLockedLabel.Name = "IsLockedLabel"
+isLockedLabel.Size = UDim2.new(1, 0, 0, 20)
+isLockedLabel.Position = UDim2.new(0, 0, 0, 120)
+isLockedLabel.Text = "IsLocked: N/A"
+isLockedLabel.TextColor3 = Color3.new(1, 1, 1)
+isLockedLabel.Parent = Frame
+
+local frontCuffedLabel = Instance.new("TextLabel")
+frontCuffedLabel.Name = "FrontCuffedLabel"
+frontCuffedLabel.Size = UDim2.new(1, 0, 0, 20)
+frontCuffedLabel.Position = UDim2.new(0, 0, 0, 140)
+frontCuffedLabel.Text = "FrontCuffed: N/A"
+frontCuffedLabel.TextColor3 = Color3.new(1, 1, 1)
+frontCuffedLabel.Parent = Frame
+
+local grabbingLabel = Instance.new("TextLabel")
+grabbingLabel.Name = "GrabbingLabel"
+grabbingLabel.Size = UDim2.new(1, 0, 0, 20)
+grabbingLabel.Position = UDim2.new(0, 0, 0, 160)
+grabbingLabel.Text = "Grabbing: N/A"
+grabbingLabel.TextColor3 = Color3.new(1, 1, 1)
+grabbingLabel.Parent = Frame
+
+local downStateLabel = Instance.new("TextLabel")
+downStateLabel.Name = "DownStateLabel"
+downStateLabel.Size = UDim2.new(1, 0, 0, 20)
+downStateLabel.Position = UDim2.new(0, 0, 0, 180)
+downStateLabel.Text = "DownState: N/A"
+downStateLabel.TextColor3 = Color3.new(1, 1, 1)
+downStateLabel.Parent = Frame
+
+local grabbingWhomLabel = Instance.new("TextLabel")
+grabbingWhomLabel.Name = "GrabbingWhomLabel"
+grabbingWhomLabel.Size = UDim2.new(1, 0, 0, 20)
+grabbingWhomLabel.Position = UDim2.new(0, 0, 0, 200)
+grabbingWhomLabel.Text = "GrabbingWhom: N/A"
+grabbingWhomLabel.TextColor3 = Color3.new(1, 1, 1)
+grabbingWhomLabel.Parent = Frame
+
+local grabbedByWhomLabel = Instance.new("TextLabel")
+grabbedByWhomLabel.Name = "GrabbedByWhomLabel"
+grabbedByWhomLabel.Size = UDim2.new(1, 0, 0, 20)
+grabbedByWhomLabel.Position = UDim2.new(0, 0, 0, 220)
+grabbedByWhomLabel.Text = "GrabbedByWhom: N/A"
+grabbedByWhomLabel.TextColor3 = Color3.new(1, 1, 1)
+grabbedByWhomLabel.Parent = Frame
+
 -- 필요한 서비스 및 변수 불러오기
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
@@ -141,67 +252,6 @@ local function updateInfo(target)
         
         previousTarget = nil
     end
-end
-
--- GUI 생성
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
-local Frame = Instance.new("Frame")
-Frame.Size = UDim2.new(0, 200, 0, 250)
-Frame.Position = UDim2.new(0, 10, 0.5, -125)
-Frame.BackgroundTransparency = 0.5
-Frame.BackgroundColor3 = Color3.new(0, 0, 0)
-Frame.Parent = ScreenGui
-
--- 이름 레이블
-nameLabel = Instance.new("TextLabel")
-nameLabel.Name = "NameLabel"
-nameLabel.Size = UDim2.new(1, 0, 0, 20)
-nameLabel.Position = UDim2.new(0, 0, 0, 0)
-nameLabel.Text = "Name: N/A"
-nameLabel.TextColor3 = Color3.new(1, 1, 1)
-nameLabel.Parent = Frame
-
--- 팀 레이블
-teamLabel = Instance.new("TextLabel")
-teamLabel.Name = "TeamLabel"
-teamLabel.Size = UDim2.new(1, 0, 0, 20)
-teamLabel.Position = UDim2.new(0, 0, 0, 20)
-teamLabel.Text = "Team: N/A"
-teamLabel.TextColor3 = Color3.new(1, 1, 1)
-teamLabel.Parent = Frame
-
--- 채력 레이블
-healthLabel = Instance.new("TextLabel")
-healthLabel.Name = "HealthLabel"
-healthLabel.Size = UDim2.new(1, 0, 0, 20)
-healthLabel.Position = UDim2.new(0, 0, 0, 40)
-healthLabel.Text = "Health: N/A"
-healthLabel.TextColor3 = Color3.new(1, 1, 1)
-healthLabel.Parent = Frame
-
--- 추가 정보 레이블들
-local labels = {
-    {"HostileLabel", "Hostile"},
-    {"IsCuffedLabel", "Cuffed"},
-    {"IsHoggedLabel", "Hogged"},
-    {"IsLockedLabel", "Locked"},
-    {"FrontCuffedLabel", "FrontCuffed"},
-    {"GrabbingLabel", "Grabbing"},
-    {"DownStateLabel", "DownState"},
-    {"GrabbingWhomLabel", "GrabbingWhom"},
-    {"GrabbedByWhomLabel", "GrabbedByWhom"}
-}
-
-for _, data in ipairs(labels) do
-    local label = Instance.new("TextLabel")
-    label.Name = data[1]
-    label.Size = UDim2.new(1, 0, 0, 20)
-    label.Position = UDim2.new(0, 0, 0, 40)
-    label.Text = label.Name .. ": N/A"
-    label.TextColor3 = Color3.new(1, 1, 1)
-    label.Parent = Frame
 end
 
 
