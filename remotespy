@@ -4278,7 +4278,17 @@ function eat()
 			task.wait()
             LP.Backpack.Hamburger.Parent = LP.Character
         end
-		Remotes["EatingEvent"]:FireServer(LP.Character, LP.Character.Hamburger, "Hamburger")
+		
+		local args = {
+			[1] = LP.Character,
+			[2] = game:GetService("Players").LocalPlayer.Character.Hamburger,
+			[3] = "Heal"
+		}
+		
+		game:GetService("ReplicatedStorage"):WaitForChild("EatingEvent"):FireServer(unpack(args))
+		
+		
+		--Remotes["EatingEvent"]:FireServer(LP.Character, LP.Character.Hamburger, "Hamburger")
 		end
 	end)
 end
