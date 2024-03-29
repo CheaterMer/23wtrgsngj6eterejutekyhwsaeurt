@@ -18,81 +18,71 @@ local function createGUI()
 
     -- UI 요소 생성
     local frame = Instance.new("Frame")
-    frame.Size = UDim2.new(0, 200, 0, 200)
-    frame.Position = UDim2.new(0.5, -100, 0.5, -100)
-    frame.AnchorPoint = Vector2.new(0.5, 0.5)
-    frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    frame.Size = UDim2.new(0, 200, 1, 0)
+    frame.Position = UDim2.new(0, 0, 0, 0)
+    frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     frame.BorderSizePixel = 0
     frame.Parent = screenGui
 
     local nameLabel = Instance.new("TextLabel")
-    nameLabel.Size = UDim2.new(1, 0, 0.15, 0)
+    nameLabel.Size = UDim2.new(1, 0, 0.1, 0)
     nameLabel.Position = UDim2.new(0, 0, 0, 0)
-    nameLabel.Font = Enum.Font.SourceSansBold
+    nameLabel.Font = Enum.Font.GothamSemibold
     nameLabel.TextSize = 16
     nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     nameLabel.TextWrapped = true
     nameLabel.Parent = frame
 
     local teamLabel = Instance.new("TextLabel")
-    teamLabel.Size = UDim2.new(1, 0, 0.15, 0)
-    teamLabel.Position = UDim2.new(0, 0, 0.15, 0)
-    teamLabel.Font = Enum.Font.SourceSansBold
+    teamLabel.Size = UDim2.new(1, 0, 0.1, 0)
+    teamLabel.Position = UDim2.new(0, 0, 0.1, 0)
+    teamLabel.Font = Enum.Font.GothamSemibold
     teamLabel.TextSize = 16
     teamLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     teamLabel.TextWrapped = true
     teamLabel.Parent = frame
 
-    local itemLabel = Instance.new("TextLabel")
-    itemLabel.Size = UDim2.new(1, 0, 0.15, 0)
-    itemLabel.Position = UDim2.new(0, 0, 0.3, 0)
-    itemLabel.Font = Enum.Font.SourceSansBold
-    itemLabel.TextSize = 16
-    itemLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-    itemLabel.TextWrapped = true
-    itemLabel.Parent = frame
-
     local healthLabel = Instance.new("TextLabel")
-    healthLabel.Size = UDim2.new(1, 0, 0.15, 0)
-    healthLabel.Position = UDim2.new(0, 0, 0.45, 0)
-    healthLabel.Font = Enum.Font.SourceSansBold
+    healthLabel.Size = UDim2.new(1, 0, 0.1, 0)
+    healthLabel.Position = UDim2.new(0, 0, 0.2, 0)
+    healthLabel.Font = Enum.Font.GothamSemibold
     healthLabel.TextSize = 16
     healthLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     healthLabel.TextWrapped = true
     healthLabel.Parent = frame
 
     local hostileLabel = Instance.new("TextLabel")
-    hostileLabel.Size = UDim2.new(1, 0, 0.15, 0)
-    hostileLabel.Position = UDim2.new(0, 0, 0.6, 0)
-    hostileLabel.Font = Enum.Font.SourceSansBold
+    hostileLabel.Size = UDim2.new(1, 0, 0.1, 0)
+    hostileLabel.Position = UDim2.new(0, 0, 0.3, 0)
+    hostileLabel.Font = Enum.Font.GothamSemibold
     hostileLabel.TextSize = 16
     hostileLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     hostileLabel.TextWrapped = true
     hostileLabel.Parent = frame
 
     local isCuffedLabel = Instance.new("TextLabel")
-    isCuffedLabel.Size = UDim2.new(1, 0, 0.15, 0)
-    isCuffedLabel.Position = UDim2.new(0, 0, 0.75, 0)
-    isCuffedLabel.Font = Enum.Font.SourceSansBold
+    isCuffedLabel.Size = UDim2.new(1, 0, 0.1, 0)
+    isCuffedLabel.Position = UDim2.new(0, 0, 0.4, 0)
+    isCuffedLabel.Font = Enum.Font.GothamSemibold
     isCuffedLabel.TextSize = 16
     isCuffedLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     isCuffedLabel.TextWrapped = true
     isCuffedLabel.Parent = frame
 
     local isHoggedLabel = Instance.new("TextLabel")
-    isHoggedLabel.Size = UDim2.new(1, 0, 0.15, 0)
-    isHoggedLabel.Position = UDim2.new(0, 0, 0.9, 0)
-    isHoggedLabel.Font = Enum.Font.SourceSansBold
+    isHoggedLabel.Size = UDim2.new(1, 0, 0.1, 0)
+    isHoggedLabel.Position = UDim2.new(0, 0, 0.5, 0)
+    isHoggedLabel.Font = Enum.Font.GothamSemibold
     isHoggedLabel.TextSize = 16
     isHoggedLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     isHoggedLabel.TextWrapped = true
     isHoggedLabel.Parent = frame
 
-    return nameLabel, teamLabel, itemLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel
+    return nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel
 end
 
 -- GUI 생성
-local nameLabel, teamLabel, itemLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel = createGUI()
+local nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel = createGUI()
 
 -- 'H' 키를 지정
 local selectKey = Enum.KeyCode.H
@@ -130,17 +120,6 @@ UserInputService.InputBegan:Connect(function(input)
             _G.targetr = closestPlayer.Name
             nameLabel.Text = "Name: " .. closestPlayer.Name
             teamLabel.Text = "Team: " .. closestPlayer.Team.Name
-            -- 아이템 정보는 여기에 추가하세요
-            if closestPlayer.Character and closestPlayer.Character:IsDescendantOf(workspace) then
-                local backpack = closestPlayer.Character:FindFirstChild("Backpack")
-                if backpack then
-                    local items = ""
-                    for _, item in ipairs(backpack:GetChildren()) do
-                        items = items .. item.Name .. ", "
-                    end
-                    itemLabel.Text = "Items: " .. items
-                end
-            end
             healthLabel.Text = "Health: " .. tostring(closestPlayer.Character.Humanoid.Health)
             hostileLabel.Text = "Hostile: " .. tostring(closestPlayer.Character:FindFirstChild("Hostile").Value)
             isCuffedLabel.Text = "IsCuffed: " .. tostring(closestPlayer.Character:FindFirstChild("IsCuffed").Value)
@@ -148,7 +127,6 @@ UserInputService.InputBegan:Connect(function(input)
         else
             nameLabel.Text = "No target found"
             teamLabel.Text = ""
-            itemLabel.Text = ""
             healthLabel.Text = ""
             hostileLabel.Text = ""
             isCuffedLabel.Text = ""
