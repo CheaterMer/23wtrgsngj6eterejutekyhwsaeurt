@@ -1,7 +1,6 @@
 _G.targetr = nil
 
 
-
 -- 필요한 서비스 및 변수 불러오기
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
@@ -18,7 +17,7 @@ local function createGUI()
 
     -- UI 요소 생성
     local frame = Instance.new("Frame")
-    frame.Size = UDim2.new(0, 200, 1, 0)
+    frame.Size = UDim2.new(0, 150, 0, 200) -- 크기를 조정합니다.
     frame.Position = UDim2.new(0, 0, 0, 0)
     frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     frame.BorderSizePixel = 0
@@ -117,7 +116,7 @@ UserInputService.InputBegan:Connect(function(input)
 
         -- 가장 가까운 플레이어를 찾은 경우, 정보를 GUI로 출력
         if closestPlayer then
-            _G.targetr = closestPlayer.Name
+        _G.targetr = closestPlayer.Name
             nameLabel.Text = "Name: " .. closestPlayer.Name
             teamLabel.Text = "Team: " .. closestPlayer.Team.Name
             healthLabel.Text = "Health: " .. tostring(closestPlayer.Character.Humanoid.Health)
