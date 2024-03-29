@@ -118,6 +118,7 @@ local function updateInfo()
 
     -- 가장 가까운 플레이어를 찾은 경우, 정보를 GUI로 출력
     if closestPlayer then
+        while task.wait(0.1) do
         _G.targetr = closestPlayer.Name
         nameLabel.Text = "Name: " .. closestPlayer.Name
         teamLabel.Text = "Team: " .. closestPlayer.Team.Name
@@ -125,6 +126,7 @@ local function updateInfo()
         hostileLabel.Text = "Hostile: " .. tostring(closestPlayer.Character:FindFirstChild("Hostile").Value)
         isCuffedLabel.Text = "IsCuffed: " .. tostring(closestPlayer.Character:FindFirstChild("IsCuffed").Value)
         isHoggedLabel.Text = "IsHogged: " .. tostring(closestPlayer.Character:FindFirstChild("IsHogged").Value)
+        end
     else
         nameLabel.Text = "No target found"
         teamLabel.Text = ""
