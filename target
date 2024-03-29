@@ -1,6 +1,5 @@
 _G.targetr = nil
 
-
 -- 필요한 서비스 및 변수 불러오기
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
@@ -17,9 +16,10 @@ local function createGUI()
 
     -- UI 요소 생성
     local frame = Instance.new("Frame")
-    frame.Size = UDim2.new(0, 150, 0, 200) -- 크기를 조정합니다.
-    frame.Position = UDim2.new(0, 0, 0, 0)
-    frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    frame.Size = UDim2.new(0, 200, 0, 250) -- 크기를 조정합니다.
+    frame.Position = UDim2.new(0.5, 0, 0.5, 0) -- 좌측 중간으로 이동
+    frame.AnchorPoint = Vector2.new(0.5, 0.5)
+    frame.BackgroundTransparency = 1 -- 배경색 없애기
     frame.BorderSizePixel = 0
     frame.Parent = screenGui
 
@@ -83,53 +83,61 @@ end
 -- GUI 생성
 local nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel = createGUI()
 
--- 'H' 키를 지정
-local selectKey = Enum.KeyCode.H
+-- 정보 업데이트 함수
+local function updateInfo()
+    -- 현재 플레이어 얻기
+    local localPlayer = Players.LocalPlayer
 
--- 'H' 키가 눌렸을 때 실행될 함수
-UserInputService.InputBegan:Connect(function(input)
-    if input.KeyCode == selectKey then
-        -- 현재 플레이어 얻기
-        local localPlayer = Players.LocalPlayer
+    -- 마우스의 현재 위치 얻기
+    local mouse = localPlayer:GetMouse()
+    local mousePosition = mouse.Hit.p
 
-        -- 마우스의 현재 위치 얻기
-        local mouse = localPlayer:GetMouse()
-        local mousePosition = mouse.Hit.p
+    -- 가장 가까운 다른 팀 플레이어 찾기
+    local closestPlayer = nil
+    local shortestDistance = math.huge
 
-        -- 가장 가까운 다른 팀 플레이어 찾기
-        local closestPlayer = nil
-        local shortestDistance = math.huge
+    for _, player in ipairs(Players:GetPlayers()) do
+        -- 로컬 플레이어와 같은 팀이면서 검사
+        if player.Team ~= localPlayer.Team and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            local playerPosition = player.Character.HumanoidRootPart.Position
+            local distance = (playerPosition - mousePosition).magnitude
 
-        for _, player in ipairs(Players:GetPlayers()) do
-            -- 로컬 플레이어와 같은 팀이면서 검사
-            if player.Team ~= localPlayer.Team and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-                local playerPosition = player.Character.HumanoidRootPart.Position
-                local distance = (playerPosition - mousePosition).magnitude
-
-                -- 이전에 찾은 플레이어보다 더 가까운 플레이어를 찾으면 갱신
-                if distance < shortestDistance then
-                    closestPlayer = player
-                    shortestDistance = distance
-                end
+            -- 이전에 찾은 플레이어보다 더 가까운 플레이어를 찾으면 갱신
+            if distance < shortestDistance then
+                closestPlayer = player
+                shortestDistance = distance
             end
         end
+    end
 
-        -- 가장 가까운 플레이어를 찾은 경우, 정보를 GUI로 출력
-        if closestPlayer then
+    -- 가장 가까운 플레이어를 찾은 경우, 정보를 GUI로 출력
+    if closestPlayer then
         _G.targetr = closestPlayer.Name
-            nameLabel.Text = "Name: " .. closestPlayer.Name
-            teamLabel.Text = "Team: " .. closestPlayer.Team.Name
-            healthLabel.Text = "Health: " .. tostring(closestPlayer.Character.Humanoid.Health)
-            hostileLabel.Text = "Hostile: " .. tostring(closestPlayer.Character:FindFirstChild("Hostile").Value)
-            isCuffedLabel.Text = "IsCuffed: " .. tostring(closestPlayer.Character:FindFirstChild("IsCuffed").Value)
-            isHoggedLabel.Text = "IsHogged: " .. tostring(closestPlayer.Character:FindFirstChild("IsHogged").Value)
-        else
-            nameLabel.Text = "No target found"
-            teamLabel.Text = ""
-            healthLabel.Text = ""
-            hostileLabel.Text = ""
-            isCuffedLabel.Text = ""
-            isHoggedLabel.Text = ""
-        end
+        nameLabel.Text = "Name: " .. closestPlayer.Name
+        teamLabel.Text = "Team: " .. closestPlayer.Team.Name
+        healthLabel.Text = "Health: " .. tostring(closestPlayer.Character.Humanoid.Health)
+        hostileLabel.Text = "Hostile: " .. tostring(closestPlayer.Character:FindFirstChild("Hostile").Value)
+        isCuffedLabel.Text = "IsCuffed: " .. tostring(closestPlayer.Character:FindFirstChild("IsCuffed").Value)
+        isHoggedLabel.Text = "IsHogged: " .. tostring(closestPlayer.Character:FindFirstChild("IsHogged").Value)
+    else
+        nameLabel.Text = "No target found"
+        teamLabel.Text = ""
+        healthLabel.Text = ""
+        hostileLabel.Text = ""
+        isCuffedLabel.Text = ""
+        isHoggedLabel.Text = ""
+    end
+end
+
+-- 업데이트 함수를 호출하여 초기 정보 출력
+updateInfo()
+
+-- 'H' 키 입력 함수
+local selectKey = Enum.KeyCode.H
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == selectKey then
+        -- H 키 입력 시 실행할 동작을 여기에 추가하세요.
+        -- 예: print("H key pressed")
+        updateInfo() -- 플레이어 정보 업데이트
     end
 end)
