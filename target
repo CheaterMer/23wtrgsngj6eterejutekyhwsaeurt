@@ -160,6 +160,11 @@ local function updateInfo(target)
             isHoggedLabel.Text = "IsHogged: " .. tostring(target.Character:FindFirstChild("IsHogged").Value)
             previousTarget = target
         end
+        if target.Character and target.Character:FindFirstChild("Humanoid") then
+            healthLabel.Text = "Health: " .. tostring(target.Character.Humanoid.Health)
+        else
+            healthLabel.Text = "Health: N/A"
+        end
     else
         -- 타겟이 없으면 GUI를 초기화
         nameLabel.Text = "No target found"
