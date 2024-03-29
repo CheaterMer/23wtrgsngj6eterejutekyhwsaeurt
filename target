@@ -3,6 +3,7 @@ _G.targetr = nil
 -- GUI 생성
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+screenGui.ResetOnSpawn = false
 
 local Frame = Instance.new("Frame")
 Frame.Size = UDim2.new(0, 200, 0, 250)
