@@ -3418,7 +3418,7 @@ task.spawn(function()
                 if plr ~= LP 
 				and not table.find(userOwner, plr.Name) 
 				and plr.Character.IsCuffed.Value == false 
-				and not table.find(whitelistuser, plr.Name)
+				--and not table.find(whitelistuser, plr.Name)
 				then
                     Remotes["UnCuffed"]:FireServer(plr.Character)
                 end
@@ -4116,7 +4116,7 @@ task.spawn(function()
 					and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 25) 
 					and plr.Character.Hostile.Value 
 					and not table.find(userOwner, plr.Name) 
-					and not table.find(whitelistuser, plr.Name)
+					--and not table.find(whitelistuser, plr.Name)
 					and plr.Character.Humanoid.Health ~= 0 
 					then
 						if LP.Team.Name == "Civilian" 
