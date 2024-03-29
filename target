@@ -312,6 +312,17 @@ local function updateInfo(target)
         end
     else
         grabbedByWhomLabel.Text = "GrabbedByWhom: N/A"
+
+    elseif not game:GetService("Players"):FindFirstChild(_G.targetr) then
+        -- 타겟이 없으면 GUI를 초기화
+        nameLabel.Text = "Name: N/A"
+        teamLabel.Text = "Team: N/A"
+        healthLabel.Text = "Health: N/A"
+        hostileLabel.Text = "Hostile: N/A"
+        isCuffedLabel.Text = "IsCuffed: N/A"
+        isHoggedLabel.Text = "IsHogged: N/A"
+        previousTarget = nil
+
     end
 end
 
