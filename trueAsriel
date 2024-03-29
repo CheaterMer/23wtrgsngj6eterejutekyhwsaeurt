@@ -176,7 +176,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 			local args = {
 				[1] = "Hit",
 				[2] = game:GetService("Players").LocalPlayer.Character.Taser,
-				[3] = game:GetService("Players"):WaitForChild(targetr).Character.Head
+				[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
 			}
 			
 			game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
