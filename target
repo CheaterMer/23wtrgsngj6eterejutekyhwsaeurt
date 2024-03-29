@@ -170,18 +170,7 @@ local function updateInfo(target)
             
             previousTarget = target
         end
-        
-    else
-        -- 타겟이 없으면 유저 정보 다시 받기
-        local localPlayer = game:GetService("Players").LocalPlayer
-        if localPlayer then
-            nameLabel.Text = "Name: " .. localPlayer.Team.Name
-            teamLabel.Text = "Team: " .. localPlayer.Name
-            healthLabel.Text = "Health: N/A"
-            for _, attribute in ipairs(attributes) do
-                local labelName = attribute[2]
-                updateLabel(_G[labelName .. "Label"], "Not available")
-            end
+    
         else
             -- 로컬 플레이어가 없을 경우 기본값으로 설정
             nameLabel.Text = "Name: N/A"
