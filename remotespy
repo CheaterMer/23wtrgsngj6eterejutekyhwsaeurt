@@ -3274,7 +3274,7 @@ function DiscordLib:Window(text)
 	return ServerHold
 end
 
-_G.targetr
+_G.targetr = nil
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
