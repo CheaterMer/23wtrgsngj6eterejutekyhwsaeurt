@@ -14,10 +14,10 @@ Frame.Parent = ScreenGui
 
 local displayNameLabel = Instance.new("TextLabel")
 displayNameLabel.Name = "displayNameLabel"
-displayNameLabel.Text = "Display Name: N/A"
-displayNameLabel.Position = UDim2.new(0, 0, 0, -20)
-displayNameLabel.TextColor3 = Color3.new(1, 1, 1)
 displayNameLabel.Size = UDim2.new(1, 0, 0, 20)
+displayNameLabel.Position = UDim2.new(0, 0, 0, -20)
+displayNameLabel.Text = "Display Name: N/A"
+displayNameLabel.TextColor3 = Color3.new(1, 1, 1)
 displayNameLabel.Parent = Frame
 
 -- 이름 레이블
