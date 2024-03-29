@@ -154,26 +154,49 @@ local function updateInfo(target)
         if target ~= previousTarget then
             nameLabel.Text = "Name: " .. target.Name
             teamLabel.Text = "Team: " .. target.Team.Name
-            healthLabel.Text = "Health: " .. tostring(target.Character.Humanoid.Health)
-            hostileLabel.Text = "Hostile: " .. tostring(target.Character:FindFirstChild("Hostile").Value)
-            isCuffedLabel.Text = "IsCuffed: " .. tostring(target.Character:FindFirstChild("IsCuffed").Value)
-            isHoggedLabel.Text = "IsHogged: " .. tostring(target.Character:FindFirstChild("IsHogged").Value)
             previousTarget = target
         end
+        
+        -- 채력 정보 업데이트
         if target.Character and target.Character:FindFirstChild("Humanoid") then
             local health = math.floor(target.Character.Humanoid.Health)
             healthLabel.Text = "Health: " .. tostring(health)
         else
             healthLabel.Text = "Health: N/A"
         end
+        
+        -- Hostile 값 업데이트
+        if target.Character and target.Character:FindFirstChild("Hostile") then
+            local hostileValue = tostring(target.Character:FindFirstChild("Hostile").Value)
+            updateHostileLabel(hostileValue)
+        else
+            updateHostileLabel("N/A")
+        end
+        
+        -- IsCuffed 값 업데이트
+        if target.Character and target.Character:FindFirstChild("IsCuffed") then
+            local isCuffedValue = tostring(target.Character:FindFirstChild("IsCuffed").Value)
+            updateIsCuffedLabel(isCuffedValue)
+        else
+            updateIsCuffedLabel("N/A")
+        end
+        
+        -- IsHogged 값 업데이트
+        if target.Character and target.Character:FindFirstChild("IsHogged") then
+            local isHoggedValue = tostring(target.Character:FindFirstChild("IsHogged").Value)
+            updateIsHoggedLabel(isHoggedValue)
+        else
+            updateIsHoggedLabel("N/A")
+        end
+        
     else
         -- 타겟이 없으면 GUI를 초기화
         nameLabel.Text = "No target found"
         teamLabel.Text = ""
         healthLabel.Text = ""
-        hostileLabel.Text = ""
-        isCuffedLabel.Text = ""
-        isHoggedLabel.Text = ""
+        updateHostileLabel("")
+        updateIsCuffedLabel("")
+        updateIsHoggedLabel("")
         previousTarget = nil
     end
 end
