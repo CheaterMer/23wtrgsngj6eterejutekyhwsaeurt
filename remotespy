@@ -3415,12 +3415,12 @@ task.spawn(function()
         end pcall(function()
         if block_tools then
             for idx, plr in pairs(Players:GetPlayers()) do
-                if plr ~= LP and not table.find(userOwner, plr.Name) and plr.Character.IsCuffed.Value == false then
-                    if except_friends and not plr:IsFriendsWith(LP.UserId) then
-                        Remotes["UnCuffed"]:FireServer(plr.Character)
-                    else
-                        Remotes["UnCuffed"]:FireServer(plr.Character)
-                    end
+                if plr ~= LP 
+				and not table.find(userOwner, plr.Name) 
+				and plr.Character.IsCuffed.Value == false 
+				and not table.find(whitelistuser, plr.Name)
+				then
+                    Remotes["UnCuffed"]:FireServer(plr.Character)
                 end
             end
         end
@@ -4097,8 +4097,16 @@ task.spawn(function()
                 end
             end
             for idx, plr in pairs(Players:GetPlayers()) do
-                	if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 25) and plr.Character.Hostile.Value and not table.find(userOwner, plr.Name) and plr.Character.Humanoid.Health ~= 0 then
-						if LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard" then
+                	if plr ~= LP 
+					and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 25) 
+					and plr.Character.Hostile.Value 
+					and not table.find(userOwner, plr.Name) 
+					and not table.find(whitelistuser, plr.Name)
+					and plr.Character.Humanoid.Health ~= 0 
+					then
+						if LP.Team.Name == "Civilian" 
+						and plr.Team.Name ~= "Guard" 
+						then
 							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
 							task.wait(0.1)
 						elseif LP.Team.Name ~= "Civilian" then
@@ -4253,21 +4261,16 @@ function eat()
 			task.wait()
             LP.Backpack.Hamburger.Parent = LP.Character
         end
-		local args = {
-			[1] = LP.Character,
-			[2] = game:GetService("Players").LocalPlayer.Character.Hamburger,
-			[3] = "Heal"
-		}
-		game:GetService("ReplicatedStorage"):WaitForChild("EatingEvent"):FireServer(unpack(args))
-    end
-    end)
-    end
+		Remotes["EatingEvent"]:FireServer(LP.Character, LP.Character.Hamburger, "Hamburger")
+		end
+	end)
+end
 
-	task.spawn(function()
-		while task.wait() do
-			if INFgarb == true then 
-				pcall(function()
-					LP.Character.StaminaSprintClient.Enabled = false
+task.spawn(function()
+	while task.wait() do
+		if INFgarb == true then 
+			pcall(function()
+				LP.Character.StaminaSprintClient.Enabled = false
 			end) 
 		else if INFgarb == false then
 			pcall(function()
@@ -4275,19 +4278,18 @@ function eat()
 			end) 
 		end
 		end
-		end
-	end)
+	end
+end)
 
 task.spawn(function()
 	while task.wait() do
 		if heal then pcall(function()
 			wait(0.1)
 			spawn(function()
-		eat()
-	end)
- end) 
-end	
-end
+				eat()
+			end)
+ 		end) end	
+	end
 end)
 	
 combat_channel:Toggle("Uncuff", false, function(bool)
