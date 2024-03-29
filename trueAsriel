@@ -1,3 +1,5 @@
+_G.targetr
+
 local m1 = true
 
 local player = game.Players.LocalPlayer
@@ -159,7 +161,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 				"Heal")
 		elseif player.Character:FindFirstChild("Taser") then
 			pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
-			tpos = game:GetService("Players"):WaitForChild(targetr).Character.Torso.CFrame.Position
+			tpos = game:GetService("Players"):WaitForChild(_G.targetr).Character.Torso.CFrame.Position
 			spawn(function()	
 			local args = {
 					[1] = "Generate",
