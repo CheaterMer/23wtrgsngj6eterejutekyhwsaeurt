@@ -224,10 +224,12 @@ updateInfo(nil) -- 초기화
 RunService.RenderStepped:Connect(function()
 --while task.wait() do
     pcall(function()
-
-    local target = game:GetService("Players"):WaitForChild(_G.targetr) -- 타겟 찾기 함수 호출
-
-    updateInfo(target)
+        local target = game:GetService("Players"):WaitForChild(_G.targetr)
+        if target then
+            updateInfo(target)
+        else
+            updateInfo(nil)
+        end
     end) -- 정보 업데이트 함수 호출
 --end
 end)
