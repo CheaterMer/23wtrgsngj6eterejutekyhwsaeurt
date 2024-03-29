@@ -61,6 +61,83 @@ local RunService = game:GetService("RunService")
 local function createGUI()
     -- GUI 생성 코드 작성
     -- (앞서 작성한 GUI 생성 함수를 여기에 넣으세요)
+    local playerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Name = "TargetInfoGui"
+    screenGui.ResetOnSpawn = false
+    screenGui.Parent = playerGui
+
+    -- UI 요소 생성
+    local frame = Instance.new("Frame")
+    frame.Size = UDim2.new(0, 200, 0, 150) -- 크기 조정
+    frame.Position = UDim2.new(0.02, 0, 0.5, 0) -- 왼쪽에 위치
+    frame.AnchorPoint = Vector2.new(0, 0.5) -- 왼쪽 정렬
+    frame.BackgroundTransparency = 0.5
+    frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255) -- 투명도가 있는 흰색 배경
+    frame.BorderSizePixel = 0
+    frame.Parent = screenGui
+
+    local nameLabel = Instance.new("TextLabel")
+    nameLabel.Size = UDim2.new(1, 0, 0.2, 0)
+    nameLabel.Position = UDim2.new(0, 0, 0, 0)
+    nameLabel.Font = Enum.Font.GothamSemibold
+    nameLabel.TextSize = 16
+    nameLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+    nameLabel.TextWrapped = true
+    nameLabel.Text = ""
+    nameLabel.Parent = frame
+
+    local teamLabel = Instance.new("TextLabel")
+    teamLabel.Size = UDim2.new(1, 0, 0.2, 0)
+    teamLabel.Position = UDim2.new(0, 0, 0.2, 0)
+    teamLabel.Font = Enum.Font.GothamSemibold
+    teamLabel.TextSize = 16
+    teamLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+    teamLabel.TextWrapped = true
+    teamLabel.Text = ""
+    teamLabel.Parent = frame
+
+    local healthLabel = Instance.new("TextLabel")
+    healthLabel.Size = UDim2.new(1, 0, 0.2, 0)
+    healthLabel.Position = UDim2.new(0, 0, 0.4, 0)
+    healthLabel.Font = Enum.Font.GothamSemibold
+    healthLabel.TextSize = 16
+    healthLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+    healthLabel.TextWrapped = true
+    healthLabel.Text = ""
+    healthLabel.Parent = frame
+
+    local hostileLabel = Instance.new("TextLabel")
+    hostileLabel.Size = UDim2.new(1, 0, 0.2, 0)
+    hostileLabel.Position = UDim2.new(0, 0, 0.6, 0)
+    hostileLabel.Font = Enum.Font.GothamSemibold
+    hostileLabel.TextSize = 16
+    hostileLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+    hostileLabel.TextWrapped = true
+    hostileLabel.Text = ""
+    hostileLabel.Parent = frame
+
+    local isCuffedLabel = Instance.new("TextLabel")
+    isCuffedLabel.Size = UDim2.new(1, 0, 0.2, 0)
+    isCuffedLabel.Position = UDim2.new(0, 0, 0.8, 0)
+    isCuffedLabel.Font = Enum.Font.GothamSemibold
+    isCuffedLabel.TextSize = 16
+    isCuffedLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+    isCuffedLabel.TextWrapped = true
+    isCuffedLabel.Text = ""
+    isCuffedLabel.Parent = frame
+    
+    local isHoggedLabel = Instance.new("TextLabel")
+    isHoggedLabel.Size = UDim2.new(1, 0, 0.2, 0)
+    isHoggedLabel.Position = UDim2.new(0, 0, 1, 0) -- 맨 아래에 위치
+    isHoggedLabel.Font = Enum.Font.GothamSemibold
+    isHoggedLabel.TextSize = 16
+    isHoggedLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+    isHoggedLabel.TextWrapped = true
+    isHoggedLabel.Text = ""
+    isHoggedLabel.Parent = frame
+
+    return nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel
 end
 
 -- GUI 생성
