@@ -235,12 +235,13 @@ local mouse = player:GetMouse()
 local selectKey = Enum.KeyCode.H
 
 -- 마우스 클릭 이벤트를 감지하여 상대방을 지정하는 함수
-mouse.Button1Down:Connect(function()
+game:GetService("UserInputService").InputBegan:Connect(function(inp)
+    if inp.KeyCode == Enum.KeyCode.H then
     -- 마우스가 가리키는 지점의 정보를 가져옴
     local htarget = mouse.Hit
     
     -- 만약 h 키가 눌렸을 때
-    if mouse:IsKeyDown(selectKey) then
+
         -- 특정 지점을 클릭하면 해당 지점의 정보 출력
         print("상대방을 지정합니다.")
         print("지정된 위치: " .. tostring(htarget.Position))
@@ -248,7 +249,8 @@ mouse.Button1Down:Connect(function()
         print("지정된 부분의 부모 모델: " .. tostring(htarget.Instance.Parent.Name))
         -- 이곳에 상대방을 지정하는 추가적인 코드를 작성할 수 있습니다.
 		if htarget:FindFirstChild("Humanoid") and htarget:FindFirstChild("Head") then
-			_G.targetr = htarget
+			--_G.targetr = htarget
+			print(htarget)
 		end
 	
 	end
