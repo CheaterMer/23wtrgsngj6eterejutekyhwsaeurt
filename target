@@ -141,10 +141,10 @@ UserInputService.InputBegan:Connect(function(input)
                     itemLabel.Text = "Items: " .. items
                 end
             end
-            healthLabel.Text = "Health: " .. tostring(closestPlayer.Humanoid.Health)
-            hostileLabel.Text = "Hostile: " .. tostring(closestPlayer:FindFirstChild("Hostile").Value)
-            isCuffedLabel.Text = "IsCuffed: " .. tostring(closestPlayer:FindFirstChild("IsCuffed").Value)
-            isHoggedLabel.Text = "IsHogged: " .. tostring(closestPlayer:FindFirstChild("IsHogged").Value)
+            healthLabel.Text = "Health: " .. tostring(closestPlayer.Character.Humanoid.Health)
+            hostileLabel.Text = "Hostile: " .. tostring(closestPlayer.Character:FindFirstChild("Hostile").Value)
+            isCuffedLabel.Text = "IsCuffed: " .. tostring(closestPlayer.Character:FindFirstChild("IsCuffed").Value)
+            isHoggedLabel.Text = "IsHogged: " .. tostring(closestPlayer.Character:FindFirstChild("IsHogged").Value)
         else
             nameLabel.Text = "No target found"
             teamLabel.Text = ""
