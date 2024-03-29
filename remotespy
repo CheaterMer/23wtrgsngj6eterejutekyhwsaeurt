@@ -3398,8 +3398,7 @@ local win = DiscordLib:Window("TLK Panel")
 
 local server_tab = win:Server("Server", "http://www.roblox.com/asset/?id=6031075938")
 local client_tab = win:Server("Client", "http://www.roblox.com/asset/?id=6031075938")
---local Troll_tab = win:Server("Troll", "http://www.roblox.com/asset/?id=6031075938")
-
+local Troll_tab = win:Server("White and Black List", "http://www.roblox.com/asset/?id=6031075938")
 
 local block_tools_channel = server_tab:Channel("Tools")
 local except_friends = false
@@ -4949,6 +4948,21 @@ char_channel:Dropdown(
 		CUSKIN = bool
     end
 )
+
+local whitelist = Troll_tab:Channel("White and Black List")
+local WLA
+local whitelistuser = {}
+
+local WLT = whitelist:Dropdown(
+"white List",
+names,
+function(bool)
+WLA = bool
+end)
+
+whitelist:Button("Add White List", function()
+table.insert(whitelistuser,WLA)
+end)
 
 local DiePos 
 
