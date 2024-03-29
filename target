@@ -204,7 +204,7 @@ local function updateInfo(target)
         else
             updateIsHoggedLabel("N/A")
         end   
-    elseif game:GetService("Players"):WaitForChild(target.Name) then
+    elseif game:GetService("Players"):FindFirstChild(target.Name) then
         -- 타겟이 없으면 GUI를 초기화
         nameLabel.Text = "No target found"
         teamLabel.Text = ""
