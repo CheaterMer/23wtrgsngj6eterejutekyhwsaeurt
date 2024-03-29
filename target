@@ -1,97 +1,87 @@
-_G.targetr = nil
-
 -- 필요한 서비스 및 변수 불러오기
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
 local GuiService = game:GetService("GuiService")
+local RunService = game:GetService("RunService")
 
 -- GUI 생성 함수
 local function createGUI()
-    -- 플레이어 GUI 생성
+    -- 로컬 플레이어의 GUI 생성
     local playerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
     local screenGui = Instance.new("ScreenGui")
     screenGui.Name = "TargetInfoGui"
-    screenGui.ResetOnSpawn = false  -- 플레이어가 죽어도 GUI가 사라지지 않도록 설정
+    screenGui.ResetOnSpawn = false
     screenGui.Parent = playerGui
 
     -- UI 요소 생성
     local frame = Instance.new("Frame")
-    frame.Size = UDim2.new(0, 200, 0, 250) -- 크기를 조정합니다.
-    frame.Position = UDim2.new(0.01, 0, 0.5, 0) -- 좌측으로 이동하고, 수직 중앙으로 이동
-    frame.AnchorPoint = Vector2.new(0, 0.5) -- 좌측 상단을 기준으로 정렬
-    frame.BackgroundTransparency = 1 -- 배경색 없애기
+    frame.Size = UDim2.new(0, 200, 0, 100)
+    frame.Position = UDim2.new(0.5, 0, 0.5, 0) -- 화면 중앙에 위치
+    frame.AnchorPoint = Vector2.new(0.5, 0.5) -- 중앙 정렬
+    frame.BackgroundTransparency = 0.5
+    frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255) -- 투명도가 있는 흰색 배경
     frame.BorderSizePixel = 0
     frame.Parent = screenGui
 
     local nameLabel = Instance.new("TextLabel")
-    nameLabel.Size = UDim2.new(1, 0, 0.1, 0)
+    nameLabel.Size = UDim2.new(1, 0, 0.2, 0)
     nameLabel.Position = UDim2.new(0, 0, 0, 0)
     nameLabel.Font = Enum.Font.GothamSemibold
     nameLabel.TextSize = 16
-    nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    nameLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
     nameLabel.TextWrapped = true
-    nameLabel.TextXAlignment = Enum.TextXAlignment.Left -- 텍스트를 좌측 정렬
+    nameLabel.Text = ""
     nameLabel.Parent = frame
 
     local teamLabel = Instance.new("TextLabel")
-    teamLabel.Size = UDim2.new(1, 0, 0.1, 0)
-    teamLabel.Position = UDim2.new(0, 0, 0.1, 0)
+    teamLabel.Size = UDim2.new(1, 0, 0.2, 0)
+    teamLabel.Position = UDim2.new(0, 0, 0.2, 0)
     teamLabel.Font = Enum.Font.GothamSemibold
     teamLabel.TextSize = 16
-    teamLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    teamLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
     teamLabel.TextWrapped = true
-    teamLabel.TextXAlignment = Enum.TextXAlignment.Left
+    teamLabel.Text = ""
     teamLabel.Parent = frame
 
     local healthLabel = Instance.new("TextLabel")
-    healthLabel.Size = UDim2.new(1, 0, 0.1, 0)
-    healthLabel.Position = UDim2.new(0, 0, 0.2, 0)
+    healthLabel.Size = UDim2.new(1, 0, 0.2, 0)
+    healthLabel.Position = UDim2.new(0, 0, 0.4, 0)
     healthLabel.Font = Enum.Font.GothamSemibold
     healthLabel.TextSize = 16
-    healthLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    healthLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
     healthLabel.TextWrapped = true
-    healthLabel.TextXAlignment = Enum.TextXAlignment.Left
+    healthLabel.Text = ""
     healthLabel.Parent = frame
 
     local hostileLabel = Instance.new("TextLabel")
-    hostileLabel.Size = UDim2.new(1, 0, 0.1, 0)
-    hostileLabel.Position = UDim2.new(0, 0, 0.3, 0)
+    hostileLabel.Size = UDim2.new(1, 0, 0.2, 0)
+    hostileLabel.Position = UDim2.new(0, 0, 0.6, 0)
     hostileLabel.Font = Enum.Font.GothamSemibold
     hostileLabel.TextSize = 16
-    hostileLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    hostileLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
     hostileLabel.TextWrapped = true
-    hostileLabel.TextXAlignment = Enum.TextXAlignment.Left
+    hostileLabel.Text = ""
     hostileLabel.Parent = frame
 
     local isCuffedLabel = Instance.new("TextLabel")
-    isCuffedLabel.Size = UDim2.new(1, 0, 0.1, 0)
-    isCuffedLabel.Position = UDim2.new(0, 0, 0.4, 0)
+    isCuffedLabel.Size = UDim2.new(1, 0, 0.2, 0)
+    isCuffedLabel.Position = UDim2.new(0, 0, 0.8, 0)
     isCuffedLabel.Font = Enum.Font.GothamSemibold
     isCuffedLabel.TextSize = 16
-    isCuffedLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    isCuffedLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
     isCuffedLabel.TextWrapped = true
-    isCuffedLabel.TextXAlignment = Enum.TextXAlignment.Left
+    isCuffedLabel.Text = ""
     isCuffedLabel.Parent = frame
 
-    local isHoggedLabel = Instance.new("TextLabel")
-    isHoggedLabel.Size = UDim2.new(1, 0, 0.1, 0)
-    isHoggedLabel.Position = UDim2.new(0, 0, 0.5, 0)
-    isHoggedLabel.Font = Enum.Font.GothamSemibold
-    isHoggedLabel.TextSize = 16
-    isHoggedLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-    isHoggedLabel.TextWrapped = true
-    isHoggedLabel.TextXAlignment = Enum.TextXAlignment.Left
-    isHoggedLabel.Parent = frame
-
-    return nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel
+    return nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel
 end
 
 -- GUI 생성
-local nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel = createGUI()
+local nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel = createGUI()
 
 -- 정보 업데이트 함수
 local function updateInfo()
-    -- 현재 플레이어 얻기
+    -- 로컬 플레이어
     local localPlayer = Players.LocalPlayer
 
     -- 마우스의 현재 위치 얻기
@@ -119,13 +109,11 @@ local function updateInfo()
     -- 가장 가까운 플레이어를 찾은 경우, 정보를 GUI로 출력
     if closestPlayer then
         while task.wait(0.1) do
-        _G.targetr = closestPlayer.Name
         nameLabel.Text = "Name: " .. closestPlayer.Name
         teamLabel.Text = "Team: " .. closestPlayer.Team.Name
         healthLabel.Text = "Health: " .. tostring(closestPlayer.Character.Humanoid.Health)
         hostileLabel.Text = "Hostile: " .. tostring(closestPlayer.Character:FindFirstChild("Hostile").Value)
         isCuffedLabel.Text = "IsCuffed: " .. tostring(closestPlayer.Character:FindFirstChild("IsCuffed").Value)
-        isHoggedLabel.Text = "IsHogged: " .. tostring(closestPlayer.Character:FindFirstChild("IsHogged").Value)
         end
     else
         nameLabel.Text = "No target found"
@@ -133,12 +121,14 @@ local function updateInfo()
         healthLabel.Text = ""
         hostileLabel.Text = ""
         isCuffedLabel.Text = ""
-        isHoggedLabel.Text = ""
     end
 end
 
 -- GUI 생성 및 정보 업데이트
 updateInfo()
+
+-- 정보 업데이트를 매 프레임마다 실행
+--RunService.RenderStepped:Connect(updateInfo)
 
 -- 'H' 키 입력 함수
 local selectKey = Enum.KeyCode.H
