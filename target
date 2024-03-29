@@ -1,3 +1,5 @@
+_G.targetr = nil
+
 -- 필요한 서비스 및 변수 불러오기
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
