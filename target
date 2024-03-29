@@ -209,9 +209,9 @@ local function updateInfo(target)
         nameLabel.Text = "No target found"
         teamLabel.Text = ""
         healthLabel.Text = ""
-        updateHostileLabel("")
-        updateIsCuffedLabel("")
-        updateIsHoggedLabel("")
+        updateHostileLabel("N/A")
+        updateIsCuffedLabel("N/A")
+        updateIsHoggedLabel("N/A")
         previousTarget = nil
     end
 end
