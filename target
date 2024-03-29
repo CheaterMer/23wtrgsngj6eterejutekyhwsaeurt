@@ -141,7 +141,7 @@ UserInputService.InputBegan:Connect(function(input)
                     itemLabel.Text = "Items: " .. items
                 end
             end
-            healthLabel.Text = "Health: " .. tostring(closestPlayer.Health)
+            healthLabel.Text = "Health: " .. tostring(closestPlayer.Humanoid.Health)
             hostileLabel.Text = "Hostile: " .. tostring(closestPlayer:FindFirstChild("Hostile").Value)
             isCuffedLabel.Text = "IsCuffed: " .. tostring(closestPlayer:FindFirstChild("IsCuffed").Value)
             isHoggedLabel.Text = "IsHogged: " .. tostring(closestPlayer:FindFirstChild("IsHogged").Value)
