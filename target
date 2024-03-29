@@ -171,7 +171,7 @@ local function updateInfo(target)
             previousTarget = target
         end
         
-    elseif not game:GetService("Players"):WaitForChild(_G.targetr) then
+    else
         -- 타겟이 없으면 기본값으로 설정
         nameLabel.Text = "Name: N/A"
         teamLabel.Text = "Team: N/A"
