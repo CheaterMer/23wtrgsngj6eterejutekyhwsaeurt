@@ -1,0 +1,158 @@
+_G.targetr = nil
+
+
+
+-- 필요한 서비스 및 변수 불러오기
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local GuiService = game:GetService("GuiService")
+
+-- GUI 생성 함수
+local function createGUI()
+    -- 플레이어 GUI 생성
+    local playerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Name = "TargetInfoGui"
+    screenGui.ResetOnSpawn = false  -- 플레이어가 죽어도 GUI가 사라지지 않도록 설정
+    screenGui.Parent = playerGui
+
+    -- UI 요소 생성
+    local frame = Instance.new("Frame")
+    frame.Size = UDim2.new(0, 200, 0, 200)
+    frame.Position = UDim2.new(0.5, -100, 0.5, -100)
+    frame.AnchorPoint = Vector2.new(0.5, 0.5)
+    frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    frame.BorderSizePixel = 0
+    frame.Parent = screenGui
+
+    local nameLabel = Instance.new("TextLabel")
+    nameLabel.Size = UDim2.new(1, 0, 0.15, 0)
+    nameLabel.Position = UDim2.new(0, 0, 0, 0)
+    nameLabel.Font = Enum.Font.SourceSansBold
+    nameLabel.TextSize = 16
+    nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    nameLabel.TextWrapped = true
+    nameLabel.Parent = frame
+
+    local teamLabel = Instance.new("TextLabel")
+    teamLabel.Size = UDim2.new(1, 0, 0.15, 0)
+    teamLabel.Position = UDim2.new(0, 0, 0.15, 0)
+    teamLabel.Font = Enum.Font.SourceSansBold
+    teamLabel.TextSize = 16
+    teamLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    teamLabel.TextWrapped = true
+    teamLabel.Parent = frame
+
+    local itemLabel = Instance.new("TextLabel")
+    itemLabel.Size = UDim2.new(1, 0, 0.15, 0)
+    itemLabel.Position = UDim2.new(0, 0, 0.3, 0)
+    itemLabel.Font = Enum.Font.SourceSansBold
+    itemLabel.TextSize = 16
+    itemLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    itemLabel.TextWrapped = true
+    itemLabel.Parent = frame
+
+    local healthLabel = Instance.new("TextLabel")
+    healthLabel.Size = UDim2.new(1, 0, 0.15, 0)
+    healthLabel.Position = UDim2.new(0, 0, 0.45, 0)
+    healthLabel.Font = Enum.Font.SourceSansBold
+    healthLabel.TextSize = 16
+    healthLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    healthLabel.TextWrapped = true
+    healthLabel.Parent = frame
+
+    local hostileLabel = Instance.new("TextLabel")
+    hostileLabel.Size = UDim2.new(1, 0, 0.15, 0)
+    hostileLabel.Position = UDim2.new(0, 0, 0.6, 0)
+    hostileLabel.Font = Enum.Font.SourceSansBold
+    hostileLabel.TextSize = 16
+    hostileLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    hostileLabel.TextWrapped = true
+    hostileLabel.Parent = frame
+
+    local isCuffedLabel = Instance.new("TextLabel")
+    isCuffedLabel.Size = UDim2.new(1, 0, 0.15, 0)
+    isCuffedLabel.Position = UDim2.new(0, 0, 0.75, 0)
+    isCuffedLabel.Font = Enum.Font.SourceSansBold
+    isCuffedLabel.TextSize = 16
+    isCuffedLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    isCuffedLabel.TextWrapped = true
+    isCuffedLabel.Parent = frame
+
+    local isHoggedLabel = Instance.new("TextLabel")
+    isHoggedLabel.Size = UDim2.new(1, 0, 0.15, 0)
+    isHoggedLabel.Position = UDim2.new(0, 0, 0.9, 0)
+    isHoggedLabel.Font = Enum.Font.SourceSansBold
+    isHoggedLabel.TextSize = 16
+    isHoggedLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    isHoggedLabel.TextWrapped = true
+    isHoggedLabel.Parent = frame
+
+    return nameLabel, teamLabel, itemLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel
+end
+
+-- GUI 생성
+local nameLabel, teamLabel, itemLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel = createGUI()
+
+-- 'H' 키를 지정
+local selectKey = Enum.KeyCode.H
+
+-- 'H' 키가 눌렸을 때 실행될 함수
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == selectKey then
+        -- 현재 플레이어 얻기
+        local localPlayer = Players.LocalPlayer
+
+        -- 마우스의 현재 위치 얻기
+        local mouse = localPlayer:GetMouse()
+        local mousePosition = mouse.Hit.p
+
+        -- 가장 가까운 다른 팀 플레이어 찾기
+        local closestPlayer = nil
+        local shortestDistance = math.huge
+
+        for _, player in ipairs(Players:GetPlayers()) do
+            -- 로컬 플레이어와 같은 팀이면서 검사
+            if player.Team ~= localPlayer.Team and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                local playerPosition = player.Character.HumanoidRootPart.Position
+                local distance = (playerPosition - mousePosition).magnitude
+
+                -- 이전에 찾은 플레이어보다 더 가까운 플레이어를 찾으면 갱신
+                if distance < shortestDistance then
+                    closestPlayer = player
+                    shortestDistance = distance
+                end
+            end
+        end
+
+        -- 가장 가까운 플레이어를 찾은 경우, 정보를 GUI로 출력
+        if closestPlayer then
+            _G.targetr = closestPlayer.Name
+            nameLabel.Text = "Name: " .. closestPlayer.Name
+            teamLabel.Text = "Team: " .. closestPlayer.Team.Name
+            -- 아이템 정보는 여기에 추가하세요
+            if closestPlayer.Character and closestPlayer.Character:IsDescendantOf(workspace) then
+                local backpack = closestPlayer.Character:FindFirstChild("Backpack")
+                if backpack then
+                    local items = ""
+                    for _, item in ipairs(backpack:GetChildren()) do
+                        items = items .. item.Name .. ", "
+                    end
+                    itemLabel.Text = "Items: " .. items
+                end
+            end
+            healthLabel.Text = "Health: " .. tostring(closestPlayer.Health)
+            hostileLabel.Text = "Hostile: " .. tostring(closestPlayer:FindFirstChild("Hostile").Value)
+            isCuffedLabel.Text = "IsCuffed: " .. tostring(closestPlayer:FindFirstChild("IsCuffed").Value)
+            isHoggedLabel.Text = "IsHogged: " .. tostring(closestPlayer:FindFirstChild("IsHogged").Value)
+        else
+            nameLabel.Text = "No target found"
+            teamLabel.Text = ""
+            itemLabel.Text = ""
+            healthLabel.Text = ""
+            hostileLabel.Text = ""
+            isCuffedLabel.Text = ""
+            isHoggedLabel.Text = ""
+        end
+    end
+end)
