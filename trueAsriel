@@ -231,27 +231,30 @@ end)
 local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
 
--- h 키를 상대방을 지정하는 키로 설정
-local selectKey = Enum.KeyCode.H
 
--- 마우스 클릭 이벤트를 감지하여 상대방을 지정하는 함수
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
+    -- 사용자가 'H' 키를 눌렀을 때
     if inp.KeyCode == Enum.KeyCode.H then
-    -- 마우스가 가리키는 지점의 정보를 가져옴
-    local htarget = mouse.Hit
-    
-    -- 만약 h 키가 눌렸을 때
-
-        -- 특정 지점을 클릭하면 해당 지점의 정보 출력
-        print("상대방을 지정합니다.")
-        print("지정된 위치: " .. tostring(htarget.Position))
-        print("지정된 부분의 표면: " .. tostring(htarget.Material))
-        print("지정된 부분의 부모 모델: " .. tostring(htarget.Instance.Parent.Name))
-        -- 이곳에 상대방을 지정하는 추가적인 코드를 작성할 수 있습니다.
-		if htarget:FindFirstChild("Humanoid") and htarget:FindFirstChild("Head") then
-			_G.targetr = htarget
-			print(htarget)
-		end
-	
-	end
+        -- 마우스 객체 생성
+        local mouse = game.Players.LocalPlayer:GetMouse()
+        -- 마우스가 가리키는 지점의 정보를 가져옴
+        local htarget = mouse.Hit
+        
+        -- 만약 h 키가 눌렸을 때
+        if htarget then
+            -- 특정 지점을 클릭하면 해당 지점의 정보 출력
+            --print("상대방을 지정합니다.")
+            --print("지정된 위치: " .. tostring(htarget.Position))
+            -- print("지정된 부분의 표면: " .. tostring(htarget.Material))
+            --print("지정된 부분의 부모 모델: " .. tostring(htarget.Instance.Parent.Name))
+            
+            -- 만약 특정 지점에 휴머노이드(Humanoid)와 머리(Head)가 있는 경우
+            if htarget.Instance:FindFirstChild("Humanoid") and htarget.Instance:FindFirstChild("Head") then
+                -- 전역 변수 _G.targetr에 해당 지점을 할당하여 상대방으로 지정
+                _G.targetr = htarget
+                print("상대방으로 지정되었습니다.")
+				print(htarget.Name)
+            end
+        end
+    end
 end)
