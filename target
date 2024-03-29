@@ -178,6 +178,6 @@ updateInfo(nil) -- 초기화
 
 -- 정보 업데이트를 매 프레임마다 실행
 RunService.RenderStepped:Connect(function()
-    --local target = targetlp-- 타겟 찾기 함수 호출
+    local target = targetlp-- 타겟 찾기 함수 호출
     updateInfo(targetlp) -- 정보 업데이트 함수 호출
 end)
