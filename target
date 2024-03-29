@@ -45,6 +45,7 @@ UserInputService.InputBegan:Connect(function(input)
             -- 타겟을 찾았을 때의 동작을 여기에 추가하세요.
             print("Target found: " .. target.Name)
             _G.targetr = target.Name
+            targetlp = target
         else
             -- 타겟을 찾지 못했을 때의 동작을 여기에 추가하세요.
             print("No target found")
@@ -177,6 +178,6 @@ updateInfo(nil) -- 초기화
 
 -- 정보 업데이트를 매 프레임마다 실행
 RunService.RenderStepped:Connect(function()
-    local target = _G.targetr-- 타겟 찾기 함수 호출
+    local target = targetlp-- 타겟 찾기 함수 호출
     updateInfo(target) -- 정보 업데이트 함수 호출
 end)
