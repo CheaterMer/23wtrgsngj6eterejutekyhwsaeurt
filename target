@@ -139,7 +139,10 @@ local function findTarget()
 
     for _, player in ipairs(Players:GetPlayers()) do
         -- 로컬 플레이어와 같은 팀이면서 검사
-        if player.Team ~= localPlayer.Team and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        if 
+        --    player.Team ~= localPlayer.Team 
+        player.Character 
+        and player.Character:FindFirstChild("HumanoidRootPart") then
             local playerPosition = player.Character.HumanoidRootPart.Position
             local distance = (playerPosition - mousePosition).magnitude
 
