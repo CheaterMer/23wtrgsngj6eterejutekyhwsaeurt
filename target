@@ -1,6 +1,5 @@
 _G.targetr = nil
 
-
 -- 필요한 서비스 및 변수 불러오기
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
@@ -18,8 +17,8 @@ local function createGUI()
     -- UI 요소 생성
     local frame = Instance.new("Frame")
     frame.Size = UDim2.new(0, 200, 0, 250) -- 크기를 조정합니다.
-    frame.Position = UDim2.new(0.05, 0, 0.5, 0) -- 좌측 중간으로 이동
-    frame.AnchorPoint = Vector2.new(0.5, 0.5)
+    frame.Position = UDim2.new(0.01, 0, 0.5, 0) -- 좌측으로 이동하고, 수직 중앙으로 이동
+    frame.AnchorPoint = Vector2.new(0, 0.5) -- 좌측 상단을 기준으로 정렬
     frame.BackgroundTransparency = 1 -- 배경색 없애기
     frame.BorderSizePixel = 0
     frame.Parent = screenGui
@@ -31,6 +30,7 @@ local function createGUI()
     nameLabel.TextSize = 16
     nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     nameLabel.TextWrapped = true
+    nameLabel.TextXAlignment = Enum.TextXAlignment.Left -- 텍스트를 좌측 정렬
     nameLabel.Parent = frame
 
     local teamLabel = Instance.new("TextLabel")
@@ -40,6 +40,7 @@ local function createGUI()
     teamLabel.TextSize = 16
     teamLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     teamLabel.TextWrapped = true
+    teamLabel.TextXAlignment = Enum.TextXAlignment.Left
     teamLabel.Parent = frame
 
     local healthLabel = Instance.new("TextLabel")
@@ -49,6 +50,7 @@ local function createGUI()
     healthLabel.TextSize = 16
     healthLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     healthLabel.TextWrapped = true
+    healthLabel.TextXAlignment = Enum.TextXAlignment.Left
     healthLabel.Parent = frame
 
     local hostileLabel = Instance.new("TextLabel")
@@ -58,6 +60,7 @@ local function createGUI()
     hostileLabel.TextSize = 16
     hostileLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     hostileLabel.TextWrapped = true
+    hostileLabel.TextXAlignment = Enum.TextXAlignment.Left
     hostileLabel.Parent = frame
 
     local isCuffedLabel = Instance.new("TextLabel")
@@ -67,6 +70,7 @@ local function createGUI()
     isCuffedLabel.TextSize = 16
     isCuffedLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     isCuffedLabel.TextWrapped = true
+    isCuffedLabel.TextXAlignment = Enum.TextXAlignment.Left
     isCuffedLabel.Parent = frame
 
     local isHoggedLabel = Instance.new("TextLabel")
@@ -76,6 +80,7 @@ local function createGUI()
     isHoggedLabel.TextSize = 16
     isHoggedLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     isHoggedLabel.TextWrapped = true
+    isHoggedLabel.TextXAlignment = Enum.TextXAlignment.Left
     isHoggedLabel.Parent = frame
 
     return nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel
@@ -113,22 +118,20 @@ local function updateInfo()
 
     -- 가장 가까운 플레이어를 찾은 경우, 정보를 GUI로 출력
     if closestPlayer then
-        while task.wait(0.1) do
-            _G.targetr = closestPlayer.Name
-            nameLabel.Text = "Name: " .. closestPlayer.Name
-            teamLabel.Text = "Team: " .. closestPlayer.Team.Name
-            healthLabel.Text = "Health: " .. tostring(closestPlayer.Character.Humanoid.Health)
-            hostileLabel.Text = "Hostile: " .. tostring(closestPlayer.Character:FindFirstChild("Hostile").Value)
-            isCuffedLabel.Text = "IsCuffed: " .. tostring(closestPlayer.Character:FindFirstChild("IsCuffed").Value)
-            isHoggedLabel.Text = "IsHogged: " .. tostring(closestPlayer.Character:FindFirstChild("IsHogged").Value)
-        else
-            nameLabel.Text = "No target found"
-            teamLabel.Text = ""
-            healthLabel.Text = ""
-            hostileLabel.Text = ""
-            isCuffedLabel.Text = ""
-            isHoggedLabel.Text = ""
-        end
+        _G.targetr = closestPlayer.Name
+        nameLabel.Text = "Name: " .. closestPlayer.Name
+        teamLabel.Text = "Team: " .. closestPlayer.Team.Name
+        healthLabel.Text = "Health: " .. tostring(closestPlayer.Character.Humanoid.Health)
+        hostileLabel.Text = "Hostile: " .. tostring(closestPlayer.Character:FindFirstChild("Hostile").Value)
+        isCuffedLabel.Text = "IsCuffed: " .. tostring(closestPlayer.Character:FindFirstChild("IsCuffed").Value)
+        isHoggedLabel.Text = "IsHogged: " .. tostring(closestPlayer.Character:FindFirstChild("IsHogged").Value)
+    else
+        nameLabel.Text = "No target found"
+        teamLabel.Text = ""
+        healthLabel.Text = ""
+        hostileLabel.Text = ""
+        isCuffedLabel.Text = ""
+        isHoggedLabel.Text = ""
     end
 end
 
