@@ -3855,7 +3855,7 @@ task.spawn(function()
 			and not table.find(userOwner, plr.Name) 
 			and plr.Character.Hostile.Value == true 
 			and plr.Team ~= LP.Team 
-			--and not table.find(whitelistuser, plr.Name)
+			and not table.find(whitelistuser, plr.Name)
 			then
 					pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
 					tpos = plr.Character.Torso.CFrame.Position
