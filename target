@@ -1,5 +1,6 @@
 _G.targetr = nil
 
+
 -- 필요한 서비스 및 변수 불러오기
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
@@ -17,7 +18,7 @@ local function createGUI()
     -- UI 요소 생성
     local frame = Instance.new("Frame")
     frame.Size = UDim2.new(0, 200, 0, 250) -- 크기를 조정합니다.
-    frame.Position = UDim2.new(0.5, 0, 0.5, 0) -- 좌측 중간으로 이동
+    frame.Position = UDim2.new(0.05, 0, 0.5, 0) -- 좌측 중간으로 이동
     frame.AnchorPoint = Vector2.new(0.5, 0.5)
     frame.BackgroundTransparency = 1 -- 배경색 없애기
     frame.BorderSizePixel = 0
@@ -113,28 +114,26 @@ local function updateInfo()
     -- 가장 가까운 플레이어를 찾은 경우, 정보를 GUI로 출력
     if closestPlayer then
         while task.wait(0.1) do
-            _G.targetr = closestPlayer.Name
-            nameLabel.Text = "Name: " .. closestPlayer.Name
-            teamLabel.Text = "Team: " .. closestPlayer.Team.Name
-            healthLabel.Text = "Health: " .. tostring(closestPlayer.Character.Humanoid.Health)
-            hostileLabel.Text = "Hostile: " .. tostring(closestPlayer.Character:FindFirstChild("Hostile").Value)
-            isCuffedLabel.Text = "IsCuffed: " .. tostring(closestPlayer.Character:FindFirstChild("IsCuffed").Value)
-            isHoggedLabel.Text = "IsHogged: " .. tostring(closestPlayer.Character:FindFirstChild("IsHogged").Value)
-        else
-            nameLabel.Text = "No target found"
-            teamLabel.Text = ""
-            healthLabel.Text = ""
-            hostileLabel.Text = ""
-            isCuffedLabel.Text = ""
-            isHoggedLabel.Text = ""
-        end
+        _G.targetr = closestPlayer.Name
+        nameLabel.Text = "Name: " .. closestPlayer.Name
+        teamLabel.Text = "Team: " .. closestPlayer.Team.Name
+        healthLabel.Text = "Health: " .. tostring(closestPlayer.Character.Humanoid.Health)
+        hostileLabel.Text = "Hostile: " .. tostring(closestPlayer.Character:FindFirstChild("Hostile").Value)
+        isCuffedLabel.Text = "IsCuffed: " .. tostring(closestPlayer.Character:FindFirstChild("IsCuffed").Value)
+        isHoggedLabel.Text = "IsHogged: " .. tostring(closestPlayer.Character:FindFirstChild("IsHogged").Value)
+    else
+        nameLabel.Text = "No target found"
+        teamLabel.Text = ""
+        healthLabel.Text = ""
+        hostileLabel.Text = ""
+        isCuffedLabel.Text = ""
+        isHoggedLabel.Text = ""
+    end
     end
 end
 
--- 업데이트 함수를 호출하여 초기 정보 출력
-
+-- GUI 생성 및 정보 업데이트
 updateInfo()
-
 
 -- 'H' 키 입력 함수
 local selectKey = Enum.KeyCode.H
