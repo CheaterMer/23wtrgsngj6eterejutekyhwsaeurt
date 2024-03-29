@@ -3,99 +3,9 @@ _G.targetr = nil
 -- 필요한 서비스 및 변수 불러오기
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
-local GuiService = game:GetService("GuiService")
-local RunService = game:GetService("RunService")
 
--- GUI 생성 함수
-local function createGUI()
-    -- 로컬 플레이어의 GUI 생성
-    local playerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
-    local screenGui = Instance.new("ScreenGui")
-    screenGui.Name = "TargetInfoGui"
-    screenGui.ResetOnSpawn = false
-    screenGui.Parent = playerGui
-
-    -- UI 요소 생성
-    local frame = Instance.new("Frame")
-    frame.Size = UDim2.new(0, 200, 0, 150) -- 크기 조정
-    frame.Position = UDim2.new(0.02, 0, 0.5, 0) -- 왼쪽에 위치
-    frame.AnchorPoint = Vector2.new(0, 0.5) -- 왼쪽 정렬
-    frame.BackgroundTransparency = 0.5
-    frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255) -- 투명도가 있는 흰색 배경
-    frame.BorderSizePixel = 0
-    frame.Parent = screenGui
-
-    local nameLabel = Instance.new("TextLabel")
-    nameLabel.Size = UDim2.new(1, 0, 0.2, 0)
-    nameLabel.Position = UDim2.new(0, 0, 0, 0)
-    nameLabel.Font = Enum.Font.GothamSemibold
-    nameLabel.TextSize = 16
-    nameLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-    nameLabel.TextWrapped = true
-    nameLabel.Text = ""
-    nameLabel.Parent = frame
-
-    local teamLabel = Instance.new("TextLabel")
-    teamLabel.Size = UDim2.new(1, 0, 0.2, 0)
-    teamLabel.Position = UDim2.new(0, 0, 0.2, 0)
-    teamLabel.Font = Enum.Font.GothamSemibold
-    teamLabel.TextSize = 16
-    teamLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-    teamLabel.TextWrapped = true
-    teamLabel.Text = ""
-    teamLabel.Parent = frame
-
-    local healthLabel = Instance.new("TextLabel")
-    healthLabel.Size = UDim2.new(1, 0, 0.2, 0)
-    healthLabel.Position = UDim2.new(0, 0, 0.4, 0)
-    healthLabel.Font = Enum.Font.GothamSemibold
-    healthLabel.TextSize = 16
-    healthLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-    healthLabel.TextWrapped = true
-    healthLabel.Text = ""
-    healthLabel.Parent = frame
-
-    local hostileLabel = Instance.new("TextLabel")
-    hostileLabel.Size = UDim2.new(1, 0, 0.2, 0)
-    hostileLabel.Position = UDim2.new(0, 0, 0.6, 0)
-    hostileLabel.Font = Enum.Font.GothamSemibold
-    hostileLabel.TextSize = 16
-    hostileLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-    hostileLabel.TextWrapped = true
-    hostileLabel.Text = ""
-    hostileLabel.Parent = frame
-
-    local isCuffedLabel = Instance.new("TextLabel")
-    isCuffedLabel.Size = UDim2.new(1, 0, 0.2, 0)
-    isCuffedLabel.Position = UDim2.new(0, 0, 0.8, 0)
-    isCuffedLabel.Font = Enum.Font.GothamSemibold
-    isCuffedLabel.TextSize = 16
-    isCuffedLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-    isCuffedLabel.TextWrapped = true
-    isCuffedLabel.Text = ""
-    isCuffedLabel.Parent = frame
-
-    local isHoggedLabel = Instance.new("TextLabel") -- IsHogged 추가
-    isHoggedLabel.Size = UDim2.new(1, 0, 0.2, 0)
-    isHoggedLabel.Position = UDim2.new(0, 0, 1, 0) -- 맨 밑에 위치
-    isHoggedLabel.Font = Enum.Font.GothamSemibold
-    isHoggedLabel.TextSize = 16
-    isHoggedLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-    isHoggedLabel.TextWrapped = true
-    isHoggedLabel.Text = ""
-    isHoggedLabel.Parent = frame
-
-    return nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel -- IsHogged 추가
-end
-
--- GUI 생성
-local nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel = createGUI() -- IsHogged 추가
-
--- 이전 타겟 정보
-local previousTarget = nil
-
--- 정보 업데이트 함수
-local function updateInfo()
+-- 타겟 찾기 함수
+local function findTarget()
     -- 로컬 플레이어
     local localPlayer = Players.LocalPlayer
 
@@ -121,45 +31,8 @@ local function updateInfo()
         end
     end
 
-    -- 가장 가까운 플레이어를 찾은 경우, 정보를 GUI로 출력
-    if closestPlayer and UserInputService:IsKeyDown(Enum.KeyCode.H) then -- H 키를 눌렀을 때만 타겟 변경
-        -- 이전 타겟과 현재 타겟이 같은지 확인하여 변경되지 않도록 함
-        if closestPlayer ~= previousTarget then
-            _G.targetr = closestPlayer.Name
-            nameLabel.Text = "Name: " .. closestPlayer.Name
-            teamLabel.Text = "Team: " .. closestPlayer.Team.Name
-            healthLabel.Text = "Health: " .. tostring(closestPlayer.Character.Humanoid.Health)
-            hostileLabel.Text = "Hostile: " .. tostring(closestPlayer.Character:FindFirstChild("Hostile").Value)
-            isCuffedLabel.Text = "IsCuffed: " .. tostring(closestPlayer.Character:FindFirstChild("IsCuffed").Value)
-            isHoggedLabel.Text = "IsHogged: " .. tostring(closestPlayer.Character:FindFirstChild("IsHogged").Value) -- IsHogged 추가
-            previousTarget = closestPlayer
-        end
-    elseif closestPlayer then
-        -- 이전 타겟과 현재 타겟이 같은지 확인하여 변경되지 않도록 함
-        if closestPlayer ~= previousTarget then
-            nameLabel.Text = "Name: " .. previousTarget.Name
-            teamLabel.Text = "Team: " .. previousTarget.Team.Name
-            healthLabel.Text = "Health: " .. tostring(previousTarget.Character.Humanoid.Health)
-            hostileLabel.Text = "Hostile: " .. tostring(previousTarget.Character:FindFirstChild("Hostile").Value)
-            isCuffedLabel.Text = "IsCuffed: " .. tostring(previousTarget.Character:FindFirstChild("IsCuffed").Value)
-            isHoggedLabel.Text = "IsHogged: " .. tostring(previousTarget.Character:FindFirstChild("IsHogged").Value) -- IsHogged 추가
-        end
-    else
-        nameLabel.Text = "No target found"
-        teamLabel.Text = ""
-        healthLabel.Text = ""
-        hostileLabel.Text = ""
-        isCuffedLabel.Text = ""
-        isHoggedLabel.Text = "" -- IsHogged 추가
-        previousTarget = nil
-    end
+    return closestPlayer
 end
-
--- GUI 생성 및 정보 업데이트
-updateInfo()
-
--- 정보 업데이트를 매 프레임마다 실행
-RunService.RenderStepped:Connect(updateInfo)
 
 -- 'H' 키 입력 함수
 local selectKey = Enum.KeyCode.H
@@ -167,6 +40,66 @@ UserInputService.InputBegan:Connect(function(input)
     if input.KeyCode == selectKey then
         -- H 키 입력 시 실행할 동작을 여기에 추가하세요.
         -- 예: print("H key pressed")
-        updateInfo() -- 플레이어 정보 업데이트
+        local target = findTarget() -- 타겟 찾기 함수 호출
+        if target then
+            -- 타겟을 찾았을 때의 동작을 여기에 추가하세요.
+            print("Target found: " .. target.Name)
+            _G.targetr = target.Name
+        else
+            -- 타겟을 찾지 못했을 때의 동작을 여기에 추가하세요.
+            print("No target found")
+        end
     end
+end)
+
+
+-- 필요한 서비스 및 변수 불러오기
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+-- GUI 생성 함수
+local function createGUI()
+    -- GUI 생성 코드 작성
+    -- (앞서 작성한 GUI 생성 함수를 여기에 넣으세요)
+end
+
+-- GUI 생성
+local nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel = createGUI()
+
+-- 이전 타겟 정보
+local previousTarget = nil
+
+-- 정보 업데이트 함수
+local function updateInfo(target)
+    -- 타겟이 있으면 정보 업데이트
+    if target then
+        -- 이전 타겟과 현재 타겟이 같은지 확인하여 변경되지 않도록 함
+        if target ~= previousTarget then
+            nameLabel.Text = "Name: " .. target.Name
+            teamLabel.Text = "Team: " .. target.Team.Name
+            healthLabel.Text = "Health: " .. tostring(target.Character.Humanoid.Health)
+            hostileLabel.Text = "Hostile: " .. tostring(target.Character:FindFirstChild("Hostile").Value)
+            isCuffedLabel.Text = "IsCuffed: " .. tostring(target.Character:FindFirstChild("IsCuffed").Value)
+            isHoggedLabel.Text = "IsHogged: " .. tostring(target.Character:FindFirstChild("IsHogged").Value)
+            previousTarget = target
+        end
+    else
+        -- 타겟이 없으면 GUI를 초기화
+        nameLabel.Text = "No target found"
+        teamLabel.Text = ""
+        healthLabel.Text = ""
+        hostileLabel.Text = ""
+        isCuffedLabel.Text = ""
+        isHoggedLabel.Text = ""
+        previousTarget = nil
+    end
+end
+
+-- GUI 생성 및 정보 업데이트
+updateInfo(nil) -- 초기화
+
+-- 정보 업데이트를 매 프레임마다 실행
+RunService.RenderStepped:Connect(function()
+    local target = findTarget() -- 타겟 찾기 함수 호출
+    updateInfo(target) -- 정보 업데이트 함수 호출
 end)
