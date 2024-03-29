@@ -161,7 +161,8 @@ local function updateInfo(target)
             previousTarget = target
         end
         if target.Character and target.Character:FindFirstChild("Humanoid") then
-            healthLabel.Text = "Health: " .. tostring(target.Character.Humanoid.Health)
+            local health = math.floor(target.Character.Humanoid.Health)
+            healthLabel.Text = "Health: " .. tostring(health)
         else
             healthLabel.Text = "Health: N/A"
         end
