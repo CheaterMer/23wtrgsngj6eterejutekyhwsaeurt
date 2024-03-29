@@ -17,9 +17,9 @@ local function createGUI()
 
     -- UI 요소 생성
     local frame = Instance.new("Frame")
-    frame.Size = UDim2.new(0, 200, 0, 100)
-    frame.Position = UDim2.new(0.5, 0, 0.5, 0) -- 화면 중앙에 위치
-    frame.AnchorPoint = Vector2.new(0.5, 0.5) -- 중앙 정렬
+    frame.Size = UDim2.new(0, 200, 0, 150) -- 크기 조정
+    frame.Position = UDim2.new(0.02, 0, 0.5, 0) -- 왼쪽에 위치
+    frame.AnchorPoint = Vector2.new(0, 0.5) -- 왼쪽 정렬
     frame.BackgroundTransparency = 0.5
     frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255) -- 투명도가 있는 흰색 배경
     frame.BorderSizePixel = 0
@@ -75,11 +75,24 @@ local function createGUI()
     isCuffedLabel.Text = ""
     isCuffedLabel.Parent = frame
 
-    return nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel
+    local isHoggedLabel = Instance.new("TextLabel") -- IsHogged 추가
+    isHoggedLabel.Size = UDim2.new(1, 0, 0.2, 0)
+    isHoggedLabel.Position = UDim2.new(0, 0, 1, 0) -- 맨 밑에 위치
+    isHoggedLabel.Font = Enum.Font.GothamSemibold
+    isHoggedLabel.TextSize = 16
+    isHoggedLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+    isHoggedLabel.TextWrapped = true
+    isHoggedLabel.Text = ""
+    isHoggedLabel.Parent = frame
+
+    return nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel -- IsHogged 추가
 end
 
 -- GUI 생성
-local nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel = createGUI()
+local nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel = createGUI() -- IsHogged 추가
+
+-- 이전 타겟 정보
+local previousTarget = nil
 
 -- 정보 업데이트 함수
 local function updateInfo()
@@ -109,14 +122,27 @@ local function updateInfo()
     end
 
     -- 가장 가까운 플레이어를 찾은 경우, 정보를 GUI로 출력
-    if closestPlayer then
-        while task.wait(0.1) do
+    if closestPlayer and UserInputService:IsKeyDown(Enum.KeyCode.H) then -- H 키를 눌렀을 때만 타겟 변경
+        -- 이전 타겟과 현재 타겟이 같은지 확인하여 변경되지 않도록 함
+        if closestPlayer ~= previousTarget then
             _G.targetr = closestPlayer.Name
-        nameLabel.Text = "Name: " .. closestPlayer.Name
-        teamLabel.Text = "Team: " .. closestPlayer.Team.Name
-        healthLabel.Text = "Health: " .. tostring(closestPlayer.Character.Humanoid.Health)
-        hostileLabel.Text = "Hostile: " .. tostring(closestPlayer.Character:FindFirstChild("Hostile").Value)
-        isCuffedLabel.Text = "IsCuffed: " .. tostring(closestPlayer.Character:FindFirstChild("IsCuffed").Value)
+            nameLabel.Text = "Name: " .. closestPlayer.Name
+            teamLabel.Text = "Team: " .. closestPlayer.Team.Name
+            healthLabel.Text = "Health: " .. tostring(closestPlayer.Character.Humanoid.Health)
+            hostileLabel.Text = "Hostile: " .. tostring(closestPlayer.Character:FindFirstChild("Hostile").Value)
+            isCuffedLabel.Text = "IsCuffed: " .. tostring(closestPlayer.Character:FindFirstChild("IsCuffed").Value)
+            isHoggedLabel.Text = "IsHogged: " .. tostring(closestPlayer.Character:FindFirstChild("IsHogged").Value) -- IsHogged 추가
+            previousTarget = closestPlayer
+        end
+    elseif closestPlayer then
+        -- 이전 타겟과 현재 타겟이 같은지 확인하여 변경되지 않도록 함
+        if closestPlayer ~= previousTarget then
+            nameLabel.Text = "Name: " .. previousTarget.Name
+            teamLabel.Text = "Team: " .. previousTarget.Team.Name
+            healthLabel.Text = "Health: " .. tostring(previousTarget.Character.Humanoid.Health)
+            hostileLabel.Text = "Hostile: " .. tostring(previousTarget.Character:FindFirstChild("Hostile").Value)
+            isCuffedLabel.Text = "IsCuffed: " .. tostring(previousTarget.Character:FindFirstChild("IsCuffed").Value)
+            isHoggedLabel.Text = "IsHogged: " .. tostring(previousTarget.Character:FindFirstChild("IsHogged").Value) -- IsHogged 추가
         end
     else
         nameLabel.Text = "No target found"
@@ -124,6 +150,8 @@ local function updateInfo()
         healthLabel.Text = ""
         hostileLabel.Text = ""
         isCuffedLabel.Text = ""
+        isHoggedLabel.Text = "" -- IsHogged 추가
+        previousTarget = nil
     end
 end
 
@@ -131,7 +159,7 @@ end
 updateInfo()
 
 -- 정보 업데이트를 매 프레임마다 실행
---RunService.RenderStepped:Connect(updateInfo)
+RunService.RenderStepped:Connect(updateInfo)
 
 -- 'H' 키 입력 함수
 local selectKey = Enum.KeyCode.H
