@@ -4983,9 +4983,14 @@ whitelist:Button("Add White List", function()
 	table.insert(whitelistuser,WLA)
 end)
 
-whitelist:Button("Clear White List", function()
+whitelist:Button("Remove White List", function()
 	table.remove(whitelistuser,WLA)
 end)
+
+whitelist:Button("Clear White List", function()
+whitelistuser:Clear()
+end)
+
 
 local DiePos 
 
