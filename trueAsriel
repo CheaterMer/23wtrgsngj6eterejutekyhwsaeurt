@@ -228,33 +228,89 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 end)
 
 
-local player = game.Players.LocalPlayer
-local mouse = player:GetMouse()
+-- 필요한 서비스 불러오기
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local GuiService = game:GetService("GuiService")
 
+-- 플레이어 GUI 생성
+local playerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "TargetInfoGui"
+screenGui.Parent = playerGui
 
-game:GetService("UserInputService").InputBegan:Connect(function(inp)
-    -- 사용자가 'H' 키를 눌렀을 때
-    if inp.KeyCode == Enum.KeyCode.H then
-        -- 마우스 객체 생성
-        local mouse = game.Players.LocalPlayer:GetMouse()
-        -- 마우스가 가리키는 지점의 정보를 가져옴
-        local htarget = mouse.Hit
+-- UI 요소 생성
+local nameLabel = Instance.new("TextLabel")
+nameLabel.Size = UDim2.new(0, 200, 0, 50)
+nameLabel.Position = UDim2.new(0.5, -100, 0.1, 0)
+nameLabel.Font = Enum.Font.SourceSansBold
+nameLabel.TextSize = 20
+nameLabel.Parent = screenGui
+
+local distanceLabel = Instance.new("TextLabel")
+distanceLabel.Size = UDim2.new(0, 200, 0, 50)
+distanceLabel.Position = UDim2.new(0.5, -100, 0.2, 0)
+distanceLabel.Font = Enum.Font.SourceSans
+distanceLabel.TextSize = 16
+distanceLabel.Parent = screenGui
+
+-- 'H' 키를 지정
+local selectKey = Enum.KeyCode.H
+
+-- 'H' 키가 눌렸을 때 실행될 함수
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == selectKey then
+        -- 현재 플레이어 얻기
+        local localPlayer = Players.LocalPlayer
         
-        -- 만약 h 키가 눌렸을 때
-        if htarget then
-            -- 특정 지점을 클릭하면 해당 지점의 정보 출력
-            --print("상대방을 지정합니다.")
-            --print("지정된 위치: " .. tostring(htarget.Position))
-            -- print("지정된 부분의 표면: " .. tostring(htarget.Material))
-            --print("지정된 부분의 부모 모델: " .. tostring(htarget.Instance.Parent.Name))
-            
-            -- 만약 특정 지점에 휴머노이드(Humanoid)와 머리(Head)가 있는 경우
-            if htarget.Instance:FindFirstChild("Humanoid") and htarget.Instance:FindFirstChild("Head") then
-                -- 전역 변수 _G.targetr에 해당 지점을 할당하여 상대방으로 지정
-                _G.targetr = htarget
-                print("상대방으로 지정되었습니다.")
-				print(htarget.Name)
+        -- 만약 로컬 플레이어가 "Guard" 팀이고 타겟이 "Civilian" 팀이면 동작 중지
+        if localPlayer.Team.Name == "Guard" then
+            for _, player in ipairs(Players:GetPlayers()) do
+                if player ~= localPlayer and player.Team.Name == "Civilian" then
+                    return
+                end
             end
+        end
+        
+        -- 만약 로컬 플레이어가 "Civilian" 팀이고 타겟이 "Guard" 팀이면 동작 중지
+        if localPlayer.Team.Name == "Civilian" then
+            for _, player in ipairs(Players:GetPlayers()) do
+                if player ~= localPlayer and player.Team.Name == "Guard" then
+                    return
+                end
+            end
+        end
+        
+        -- 마우스의 현재 위치 얻기
+        local mouse = Players.LocalPlayer:GetMouse()
+        local mousePosition = mouse.Hit.p
+        
+        -- 가장 가까운 다른 팀 플레이어 찾기
+        local closestPlayer = nil
+        local shortestDistance = math.huge
+        
+        for _, player in ipairs(Players:GetPlayers()) do
+            -- 로컬 플레이어와 같은 팀이면서 검사
+            if player.Team ~= localPlayer.Team and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                local playerPosition = player.Character.HumanoidRootPart.Position
+                local distance = (playerPosition - mousePosition).magnitude
+                
+                -- 이전에 찾은 플레이어보다 더 가까운 플레이어를 찾으면 갱신
+                if distance < shortestDistance then
+                    closestPlayer = player
+                    shortestDistance = distance
+                end
+            end
+        end
+        
+        -- 가장 가까운 플레이어를 찾은 경우, 정보를 GUI로 출력
+        if closestPlayer then
+			_G.targetr = closestPlayer.Name
+            nameLabel.Text = "Target: " .. closestPlayer.Name
+            distanceLabel.Text = "Distance: " .. math.floor(shortestDistance) .. " studs"
+        else
+            nameLabel.Text = "No target found"
+            distanceLabel.Text = ""
         end
     end
 end)
