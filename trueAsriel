@@ -249,7 +249,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
         print("지정된 부분의 부모 모델: " .. tostring(htarget.Instance.Parent.Name))
         -- 이곳에 상대방을 지정하는 추가적인 코드를 작성할 수 있습니다.
 		if htarget:FindFirstChild("Humanoid") and htarget:FindFirstChild("Head") then
-			--_G.targetr = htarget
+			_G.targetr = htarget
 			print(htarget)
 		end
 	
