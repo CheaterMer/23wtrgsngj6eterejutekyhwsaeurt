@@ -183,6 +183,14 @@ local RunService = game:GetService("RunService")
 -- 이전 타겟 초기화
 local previousTarget = nil
 
+local function updateDisplayNameLabel(target)
+    if target then
+        displayNameLabel.Text = "Display Name: " .. (target.DisplayName or "N/A")
+    else
+        displayNameLabel.Text = "Display Name: N/A"
+    end
+end
+
 local function updateNameLabel(target)
     if target then
         nameLabel.Text = "Name: " .. (target.Name or "N/A")
@@ -281,6 +289,7 @@ local function updateGrabbedByWhomLabel(target)
 end
 
 local function updateAllLabels()
+    updateDisplayNameLabel()
     updateNameLabel()
     updateTeamLabel()
     updateHealthLabel()
@@ -300,6 +309,7 @@ local function updateInfo(target)
     if target then
         -- 이전 타겟과 현재 타겟이 같은지 확인하여 변경되지 않도록 함
         if target ~= previousTarget then
+            updateDisplayNameLabel(target)
             updateNameLabel(target)
             updateTeamLabel(target)
             updateHealthLabel(target)
