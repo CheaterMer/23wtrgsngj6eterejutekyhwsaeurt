@@ -3873,8 +3873,8 @@ task.spawn(function()
 								game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
 						end)
 						]]
-						TaserRemote:FireServer("Hit",game:GetService("Players").LocalPlayer.Backpack.Taser,plr.Character.Head)
-						--[[
+						--TaserRemote:FireServer("Hit",game:GetService("Players").LocalPlayer.Backpack.Taser,plr.Character.Head)
+						
 						local args = {
 							[1] = "Hit",
 							[2] = game:GetService("Players").LocalPlayer.Backpack.Taser,
@@ -3882,17 +3882,17 @@ task.spawn(function()
 						}
 						
 						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-						]]
+						
 						wait(0.1)
 						TaserRemote:FireServer(	"Recharge", game:GetService("Players").LocalPlayer.Backpack.Taser)
-						--[[
+						
 						local args = {
 							[1] = "Recharge",
 							[2] = game:GetService("Players").LocalPlayer.Backpack.Taser
 						}
 						
 						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-						]]
+						
 					end
 				end
 		end) end
