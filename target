@@ -179,5 +179,6 @@ updateInfo(nil) -- 초기화
 RunService.RenderStepped:Connect(function()
     task.wait(0.1)
     local target = game:GetService("Players"):WaitForChild(_G.targetr) -- 타겟 찾기 함수 호출
+    task.wait(0.1)
     updateInfo(target) -- 정보 업데이트 함수 호출
 end)
