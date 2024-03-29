@@ -107,66 +107,88 @@ end
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.Q then
 
---for _,name in pairs(game.workspace:GetChildren()) do
---if name:FindFirstChildOfClass('Humanoid') then
---if name:FindFirstChild('Torso') then
---range = (char.Torso.Position - name.Torso.Position).Magnitude
---if range <15 and name.Name ~= player.Name then
-	if player.Character:FindFirstChild("Axe") then
-		anime(7286445304)
-		attack()
-	elseif player.Character:FindFirstChild("Crowbar") then
-		if m2 == true then
-		anime(7137390931)
-		attack()
-		m2 = false
-		else
-			anime(7137385893)
+
+		if player.Character:FindFirstChild("Axe") then
+			anime(7286445304)
 			attack()
-			m2 = true
-		end
-    elseif player.Character:FindFirstChild("Pickaxe") then
-		anime(7098129399)
-        attack()
-	elseif player.Character:FindFirstChild("Knife") then
-		if m1 == true then
-			anime(7575196416)
-            attack()
-			m1 = false
-		else
-			anime(7562485782)
-            attack()
-			m1 = true
-		end
-	elseif player.Character:FindFirstChild("Fist") then
-		if m3 == true then
-			anime(6884302925)
+		elseif player.Character:FindFirstChild("Crowbar") then
+			if m2 == true then
+			anime(7137390931)
 			attack()
-			m3 = false
-		else
-			anime(6884306689)
+			m2 = false
+			else
+				anime(7137385893)
+				attack()
+				m2 = true
+			end
+		elseif player.Character:FindFirstChild("Pickaxe") then
+			anime(7098129399)
 			attack()
-			m3 = true
+		elseif player.Character:FindFirstChild("Knife") then
+			if m1 == true then
+				anime(7575196416)
+				attack()
+				m1 = false
+			else
+				anime(7562485782)
+				attack()
+				m1 = true
+			end
+		elseif player.Character:FindFirstChild("Fist") then
+			if m3 == true then
+				anime(6884302925)
+				attack()
+				m3 = false
+			else
+				anime(6884306689)
+				attack()
+				m3 = true
+			end
+		elseif player.Character:FindFirstChild("Hammer") then
+			anime(6884398841)
+			attack()
+		elseif player.Character:FindFirstChild("Food") then
+			Remotes["EatingEvent"]:FireServer(
+				LP.Character,
+				game:GetService("Players").LocalPlayer.Character.Food,
+				"Heal")
+		elseif player.Character:FindFirstChild("Hamburger") then
+			Remotes["EatingEvent"]:FireServer(
+				LP.Character,
+				game:GetService("Players").LocalPlayer.Character.Hamburger,
+				"Heal")
+		elseif player.Character:FindFirstChild("Taser") then
+			pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
+			tpos = game:GetService("Players"):WaitForChild(targetr).Character.Torso.CFrame.Position
+			spawn(function()	
+			local args = {
+					[1] = "Generate",
+					[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+					[3] = Vector3.new(pos.X,pos.Y,pos.Z),
+					[4] = Vector3.new(tpos.X,tpos.Y,tpos.Z)
+				}
+				
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+			end)
+
+			local args = {
+				[1] = "Hit",
+				[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+				[3] = game:GetService("Players"):WaitForChild(targetr).Character.Head
+			}
+			
+			game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+			wait()
+			local args = {
+				[1] = "Recharge",
+				[2] = game:GetService("Players").LocalPlayer.Character.Taser
+			}
+			
+			game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+
 		end
-	elseif player.Character:FindFirstChild("Hammer") then
-		anime(6884398841)
-		attack()
-	elseif player.Character:FindFirstChild("Food") then
-		Remotes["EatingEvent"]:FireServer(
-			LP.Character,
-			game:GetService("Players").LocalPlayer.Character.Food,
-			"Heal")
-	elseif player.Character:FindFirstChild("Hamburger") then
-		Remotes["EatingEvent"]:FireServer(
-			LP.Character,
-			game:GetService("Players").LocalPlayer.Character.Hamburger,
-			"Heal")
- 	end
+
 	end
---end
---end
---end
---end
 end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
