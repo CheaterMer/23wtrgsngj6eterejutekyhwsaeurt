@@ -57,109 +57,73 @@ end)
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
--- GUI 생성 함수
-local function createGUI()
-    -- GUI 생성 코드 작성
-    -- (앞서 작성한 GUI 생성 함수를 여기에 넣으세요)
-    local playerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
-    local screenGui = Instance.new("ScreenGui")
-    screenGui.Name = "TargetInfoGui"
-    screenGui.ResetOnSpawn = false
-    screenGui.Parent = playerGui
-
-    -- UI 요소 생성
-    local frame = Instance.new("Frame")
-    frame.Size = UDim2.new(0, 200, 0, 150) -- 크기 조정
-    frame.Position = UDim2.new(0.02, 0, 0.5, 0) -- 왼쪽에 위치
-    frame.AnchorPoint = Vector2.new(0, 0.5) -- 왼쪽 정렬
-    frame.BackgroundTransparency = 0.5
-    frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255) -- 투명도가 있는 흰색 배경
-    frame.BorderSizePixel = 0
-    frame.Parent = screenGui
-
-    local nameLabel = Instance.new("TextLabel")
-    nameLabel.Size = UDim2.new(1, 0, 0.2, 0)
-    nameLabel.Position = UDim2.new(0, 0, 0, 0)
-    nameLabel.Font = Enum.Font.GothamSemibold
-    nameLabel.TextSize = 16
-    nameLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-    nameLabel.TextWrapped = true
-    nameLabel.Text = ""
-    nameLabel.Parent = frame
-
-    local teamLabel = Instance.new("TextLabel")
-    teamLabel.Size = UDim2.new(1, 0, 0.2, 0)
-    teamLabel.Position = UDim2.new(0, 0, 0.2, 0)
-    teamLabel.Font = Enum.Font.GothamSemibold
-    teamLabel.TextSize = 16
-    teamLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-    teamLabel.TextWrapped = true
-    teamLabel.Text = ""
-    teamLabel.Parent = frame
-
-    local healthLabel = Instance.new("TextLabel")
-    healthLabel.Size = UDim2.new(1, 0, 0.2, 0)
-    healthLabel.Position = UDim2.new(0, 0, 0.4, 0)
-    healthLabel.Font = Enum.Font.GothamSemibold
-    healthLabel.TextSize = 16
-    healthLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-    healthLabel.TextWrapped = true
-    healthLabel.Text = ""
-    healthLabel.Parent = frame
-
-    local hostileLabel = Instance.new("TextLabel")
-    hostileLabel.Size = UDim2.new(1, 0, 0.2, 0)
-    hostileLabel.Position = UDim2.new(0, 0, 0.6, 0)
-    hostileLabel.Font = Enum.Font.GothamSemibold
-    hostileLabel.TextSize = 16
-    hostileLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-    hostileLabel.TextWrapped = true
-    hostileLabel.Text = ""
-    hostileLabel.Parent = frame
-
-    local isCuffedLabel = Instance.new("TextLabel")
-    isCuffedLabel.Size = UDim2.new(1, 0, 0.2, 0)
-    isCuffedLabel.Position = UDim2.new(0, 0, 0.8, 0)
-    isCuffedLabel.Font = Enum.Font.GothamSemibold
-    isCuffedLabel.TextSize = 16
-    isCuffedLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-    isCuffedLabel.TextWrapped = true
-    isCuffedLabel.Text = ""
-    isCuffedLabel.Parent = frame
-    
-    local isHoggedLabel = Instance.new("TextLabel")
-    isHoggedLabel.Size = UDim2.new(1, 0, 0.2, 0)
-    isHoggedLabel.Position = UDim2.new(0, 0, 1, 0) -- 맨 아래에 위치
-    isHoggedLabel.Font = Enum.Font.GothamSemibold
-    isHoggedLabel.TextSize = 16
-    isHoggedLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-    isHoggedLabel.TextWrapped = true
-    isHoggedLabel.Text = ""
-    isHoggedLabel.Parent = frame
-
-    return nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel
-end
-
 -- GUI 생성
-local nameLabel, teamLabel, healthLabel, hostileLabel, isCuffedLabel, isHoggedLabel = createGUI()
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local Frame = Instance.new("Frame")
+Frame.Size = UDim2.new(0, 200, 0, 250)
+Frame.Position = UDim2.new(0, 10, 0.5, -125)
+Frame.BackgroundTransparency = 0.5
+Frame.BackgroundColor3 = Color3.new(0, 0, 0)
+Frame.Parent = ScreenGui
+
+-- 이름 레이블
+nameLabel = Instance.new("TextLabel")
+nameLabel.Name = "NameLabel"
+nameLabel.Size = UDim2.new(1, 0, 0, 20)
+nameLabel.Position = UDim2.new(0, 0, 0, 0)
+nameLabel.Text = "Name: N/A"
+nameLabel.TextColor3 = Color3.new(1, 1, 1)
+nameLabel.Parent = Frame
+
+-- 팀 레이블
+teamLabel = Instance.new("TextLabel")
+teamLabel.Name = "TeamLabel"
+teamLabel.Size = UDim2.new(1, 0, 0, 20)
+teamLabel.Position = UDim2.new(0, 0, 0, 20)
+teamLabel.Text = "Team: N/A"
+teamLabel.TextColor3 = Color3.new(1, 1, 1)
+teamLabel.Parent = Frame
+
+-- 채력 레이블
+healthLabel = Instance.new("TextLabel")
+healthLabel.Name = "HealthLabel"
+healthLabel.Size = UDim2.new(1, 0, 0, 20)
+healthLabel.Position = UDim2.new(0, 0, 0, 40)
+healthLabel.Text = "Health: N/A"
+healthLabel.TextColor3 = Color3.new(1, 1, 1)
+healthLabel.Parent = Frame
+
+-- 추가 정보 레이블들
+local attributeLabels = {
+    "HostileLabel",
+    "IsCuffedLabel",
+    "IsHoggedLabel",
+    "IsLockedLabel",
+    "FrontCuffedLabel",
+    "GrabbingLabel",
+    "DownStateLabel",
+    "GrabbingWhomLabel",
+    "GrabbedByWhomLabel"
+}
+
+for i, labelName in ipairs(attributeLabels) do
+    local label = Instance.new("TextLabel")
+    label.Name = labelName
+    label.Size = UDim2.new(1, 0, 0, 20)
+    label.Position = UDim2.new(0, 0, 0, 40 + (20 * i))
+    label.Text = label.Name .. ": N/A"
+    label.TextColor3 = Color3.new(1, 1, 1)
+    label.Parent = Frame
+end
 
 -- 이전 타겟 정보
 local previousTarget = nil
 local targetlp
--- 정보 업데이트 함수
--- 호스트일 값을 업데이트하는 함수
-local function updateHostileLabel(value)
-    hostileLabel.Text = "Hostile: " .. tostring(value)
-end
 
--- 수갑 여부를 업데이트하는 함수
-local function updateIsCuffedLabel(value)
-    isCuffedLabel.Text = "IsCuffed: " .. tostring(value)
-end
-
--- 매어놓은 상태를 업데이트하는 함수
-local function updateIsHoggedLabel(value)
-    isHoggedLabel.Text = "IsHogged: " .. tostring(value)
+local function updateLabel(label, value)
+    label.Text = label.Name .. ": " .. tostring(value)
 end
 
 -- updateInfo 함수 수정 후
@@ -170,51 +134,69 @@ local function updateInfo(target)
         if target ~= previousTarget then
             nameLabel.Text = "Name: " .. target.Name
             teamLabel.Text = "Team: " .. target.Team.Name
+            
+            -- 채력 정보 업데이트
+            if target.Character and target.Character:FindFirstChild("Humanoid") then
+                local health = target.Character.Humanoid.Health
+                healthLabel.Text = "Health: " .. string.format("%.0f", health)
+            else
+                healthLabel.Text = "Health: N/A"
+            end
+            
+            -- 다양한 값 업데이트
+            local attributes = {
+                {"Hostile", "Hostile"},
+                {"IsCuffed", "Cuffed"},
+                {"IsHogged", "Hogged"},
+                {"IsLocked", "Locked"},
+                {"FrontCuffed", "FrontCuffed"},
+                {"Grabbing", "Grabbing"},
+                {"DownState", "DownState"},
+                {"GrabbingWhom", "GrabbingWhom"},
+                {"GrabbedByWhom", "GrabbedByWhom"}
+            }
+            
+            for _, attribute in ipairs(attributes) do
+                local attributeName = attribute[1]
+                local labelName = attribute[2]
+                
+                if target.Character and target.Character:FindFirstChild(attributeName) then
+                    local value = target.Character:FindFirstChild(attributeName).Value
+                    updateLabel(_G[labelName .. "Label"], value)
+                else
+                    updateLabel(_G[labelName .. "Label"], "Not available")
+                end
+            end
+            
             previousTarget = target
         end
         
-        -- 채력 정보 업데이트
-        if target.Character and target.Character:FindFirstChild("Humanoid") then
-            local health = target.Character.Humanoid.Health
-            healthLabel.Text = "Health: " .. string.format("%.0f", health)
-        else
-            healthLabel.Text = "Health: N/A"
-        end
-        
-        -- Hostile 값 업데이트
-        if target.Character and target.Character:FindFirstChild("Hostile") then
-            local hostileValue = tostring(target.Character:FindFirstChild("Hostile").Value)
-            updateHostileLabel(hostileValue)
-        else
-            updateHostileLabel("N/A")
-        end
-        
-        -- IsCuffed 값 업데이트
-        if target.Character and target.Character:FindFirstChild("IsCuffed") then
-            local isCuffedValue = tostring(target.Character:FindFirstChild("IsCuffed").Value)
-            updateIsCuffedLabel(isCuffedValue)
-        else
-            updateIsCuffedLabel("N/A")
-        end
-        
-        -- IsHogged 값 업데이트
-        if target.Character and target.Character:FindFirstChild("IsHogged") then
-            local isHoggedValue = tostring(target.Character:FindFirstChild("IsHogged").Value)
-            updateIsHoggedLabel(isHoggedValue)
-        else
-            updateIsHoggedLabel("N/A")
-        end   
     else
-        -- 타겟이 없으면 GUI를 초기화
-        nameLabel.Text = "No target found"
-        teamLabel.Text = ""
-        healthLabel.Text = ""
-        updateHostileLabel("N/A")
-        updateIsCuffedLabel("N/A")
-        updateIsHoggedLabel("N/A")
+        -- 타겟이 없으면 유저 정보 다시 받기
+        local localPlayer = game:GetService("Players").LocalPlayer
+        if localPlayer then
+            nameLabel.Text = "Name: " .. localPlayer.Team.Name
+            teamLabel.Text = "Team: " .. localPlayer.Name
+            healthLabel.Text = "Health: N/A"
+            for _, attribute in ipairs(attributes) do
+                local labelName = attribute[2]
+                updateLabel(_G[labelName .. "Label"], "Not available")
+            end
+        else
+            -- 로컬 플레이어가 없을 경우 기본값으로 설정
+            nameLabel.Text = "Name: N/A"
+            teamLabel.Text = "Team: N/A"
+            healthLabel.Text = "Health: N/A"
+            for _, attribute in ipairs(attributes) do
+                local labelName = attribute[2]
+                updateLabel(_G[labelName .. "Label"], "Not available")
+            end
+        end
+        
         previousTarget = nil
     end
 end
+
 
 
 -- GUI 생성 및 정보 업데이트
