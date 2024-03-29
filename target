@@ -162,7 +162,6 @@ local function updateIsHoggedLabel(value)
     isHoggedLabel.Text = "IsHogged: " .. tostring(value)
 end
 
--- updateInfo 함수 수정 후
 local function updateInfo(target)
     -- 타겟이 있으면 정보 업데이트
     if target then
@@ -170,49 +169,62 @@ local function updateInfo(target)
         if target ~= previousTarget then
             nameLabel.Text = "Name: " .. target.Name
             teamLabel.Text = "Team: " .. target.Team.Name
+            
+            -- 채력 정보 업데이트
+            if target.Character and target.Character:FindFirstChild("Humanoid") then
+                local health = target.Character.Humanoid.Health
+                healthLabel.Text = "Health: " .. string.format("%.0f", health)
+            else
+                healthLabel.Text = "Health: N/A"
+            end
+            
+            -- Hostile 값 업데이트
+            if target.Character and target.Character:FindFirstChild("Hostile") then
+                local hostileValue = tostring(target.Character:FindFirstChild("Hostile").Value)
+                updateHostileLabel(hostileValue)
+            else
+                updateHostileLabel("Not available")
+            end
+            
+            -- IsCuffed 값 업데이트
+            if target.Character and target.Character:FindFirstChild("IsCuffed") then
+                local isCuffedValue = tostring(target.Character:FindFirstChild("IsCuffed").Value)
+                updateIsCuffedLabel(isCuffedValue)
+            else
+                updateIsCuffedLabel("Not available")
+            end
+            
+            -- IsHogged 값 업데이트
+            if target.Character and target.Character:FindFirstChild("IsHogged") then
+                local isHoggedValue = tostring(target.Character:FindFirstChild("IsHogged").Value)
+                updateIsHoggedLabel(isHoggedValue)
+            else
+                updateIsHoggedLabel("Not available")
+            end
+            
             previousTarget = target
         end
         
-        -- 채력 정보 업데이트
-        if target.Character and target.Character:FindFirstChild("Humanoid") then
-            local health = target.Character.Humanoid.Health
-            healthLabel.Text = "Health: " .. string.format("%.0f", health)
-        else
-            healthLabel.Text = "Health: N/A"
-        end
-        
-        -- Hostile 값 업데이트
-        if target.Character and target.Character:FindFirstChild("Hostile") then
-            local hostileValue = tostring(target.Character:FindFirstChild("Hostile").Value)
-            updateHostileLabel(hostileValue)
-        else
-            updateHostileLabel("N/A")
-        end
-        
-        -- IsCuffed 값 업데이트
-        if target.Character and target.Character:FindFirstChild("IsCuffed") then
-            local isCuffedValue = tostring(target.Character:FindFirstChild("IsCuffed").Value)
-            updateIsCuffedLabel(isCuffedValue)
-        else
-            updateIsCuffedLabel("N/A")
-        end
-        
-        -- IsHogged 값 업데이트
-        if target.Character and target.Character:FindFirstChild("IsHogged") then
-            local isHoggedValue = tostring(target.Character:FindFirstChild("IsHogged").Value)
-            updateIsHoggedLabel(isHoggedValue)
-        else
-            updateIsHoggedLabel("N/A")
-        end
-        
     else
-        -- 타겟이 없으면 GUI를 초기화
-        nameLabel.Text = "No target found"
-        teamLabel.Text = ""
-        healthLabel.Text = ""
-        updateHostileLabel("")
-        updateIsCuffedLabel("")
-        updateIsHoggedLabel("")
+        -- 타겟이 없으면 유저 정보 다시 받기
+        local localPlayer = game:GetService("Players").LocalPlayer
+        if localPlayer then
+            nameLabel.Text = "Name: " .. localPlayer.Team.Name
+            teamLabel.Text = "Team: " .. localPlayer.Name
+            healthLabel.Text = "Health: N/A"
+            updateHostileLabel("Not available")
+            updateIsCuffedLabel("Not available")
+            updateIsHoggedLabel("Not available")
+        else
+            -- 로컬 플레이어가 없을 경우 기본값으로 설정
+            nameLabel.Text = "Name: N/A"
+            teamLabel.Text = "Team: N/A"
+            healthLabel.Text = "Health: N/A"
+            updateHostileLabel("Not available")
+            updateIsCuffedLabel("Not available")
+            updateIsHoggedLabel("Not available")
+        end
+        
         previousTarget = nil
     end
 end
