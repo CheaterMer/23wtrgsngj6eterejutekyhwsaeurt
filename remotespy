@@ -3884,7 +3884,7 @@ task.spawn(function()
 						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
 						
 						wait(0.1)
-						TaserRemote:FireServer(	"Recharge", game:GetService("Players").LocalPlayer.Backpack.Taser)
+						--TaserRemote:FireServer(	"Recharge", game:GetService("Players").LocalPlayer.Backpack.Taser)
 						
 						local args = {
 							[1] = "Recharge",
