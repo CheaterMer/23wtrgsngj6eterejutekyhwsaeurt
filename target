@@ -146,9 +146,9 @@ local function updateInfo(target)
             -- 다양한 값 업데이트
             local attributes = {
                 {Name = "Hostile", Label = "Hostile"},
-                {Name = "IsCuffed", Label = "Cuffed"},
-                {Name = "IsHogged", Label = "Hogged"},
-                {Name = "IsLocked", Label = "Locked"},
+                {Name = "IsCuffed", Label = "IsCuffed"},
+                {Name = "IsHogged", Label = "IsHogged"},
+                {Name = "IsLocked", Label = "IsLocked"},
                 {Name = "FrontCuffed", Label = "FrontCuffed"},
                 {Name = "Grabbing", Label = "Grabbing"},
                 {Name = "DownState", Label = "DownState"},
