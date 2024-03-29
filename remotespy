@@ -4956,10 +4956,10 @@ local WLA
 local whitelistuser = {}
 
 local WLT = whitelist:Dropdown(
-"white List",
-names,
-function(bool)
-WLA = bool
+	"white List",
+	names,
+	function(bool)
+	WLA = bool
 end)
 
 whitelist:Button("Add White List", function()
@@ -5034,36 +5034,36 @@ LP.CharacterAdded:Connect(function(char)
 end)
 
 task.spawn(function()
-for v,b in pairs(workspace:GetChildren()) do
-    if b.Name == "Border" then
-        task.wait()
-        b:Destroy()
-    end
-end
+	for v,b in pairs(workspace:GetChildren()) do
+		if b.Name == "Border" then
+			task.wait()
+			b:Destroy()
+		end
+	end
 end)
 
 task.spawn(function()
-while true do
-    wait(5) 
-	pcall(function() -- 5초마다 반복
-    local currentPartCount = countParts()
-    --print("현재 파트 개수:", currentPartCount)
-    if currentPartCount > MAX_PART_COUNT then
-        deleteExtraParts()  -- 초과된 파트 삭제
-    end
-end)
-end
+	while true do
+		wait(5) 
+		pcall(function() -- 5초마다 반복
+			local currentPartCount = countParts()
+			--print("현재 파트 개수:", currentPartCount)
+			if currentPartCount > MAX_PART_COUNT then
+				deleteExtraParts()  -- 초과된 파트 삭제
+			end
+		end)
+	end
 end)
 
 
 task.spawn(function()
 	while task.wait(1) do
-    if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
-		--if DiePos ~= LP.Character.Torso.CFrame then
-    	DiePos = LP.Character.Torso.CFrame
-		--end
-    end
-end
+		if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
+			--if DiePos ~= LP.Character.Torso.CFrame then
+			DiePos = LP.Character.Torso.CFrame
+			--end
+		end
+	end
 end)
 
 
@@ -5072,31 +5072,35 @@ plrs.PlayerAdded:Connect(function(player)
 	playerlista:Clear()
 	copy_avatar:Clear()
 	GarbPlayerList:Clear()
+	WLT:Clear()
 	task.wait(1)
 	for idx, plr in pairs(game.Players:GetPlayers()) do
 		if not table.find(userOwner, plr.Name) then
 		playerlista:Add(plr.Name)
 		copy_avatar:Add(plr.Name)
 		GarbPlayerList:Add(plr.Name)
+		WLT:Add(plr.Name)
 		end
 		--print("add",player.Name)
 	end
-  end)
+end)
 
 plrs.PlayerRemoving:Connect(function(player)
 	playerlista:Clear()
 	copy_avatar:Clear()
 	GarbPlayerList:Clear()
+	WLT:Clear()
 	task.wait(1)
 	for idx, plr in pairs(game.Players:GetPlayers()) do
 		if not table.find(userOwner, plr.Name) then
 		playerlista:Add(plr.Name)
 		copy_avatar:Add(plr.Name)
 		GarbPlayerList:Add(plr.Name)
+		WLT:Add(plr.Name)
 		end
 		--print("add",player.Name)
 	end
 	--print("remove",player.Name)
-  end)
+end)
 
   warn("Made By Cheater_Mer & Xsinew")
