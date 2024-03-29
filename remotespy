@@ -4988,7 +4988,7 @@ whitelist:Button("Remove White List", function()
 end)
 
 whitelist:Button("Clear White List", function()
-whitelistuser:Clear()
+	whitelistuser:Clear()
 end)
 
 
