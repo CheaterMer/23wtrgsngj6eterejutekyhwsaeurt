@@ -4290,14 +4290,8 @@ end)
 task.spawn(function()
 	while task.wait() do
 		if Ragdollanti then pcall(function()
-		if LP.Character.RagDoll.Value then
-			local args = {
-				[1] = LP.Character,
-				[2] = game:GetService("Players").LocalPlayer.Character.Humanoid,
-				[3] = "Unragdoll"
-			}
-			
-			game:GetService("ReplicatedStorage"):WaitForChild("RagdollHandlerEvent"):FireServer(unpack(args))			
+		if LP.Character.RagDoll.Value == true then
+			LP.Character.RagDoll.Value = false
 		end
 		end) end
 	end
