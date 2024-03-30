@@ -5144,6 +5144,15 @@ task.spawn(function()
 end)
 
 task.spawn(function()
+	for v,b in pairs(workspace.Unfinished:GetChildren()) do
+		if b.Name == "DeadlyFloor" then
+			task.wait()
+			b:Destroy()
+		end
+	end
+end)
+
+task.spawn(function()
 	while task.wait() do
 		task.wait(0.5) 
 		if partdelety == true then
