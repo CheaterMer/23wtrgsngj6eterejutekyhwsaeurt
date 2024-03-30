@@ -5049,7 +5049,7 @@ end)
 
 local Oneteam = Troll_tab:Channel("Only One")
 _G.OneTeam = nil
-_G.OneTeamhit = nil
+_G.OneTeamhit = false
 
 Oneteam:Dropdown(
     "Pick Team",
