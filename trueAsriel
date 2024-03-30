@@ -1,5 +1,5 @@
 _G.targetr = nil
-_G.OneTeamhit = nil
+_G.OneTeamhit = false
 _G.OneTeam = nil
 
 local m1 = true
