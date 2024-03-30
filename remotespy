@@ -5047,6 +5047,23 @@ whitelist:Button("Clear White List", function()
 	print("cleared")
 end)
 
+local Oneteam = Troll_tab:Channel("Only One")
+_G.OneTeam = nil
+_G.OneTeamhit = nil
+
+Oneteam:Dropdown(
+    "Pick Team",
+		{"Guard","Prisoner","Fugitives","Choosing","Hostage","Civilian"},
+    function(bool)
+		print(bool)
+        _G.OneTeam = bool
+    end
+)
+
+Oneteam:Toggle("Team Block Item", false, function(bool)
+    _G.OneTeamhit = bool
+end)
+
 
 local DiePos 
 
