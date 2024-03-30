@@ -180,7 +180,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 			}
 			
 			game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-			wait()
+			wait(0.5)
 			anime(8109052918)
 			local args = {
 				[1] = "Recharge",
