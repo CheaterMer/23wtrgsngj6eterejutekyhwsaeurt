@@ -323,25 +323,25 @@ local function updateInfo(target)
             updateGrabbingWhomLabel(target)
             updateGrabbedByWhomLabel(target)
             previousTarget = target
+        elseif previousTarget == target then
+            updateDisplayNameLabel(target)
+            updateNameLabel(target)
+            updateTeamLabel(target)
+            updateHealthLabel(target)
+            updateHostileLabel(target)
+            updateIsCuffedLabel(target)
+            updateIsHoggedLabel(target)
+            updateIsLockedLabel(target)
+            updateFrontCuffedLabel(target)
+            updateGrabbingLabel(target)
+            updateDownStateLabel(target)
+            updateGrabbingWhomLabel(target)
+            updateGrabbedByWhomLabel(target)
+        else
+            -- 타겟이 없으면 GUI를 초기화
+            updateAllLabels()
+            previousTarget = nil
         end
-    elseif target == previousTarget then
-        updateDisplayNameLabel(target)
-        updateNameLabel(target)
-        updateTeamLabel(target)
-        updateHealthLabel(target)
-        updateHostileLabel(target)
-        updateIsCuffedLabel(target)
-        updateIsHoggedLabel(target)
-        updateIsLockedLabel(target)
-        updateFrontCuffedLabel(target)
-        updateGrabbingLabel(target)
-        updateDownStateLabel(target)
-        updateGrabbingWhomLabel(target)
-        updateGrabbedByWhomLabel(target)
-    else
-        -- 타겟이 없으면 GUI를 초기화
-        updateAllLabels()
-        previousTarget = nil
     end
 end
 
