@@ -162,7 +162,6 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		elseif player.Character:FindFirstChild("Taser") then
 			pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
 			tpos = game:GetService("Players"):WaitForChild(_G.targetr).Character.Torso.CFrame.Position
-			anime(8109052918)
 			spawn(function()	
 			local args = {
 					[1] = "Generate",
@@ -182,6 +181,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 			
 			game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
 			wait()
+			anime(8109052918)
 			local args = {
 				[1] = "Recharge",
 				[2] = game:GetService("Players").LocalPlayer.Character.Taser
