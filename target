@@ -340,7 +340,7 @@ updateInfo(nil) -- 초기화
 while task.wait() do
     task.wait(0.1)
     pcall(function()
-        local target = _G.targetr
+        local target = game:GetService("Players"):FindFirstChild(_G.targetr)
         if target then
             updateInfo(target)
         else
