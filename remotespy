@@ -4670,9 +4670,11 @@ task.spawn(function ()
             local oldPos = LP.Character.HumanoidRootPart.CFrame
             LP.Character.Humanoid.Health = 0
             lagging = "Stoped"
+			pcall(function()
             local char = LP.CharacterAdded:Wait()
             task.wait(0.45)
             char.HumanoidRootPart.CFrame = oldPos
+			end)
         end
     end
 end)
