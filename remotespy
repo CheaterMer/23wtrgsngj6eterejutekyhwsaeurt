@@ -4105,6 +4105,7 @@ end)
 local combat_channel = server_tab:Channel("Combat")
 local killaura = false
 local LOCKON = false
+local Ragdollanti = false
 local LOCKED 
 local attack_tools = {
     "Axe",
@@ -4286,6 +4287,22 @@ task.spawn(function()
 	end
 end)
 
+task.spawn(function()
+	while task.wait() do
+		if Ragdollanti then pcall(function()
+		if LP.Character.RagDoll.Value then
+			local args = {
+				[1] = LP.Character,
+				[2] = game:GetService("Players").LocalPlayer.Character.Humanoid,
+				[3] = "Unragdoll"
+			}
+			
+			game:GetService("ReplicatedStorage"):WaitForChild("RagdollHandlerEvent"):FireServer(unpack(args))			
+		end
+		end) end
+	end
+end)
+
 function eat()
     spawn(function()
         if LP.Character.Humanoid.Health < 100 then
@@ -4337,6 +4354,10 @@ task.spawn(function()
 	end
 end)
 	
+combat_channel:Toggle("Anti Ragdoll", false, function(bool)
+	Ragdollanti = bool
+end)
+
 combat_channel:Toggle("Uncuff", false, function(bool)
 	UF = bool
 end)
