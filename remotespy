@@ -4024,6 +4024,7 @@ player_channel:Label("  ")
 
 player_channel:Label("Targeting Only One Player")
 
+local delay_display = player_channel:Label("LockOn: "..tostring(_G.targetr)..)
 
 local playerlista = player_channel:Dropdown(
     "Target",
@@ -4031,6 +4032,7 @@ local playerlista = player_channel:Dropdown(
     function(bool)
 		print(bool)
         _G.targetr = bool
+		delay_display:ChangeText("Delay: "..tostring(_G.targetr)..)
 		print(_G.targetr , userOwner)
     end
 )
