@@ -1,5 +1,5 @@
 _G.targetr = nil
-
+_G.bruhinthelockon = nil
 -- GUI 생성
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
