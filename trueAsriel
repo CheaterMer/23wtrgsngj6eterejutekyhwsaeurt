@@ -11,9 +11,7 @@ local rootpart = char.HumanoidRootPart
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
-
 local LP = Players.LocalPlayer
-
 local Remotes = {}
 
 for idx, val in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
@@ -114,7 +112,7 @@ function CuffRemote()
 			and plr.Character.Humanoid.Health ~= 0 
 			and plr.Character.FrontCuffed.Value == true
 			then
-				Remotes["UnCuffed"]:FireServer(plr.Character)
+				Remotes["UnCuffed"]:FireServer(plr.Character)	
 			end
 		end
 
@@ -126,7 +124,7 @@ function CuffRemote()
 			and plr.Character.Hostile.Value 
 			and LP.Team ~= plr.Team 
 			and plr.Character.Humanoid.Health ~= 0 
-			and plr.Character.IsCuffed.Value == true
+			and plr.Character.IsCuffed.Value == false
 			then
 
 				if player.Character:FindFirstChild("Handcuffs") and plr.Character.IsCuffed.Value == false then
@@ -163,7 +161,7 @@ function HogRemote()
 					--CFFFFFF = true
 				elseif CFFFFFF == true then
 					if plr.Character.IsHogged.Value == false then
-							Remotes["IsHog"]:FireServer(plr.Character,"Hog")
+						Remotes["IsHog"]:FireServer(plr.Character,"Hog")
 					end
 				end
 			end
