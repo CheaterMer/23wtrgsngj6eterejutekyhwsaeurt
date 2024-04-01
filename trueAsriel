@@ -12,6 +12,7 @@ local rootpart = char.HumanoidRootPart
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local LP = Players.LocalPlayer
+
 local Remotes = {}
 
 for idx, val in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
@@ -142,7 +143,9 @@ function CuffRemote()
 				end
 			end
 		end
+
 	end
+
 end
 
 function HogRemote()
