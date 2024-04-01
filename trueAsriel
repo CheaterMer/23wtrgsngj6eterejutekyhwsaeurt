@@ -22,6 +22,18 @@ for idx, val in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
     end
 end
 
+local itemlist = {}
+
+for i,v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Tool") then
+        --pcall(function ()
+        if not table.find(itemlist, v.Name) then
+        table.insert(itemlist, v.Name)
+        end
+        --end)
+    end
+end
+
 local attack_tools = {
     "Axe",
     "Pickaxe",
@@ -91,16 +103,24 @@ function CuffRemote()
             and plr.Character.Humanoid.Health ~= 0 
 			then
 
-                if player.Character:FindFirstChild("Handcuffs") and plr.Character.IsCuffed.Value == false then
-					Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs"), plr.Character)
-				elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.IsCuffed.Value == false then
-					Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), plr.Character)
-				end
-
-                if player.Character:FindFirstChild("Handcuffs") and plr.Character.IsCuffed.Value == true then
+				if player.Character:FindFirstChild("Handcuffs") and plr.Character.IsCuffed.Value == true then
 					Remotes["UnCuffed"]:FireServer(plr.Character)
 				elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.IsCuffed.Value == true then
 					Remotes["UnCuffed"]:FireServer(plr.Character)
+				end
+
+				if player.Character:FindFirstChild("Handcuffs") and plr.Character.IsCuffed.Value == false then
+					if table.find(itemlist, plr.Character) then
+						Remotes["UnCuffed"]:FireServer(plr.Character)
+					end
+					task.wait(0.1)
+					Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs"), plr.Character)
+				elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.IsCuffed.Value == false then
+					if table.find(itemlist, plr.Character) then
+						Remotes["UnCuffed"]:FireServer(plr.Character)
+					end
+					task.wait(0.1)
+					Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), plr.Character)
 				end
 
 			end
@@ -227,6 +247,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 			end
 		elseif player.Character:FindFirstChild("Handcuffs") or player.Character:FindFirstChild("Handcuffs (fugitive)") then
 			CuffRemote()
+	
 	end
 end)
 
