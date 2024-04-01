@@ -93,14 +93,17 @@ function grabRemote()
 	end) 
 end
 
+local processedPlayers = {} 
+
 function CuffRemote()
 	pcall(function()
-		for idx, plr in pairs(Players:GetPlayers()) do
-			if plr ~= LP 
-            and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
-			and plr.Character.Hostile.Value 
-            and LP.Team ~= plr.Team 
-            and plr.Character.Humanoid.Health ~= 0 
+		for _, plr in pairs(Players:GetPlayers()) do
+			if not processedPlayers[plr] -- 이미 처리된 플레이어는 다시 처리하지 않습니다.
+				and plr ~= LP 
+				and CheckRange(HRP, plr.Character.HumanoidRootPart, 15)
+				and plr.Character.Hostile.Value 
+				and LP.Team ~= plr.Team 
+				and plr.Character.Humanoid.Health > 0 
 			then
 
 				if player.Character:FindFirstChild("Handcuffs") and plr.Character.IsCuffed.Value == false then
@@ -110,6 +113,9 @@ function CuffRemote()
 					--task.wait(0.1)
 					Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs"), plr.Character)
 					--break
+					for plr, _ in pairs(processedPlayers) do
+						processedPlayers[plr] = nil
+					end
 				elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.IsCuffed.Value == false then
 					if table.find(itemlist, plr.Character) then
 						Remotes["UnCuffed"]:FireServer(plr.Character)
@@ -117,10 +123,23 @@ function CuffRemote()
 					--task.wait(0.1)
 					Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), plr.Character)
 					--break
+					for plr, _ in pairs(processedPlayers) do
+						processedPlayers[plr] = nil
+					end
 				elseif player.Character:FindFirstChild("Handcuffs") and plr.Character.IsCuffed.Value == true then
 					Remotes["UnCuffed"]:FireServer(plr.Character)
+
+					for plr, _ in pairs(processedPlayers) do
+						processedPlayers[plr] = nil
+					end
+
 				elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.IsCuffed.Value == true then
 					Remotes["UnCuffed"]:FireServer(plr.Character)
+
+					for plr, _ in pairs(processedPlayers) do
+						processedPlayers[plr] = nil
+					end
+
 				end
 
 			end
