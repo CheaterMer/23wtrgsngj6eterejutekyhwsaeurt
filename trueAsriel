@@ -115,6 +115,7 @@ function CuffRemote()
 			and plr.Character.FrontCuffed.Value == true
 			then
 				Remotes["UnCuffed"]:FireServer(plr.Character)
+			end
 		end
 
 	elseif CFFFFFF == true then
@@ -127,7 +128,7 @@ function CuffRemote()
 			and plr.Character.Humanoid.Health ~= 0 
 			and plr.Character.IsCuffed.Value == true
 			then
-				
+
 			if player.Character:FindFirstChild("Handcuffs") and plr.Character.IsCuffed.Value == false then
 				if table.find(itemlist, plr.Character) then
 					Remotes["UnCuffed"]:FireServer(plr.Character)
