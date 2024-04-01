@@ -13,6 +13,10 @@ local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local LP = Players.LocalPlayer
 
+
+
+
+
 local Remotes = {}
 
 for idx, val in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
@@ -98,28 +102,31 @@ function CuffRemote()
 	if CFFFFFF == false then
 
 		for idx, plr in pairs(Players:GetPlayers()) do
+
 			if plr ~= LP 
-			and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
-			and plr.Character.Hostile.Value 
-			and LP.Team ~= plr.Team 
-			and plr.Character.Humanoid.Health ~= 0 
-			and plr.Character.IsCuffed.Value == true
-			then
-				Remotes["UnCuffed"]:FireServer(plr.Character)
-			elseif plr ~= LP 
-			and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
-			and plr.Character.Hostile.Value 
-			and LP.Team ~= plr.Team 
-			and plr.Character.Humanoid.Health ~= 0 
-			and plr.Character.FrontCuffed.Value == true
-			then
-				Remotes["UnCuffed"]:FireServer(plr.Character)	
+				and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
+				and plr.Character.Hostile.Value 
+				and LP.Team ~= plr.Team 
+				and plr.Character.Humanoid.Health ~= 0 
+				and plr.Character.IsCuffed.Value == true 
+				then
+					Remotes["UnCuffed"]:FireServer(plr.Character)
+				elseif plr ~= LP 
+				and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
+				and plr.Character.Hostile.Value 
+				and LP.Team ~= plr.Team 
+				and plr.Character.Humanoid.Health ~= 0 
+				and plr.Character.FrontCuffed.Value == true
+				then
+					Remotes["UnCuffed"]:FireServer(plr.Character)	
 			end
+
 		end
 
 	elseif CFFFFFF == true then
 
 		for idx, plr in pairs(Players:GetPlayers()) do
+
 			if plr ~= LP 
 			and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
 			and plr.Character.Hostile.Value 
@@ -141,7 +148,9 @@ function CuffRemote()
 						--task.wait(0.1)
 					Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), plr.Character)
 				end
+
 			end
+
 		end
 
 	end
