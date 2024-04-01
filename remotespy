@@ -4664,7 +4664,7 @@ local delay = 1
 task.spawn(function ()
     while task.wait(delay) do
         if lagging == "Exploit" then
-			pcall(function()
+			task.spawn(function()
             ImportAsset(33070696)
             ImportAsset(150381051)
 			end)
