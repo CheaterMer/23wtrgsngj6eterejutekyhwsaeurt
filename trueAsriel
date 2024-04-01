@@ -96,45 +96,53 @@ end
 local CFFFFFF = false
 
 function CuffRemote()
-	pcall(function()
+	if CFFFFFF == false then
+
 		for idx, plr in pairs(Players:GetPlayers()) do
 			if plr ~= LP 
-            and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
+			and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
 			and plr.Character.Hostile.Value 
-            and LP.Team ~= plr.Team 
-            and plr.Character.Humanoid.Health ~= 0 
+			and LP.Team ~= plr.Team 
+			and plr.Character.Humanoid.Health ~= 0 
+			and plr.Character.IsCuffed.Value == true
 			then
-				if CFFFFFF == false then
-					if player.Character:FindFirstChild("Handcuffs") and plr.Character.IsCuffed.Value == true then
-						Remotes["UnCuffed"]:FireServer(plr.Character)
-					elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.IsCuffed.Value == true then
-						Remotes["UnCuffed"]:FireServer(plr.Character)
-					elseif player.Character:FindFirstChild("Handcuffs") and plr.Character.FrontCuffed.Value == true then
-						Remotes["UnCuffed"]:FireServer(plr.Character)
-					elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.FrontCuffed.Value == true then 
-						Remotes["UnCuffed"]:FireServer(plr.Character)
-					end
-					--CFFFFFF = true
-			elseif CFFFFFF == true then
-					if player.Character:FindFirstChild("Handcuffs") and plr.Character.IsCuffed.Value == false then
-						if table.find(itemlist, plr.Character) then
-							Remotes["UnCuffed"]:FireServer(plr.Character)
-						end
-						--task.wait(0.1)
-						Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs"), plr.Character)
-					elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.IsCuffed.Value == false then
-						if table.find(itemlist, plr.Character) then
-							Remotes["UnCuffed"]:FireServer(plr.Character)
-						end
-						--task.wait(0.1)
-						Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), plr.Character)
-					end
-					--CFFFFFF = true
-				end
+				Remotes["UnCuffed"]:FireServer(plr.Character)
+			elseif plr ~= LP 
+			and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
+			and plr.Character.Hostile.Value 
+			and LP.Team ~= plr.Team 
+			and plr.Character.Humanoid.Health ~= 0 
+			and plr.Character.FrontCuffed.Value == true
+			then
+				Remotes["UnCuffed"]:FireServer(plr.Character)
+		end
 
+	elseif CFFFFFF == true then
+
+		for idx, plr in pairs(Players:GetPlayers()) do
+			if plr ~= LP 
+			and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
+			and plr.Character.Hostile.Value 
+			and LP.Team ~= plr.Team 
+			and plr.Character.Humanoid.Health ~= 0 
+			and plr.Character.IsCuffed.Value == true
+			then
+				
+			if player.Character:FindFirstChild("Handcuffs") and plr.Character.IsCuffed.Value == false then
+				if table.find(itemlist, plr.Character) then
+					Remotes["UnCuffed"]:FireServer(plr.Character)
+				end
+					--task.wait(0.1)
+				Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs"), plr.Character)
+			elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.IsCuffed.Value == false then
+				if table.find(itemlist, plr.Character) then
+					Remotes["UnCuffed"]:FireServer(plr.Character)
+				end
+					--task.wait(0.1)
+				Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), plr.Character)
 			end
 		end
-	end) 
+	end
 end
 
 function HogRemote()
