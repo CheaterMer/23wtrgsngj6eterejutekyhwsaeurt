@@ -109,14 +109,14 @@ function CuffRemote()
 					end
 					--task.wait(0.1)
 					Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs"), plr.Character)
-					break
+					--break
 				elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.IsCuffed.Value == false then
 					if table.find(itemlist, plr.Character) then
 						Remotes["UnCuffed"]:FireServer(plr.Character)
 					end
 					--task.wait(0.1)
 					Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), plr.Character)
-					break
+					--break
 				elseif player.Character:FindFirstChild("Handcuffs") and plr.Character.IsCuffed.Value == true then
 					Remotes["UnCuffed"]:FireServer(plr.Character)
 				elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.IsCuffed.Value == true then
