@@ -301,10 +301,10 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		
 				end
 			end
-		elseif player.Character:FindFirstChild("Handcuffs") or player.Character:FindFirstChild("Handcuffs (fugitive)") then
-			CuffRemote()
-		elseif player.Character:FindFirstChild("Rope") then
-			HogRemote()
+	--	elseif player.Character:FindFirstChild("Handcuffs") or player.Character:FindFirstChild("Handcuffs (fugitive)") then
+	--		CuffRemote()
+	--	elseif player.Character:FindFirstChild("Rope") then
+	--		HogRemote()
 
 	end
 end)
