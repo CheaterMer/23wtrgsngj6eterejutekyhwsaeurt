@@ -109,9 +109,13 @@ function CuffRemote()
 						Remotes["UnCuffed"]:FireServer(plr.Character)
 					elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.IsCuffed.Value == true then
 						Remotes["UnCuffed"]:FireServer(plr.Character)
+					elseif player.Character:FindFirstChild("Handcuffs") and plr.Character.FrontCuffed.Value == true then
+						Remotes["UnCuffed"]:FireServer(plr.Character)
+					elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.FrontCuffed.Value == true then 
+						Remotes["UnCuffed"]:FireServer(plr.Character)
 					end
-					CFFFFFF = true
-			else
+					--CFFFFFF = true
+			elseif CFFFFFF == true then
 					if player.Character:FindFirstChild("Handcuffs") and plr.Character.IsCuffed.Value == false then
 						if table.find(itemlist, plr.Character) then
 							Remotes["UnCuffed"]:FireServer(plr.Character)
@@ -125,7 +129,7 @@ function CuffRemote()
 						--task.wait(0.1)
 						Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), plr.Character)
 					end
-					CFFFFFF = true
+					--CFFFFFF = true
 				end
 
 			end
@@ -259,6 +263,16 @@ end)
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.F then
 		grabRemote()
+	end
+end)
+
+game:GetService("UserInputService").InputBegan:Connect(function(inp)
+    if inp.KeyCode == Enum.KeyCode.G then
+		if CFFFFFF == true then
+			CFFFFFF = false
+		elseif CFFFFFF == false then
+			CFFFFFF = true
+		end
 	end
 end)
 
