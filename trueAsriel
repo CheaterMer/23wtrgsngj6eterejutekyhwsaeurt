@@ -166,6 +166,7 @@ function HogRemote()
             and LP.Team ~= plr.Team 
             and plr.Character.Humanoid.Health ~= 0 
 			then
+				print(plr,"Hog")
 				if CFFFFFF == false then
 					if plr.Character.IsHogged.Value == true then
 						Remotes["IsHog"]:FireServer(plr.Character,"UnHog")
