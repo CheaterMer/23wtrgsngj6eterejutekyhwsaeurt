@@ -90,8 +90,11 @@ function CuffRemote()
             and LP.Team ~= plr.Team 
             and plr.Character.Humanoid.Health ~= 0 
 			then
-                print(plr)
-				Remotes["IsCuffed"]:FireServer(LP:WaitForChild("Handcuffs (fugitive)"), plr.Character)
+                if player.Character:FindFirstChild("Handcuffs") then
+					Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs"), plr.Character)
+				elseif player.Character:FindFirstChild("Handcuffs (fugitive)") then
+					Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), plr.Character)
+				end
 			end
 		end
 	end) 
@@ -214,8 +217,8 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		
 				end
 			end
-		elseif player.Character:FindFirstChild("Handcuffs") then
-
+		elseif player.Character:FindFirstChild("Handcuffs") or player.Character:FindFirstChild("Handcuffs (fugitive)") then
+			CuffRemote()
 	end
 end)
 
