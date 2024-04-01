@@ -300,7 +300,8 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 			end
 		elseif player.Character:FindFirstChild("Handcuffs") or player.Character:FindFirstChild("Handcuffs (fugitive)") then
 			CuffRemote()
-	
+		
+
 	end
 end)
 
@@ -317,14 +318,14 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		if CFFFFFF == true then
 			CFFFFFF = false
 			StarterGui:SetCore("SendNotification", {
-				Title = "CFFFFF";
-				Text = "False"
+				Title = "Cuff and Hog";
+				Text = "Remove"
 			})
 		elseif CFFFFFF == false then
 			CFFFFFF = true
 			StarterGui:SetCore("SendNotification", {
-				Title = "CFFFFF";
-				Text = "True"
+				Title = "Cuff and Hog";
+				Text = "Add"
 			})
 		end
 	end
