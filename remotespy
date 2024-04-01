@@ -4664,8 +4664,10 @@ local delay = 1
 task.spawn(function ()
     while task.wait(delay) do
         if lagging == "Exploit" then
+			pcall(function()
             ImportAsset(33070696)
             ImportAsset(150381051)
+			end)
             for i,a in pairs(LP.Character:GetChildren()) do
                 if a.Name == "A" then
                     a:Destroy()
