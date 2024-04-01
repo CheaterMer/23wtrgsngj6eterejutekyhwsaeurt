@@ -147,33 +147,15 @@ function HogRemote()
             and plr.Character.Humanoid.Health ~= 0 
 			then
 				if CFFFFFF == false then
-					if player.Character:FindFirstChild("Handcuffs") and plr.Character.IsCuffed.Value == true then
-						Remotes["UnCuffed"]:FireServer(plr.Character)
-					elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.IsCuffed.Value == true then
-						Remotes["UnCuffed"]:FireServer(plr.Character)
-					elseif player.Character:FindFirstChild("Handcuffs") and plr.Character.FrontCuffed.Value == true then
-						Remotes["UnCuffed"]:FireServer(plr.Character)
-					elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.FrontCuffed.Value == true then 
-						Remotes["UnCuffed"]:FireServer(plr.Character)
+					if plr.Character.IsHogged.Value == true then
+						Remotes["IsHog"]:FireServer(plr.Character,"UnHog")
 					end
 					--CFFFFFF = true
-			elseif CFFFFFF == true then
-					if player.Character:FindFirstChild("Handcuffs") and plr.Character.IsCuffed.Value == false then
-						if table.find(itemlist, plr.Character) then
-							Remotes["UnCuffed"]:FireServer(plr.Character)
-						end
-						--task.wait(0.1)
-						Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs"), plr.Character)
-					elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.IsCuffed.Value == false then
-						if table.find(itemlist, plr.Character) then
-							Remotes["UnCuffed"]:FireServer(plr.Character)
-						end
-						--task.wait(0.1)
-						Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), plr.Character)
+				elseif CFFFFFF == true then
+					if plr.Character.IsHogged.Value == false then
+							Remotes["IsHog"]:FireServer(plr.Character,"Hog")
 					end
-					--CFFFFFF = true
 				end
-
 			end
 		end
 	end) 
