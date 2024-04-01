@@ -128,7 +128,7 @@ function CuffRemote()
 		for idx, plr in pairs(Players:GetPlayers()) do
 
 			if plr ~= LP 
-			and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
+			and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 10)
 			and plr.Character.Hostile.Value 
 			and LP.Team ~= plr.Team 
 			and plr.Character.Humanoid.Health ~= 0 
