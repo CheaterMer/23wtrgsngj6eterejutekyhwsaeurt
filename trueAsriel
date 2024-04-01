@@ -171,7 +171,7 @@ function attack()
 	end) 
 end
 
-task.spawn(function()
+--task.spawn(function()
 	local player = game.Players.LocalPlayer
 	local playerGui = player:WaitForChild("PlayerGui")
 	playerGui.ResetOnSpawn = false
@@ -193,7 +193,7 @@ task.spawn(function()
     valueLabel.Font = Enum.Font.SourceSans
     valueLabel.TextSize = 20
     valueLabel.Parent = guiFrame
-end)
+--end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.Q then
