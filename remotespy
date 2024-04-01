@@ -4025,7 +4025,7 @@ player_channel:Label("  ")
 
 player_channel:Label("Targeting Only One Player")
 
-_G.bruhinthelockon = player_channel:Label("LockOn: "..tostring(_G.targetr)..)
+local TargetLockon = player_channel:Label("LockOn: "..tostring(_G.targetr)..)
 
 local playerlista = player_channel:Dropdown(
     "Target",
@@ -4033,7 +4033,7 @@ local playerlista = player_channel:Dropdown(
     function(bool)
 		print(bool)
         _G.targetr = bool
-		_G.bruhinthelockon:ChangeText("Delay: "..tostring(_G.targetr)..)
+		TargetLockon:ChangeText("Delay: "..tostring(_G.targetr)..)
 		print(_G.targetr , userOwner)
     end
 )
