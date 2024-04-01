@@ -81,6 +81,22 @@ function grabRemote()
 	end) 
 end
 
+function CuffRemote()
+	pcall(function()
+		for idx, plr in pairs(Players:GetPlayers()) do
+			if plr ~= LP 
+            and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 20)
+			and plr.Character.Hostile.Value 
+            and LP.Team ~= plr.Team 
+            and plr.Character.Humanoid.Health ~= 0 
+			then
+                print(plr)
+				Remotes["IsCuffed"]:FireServer(LP:WaitForChild("Handcuffs (fugitive)"), plr.Character)
+			end
+		end
+	end) 
+end
+
 function attack()
 	pcall(function()
 		local tool
@@ -117,8 +133,6 @@ end
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.Q then
-
-
 		if player.Character:FindFirstChild("Axe") then
 			anime(7286445304)
 			attack()
@@ -172,36 +186,35 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 			pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
 			tpos = game:GetService("Players"):WaitForChild(_G.targetr).Character.Torso.CFrame.Position
 			if player.Character.Taser.Charged == true then
-			spawn(function()	
-			local args = {
-					[1] = "Generate",
+				spawn(function()	
+				local args = {
+						[1] = "Generate",
+						[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+						[3] = Vector3.new(pos.X,pos.Y,pos.Z),
+						[4] = Vector3.new(tpos.X,tpos.Y,tpos.Z)
+					}
+					
+					game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+				end)
+				local args = {
+					[1] = "Hit",
 					[2] = game:GetService("Players").LocalPlayer.Character.Taser,
-					[3] = Vector3.new(pos.X,pos.Y,pos.Z),
-					[4] = Vector3.new(tpos.X,tpos.Y,tpos.Z)
+					[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
+				}
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+			elseif player.Character.Taser.Charged == false then
+				--wait(0.5)
+				anime(8109052918)
+				local args = {
+					[1] = "Recharge",
+					[2] = game:GetService("Players").LocalPlayer.Character.Taser
 				}
 				
 				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-			end)
 		
-			local args = {
-				[1] = "Hit",
-				[2] = game:GetService("Players").LocalPlayer.Character.Taser,
-				[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
-			}
-		elseif player.Character.Taser.Charged == false then
-
-			game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-			--wait(0.5)
-			anime(8109052918)
-			local args = {
-				[1] = "Recharge",
-				[2] = game:GetService("Players").LocalPlayer.Character.Taser
-			}
-			
-			game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-		
-		end
-		end
+				end
+			end
+		elseif player.Character:FindFirstChild("Handcuffs") then
 
 	end
 end)
