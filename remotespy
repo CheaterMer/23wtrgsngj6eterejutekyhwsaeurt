@@ -4040,9 +4040,9 @@ local playerlista = player_channel:Dropdown(
 
 task.spawn(function()
 	while task.wait() do
-		if tuf then pcall(function()
+		pcall(function()
 			TargetLockon:ChangeText("LockOn: "..tostring(_G.targetr))
-		end) end
+		end)
 	end
 end)
 
