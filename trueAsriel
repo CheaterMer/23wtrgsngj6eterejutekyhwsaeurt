@@ -272,7 +272,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		elseif player.Character:FindFirstChild("Taser") then
 			pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
 			tpos = game:GetService("Players"):WaitForChild(_G.targetr).Character.Torso.CFrame.Position
-			if player.Character.Taser.Charged == true then
+			if player.Character.Taser.Charged.Value == true then
 				spawn(function()	
 				local args = {
 						[1] = "Generate",
@@ -289,7 +289,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 					[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
 				}
 				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-			elseif player.Character.Taser.Charged == false then
+			elseif player.Character.Taser.Charged.Value == false then
 				--wait(0.5)
 				anime(8109052918)
 				local args = {
