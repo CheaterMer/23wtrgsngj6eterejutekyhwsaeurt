@@ -270,10 +270,36 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.G then
 		if CFFFFFF == true then
 			CFFFFFF = false
+			valueLabel.Text = "CFFF Value: " .. tostring(CFFFFFF)
 		elseif CFFFFFF == false then
 			CFFFFFF = true
+			valueLabel.Text = "CFFF Value: " .. tostring(CFFFFFF)
 		end
 	end
+end)
+
+task.spawn(function()
+	local player = game.Players.LocalPlayer
+	local playerGui = player:WaitForChild("PlayerGui")
+
+    -- GUI 프레임 생성
+    local guiFrame = Instance.new("Frame")
+    guiFrame.Size = UDim2.new(0.2, 0, 0.5, 0)
+    guiFrame.Position = UDim2.new(0.8, 0, 0.25, 0)
+    guiFrame.AnchorPoint = Vector2.new(1, 0.5)
+    guiFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    guiFrame.BorderSizePixel = 2
+    guiFrame.Parent = playerGui
+
+    -- 값을 표시할 TextLabel 생성
+    local valueLabel = Instance.new("TextLabel")
+    valueLabel.Size = UDim2.new(1, 0, 0.5, 0)
+    valueLabel.Position = UDim2.new(0, 0, 0.25, 0)
+    valueLabel.Text = "CFFF Value: " .. tostring(player.Value) -- 여기에 특정 값 대신에 원하시는 값을 넣어주세요.
+    valueLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+    valueLabel.Font = Enum.Font.SourceSans
+    valueLabel.TextSize = 20
+    valueLabel.Parent = guiFrame
 end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
@@ -301,4 +327,6 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		  v2:Destroy()
 	end
 end)
+
+
 
