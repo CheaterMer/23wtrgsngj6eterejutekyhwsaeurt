@@ -310,9 +310,9 @@ end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.F then
-		if LP.Character.GrabbingWhom.Value ~= nil then
+		if LP.Character.GrabbingWhom.Value == nil then
 			grabRemote()
-		elseif LP.Character.GrabbingWhom.Value == nil then
+		elseif LP.Character.GrabbingWhom.Value ~= nil then
 			GW = LP.Character.GrabbingWhom.Value
 			WTP = Players:FindFirstChild(GW)
 			Remotes["Grab"]:FireServer(WTP.Character, "Drop")
