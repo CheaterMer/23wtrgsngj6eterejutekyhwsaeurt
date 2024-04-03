@@ -69,8 +69,7 @@ function createweight()
             end
         end
     end
-
-    task.spawn(function()
+--[[    task.spawn(function()
         while task.wait(0.00000001) do
             if breakloops == true then break end
             local function createTrail(duration)
@@ -101,6 +100,7 @@ function createweight()
             end
         end
     end)
+    ]]
 
 Player.CharacterAdded:Connect(function(char)
         task.wait(2)
