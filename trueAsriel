@@ -88,14 +88,9 @@ function grabRemote()
 			and plr.Character.Hostile.Value 
             --and LP.Team ~= plr.Team 
             and plr.Character.Humanoid.Health ~= 0 
-			then 
-				if LP.Character.GrabbingWhom.Value ~= nil then
-				GW = LP.Character.GrabbingWhom.Value
-				WTP = Players:FindFirstChild(GW)
-				Remotes["Grab"]:FireServer(WTP.Character, "Drop")
-			else
+			then
+                print(plr)
 				Remotes["Grab"]:FireServer(plr.Character, "Grab")
-			end
 			end
 		end
 	end) 
@@ -104,62 +99,63 @@ end
 local CFFFFFF = false
 
 function CuffRemote()
-    if CFFFFFF == false then
-        local alreadyProcessedPlayers = {}
+	if CFFFFFF == false then
 
-        for idx, plr in pairs(Players:GetPlayers()) do
-            if plr ~= LP 
-                and not alreadyProcessedPlayers[plr]
-                and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
-                and plr.Character.Hostile.Value 
-                and LP.Team ~= plr.Team 
-                and plr.Character.Humanoid.Health ~= 0 
-                and (plr.Character.IsCuffed.Value == true or plr.Character.FrontCuffed.Value == true)
-            then
-                Remotes["UnCuffed"]:FireServer(plr.Character)
-                alreadyProcessedPlayers[plr] = true
-            end
-        end
+		for idx, plr in pairs(Players:GetPlayers()) do
 
-        -- 실행 후 플레이어를 리셋합니다.
-        wait(5) -- 5초 후에 리셋하도록 설정되어 있습니다. 필요에 따라 조정 가능합니다.
-        for k, _ in pairs(alreadyProcessedPlayers) do
-            alreadyProcessedPlayers[k] = nil
-        end
+			if plr ~= LP 
+				and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
+				and plr.Character.Hostile.Value 
+				and LP.Team ~= plr.Team 
+				and plr.Character.Humanoid.Health ~= 0 
+				and plr.Character.IsCuffed.Value == true 
+				then
+					Remotes["UnCuffed"]:FireServer(plr.Character)
+				elseif plr ~= LP 
+				and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
+				and plr.Character.Hostile.Value 
+				and LP.Team ~= plr.Team 
+				and plr.Character.Humanoid.Health ~= 0 
+				and plr.Character.FrontCuffed.Value == true
+				then
+					Remotes["UnCuffed"]:FireServer(plr.Character)	
+			end
 
-    elseif CFFFFFF == true then
-        local alreadyProcessedPlayers = {}
+		end
 
-        for idx, plr in pairs(Players:GetPlayers()) do
-            if plr ~= LP 
-                and not alreadyProcessedPlayers[plr]
-                and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 10)
-                and plr.Character.Hostile.Value 
-                and LP.Team ~= plr.Team 
-                and plr.Character.Humanoid.Health ~= 0 
-                and plr.Character.IsCuffed.Value == false
-            then
-                if player.Character:FindFirstChild("Handcuffs") then
-                    Remotes["UnCuffed"]:FireServer(plr.Character)
-                    task.wait(0.1)
-                    Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs"), plr.Character)
-                elseif player.Character:FindFirstChild("Handcuffs (fugitive)") then
-                    Remotes["UnCuffed"]:FireServer(plr.Character)
-                    task.wait(0.1)
-                    Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), plr.Character)
-                end
-                alreadyProcessedPlayers[plr] = true
-            end
-        end
+	elseif CFFFFFF == true then
 
-        -- 실행 후 플레이어를 리셋합니다.
-        wait(5) -- 5초 후에 리셋하도록 설정되어 있습니다. 필요에 따라 조정 가능합니다.
-        for k, _ in pairs(alreadyProcessedPlayers) do
-            alreadyProcessedPlayers[k] = nil
-        end
-    end
+		for idx, plr in pairs(Players:GetPlayers()) do
+
+			if plr ~= LP 
+			and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 10)
+			and plr.Character.Hostile.Value 
+			and LP.Team ~= plr.Team 
+			and plr.Character.Humanoid.Health ~= 0 
+			and plr.Character.IsCuffed.Value == false
+			then
+
+				if player.Character:FindFirstChild("Handcuffs") and plr.Character.IsCuffed.Value == false then
+					--if table.find(itemlist, plr.Character) then
+						Remotes["UnCuffed"]:FireServer(plr.Character)
+					--end
+						task.wait(0.1)
+					Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs"), plr.Character)
+				elseif player.Character:FindFirstChild("Handcuffs (fugitive)") and plr.Character.IsCuffed.Value == false then
+					--if table.find(itemlist, plr.Character) then
+						Remotes["UnCuffed"]:FireServer(plr.Character)
+					--end
+						task.wait(0.1)
+					Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), plr.Character)
+				end
+
+			end
+
+		end
+
+	end
+
 end
-
 
 function HogRemote()
 	pcall(function()
@@ -315,7 +311,13 @@ end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.F then
+		if LP.Character.GrabbingWhom.Value ~= nil then
+		GW = LP.Character.GrabbingWhom.Value
+		WTP = Players:FindFirstChild(GW)
+		Remotes["Grab"]:FireServer(WTP.Character, "Drop")
+		else
 		grabRemote()
+		end
 	end
 end)
 
