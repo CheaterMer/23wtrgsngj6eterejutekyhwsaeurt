@@ -1,4 +1,7 @@
 {
     "websocket.port": 33882,
-    "button.updateVisibility": false
+    "button.updateVisibility": false,
+    "CodeGPT.apiKey": "CodeGPT Plus Beta",
+    "CodeGPT.query.language": "Korean",
+    "CodeGPT.Autocomplete.enabled": true
 }
