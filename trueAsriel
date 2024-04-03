@@ -88,9 +88,14 @@ function grabRemote()
 			and plr.Character.Hostile.Value 
             --and LP.Team ~= plr.Team 
             and plr.Character.Humanoid.Health ~= 0 
-			then
-                print(plr)
+			then 
+				if LP.Character.GrabbingWhom.Value ~= nil then
+				GW = LP.Character.GrabbingWhom.Value
+				WTP = Players:FindFirstChild(GW)
+				Remotes["Grab"]:FireServer(WTP.Character, "Drop")
+			else
 				Remotes["Grab"]:FireServer(plr.Character, "Grab")
+			end
 			end
 		end
 	end) 
