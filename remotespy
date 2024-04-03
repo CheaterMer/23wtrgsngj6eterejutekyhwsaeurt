@@ -4042,6 +4042,7 @@ task.spawn(function()
 	while task.wait() do
 		pcall(function()
 			TargetLockon:ChangeText("LockOn: "..tostring(_G.targetr))
+			TargetLockons:ChangeText("LockOn: "..tostring(_G.targetr))
 		end)
 	end
 end)
@@ -4424,7 +4425,7 @@ end)
 combat_channel:Button("Grab Player", function()
 
 	--local targasdsdaset = GetPlayer(TGBP)
-	local targasdsdaset = Players:FindFirstChild(TGBP)
+	local targasdsdaset = Players:FindFirstChild(_G.Targetr)
     if not targasdsdaset then return end
 	print(targasdsdaset)
     if targasdsdaset.Character.Hostile.Value == false 
@@ -4468,7 +4469,7 @@ combat_channel:Button("Grab Player", function()
 	pcall(function()
 		if targasdsdaset.Character.RagDoll.Value == false then
 		Remotes["Tase"]:FireServer("Hit", LP.Backpack.Taser, targasdsdaset.Character.Head)
-		task.wait(0.35)
+		task.wait(0.5)
 		Remotes["Tase"]:FireServer("Recharge", LP.Backpack.Taser)
 		task.wait()
 		end
