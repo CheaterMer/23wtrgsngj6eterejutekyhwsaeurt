@@ -4466,14 +4466,14 @@ combat_channel:Button("Grab Player", function()
 	--repeat
 	while task.wait() do
 
-	pcall(function()
+	--pcall(function()
 		if targasdsdaset.Character.RagDoll.Value == false then
 		Remotes["Tase"]:FireServer("Hit", LP.Backpack.Taser, targasdsdaset.Character.Head)
 		task.wait(0.5)
 		Remotes["Tase"]:FireServer("Recharge", LP.Backpack.Taser)
 		task.wait()
 		end
-	end)
+	--end)
 	--until targasdsdaset.Character.RagDoll.Value
 
 	pcall(function()
