@@ -4425,11 +4425,11 @@ combat_channel:Button("Grab Player", function()
 	end
 
     local cuff = LP.Backpack:FindFirstChild("Handcuffs") or LP.Backpack:FindFirstChild("Handcuffs (fugitive)")
-    if LP.Team.Name == "Fugitives" then
-		local cuff = LP.Backpack:FindFirstChild("Handcuffs (fugitive)")
-	elseif LP.Team.Name == "Guard" then
-		local cuff = LP.Backpack:FindFirstChild("Handcuffs")
-	end
+   -- if LP.Team.Name == "Fugitives" then
+	--	local cuff = LP.Backpack:FindFirstChild("Handcuffs (fugitive)")
+	--elseif LP.Team.Name == "Guard" then
+	--	local cuff = LP.Backpack:FindFirstChild("Handcuffs")
+	--end
 
 	spawn(function()
 		fireclickdetector(workspace.Pickaxe.ClickDetector)
