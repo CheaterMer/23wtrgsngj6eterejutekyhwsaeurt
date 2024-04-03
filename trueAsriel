@@ -310,7 +310,7 @@ end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.F then
-		if LP.Character.GrabbingWhom.Value == nil then
+		if LP.Character.GrabbingWhom.Value == "" then
 			grabRemote()
 		else
 			GW = LP.Character.GrabbingWhom.Value
