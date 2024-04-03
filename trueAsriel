@@ -158,22 +158,22 @@ end
 
 function HogRemote()
 	pcall(function()
-		for idx, plr in pairs(Players:GetPlayers()) do
-			if plr ~= LP 
-            and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 10)
-			and plr.Character.Hostile.Value 
-            and LP.Team ~= plr.Team 
-            and plr.Character.Humanoid.Health ~= 0 
+		for idx, pAlr in pairs(Players:GetPlayers()) do
+			if pAlr ~= LP 
+            and CheckRange(LP.Character.HumanoidRootPart, pAlr.Character.HumanoidRootPart, 10)
+			and pAlr.Character.Hostile.Value 
+            and LP.Team ~= pAlr.Team 
+            and pAlr.Character.Humanoid.Health ~= 0 
 			then
-				print(plr.Name,"Hog")
+				print(pAlr.Name,"Hog")
 				if CFFFFFF == false then
-					if plr.Character.IsHogged.Value == true then
-						Remotes["IsHog"]:FireServer(plr.Character,"UnHog")
+					if pAlr.Character.IsHogged.Value == true then
+						Remotes["IsHog"]:FireServer(pAlr.Character,"UnHog")
 					end
 					--CFFFFFF = true
 				elseif CFFFFFF == true then
-					if plr.Character.IsHogged.Value == false then
-						Remotes["IsHog"]:FireServer(plr.Character,"Hog")
+					if pAlr.Character.IsHogged.Value == false then
+						Remotes["IsHog"]:FireServer(pAlr.Character,"Hog")
 					end
 				end
 			end
