@@ -4441,7 +4441,7 @@ combat_channel:Button("Grab Player", function()
 		fireclickdetector(workspace.Rope.ClickDetector)
 	end)
 
-	task.wait(1)
+	--task.wait(1)
 	--do
         --LP.Backpack.Taser.Parent = LP.Character
         --cuff.Parent = LP.Character
