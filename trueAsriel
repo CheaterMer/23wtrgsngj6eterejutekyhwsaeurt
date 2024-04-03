@@ -155,31 +155,41 @@ function CuffRemote()
     end
 end
 
-
 function HogRemote()
-	pcall(function()
-		for idx, pAlr in pairs(Players:GetPlayers()) do
-			if pAlr ~= LP 
-            and CheckRange(LP.Character.HumanoidRootPart, pAlr.Character.HumanoidRootPart, 10)
-			and pAlr.Character.Hostile.Value 
-            and LP.Team ~= pAlr.Team 
-            and pAlr.Character.Humanoid.Health ~= 0 
-			then
-				print(pAlr.Name,"Hog")
-				if CFFFFFF == false then
-					if pAlr.Character.IsHogged.Value == true then
-						Remotes["IsHog"]:FireServer(pAlr.Character,"UnHog")
-					end
-					--CFFFFFF = true
-				elseif CFFFFFF == true then
-					if pAlr.Character.IsHogged.Value == false then
-						Remotes["IsHog"]:FireServer(pAlr.Character,"Hog")
-					end
-				end
-			end
-		end
-	end) 
+    pcall(function()
+        local alreadyProcessedPlayers = {}
+
+        for idx, pAlr in pairs(Players:GetPlayers()) do
+            if pAlr ~= LP 
+                and not alreadyProcessedPlayers[pAlr]
+                and CheckRange(LP.Character.HumanoidRootPart, pAlr.Character.HumanoidRootPart, 10)
+                and pAlr.Character.Hostile.Value 
+                and LP.Team ~= pAlr.Team 
+                and pAlr.Character.Humanoid.Health ~= 0 
+            then
+                --print(pAlr.Name,"Hog")
+                if CFFFFFF == false then
+                    if pAlr.Character.IsHogged.Value == true then
+                        Remotes["IsHog"]:FireServer(pAlr.Character,"UnHog")
+                    end
+                    --CFFFFFF = true
+                elseif CFFFFFF == true then
+                    if pAlr.Character.IsHogged.Value == false then
+                        Remotes["IsHog"]:FireServer(pAlr.Character,"Hog")
+                    end
+                end
+                alreadyProcessedPlayers[pAlr] = true
+            end
+        end
+
+        -- 실행 후 플레이어를 리셋합니다.
+        wait(1) -- 5초 후에 리셋하도록 설정되어 있습니다. 필요에 따라 조정 가능합니다.
+        for k, _ in pairs(alreadyProcessedPlayers) do
+            alreadyProcessedPlayers[k] = nil
+        end
+    end) 
 end
+
 
 function attack()
 	pcall(function()
