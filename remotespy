@@ -3506,7 +3506,42 @@ block_tools_channel:Button("Get Tools", function()
 	fireclickdetector(workspace.Rope.ClickDetector)
 	fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
 	fireclickdetector(workspace.KeyCard.ClickDetector)
-	fireclickdetector(workspace.Rope.ClickDetector)
+	--fireclickdetector(workspace.Rope.ClickDetector)
+	if LP.Team.Name == "Guard" then
+		LP.Backpack:FindFirstChild("KeyCard"):Destroy()
+		task.wait(0.2)
+		LP.Backpack:FindFirstChild("Handcuffs").Parent = LP
+		task.wait(0.2)
+		LP.Backpack:FindFirstChild("PoliceBaton"):Destroy()
+		task.wait(0.2)
+		LP.Backpack:FindFirstChild("Grab").Parent = LP
+		task.wait(0.2)
+		LP.Backpack:FindFirstChild("Flashlight"):Destroy()
+		task.wait(0.2)
+		fireclickdetector(workspace.Axe.ClickDetector)
+		task.wait(0.2)
+		fireclickdetector(workspace.Pickaxe.ClickDetector)
+		task.wait(0.2)
+		fireclickdetector(workspace.Taser.ClickDetector)
+		task.wait(0.4)
+		LP:FindFirstChild("Handcuffs").Parent = LP.Backpack
+		task.wait(0.2)
+		fireclickdetector(workspace.Rope.ClickDetector)
+	elseif LP.Team.Name == "Prisoner" then
+		fireclickdetector(workspace.Axe.ClickDetector)
+		fireclickdetector(workspace.Pickaxe.ClickDetector)
+		--fireclickdetector(workspace.Taser.ClickDetector)
+		fireclickdetector(workspace.Rope.ClickDetector)
+		fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
+		fireclickdetector(workspace.KeyCard.ClickDetector)
+	elseif LP.Team.Name "" then
+		fireclickdetector(workspace.Axe.ClickDetector)
+		fireclickdetector(workspace.Pickaxe.ClickDetector)
+		fireclickdetector(workspace.Taser.ClickDetector)
+		fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
+		fireclickdetector(workspace.Rope.ClickDetector)
+		fireclickdetector(workspace.KeyCard.ClickDetector)
+	end
    -- for i,v in pairs(workspace:GetDescendants()) do
      --  if v:IsA("Tool") then
       --      pcall(function ()
