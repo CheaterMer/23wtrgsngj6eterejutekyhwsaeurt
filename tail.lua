@@ -104,16 +104,6 @@ function createweight()
 
 Player.CharacterAdded:Connect(function(char)
         task.wait(2)
-        breakloops = false
     createweight()
 end)
 
-    task.spawn(function()
-        while task.wait(1) do
-        if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
-            --if DiePos ~= LP.Character.Torso.CFrame then
-            breakloops = true
-            --end
-        end
-    end
-    end)
