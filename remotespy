@@ -4405,12 +4405,15 @@ task.spawn(function()
 	end
 end)
 
+local TargetLockons = combat_channel:Label("LockOn: "..tostring("use Lock"))
+
 local GarbPlayerList = combat_channel:Dropdown(
     "Target",
 	names,
     function(bool)
 		print(bool)
         TGBP = bool
+		TargetLockons:ChangeText("LockOn: "..tostring(bool))
     end
 )
 
