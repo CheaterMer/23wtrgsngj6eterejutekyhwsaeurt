@@ -103,9 +103,9 @@ function createweight()
     end)
 
 Player.CharacterAdded:Connect(function(char)
-        task.wait(1)
+        task.wait(2)
         breakloops = false
-    --createweight()
+    createweight()
     task.spawn(function()
         while task.wait(0.00000001) do
             if breakloops == true then break end
