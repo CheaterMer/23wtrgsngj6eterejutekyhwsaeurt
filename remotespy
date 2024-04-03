@@ -5068,7 +5068,7 @@ Oneteam:Dropdown(
     end
 )
 
-Oneteam:Toggle("Team Block Item", false, function(bool)
+Oneteam:Toggle("only hit one Team?", false, function(bool)
     _G.OneTeamhit = bool
 end)
 
