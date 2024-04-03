@@ -4416,7 +4416,7 @@ end)
 combat_channel:Button("Grab Player", function()
 
 	--local targasdsdaset = GetPlayer(TGBP)
-	local targasdsdaset = Players:FindFirstChild(_G.Targetr)
+	local targasdsdaset = Players:FindFirstChild(_G.targetr)
     if not targasdsdaset then return end
 	print(targasdsdaset)
     if targasdsdaset.Character.Hostile.Value == false 
