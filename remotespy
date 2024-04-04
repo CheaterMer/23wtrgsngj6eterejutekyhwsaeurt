@@ -4043,7 +4043,7 @@ task.spawn(function()
 	while task.wait() do
 		if tuc then pcall(function()
 			if game:GetService("Players"):FindFirstChild(_G.targetr).Character.IsCuffed.Value == true then
-				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character)
+				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(_G.targetr).Character)
 			end
 		end) end
 	end
@@ -4053,7 +4053,17 @@ task.spawn(function()
 	while task.wait() do
 		if tuf then pcall(function()
 			if game:GetService("Players"):FindFirstChild(_G.targetr).Character.IsHogged.Value == true then
-				Remotes["IsHog"]:FireServer(game:GetService("Players"):FindFirstChild(targetr).Character,"UnHog")
+				Remotes["IsHog"]:FireServer(game:GetService("Players"):FindFirstChild(_G.targetr).Character,"UnHog")
+			end
+		end) end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if Bruhwhatareyoudoing then pcall(function()
+			for _,fa in pairs(game:GetService("Players"):FindFirstChild(_G.targetr):GetDescendants()) do
+				Remotes["Trail"]:FireServer(fa,true)
 			end
 		end) end
 	end
@@ -4141,6 +4151,10 @@ end)
 
 player_channel:Toggle("Get Down Your item Brb", false, function(bool)
     GetDownitem = bool
+end)
+
+player_channel:Toggle("Bruh what are you doing??!?", false, function(bool)
+    Bruhwhatareyoudoing = bool
 end)
 
 local combat_channel = server_tab:Channel("Combat")
