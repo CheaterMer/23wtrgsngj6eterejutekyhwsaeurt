@@ -389,7 +389,7 @@ end)
 local UserInputService = game:GetService("UserInputService")
 
 local speed = 30 -- 이동 속도
-local upwardOffset = 9 -- 위로 이동할 값
+local upwardOffset = 10 -- 위로 이동할 값
 
 UserInputService.InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.R then
