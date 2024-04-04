@@ -3533,7 +3533,7 @@ block_tools_channel:Button("Get Tools", function()
 		fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
 		fireclickdetector(workspace.Rope.ClickDetector)
 		fireclickdetector(workspace.KeyCard.ClickDetector)
-	elseif LP.Team.Name "" then
+	elseif LP.Team.Name "Fugitives" then
 		LP.Backpack:FindFirstChild("Fist"):Destroy()
 		task.wait(0.2)
 		LP.Backpack:FindFirstChild("Grab"):Destroy()
