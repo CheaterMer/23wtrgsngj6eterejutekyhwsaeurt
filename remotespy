@@ -4156,9 +4156,20 @@ player_channel:Toggle("Get Down Your item Brb", false, function(bool)
     GetDownitem = bool
 end)
 
-player_channel:Toggle("Bruh what are you doing??!?", false, function(bool)
-    Bruhwhatareyoudoing = bool
+player_channel:Button("Bruh what are you doing??!?", function()
+
+	for _,fa in pairs(game:GetService("Players"):FindFirstChild(_G.targetr).Character:GetDescendants()) do
+		--task.wait(0.1)
+		pcall(function()
+		Remotes["Trail"]:FireServer(fa,true)
+		end)
+	end
+
 end)
+
+--player_channel:Toggle("Bruh what are you doing??!?", false, function(bool)
+--    Bruhwhatareyoudoing = bool
+--end)
 
 local combat_channel = server_tab:Channel("Combat")
 local killaura = false
