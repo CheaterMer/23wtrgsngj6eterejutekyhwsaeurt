@@ -388,7 +388,7 @@ end)
 -- 스크립트 시작
 local UserInputService = game:GetService("UserInputService")
 
-local speed = 16 -- 이동 속도
+local speed = 30 -- 이동 속도
 local upwardOffset = 8 -- 위로 이동할 값
 
 UserInputService.InputBegan:Connect(function(input)
