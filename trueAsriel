@@ -1,6 +1,7 @@
 _G.targetr = nil
 _G.OneTeamhit = false
 _G.OneTeam = nil
+_G.LockOnhit = false
 
 local m1 = true
 
@@ -219,6 +220,10 @@ function attack()
 					elseif LP.Team.Name ~= "Civilian" then
 						Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
 						task.wait()
+					elseif _G.LockOnhit == true then
+						if plr.Name == _G.targetr then
+							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+							task.wait()
 					end
 				end
 			end
