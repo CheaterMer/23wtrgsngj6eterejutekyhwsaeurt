@@ -224,7 +224,7 @@ function attack()
 					elseif _G.LockOnhit == true then
 						if plr.Name == _G.targetr then
 							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
-							task.wait()
+						task.wait()
 					end
 				end
 			end
