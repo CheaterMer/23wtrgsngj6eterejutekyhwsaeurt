@@ -3276,6 +3276,7 @@ end
 
 _G.targetr = nil
 _G.bruhinthelockon = nil
+_G.LockOnhit = false
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -5138,6 +5139,9 @@ Oneteam:Toggle("only hit one Team?", false, function(bool)
     _G.OneTeamhit = bool
 end)
 
+Oneteam:Toggle("only hit Locked Player?", false, function(bool)
+    _G.LockOnhit = bool
+end)
 
 local DiePos 
 
