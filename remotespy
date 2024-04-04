@@ -4083,7 +4083,7 @@ local playerlista = player_channel:Dropdown(
 		--print(bool)
         _G.targetr = bool
 		TargetLockon:ChangeText("LockOn: "..tostring(bool))
-		print(_G.targetr , userOwner)
+		--print(_G.targetr , userOwner)
     end
 )
 
