@@ -385,3 +385,25 @@ end)
 
 
 
+-- 스크립트 시작
+local UserInputService = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+
+local teleportDistance = 50 -- 텔레포트할 거리
+
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.R then
+        local targetPlayer = Players:FindFirstChild(_G.targetr)
+        if targetPlayer then
+            local targetCharacter = targetPlayer.Character
+            if targetCharacter then
+                local humanoid = targetCharacter:FindFirstChildOfClass("Humanoid")
+                if humanoid then
+                    local targetPosition = targetCharacter.PrimaryPart.Position + targetCharacter.PrimaryPart.CFrame.lookVector * teleportDistance
+                    -- 플레이어 방향으로 일정한 거리만큼 이동합니다.
+                    targetCharacter:SetPrimaryPartCFrame(CFrame.new(targetPosition))
+                end
+            end
+        end
+    end
+end)
