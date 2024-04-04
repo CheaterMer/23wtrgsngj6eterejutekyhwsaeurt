@@ -18,7 +18,7 @@ function createweight()
     local subject = p
     subject.Position = head.Position
     camera.CameraSubject = subject
-    local WEIGHT = 5
+    local WEIGHT = 10
     local function updateSubject()
         if UserInputService.MouseBehavior == Enum.MouseBehavior.LockCenter then
             local lookXZ = Vector3.new(camera.CFrame.LookVector.X,0,camera.CFrame.LookVector.Z)
