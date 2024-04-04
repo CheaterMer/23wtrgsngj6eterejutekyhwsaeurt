@@ -86,6 +86,7 @@ function grabRemote()
 			if plr ~= LP 
             and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 20)
 			and plr.Character.Hostile.Value 
+			and plr.Character.IsHogged.Value == true
             --and LP.Team ~= plr.Team 
             and plr.Character.Humanoid.Health ~= 0 
 			then
