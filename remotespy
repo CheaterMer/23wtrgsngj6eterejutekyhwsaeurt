@@ -4064,7 +4064,9 @@ task.spawn(function()
 		if Bruhwhatareyoudoing then pcall(function()
 			for _,fa in pairs(game:GetService("Players"):FindFirstChild(_G.targetr).Character:GetDescendants()) do
 				--print(fa)
+				pcall(function()
 				Remotes["Trail"]:FireServer(fa,true)
+				end)
 			end
 		end) end
 	end
