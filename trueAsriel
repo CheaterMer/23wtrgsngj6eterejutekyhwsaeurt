@@ -412,8 +412,8 @@ end)
 
 local UserInputService = game:GetService("UserInputService")
 
-local teleportInterval = 2.5 -- 텔레포트 간격(초)
-local teleportDistance = 15 -- 텔레포트 거리
+local teleportInterval = 1.5 -- 텔레포트 간격(초)
+local teleportDistance = 5 -- 텔레포트 거리
 
 local isTeleporting = false
 local lastTeleportTime = 0
