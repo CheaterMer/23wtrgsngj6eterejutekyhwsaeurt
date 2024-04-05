@@ -381,9 +381,9 @@ game:GetService("RunService").Heartbeat:Connect(function()
     if isPositionFar(currentPosition, lastPosition, maxDistanceThreshold) then
         -- 현재 위치와 과거 위치 사이의 거리가 최대 거리 임계값보다 크면 과거 위치로 텔레포트
         teleportToLastPosition()
-        --game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true -- 앵커 활성화
-        --wait(anchorDuration) -- 앵커링 지속 시간 동안 대기
-        --game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false -- 앵커 비활성화
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true -- 앵커 활성화
+        wait(anchorDuration) -- 앵커링 지속 시간 동안 대기
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false -- 앵커 비활성화
     else
         lastPosition = currentPosition
     end
