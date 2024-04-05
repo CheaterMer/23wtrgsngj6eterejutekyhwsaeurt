@@ -385,11 +385,10 @@ end)
 
 
 
--- 스크립트 시작
 local UserInputService = game:GetService("UserInputService")
 
 local speed = 30 -- 이동 속도
-local upwardOffset = 12 -- 위로 이동할 값
+local upwardOffset = 0 -- 위로 이동할 값
 
 UserInputService.InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.R then
@@ -397,8 +396,12 @@ UserInputService.InputBegan:Connect(function(input)
         if character then
             local humanoid = character:FindFirstChildOfClass("Humanoid")
             if humanoid then
-                -- R 키를 누를 때마다 캐릭터를 앞으로 이동하고 위로 올립니다.
-                character:SetPrimaryPartCFrame(character:GetPrimaryPartCFrame() + character:GetPrimaryPartCFrame().lookVector * speed + Vector3.new(0, upwardOffset, 0))
+                local rootPart = character:FindFirstChild("HumanoidRootPart")
+                if rootPart then
+                    -- R 키를 누를 때마다 캐릭터를 앞으로 이동하고 위로 올립니다.
+                    local moveDirection = rootPart.CFrame.lookVector * speed
+                    rootPart.CFrame = rootPart.CFrame + moveDirection + Vector3.new(0, upwardOffset, 0)
+                end
             end
         end
     end
