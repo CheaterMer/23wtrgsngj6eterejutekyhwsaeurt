@@ -406,3 +406,52 @@ UserInputService.InputBegan:Connect(function(input)
         end
     end
 end)
+
+
+
+
+local UserInputService = game:GetService("UserInputService")
+
+local teleportInterval = 2.5 -- 텔레포트 간격(초)
+local teleportDistance = 15 -- 텔레포트 거리
+
+local isTeleporting = false
+local lastTeleportTime = 0
+
+local function teleport()
+    local character = game.Players.LocalPlayer.Character
+    if character then
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            local rootPart = character:FindFirstChild("HumanoidRootPart")
+            if rootPart then
+                local newPosition = rootPart.Position + rootPart.CFrame.lookVector * teleportDistance
+                rootPart.CFrame = CFrame.new(newPosition)
+            end
+        end
+    end
+end
+
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.W then
+        isTeleporting = true
+        teleport()
+        lastTeleportTime = tick()
+    end
+end)
+
+UserInputService.InputEnded:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.W then
+        isTeleporting = false
+    end
+end)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    if isTeleporting then
+        local currentTime = tick()
+        if currentTime - lastTeleportTime >= teleportInterval then
+            teleport()
+            lastTeleportTime = currentTime
+        end
+    end
+end)
