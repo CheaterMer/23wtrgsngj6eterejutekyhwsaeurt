@@ -409,7 +409,6 @@ end)
 
 
 
-
 local UserInputService = game:GetService("UserInputService")
 
 local teleportInterval = 1.5 -- 텔레포트 간격(초)
@@ -433,7 +432,8 @@ local function teleport()
 end
 
 UserInputService.InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.W then
+    local key = input.KeyCode
+    if key == Enum.KeyCode.W or key == Enum.KeyCode.A or key == Enum.KeyCode.S or key == Enum.KeyCode.D then
         isTeleporting = true
         teleport()
         lastTeleportTime = tick()
@@ -441,7 +441,8 @@ UserInputService.InputBegan:Connect(function(input)
 end)
 
 UserInputService.InputEnded:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.W then
+    local key = input.KeyCode
+    if key == Enum.KeyCode.W or key == Enum.KeyCode.A or key == Enum.KeyCode.S or key == Enum.KeyCode.D then
         isTeleporting = false
     end
 end)
