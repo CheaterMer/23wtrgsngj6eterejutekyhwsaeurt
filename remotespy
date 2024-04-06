@@ -5221,6 +5221,23 @@ LP.CharacterAdded:Connect(function(char)
 	game:GetService("Players").LocalPlayer.AutoJumpEnabled = false
 	end)
 
+	local ui = game:GetService("Players").LocalPlayer.PlayerGui.Stamina.StaminaBarFrame
+
+	spawn(function()
+		ui.BackgroundTransparency = 0.6
+	--  ui.ImageLabel:Destroy()
+		ui.BackgroundColor3 = Color3.new(1,1,0)
+		ui.Size = UDim2.new(0.4, 0,0.01, 0)
+		ui.AnchorPoint = Vector2.new(0.5,0.5)
+		ui.Position = UDim2.new(0.5,0,0.85,0)
+		local corner = Instance.new("UICorner")
+		corner.Parent = ui.StaminaBar
+		corner:Clone().Parent = ui.StaminaBar.Bar
+		local ci = plrGui:WaitForChild("CharaIndicator")
+		ci:WaitForChild("Indicator").AnchorPoint = Vector2.new(0.5,0.5)
+		ci.Indicator.Position = UDim2.new(0.5,0,0.93,0)
+	end)
+
 end)
 
 task.spawn(function()
