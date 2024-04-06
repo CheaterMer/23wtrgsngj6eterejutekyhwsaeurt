@@ -119,6 +119,23 @@ grabbedByWhomLabel.Text = "GrabbedByWhom: N/A"
 grabbedByWhomLabel.TextColor3 = Color3.new(1, 1, 1)
 grabbedByWhomLabel.Parent = Frame
 
+
+displayNameLabel.BackgroundTransparency = 1
+nameLabel.BackgroundTransparency = 1
+teamLabel.BackgroundTransparency = 1
+healthLabel.BackgroundTransparency = 1
+hostileLabel.BackgroundTransparency = 1
+IsCuffedLabel.BackgroundTransparency = 1
+IsHoggedLabel.BackgroundTransparency = 1
+IsLockedLabel.BackgroundTransparency = 1
+FrontCuffedLabel.BackgroundTransparency = 1
+GrabbingLabel.BackgroundTransparency = 1
+DownStateLabel.BackgroundTransparency = 1
+grabbingWhomLabel.BackgroundTransparency = 1
+grabbedByWhomLabel.BackgroundTransparency = 1
+
+
+
 -- 필요한 서비스 및 변수 불러오기
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
@@ -363,7 +380,7 @@ while task.wait() do
 end
 --end)
 
-
+--[[
 local lastPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
 local maxDistanceThreshold = 500 -- 최대 거리 임계값
 local anchorDuration = 1 -- 앵커링 지속 시간 (초)
@@ -388,3 +405,4 @@ game:GetService("RunService").Heartbeat:Connect(function()
         lastPosition = currentPosition
     end
 end)
+]]
