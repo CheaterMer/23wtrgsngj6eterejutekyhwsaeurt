@@ -107,3 +107,33 @@ Player.CharacterAdded:Connect(function(char)
     createweight()
 end)
 
+
+
+-- 글자들의 리스트
+local characters = {"Don't kill...","dOnT dO It...","who are you??","Null","wHaR aRe yOU DoInG"}
+
+-- 화면에 글자를 무작위로 띄우는 함수
+local function spawnRandomCharacter()
+    local character = characters[math.random(1, #characters)] -- 무작위 글자 선택
+    local gui = Instance.new("ScreenGui") -- 새로운 ScreenGui 생성
+    gui.Parent = game.Players.LocalPlayer.PlayerGui -- LocalPlayer의 PlayerGui에 추가
+    
+    local label = Instance.new("TextLabel") -- 새로운 텍스트 레이블 생성
+    label.Text = character -- 텍스트 설정
+    label.Position = UDim2.new(math.random(), 0, math.random(), 0) -- 무작위 위치 설정
+    label.Size = UDim2.new(0, 100, 0, 100) -- 크기 설정
+    label.Parent = gui -- gui에 추가
+    label.TextColor3 = Color3.fromRGB(128, 0, 0) -- 색상 설정 (검붉은색)
+    label.BackgroundTransparency = 1 -- 배경 투명하게 설정
+    label.FontSize = Enum.FontSize.Size36 -- 폰트 크기 설정
+    
+    -- 1초 후에 글자 제거
+    wait(1)
+    gui:Destroy()
+end
+
+-- 일정 시간마다 글자 생성
+while true do
+    wait(1) -- 1초마다 실행
+    spawnRandomCharacter() -- 함수 호출
+end
