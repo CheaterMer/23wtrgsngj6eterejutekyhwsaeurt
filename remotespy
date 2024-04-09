@@ -5088,7 +5088,7 @@ end)
 
 char_channel:Dropdown(
     "Chooings",
-	{"Furry","FurryGirl","Maid"},
+	{"Furry","FurryGirl","Maid","PINK"},
     function(bool)
 		CUSKIN = bool
     end
@@ -5195,6 +5195,21 @@ LP.CharacterAdded:Connect(function(char)
 			ImportAsset(16337439844)
 
 			ImportAsset(11697630021)
+		elseif CUSKIN == "PINK" then
+			ImportAsset(16172116662)
+			ImportAsset(14295208398)
+			ImportAsset(15741334663)
+			ImportAsset(16260651560)
+			ImportAsset(14205363577)
+			ImportAsset(14281188756)
+
+			ImportAsset(8295367528)
+			ImportAsset(13243985213)
+
+			ImportAsset(12383395027)
+			ImportAsset(12651449547)
+
+
         end
 	end
 
