@@ -5078,6 +5078,25 @@ char_channel:Toggle("Faka Name", false, function (bool)
 	Fakename = bool
 end)
 
+local nicknames = {"NULL", "Hacker", "Unknown", "Anonymous","Non-existent","Error"}
+
+-- 랜덤으로 닉네임 선택
+local randomIndex = math.random(1, #nicknames)
+local selectedNickname = nicknames[randomIndex]
+
+task.spawn(function()
+	while task.wait(0.5) do
+		if Randoms then 
+			Chat["SayMessageRequest"]:FireServer( "/nick "..selectedNickname,"All")
+		 end
+	end
+end)
+
+
+char_channel:Toggle("Random Name", false, function (bool)
+	Randoms = bool
+end)
+
 char_channel:Toggle("Spawn Dead Point", false, function (bool)
 	spawnfun = bool
 end)
