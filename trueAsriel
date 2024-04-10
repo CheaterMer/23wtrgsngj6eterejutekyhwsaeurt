@@ -194,24 +194,26 @@ end
 
 function hogcall()
 	yooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
-	spawn(function()
+	if CFFFFFF == false then
 	if yooooo.Character.IsHogged.Value == true then
 		Remotes["IsHog"]:FireServer(yooooo.Character,"UnHog")
 	end
-	end)
+	
+elseif CFFFFFF == true then
 	
 	if yooooo.Character.IsHogged.Value == false then
 		Remotes["IsHog"]:FireServer(yooooo.Character,"Hog")
 	end
 end
+end
 
 function cuffcall()
 	yooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
-	spawn(function()
+	if CFFFFFF == true then
 	if yooooo.Character.IsCuffed.Value == true then
 		Remotes["UnCuffed"]:FireServer(yooooo.Character)
 	end
-	end)
+elseif CFFFFFF == false then
 	if yooooo.Character.IsCuffed.Value == false then
 		if player.Character:FindFirstChild("Handcuffs") then
 			--Remotes["UnCuffed"]:FireServer(yooooo.Character)
@@ -222,6 +224,7 @@ function cuffcall()
 			--task.wait(0.2)
 			Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), yooooo.Character)
 		end
+	end
 	end
 end
 
