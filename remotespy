@@ -5253,6 +5253,7 @@ LP.CharacterAdded:Connect(function(char)
 	spawn(function()
 	LP.Character.Humanoid.AutoJumpEnabled = false
 	game:GetService("Players").LocalPlayer.AutoJumpEnabled = false
+	LP.Character.JumpLimit.Enabled = false
 	end)
 
 	local ui = game:GetService("Players").LocalPlayer.PlayerGui.Stamina.StaminaBarFrame
