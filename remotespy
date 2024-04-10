@@ -5372,4 +5372,4 @@ plrs.PlayerRemoving:Connect(function(player)
 end)
 
   warn("Made By Cheater_Mer & Xsinew")
-  game:GetService("CoreGui").Codex:Destroy()
+  --game:GetService("CoreGui").Codex:Destroy()
