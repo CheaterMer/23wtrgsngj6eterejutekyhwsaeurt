@@ -194,10 +194,12 @@ end
 
 function hogcall()
 	yooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
+	spawn(function()
 	if yooooo.Character.IsHogged.Value == true then
 		Remotes["IsHog"]:FireServer(yooooo.Character,"UnHog")
 	end
-
+	end)
+	
 	if yooooo.Character.IsHogged.Value == false then
 		Remotes["IsHog"]:FireServer(yooooo.Character,"Hog")
 	end
@@ -205,10 +207,11 @@ end
 
 function cuffcall()
 	yooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
+	spawn(function()
 	if yooooo.Character.IsCuffed.Value == true then
 		Remotes["UnCuffed"]:FireServer(yooooo.Character)
 	end
-	
+	end)
 	if yooooo.Character.IsCuffed.Value == false then
 		if player.Character:FindFirstChild("Handcuffs") then
 			--Remotes["UnCuffed"]:FireServer(yooooo.Character)
