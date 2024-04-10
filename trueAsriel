@@ -194,6 +194,17 @@ end
 
 function aCUFFFFFFFREMOTE()
 	yooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
+	if yooooo.Character.IsHogged.Value == true then
+		Remotes["IsHog"]:FireServer(yooooo.Character,"UnHog")
+	end
+
+	if yooooo.Character.IsHogged.Value == false then
+		Remotes["IsHog"]:FireServer(yooooo.Character,"Hog")
+	end
+end
+
+function aHOGGGGGREMOTE()
+	yooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
 	if yooooo.Character.IsCuffed.Value == true then
 		Remotes["UnCuffed"]:FireServer(yooooo.Character)
 	end
@@ -209,10 +220,6 @@ function aCUFFFFFFFREMOTE()
 			Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), yooooo.Character)
 		end
 	end
-end
-
-function aHOGGGGGREMOTE()
-
 end
 
 function attack()
