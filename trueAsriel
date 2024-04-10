@@ -193,7 +193,7 @@ function HogRemote()
 end
 
 function aCUFFFFFFFREMOTE()
-	yooooo = workspace:FindFirstChild(_G.targetr)
+	yooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
 	if yooooo.Character.IsCuffed.Value == true then
 		Remotes["UnCuffed"]:FireServer(yooooo.Character)
 	elseif yooooo.Character.IsCuffed.Value == false then
