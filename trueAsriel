@@ -340,7 +340,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		elseif player.Character:FindFirstChild("Handcuffs") or player.Character:FindFirstChild("Handcuffs (fugitive)") then
 			aCUFFFFFFFREMOTE()
 		elseif player.Character:FindFirstChild("Rope") then
-			HogRemote()
+			aHOGGGGGREMOTE()
 
 	end
 end)
