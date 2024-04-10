@@ -418,6 +418,25 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 	end
 end)
 
+game:GetService("UserInputService").InputBegan:Connect(function(inp)
+    if inp.KeyCode == Enum.KeyCode.Z then
+		if LP.Character.HumanoidRootPart.Anchored == false then
+		local args = {
+			[1] = workspace:WaitForChild("Cheater_Mer"),
+			[2] = "Play"
+		}
+		
+		game:GetService("ReplicatedStorage"):WaitForChild("AnimationAnchor"):FireServer(unpack(args))
+	else
+		local args = {
+			[1] = workspace:WaitForChild("Cheater_Mer"),
+			[2] = "Stop"
+		}
+		
+		game:GetService("ReplicatedStorage"):WaitForChild("AnimationAnchor"):FireServer(unpack(args))
+		
+	end
+end)
 
 
 local UserInputService = game:GetService("UserInputService")
