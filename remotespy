@@ -5189,7 +5189,7 @@ LP.CharacterAdded:Connect(function(char)
             ImportAsset(12339086845)
             ImportAsset(11190054343)
             ImportAsset(11284310004)
-            ImportAsset(11697630021)
+           -- ImportAsset(11697630021)
         elseif CUSKIN == "FurryGirl" then
             ImportAsset(12669535992)
             ImportAsset(10824058593)
@@ -5200,7 +5200,7 @@ LP.CharacterAdded:Connect(function(char)
             ImportAsset(11189999097)
             ImportAsset(16680911837)
             --ImportAsset(16680993249)
-            ImportAsset(11697630021)
+           -- ImportAsset(11697630021)
 		elseif CUSKIN == "Maid" then
 			ImportAsset(6196049792)
 			ImportAsset(6174796730)
@@ -5213,7 +5213,7 @@ LP.CharacterAdded:Connect(function(char)
 			ImportAsset(15728109937)
 			ImportAsset(16337439844)
 
-			ImportAsset(11697630021)
+			--ImportAsset(11697630021)
 		elseif CUSKIN == "PINK" then
 			ImportAsset(16172116662)
 			ImportAsset(14295208398)
@@ -5228,7 +5228,7 @@ LP.CharacterAdded:Connect(function(char)
 			ImportAsset(12383395027)
 			ImportAsset(12651449547)
 
-			ImportAsset(11697630021)
+			--ImportAsset(11697630021)
         end
 	end
 
