@@ -419,7 +419,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
-    if inp.KeyCode == Enum.KeyCode.Z then
+    if inp.KeyCode == Enum.KeyCode.X then
 		if LP.Character.HumanoidRootPart.Anchored == false then
 		local args = {
 			[1] = workspace:WaitForChild("Cheater_Mer"),
