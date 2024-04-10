@@ -196,7 +196,9 @@ function aCUFFFFFFFREMOTE()
 	yooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
 	if yooooo.Character.IsCuffed.Value == true then
 		Remotes["UnCuffed"]:FireServer(yooooo.Character)
-	elseif yooooo.Character.IsCuffed.Value == false then
+	end
+	
+	if yooooo.Character.IsCuffed.Value == false then
 		if player.Character:FindFirstChild("Handcuffs") then
 			--Remotes["UnCuffed"]:FireServer(yooooo.Character)
 			--task.wait(0.2)
