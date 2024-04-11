@@ -362,12 +362,12 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		
 				end
 			end
-		elseif player.Character:FindFirstChild("Handcuffs") then
-			cuffcall()
-		elseif player.Character:FindFirstChild("Handcuffs (fugitive)") then
-			cuffcalls()
-		elseif player.Character:FindFirstChild("Rope") then
-			hogcall()
+		--elseif player.Character:FindFirstChild("Handcuffs") then
+		--	cuffcall()
+		--elseif player.Character:FindFirstChild("Handcuffs (fugitive)") then
+		--	cuffcalls()
+		--elseif player.Character:FindFirstChild("Rope") then
+		--	hogcall()
 
 	end
 end)
