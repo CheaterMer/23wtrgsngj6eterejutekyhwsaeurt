@@ -5231,9 +5231,9 @@ LP.CharacterAdded:Connect(function(char)
 			--ImportAsset(11697630021)
 		elseif CUSKIN == "ONLYYOU" then 
 			local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(LP.UserId):GetAccessories(true)
-    	for _, accessoryInfo in ipairs(accessoriesTable) do 
-        ImportAsset(accessoryInfo.AssetId)
-    	end
+			for _, accessoryInfo in ipairs(accessoriesTable) do 
+				ImportAsset(accessoryInfo.AssetId)
+			end
 			ImportAsset(6170071782)
 			ImportAsset(6049602906)
         end
