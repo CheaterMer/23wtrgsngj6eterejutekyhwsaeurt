@@ -210,11 +210,11 @@ end
 function cuffcalls()
 	yooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
 	if CFFFFFF == true then
-	if yooooo.Character.IsCuffed.Value == true then
-		Remotes["UnCuffed"]:FireServer(yooooo.Character)
-	end
-elseif CFFFFFF == false then
-	if yooooo.Character.IsCuffed.Value == false then
+		if yooooo.Character.IsCuffed.Value == true then
+			Remotes["UnCuffed"]:FireServer(yooooo.Character)
+		end
+	elseif CFFFFFF == false then
+		if yooooo.Character.IsCuffed.Value == false then
 			Remotes["UnCuffed"]:FireServer(yooooo.Character)
 			task.wait(0.1)
 			Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), yooooo.Character)
@@ -225,11 +225,11 @@ end
 function cuffcalls()
 	yooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
 	if CFFFFFF == true then
-	if yooooo.Character.IsCuffed.Value == true then
-		Remotes["UnCuffed"]:FireServer(yooooo.Character)
-	end
-elseif CFFFFFF == false then
-	if yooooo.Character.IsCuffed.Value == false then
+		if yooooo.Character.IsCuffed.Value == true then
+			Remotes["UnCuffed"]:FireServer(yooooo.Character)
+		end
+	elseif CFFFFFF == false then
+		if yooooo.Character.IsCuffed.Value == false then
 			Remotes["UnCuffed"]:FireServer(yooooo.Character)
 			task.wait(0.1)
 			Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs"), yooooo.Character)
