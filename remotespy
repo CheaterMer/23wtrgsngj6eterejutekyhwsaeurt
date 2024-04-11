@@ -5107,7 +5107,7 @@ end)
 
 char_channel:Dropdown(
     "Chooings",
-	{"Furry","FurryGirl","Maid","PINK","ONLYYOU"},
+	{"Furry","FurryGirl","Maid","PINK"},
     function(bool)
 		CUSKIN = bool
     end
@@ -5229,13 +5229,6 @@ LP.CharacterAdded:Connect(function(char)
 			ImportAsset(12651449547)
 
 			--ImportAsset(11697630021)
-		elseif CUSKIN == "ONLYYOU" then 
-			local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(LP.UserId):GetAccessories(true)
-			for _, accessoryInfo in ipairs(accessoriesTable) do 
-				ImportAsset(accessoryInfo.AssetId)
-			end
-			ImportAsset(6170071782)
-			ImportAsset(6049602906)
         end
 	end
 
