@@ -207,7 +207,7 @@ elseif CFFFFFF == false then
 end
 end
 
-function cuffcall()
+function cuffcalls()
 	yooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
 	if CFFFFFF == true then
 	if yooooo.Character.IsCuffed.Value == true then
@@ -215,18 +215,28 @@ function cuffcall()
 	end
 elseif CFFFFFF == false then
 	if yooooo.Character.IsCuffed.Value == false then
-		if player.Character:FindFirstChild("Handcuffs") then
-			Remotes["UnCuffed"]:FireServer(yooooo.Character)
-			task.wait(0.1)
-			Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs"), yooooo.Character)
-		elseif player.Character:FindFirstChild("Handcuffs (fugitive)") then
 			Remotes["UnCuffed"]:FireServer(yooooo.Character)
 			task.wait(0.1)
 			Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), yooooo.Character)
 		end
 	end
+end
+
+function cuffcalls()
+	yooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
+	if CFFFFFF == true then
+	if yooooo.Character.IsCuffed.Value == true then
+		Remotes["UnCuffed"]:FireServer(yooooo.Character)
+	end
+elseif CFFFFFF == false then
+	if yooooo.Character.IsCuffed.Value == false then
+			Remotes["UnCuffed"]:FireServer(yooooo.Character)
+			task.wait(0.1)
+			Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs"), yooooo.Character)
+		end
 	end
 end
+
 
 function attack()
 	pcall(function()
@@ -352,8 +362,10 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		
 				end
 			end
-		elseif player.Character:FindFirstChild("Handcuffs") or player.Character:FindFirstChild("Handcuffs (fugitive)") then
+		elseif player.Character:FindFirstChild("Handcuffs") then
 			cuffcall()
+		elseif player.Character:FindFirstChild("Handcuffs (fugitive)") then
+			cuffcalls()
 		elseif player.Character:FindFirstChild("Rope") then
 			hogcall()
 
