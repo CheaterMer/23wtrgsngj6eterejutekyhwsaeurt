@@ -450,7 +450,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 	end
 end)
 
-
+--[[
 local UserInputService = game:GetService("UserInputService")
 
 local speed = 30 -- 이동 속도
@@ -472,7 +472,7 @@ UserInputService.InputBegan:Connect(function(input)
         end
     end
 end)
-
+]]
 
 --[[
 local UserInputService = game:GetService("UserInputService")
