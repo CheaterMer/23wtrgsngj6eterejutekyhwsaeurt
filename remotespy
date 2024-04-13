@@ -3494,6 +3494,20 @@ task.spawn(function()
 	end
 end)
 
+task.spawn(function()
+    while task.wait() do
+		if toolinfTaser then
+			fireclickdetector(workspace.Taser.ClickDetector)
+			for i,v in pairs(LP.Backpack:GetChildren()) do
+				if v.Name == "Taser" then
+					--task.wait(0.01)
+				v.Parent = LP.Character
+				end
+			end
+		end
+	end
+end)
+
 block_tools_channel:Toggle("My Tool is", false, function(bool)
     backpackistrue = bool
 end)
@@ -3683,6 +3697,10 @@ end)
 
 block_tools_channel:Toggle("Block", false, function(bool)
     VMB = bool
+end)
+
+block_tools_channel:Toggle("Funni Maybe", false, function(bool)
+    toolinfTaser = bool
 end)
 
 --[[
