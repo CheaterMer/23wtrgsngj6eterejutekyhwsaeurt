@@ -3494,41 +3494,6 @@ task.spawn(function()
 	end
 end)
 
-task.spawn(function()
-    while task.wait() do
-		if toolinfTaser then
-			fireclickdetector(workspace.Taser.ClickDetector)
-			for i,v in pairs(LP.Backpack:GetChildren()) do
-				if v.Name == "Taser" then
-					--task.wait(0.01)
-				v.Parent = LP.Character
-				end
-			end
-		end
-	end
-end)
-
-task.spawn(function()
-    while task.wait() do
-		if Rechargeadsf then
-			for i,v in pairs(LP.Backpack:GetChildren()) do
-				if v:IsA("Tool") then
-					if v.Name == "Taser" then
-						if v.Charged.Value == false then
-							local args = {
-								[1] = "Recharge",
-								[2] = game:GetService("Players").LocalPlayer.Character.Taser
-							}
-							
-							game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-						end
-					end
-				end
-			end
-		end
-	end
-end)
-
 block_tools_channel:Toggle("My Tool is", false, function(bool)
     backpackistrue = bool
 end)
@@ -3891,14 +3856,6 @@ block_tools_channel:Button("eat all Flashlight", function()
 
 end)
 
-block_tools_channel:Toggle("Funni Maybe", false, function(bool)
-    toolinfTaser = bool
-end)
-
-block_tools_channel:Toggle("Funni Need to", false, function(bool)
-    Rechargeadsf = bool
-end)
-
 local player_channel = server_tab:Channel("Character")
 local AUF
 local AUH
@@ -4059,27 +4016,51 @@ end
 task.spawn(function()
 	while task.wait() do
 		if taser then pcall(function()
-		--item()
-		Remotes["Tase"]:FireServer("Hit", LP.Backpack.Taser,  game:GetService("Players"):WaitForChild(_G.targetr).Character.Head)
-		--[[
-			local args = {
-				[1] = "Hit",
-				[2] = game:GetService("Players").LocalPlayer.Backpack.Taser,
-				[3] = game:GetService("Players"):WaitForChild(targetr).Character.Head
-			}
+			if LP.Character:FindFirstChild("Taser") then
+				spawn(function()	
+				local args = {
+						[1] = "Generate",
+						[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+						[3] = Vector3.new(pos.X,pos.Y,pos.Z),
+						[4] = Vector3.new(tpos.X,tpos.Y,tpos.Z)
+					}
+					
+					game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+				end)
+	
+				local args = {
+					[1] = "Hit",
+					[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+					[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
+				}
+				
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+				wait()
+				local args = {
+					[1] = "Recharge",
+					[2] = game:GetService("Players").LocalPlayer.Character.Taser
+				}
+				
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
 			
-			game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-			]]
-        wait(0.1)
-		Remotes["Tase"]:FireServer("Recharge", LP.Backpack.Taser)
-			--[[
-			local args = {
-				[1] = "Recharge",
-				[2] = game:GetService("Players").LocalPlayer.Backpack.Taser
-			}
+			elseif LP.Backpack:FindFirstChild("Taser") then
+	
+				local args = {
+					[1] = "Hit",
+					[2] = game:GetService("Players").LocalPlayer.Backpack.Taser,
+					[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
+				}
+				
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+				wait()
+				local args = {
+					[1] = "Recharge",
+					[2] = game:GetService("Players").LocalPlayer.Backpack.Taser
+				}
+				
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
 			
-			game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-			]]
+	
 		end) end
 	end
 end)
