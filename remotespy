@@ -3508,6 +3508,27 @@ task.spawn(function()
 	end
 end)
 
+task.spawn(function()
+    while task.wait() do
+		if Rechargeadsf then
+			for i,v in pairs(LP.Backpack:GetChildren()) do
+				if v:IsA("Tool") then
+					if v.Name == "Taser" then
+						if v.Charged.Value == false then
+							local args = {
+								[1] = "Recharge",
+								[2] = game:GetService("Players").LocalPlayer.Character.Taser
+							}
+							
+							game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+						end
+					end
+				end
+			end
+		end
+	end
+end)
+
 block_tools_channel:Toggle("My Tool is", false, function(bool)
     backpackistrue = bool
 end)
@@ -3699,10 +3720,6 @@ block_tools_channel:Toggle("Block", false, function(bool)
     VMB = bool
 end)
 
-block_tools_channel:Toggle("Funni Maybe", false, function(bool)
-    toolinfTaser = bool
-end)
-
 --[[
 local itemlist = {
     "Axe",
@@ -3863,15 +3880,23 @@ end)
 
 block_tools_channel:Button("eat all Flashlight", function()
 
-for i,v in pairs(workspace:GetChildren()) do
-    if v.Name == "Flashlight" then
-        task.wait(0.1)
-        pcall(function()
-            LP.Character:WaitForChild("HumanoidRootPart").CFrame = v.Handle.CFrame
-       end)
-    end
- end
+	for i,v in pairs(workspace:GetChildren()) do
+		if v.Name == "Flashlight" then
+			task.wait(0.1)
+			pcall(function()
+				LP.Character:WaitForChild("HumanoidRootPart").CFrame = v.Handle.CFrame
+		end)
+		end
+	end
 
+end)
+
+block_tools_channel:Toggle("Funni Maybe", false, function(bool)
+    toolinfTaser = bool
+end)
+
+block_tools_channel:Toggle("Funni Need to", false, function(bool)
+    Rechargeadsf = bool
 end)
 
 local player_channel = server_tab:Channel("Character")
