@@ -5168,7 +5168,8 @@ end)
 
 whitelist:Button("Remove White List", function()
     for i, name in ipairs(whitelistuser) do
-        if i == WLA then
+        if name == WLA then
+			print(i)
             print("Selected user:", name)
 			table.remove(whitelistuser,WLA)
 			print("removed",WLA)
