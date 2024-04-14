@@ -5163,6 +5163,13 @@ local function RemoveNonExistingPlayers()
     end
 end
 
+task.spawn(function()
+	while true do
+		RemoveNonExistingPlayers()
+		wait(5) -- 5초 대기
+	end
+end)
+
 local WLT = whitelist:Dropdown(
 	"white List",
 	names,
