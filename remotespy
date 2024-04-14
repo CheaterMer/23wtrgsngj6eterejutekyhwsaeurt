@@ -3415,7 +3415,7 @@ task.spawn(function()
             _G.forcestop = nil
             break
         end pcall(function()
-        if block_tools then
+        if block_toolss then
             for idx, plr in pairs(Players:GetPlayers()) do
                 if plr ~= LP 
 				and not table.find(userOwner, plr.Name) 
@@ -3717,7 +3717,7 @@ block_tools_channel:Label("  ")
 block_tools_channel:Label("ALL Block Item")
 
 block_tools_channel:Toggle("Block Tools", false, function(bool)
-    block_tools = bool
+    block_toolss = bool
 end)
 
 block_tools_channel:Toggle("Except Friends", false, function(bool)
