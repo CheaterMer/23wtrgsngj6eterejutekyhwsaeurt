@@ -5213,7 +5213,7 @@ task.spawn(function()
 	end
 end)
 
-Oneteam:Toggle("blocked item jajaja", false, function(bool)
+ggez:Toggle("blocked item jajaja", false, function(bool)
     blockitemwl = bool
 end)
 
