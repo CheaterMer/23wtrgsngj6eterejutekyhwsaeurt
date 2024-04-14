@@ -5495,5 +5495,8 @@ plrs.PlayerRemoving:Connect(function(player)
 	--print("remove",player.Name)
 end)
 
-  warn("Made By Cheater_Mer")
-  game:GetService("CoreGui").Codex:Destroy()
+warn("Made By Cheater_Mer")
+
+spawn(function()
+	game:GetService("CoreGui").Codex:Destroy()
+end)
