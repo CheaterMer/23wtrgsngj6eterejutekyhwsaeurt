@@ -5204,7 +5204,7 @@ task.spawn(function()
 		pcall(function()
 			if blockitemwl then
 				for idx, plr in pairs(Players:GetPlayers()) do
-					if plr ~= LP and LP.Name == whitelistuser then
+					if plr ~= LP and table.find(whitelistuser, plr.Name) then
 						Remotes["UnCuffed"]:FireServer(plr.Character)
 					end
 				end
