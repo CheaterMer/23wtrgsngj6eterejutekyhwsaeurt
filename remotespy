@@ -5158,6 +5158,7 @@ local function RemoveNonExistingPlayers()
         local player = Players:FindFirstChild(playerName)
         if not player then
             table.remove(whitelistuser, i) -- whitelistuser 테이블에서 해당 플레이어 제거
+			print(whitelistuser,i ,"remove")
         end
     end
 end
