@@ -5197,6 +5197,7 @@ end)
 
 whitelist:Button("Clear White List", function()
 	for k in pairs(whitelistuser) do
+		print(whitelistuser[k],"Clear List")
 		whitelistuser[k] = nil
 	end
 end)
