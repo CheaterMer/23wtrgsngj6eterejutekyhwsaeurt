@@ -5135,7 +5135,7 @@ end)
 char_channel:Toggle("Spawn Dead Point", false, function (bool)
 	spawnfun = bool
 end)
-
+--[[
 char_channel:Toggle("SKIN??", false, function (bool)
 	Furry = bool
 end)
@@ -5147,7 +5147,7 @@ char_channel:Dropdown(
 		CUSKIN = bool
     end
 )
-
+]]
 local whitelist = Troll_tab:Channel("White and Black List")
 local WLA
 local whitelistuser = {}
