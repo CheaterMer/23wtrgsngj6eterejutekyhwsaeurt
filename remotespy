@@ -5201,16 +5201,16 @@ local ggez = Troll_tab:Channel("Game Over Yet Kid")
 
 task.spawn(function()
     while task.wait() do
-    pcall(function()
-        if blockitemwl then
-            for idx, plr in pairs(Players:GetPlayers()) do
-                if plr ~= LP and LP.Name == whitelistuser then
-                    Remotes["UnCuffed"]:FireServer(plr.Character)
-                end
-            end
-        end
-    end) 
-end
+		pcall(function()
+			if blockitemwl then
+				for idx, plr in pairs(Players:GetPlayers()) do
+					if plr ~= LP and LP.Name == whitelistuser then
+						Remotes["UnCuffed"]:FireServer(plr.Character)
+					end
+				end
+			end
+		end) 
+	end
 end)
 
 Oneteam:Toggle("blocked item jajaja", false, function(bool)
