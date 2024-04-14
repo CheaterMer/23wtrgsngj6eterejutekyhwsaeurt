@@ -5226,6 +5226,9 @@ task.spawn(function()
 			if jajajajajajajajeztaser then
 				for userId, username in pairs(whitelistuser) do
 					local player =  game:GetService("Players"):WaitForChild(username).Character
+					if player == nil then
+						return
+					end
 					if player then
 						pcall(function()
 							local args = {
