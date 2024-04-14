@@ -5156,23 +5156,23 @@ local WLT = whitelist:Dropdown(
 	"white List",
 	names,
 	function(bool)
-	WLA = bool
+		_G.targetr = bool
 end)
 
 whitelist:Button("Add White List", function()
-	if not table.find(whitelistuser, WLA) then
-		table.insert(whitelistuser,WLA)
-		print("added",WLA)
+	if not table.find(whitelistuser, _G.targetr) then
+		table.insert(whitelistuser, _G.targetr)
+		print("added", _G.targetr)
 	end
 end)
 
 whitelist:Button("Remove White List", function()
     for i, name in ipairs(whitelistuser) do
-        if name == WLA then
+        if name ==  _G.targetr then
 			print(i)
             print("Selected user:", name)
 			table.remove(whitelistuser,i)
-			print("removed",WLA)
+			print("removed", _G.targetr)
         end
     end
 end)
@@ -5250,14 +5250,6 @@ task.spawn(function()
 		--end) 
 	end
 end)
-
-for userId, _ in pairs(whitelistuser) do
-	local player = game.Players:GetPlayerByUserId(userId)
-	if player then
-		
-		wait(0.2) -- 0.2초 대기
-	end
-end
 
 ggez:Toggle("blocked item jajaja", false, function(bool)
     blockitemwl = bool
