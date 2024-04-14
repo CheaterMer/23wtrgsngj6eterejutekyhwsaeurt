@@ -5167,8 +5167,20 @@ whitelist:Button("Add White List", function()
 end)
 
 whitelist:Button("Remove White List", function()
-	table.remove(whitelistuser,WLA)
-	print("removed",WLA)
+	if WLA then
+        for i, name in ipairs(whitelistuser) do
+            if i == WLA then
+                print("Selected user:", name)
+				table.remove(whitelistuser,WLA)
+				print("removed",WLA)
+                -- 여기에서 선택된 사용자 이름을 반환하거나 추가 작업을 수행할 수 있습니다.
+                return name
+            end
+        end
+        print("No user selected to remove from whitelistuser")
+    else
+        print("No user selected to remove from whitelistuser")
+    end
 end)
 
 --whitelist:Button("Clear White List", function()
