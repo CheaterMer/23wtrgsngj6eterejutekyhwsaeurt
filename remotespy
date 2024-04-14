@@ -5226,23 +5226,25 @@ task.spawn(function()
 				for userId, username in pairs(whitelistuser) do
 					local player =  game:GetService("Players"):WaitForChild(username).Character
 					if player then
-						local args = {
-							[1] = "Hit",
-							[2] = game:GetService("Players").LocalPlayer.Backpack.Taser,
-							[3] = player.Head
-						}
-						
-						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-						
-						wait(0.1)
-						--TaserRemote:FireServer(	"Recharge", game:GetService("Players").LocalPlayer.Backpack.Taser)
-						
-						local args = {
-							[1] = "Recharge",
-							[2] = game:GetService("Players").LocalPlayer.Backpack.Taser
-						}
-						
-						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+						pcall(function()
+							local args = {
+								[1] = "Hit",
+								[2] = game:GetService("Players").LocalPlayer.Backpack.Taser,
+								[3] = player.Head
+							}
+							
+							game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+							
+							wait(0.1)
+							--TaserRemote:FireServer(	"Recharge", game:GetService("Players").LocalPlayer.Backpack.Taser)
+							
+							local args = {
+								[1] = "Recharge",
+								[2] = game:GetService("Players").LocalPlayer.Backpack.Taser
+							}
+							
+							game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+						end)
 						wait(0.2) -- 0.2초 대기
 					end
 				end
