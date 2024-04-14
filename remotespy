@@ -5171,10 +5171,10 @@ whitelist:Button("Remove White List", function()
 	print("removed",WLA)
 end)
 
-whitelist:Button("Clear White List", function()
-	whitelistuser:Clear()
-	print("cleared")
-end)
+--whitelist:Button("Clear White List", function()
+	--talbe.re:Clear()
+	--print("cleared")
+--end)
 
 local Oneteam = Troll_tab:Channel("Only One")
 _G.OneTeam = nil
