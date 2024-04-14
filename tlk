@@ -5152,35 +5152,55 @@ local whitelist = Troll_tab:Channel("White and Black List")
 local WLA
 local whitelistuser = {}
 
+local function RemoveNonExistingPlayers()
+    for i = #whitelistuser, 1, -1 do
+        local playerName = whitelistuser[i]
+        local player = Players:FindFirstChild(playerName)
+        if not player then
+            table.remove(whitelistuser, i) -- whitelistuser 테이블에서 해당 플레이어 제거
+			print(whitelistuser,i ,"remove")
+        end
+    end
+end
+
+task.spawn(function()
+	while true do
+		RemoveNonExistingPlayers()
+		wait(5) -- 5초 대기
+	end
+end)
+
 local WLT = whitelist:Dropdown(
 	"white List",
 	names,
 	function(bool)
-	WLA = bool
+		_G.targetr = bool
 end)
 
 whitelist:Button("Add White List", function()
-	if not table.find(whitelistuser, WLA) then
-		table.insert(whitelistuser,WLA)
-		print("added",WLA)
+	if not table.find(whitelistuser, _G.targetr) then
+		table.insert(whitelistuser, _G.targetr)
+		print("added", _G.targetr)
 	end
 end)
 
 whitelist:Button("Remove White List", function()
     for i, name in ipairs(whitelistuser) do
-        if name == WLA then
+        if name ==  _G.targetr then
 			print(i)
             print("Selected user:", name)
 			table.remove(whitelistuser,i)
-			print("removed",WLA)
+			print("removed", _G.targetr)
         end
     end
 end)
 
---whitelist:Button("Clear White List", function()
-	--talbe.re:Clear()
-	--print("cleared")
---end)
+whitelist:Button("Clear White List", function()
+	for k in pairs(whitelistuser) do
+		print(whitelistuser[k],"Clear List")
+		whitelistuser[k] = nil
+	end
+end)
 
 local Oneteam = Troll_tab:Channel("Only One")
 _G.OneTeam = nil
@@ -5219,8 +5239,50 @@ task.spawn(function()
 	end
 end)
 
+task.spawn(function()
+    while task.wait() do
+		--pcall(function()
+			if jajajajajajajajeztaser then
+				for userId, username in pairs(whitelistuser) do
+					local player =  game:GetService("Players"):WaitForChild(username).Character
+					if player == nil then
+						RemoveNonExistingPlayers()
+						return
+					end
+					if player then
+						pcall(function()
+							local args = {
+								[1] = "Hit",
+								[2] = game:GetService("Players").LocalPlayer.Backpack.Taser,
+								[3] = player.Head
+							}
+							
+							game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+							
+							wait(0.1)
+							--TaserRemote:FireServer(	"Recharge", game:GetService("Players").LocalPlayer.Backpack.Taser)
+							
+							local args = {
+								[1] = "Recharge",
+								[2] = game:GetService("Players").LocalPlayer.Backpack.Taser
+							}
+							
+							game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+						end)
+						wait(0.2) -- 0.2초 대기
+					end
+				end
+			end
+		--end) 
+	end
+end)
+
 ggez:Toggle("blocked item jajaja", false, function(bool)
     blockitemwl = bool
+end)
+
+ggez:Toggle("Taser User jajaja", false, function(bool)
+    jajajajajajajajeztaser = bool
 end)
 
 
@@ -5433,5 +5495,8 @@ plrs.PlayerRemoving:Connect(function(player)
 	--print("remove",player.Name)
 end)
 
-  warn("Made By Cheater_Mer & Xsinew")
-  game:GetService("CoreGui").Codex:Destroy()
+warn("Made By Cheater_Mer")
+
+spawn(function()
+	game:GetService("CoreGui").Codex:Destroy()
+end)
