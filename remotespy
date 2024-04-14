@@ -5152,6 +5152,16 @@ local whitelist = Troll_tab:Channel("White and Black List")
 local WLA
 local whitelistuser = {}
 
+local function RemoveNonExistingPlayers()
+    for i = #whitelistuser, 1, -1 do
+        local playerName = whitelistuser[i]
+        local player = Players:FindFirstChild(playerName)
+        if not player then
+            table.remove(whitelistuser, i) -- whitelistuser 테이블에서 해당 플레이어 제거
+        end
+    end
+end
+
 local WLT = whitelist:Dropdown(
 	"white List",
 	names,
@@ -5227,6 +5237,7 @@ task.spawn(function()
 				for userId, username in pairs(whitelistuser) do
 					local player =  game:GetService("Players"):WaitForChild(username).Character
 					if player == nil then
+						RemoveNonExistingPlayers()
 						return
 					end
 					if player then
