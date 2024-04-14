@@ -5263,6 +5263,10 @@ ggez:Toggle("blocked item jajaja", false, function(bool)
     blockitemwl = bool
 end)
 
+ggez:Toggle("Taser User jajaja", false, function(bool)
+    jajajajajajajajeztaser = bool
+end)
+
 
 local DiePos 
 
