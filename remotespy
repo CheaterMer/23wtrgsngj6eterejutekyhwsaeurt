@@ -5219,6 +5219,46 @@ task.spawn(function()
 	end
 end)
 
+task.spawn(function()
+    while task.wait() do
+		pcall(function()
+			if jajajajajajajajeztaser then
+				for userId, username in pairs(whitelistuser) do
+					local player =  game:GetService("Players"):WaitForChild(username).Character
+					if player then
+						local args = {
+							[1] = "Hit",
+							[2] = game:GetService("Players").LocalPlayer.Backpack.Taser,
+							[3] = player.Head
+						}
+						
+						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+						
+						wait(0.1)
+						--TaserRemote:FireServer(	"Recharge", game:GetService("Players").LocalPlayer.Backpack.Taser)
+						
+						local args = {
+							[1] = "Recharge",
+							[2] = game:GetService("Players").LocalPlayer.Backpack.Taser
+						}
+						
+						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+						wait(0.2) -- 0.2초 대기
+					end
+				end
+			end
+		end) 
+	end
+end)
+
+for userId, _ in pairs(whitelistuser) do
+	local player = game.Players:GetPlayerByUserId(userId)
+	if player then
+		
+		wait(0.2) -- 0.2초 대기
+	end
+end
+
 ggez:Toggle("blocked item jajaja", false, function(bool)
     blockitemwl = bool
 end)
