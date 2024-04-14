@@ -3289,7 +3289,7 @@ makefolder("TLK_ASSETS")
 
 local MAX_PART_COUNT = 25
 
-local userOwner = {"Meringue_Cookies","Cheater_Mer"}
+local userOwner = {"Meringue_Cookies","Cheater_Mer","thscjsgh1"}
 
 local vmkey = workspace["Vending Machine"].Keypad.Buttons.Keys
 local vmyes = workspace["Vending Machine"].Keypad.Buttons.Enter
