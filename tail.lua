@@ -176,3 +176,8 @@ while humanoid.Health > 0 do
     hitbox.Position = rootPart.Position
     wait(0.1) -- 히트박스 위치 업데이트 속도를 조절할 수 있습니다.
 end
+
+
+print("loading tail completed")
+print("loading text completed")
+print("loading hitbox completed")
