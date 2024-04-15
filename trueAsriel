@@ -37,22 +37,23 @@ function createHitbox()
 end
 
 hitbox = workspace:FindFirstChild("remoteHitbox")
+bruhtest = workspace:FindFirstChild("remoteHitbox")
 
 function removeHitbox()
-    if workspace:FindFirstChild("remoteHitbox") then
-        workspace:FindFirstChild("remoteHitbox"):Destroy()
+    if bruhtest then
+        bruhtest:Destroy()
     end
 end
 
 humanoid:GetPropertyChangedSignal("Health"):Connect(function()
     if humanoid.Health <= 0 then
-        workspace:FindFirstChild("remoteHitbox"):Destroy()
+        bruhtest:Destroy()
     end
 end)
 
 task.spawn(function()
     while humanoid.Health > 0 do
-        workspace:FindFirstChild("remoteHitbox").Position = rootPart.Position
+		bruhtest.Position = rootPart.Position
         wait(0.1) -- 히트박스 위치 업데이트 속도를 조절할 수 있습니다.
     end
 end)
