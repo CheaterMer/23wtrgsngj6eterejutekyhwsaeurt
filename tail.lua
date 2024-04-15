@@ -138,46 +138,6 @@ while true do
     spawnRandomCharacter() -- 함수 호출
 end
 
-local player = game.Players.LocalPlayer
-local humanoid = player.Character.Humanoid
-local rootPart = humanoid.RootPart
-
-local range = 15 -- 히트박스의 반지름
-
-function createHitbox()
-    local hitbox = Instance.new("Part")
-    hitbox.Size = Vector3.new(range*2, range*2, range*2)
-    hitbox.Shape = Enum.PartType.Ball
-    hitbox.Transparency = 0.5
-    hitbox.Color = Color3.new(1, 0, 0) -- 원하는 색상으로 변경 가능
-    hitbox.Anchored = true
-    hitbox.CanCollide = false
-    hitbox.Position = rootPart.Position
-    hitbox.Parent = game.Workspace -- 히트박스를 원하는 부모로 설정
-
-    return hitbox
-end
-
-function removeHitbox()
-    if hitbox then
-        hitbox:Destroy()
-    end
-end
-
-hitbox = createHitbox()
-
-humanoid:GetPropertyChangedSignal("Health"):Connect(function()
-    if humanoid.Health <= 0 then
-        hitbox:Destroy()
-    end
-end)
-
-while humanoid.Health > 0 do
-    hitbox.Position = rootPart.Position
-    wait(0.1) -- 히트박스 위치 업데이트 속도를 조절할 수 있습니다.
-end
-
-
 print("loading tail completed")
 print("loading text completed")
 print("loading hitbox completed")
