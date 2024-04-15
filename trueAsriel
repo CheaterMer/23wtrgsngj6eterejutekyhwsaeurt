@@ -254,22 +254,26 @@ function attack()
 					if _G.OneTeamhit == true then
 						if plr.Team.Name == _G.OneTeam then
 							Remotes["UnCuffed"]:FireServer(plr.Character)
+							task.wait()
 							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
 							task.wait()
 						end
 					elseif _G.OneTeamhit == false and _G.LockOnhit == false then
 						if LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard" then
 							Remotes["UnCuffed"]:FireServer(plr.Character)
+							task.wait()
 							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
 							task.wait()
 						elseif LP.Team.Name ~= "Civilian" then
 							Remotes["UnCuffed"]:FireServer(plr.Character)
+							task.wait()
 							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
 							task.wait()
 						end
 					elseif _G.LockOnhit == true then
 						if plr.Name == _G.targetr then
 							Remotes["UnCuffed"]:FireServer(plr.Character)
+							task.wait()
 							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
 							task.wait()
 						end
