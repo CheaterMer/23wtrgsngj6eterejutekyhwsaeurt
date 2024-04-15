@@ -4,7 +4,7 @@ local rootPart = humanoid.RootPart
 
 local range = 15 -- 히트박스의 반지름
 
-local function createHitbox()
+function createHitbox()
     local hitbox = Instance.new("Part")
     hitbox.Size = Vector3.new(range*2, range*2, range*2)
     hitbox.Shape = Enum.PartType.Ball
@@ -18,7 +18,13 @@ local function createHitbox()
     return hitbox
 end
 
-local hitbox = createHitbox()
+function removeHitbox()
+    if hitbox then
+        hitbox:Destroy()
+    end
+end
+
+hitbox = createHitbox()
 
 humanoid:GetPropertyChangedSignal("Health"):Connect(function()
     if humanoid.Health <= 0 then
