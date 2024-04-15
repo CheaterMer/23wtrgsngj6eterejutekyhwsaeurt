@@ -30,18 +30,19 @@ function createHitbox()
     hitbox.Anchored = true
     hitbox.CanCollide = false
     hitbox.Position = rootPart.Position
+	hitbox.Name = "remoteHitbox"
     hitbox.Parent = game.Workspace -- 히트박스를 원하는 부모로 설정
 
     return hitbox
 end
 
 function removeHitbox()
-    if hitbox then
+    if workspace:FindFirstChild("remoteHitbox") then
         hitbox:Destroy()
     end
 end
 
-hitbox = createHitbox()
+hitbox = workspace:FindFirstChild("remoteHitbox")
 
 humanoid:GetPropertyChangedSignal("Health"):Connect(function()
     if humanoid.Health <= 0 then
@@ -320,7 +321,7 @@ end
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.Q then
-		hitbox = createHitbox()
+		createHitbox()
 		if player.Character:FindFirstChild("Axe") then
 			anime(7286445304)
 			attack()
