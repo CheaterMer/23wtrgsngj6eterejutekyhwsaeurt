@@ -563,3 +563,6 @@ game:GetService("RunService").RenderStepped:Connect(function()
     end
 end)
 ]]
+
+print("loading Helper completed")
+print("loading hitbox completed")

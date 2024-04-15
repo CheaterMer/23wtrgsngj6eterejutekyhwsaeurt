@@ -140,4 +140,3 @@ end
 
 print("loading tail completed")
 print("loading text completed")
-print("loading hitbox completed")
