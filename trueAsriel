@@ -15,8 +15,8 @@ local RunService = game:GetService("RunService")
 local LP = Players.LocalPlayer
 
 
-local player = game.Players.LocalPlayer
-local humanoid = player.Character.Humanoid
+local playerf = game.Players.LocalPlayer
+local humanoid = playerf.Character.Humanoid
 local rootPart = humanoid.RootPart
 
 local range = 15 -- 히트박스의 반지름
