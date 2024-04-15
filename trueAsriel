@@ -39,11 +39,6 @@ end
 hitbox = workspace:FindFirstChild("remoteHitbox")
 bruhtest = workspace:FindFirstChild("remoteHitbox")
 
-function removeHitbox()
-    if bruhtest then
-        bruhtest:Destroy()
-    end
-end
 
 humanoid:GetPropertyChangedSignal("Health"):Connect(function()
     if humanoid.Health <= 0 then
@@ -410,7 +405,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		--	cuffcalls()
 		--elseif player.Character:FindFirstChild("Rope") then
 		--	hogcall()
-		removeHitbox()
+		bruhtest:Destroy()
 	end
 end)
 
