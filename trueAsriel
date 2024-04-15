@@ -318,7 +318,7 @@ function attack()
 				plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
 				 and plr.Character.Hostile.Value and LP.Team ~= plr.Team and plr.Character.Humanoid.Health ~= 0 
 			then
-				if plr.Team.Name == _G.OneTeam then
+					if plr.Team.Name == _G.OneTeam then
 							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
 							task.wait()
 						end
