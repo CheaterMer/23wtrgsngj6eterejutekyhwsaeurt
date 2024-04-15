@@ -406,3 +406,5 @@ game:GetService("RunService").Heartbeat:Connect(function()
     end
 end)
 ]]
+
+print("loading LOCKON completed")
