@@ -15,7 +15,7 @@ local RunService = game:GetService("RunService")
 local LP = Players.LocalPlayer
 
 
-
+local hitbox = createHitbox()
 
 
 local Remotes = {}
@@ -281,6 +281,7 @@ end
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.Q then
+		hitbox = createHitbox()
 		if player.Character:FindFirstChild("Axe") then
 			anime(7286445304)
 			attack()
@@ -368,7 +369,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		--	cuffcalls()
 		--elseif player.Character:FindFirstChild("Rope") then
 		--	hogcall()
-
+		removeHitbox()
 	end
 end)
 
