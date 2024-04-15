@@ -250,23 +250,47 @@ function attack()
 				plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
 				 and plr.Character.Hostile.Value and LP.Team ~= plr.Team and plr.Character.Humanoid.Health ~= 0 
 			then
-				if _G.OneTeamhit == true then
-					if plr.Team.Name == _G.OneTeam then
-						Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
-						task.wait()
-					end
-				elseif _G.OneTeamhit == false and _G.LockOnhit == false then
-					if LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard" then
-						Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
-						task.wait()
-					elseif LP.Team.Name ~= "Civilian" then
-						Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
-						task.wait()
-					end
-				elseif _G.LockOnhit == true then
-					if plr.Name == _G.targetr then
-						Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
-						task.wait()
+				if CFFFFFFF == false then
+					if _G.OneTeamhit == true then
+						if plr.Team.Name == _G.OneTeam then
+							Remotes["UnCuffed"]:FireServer(plr.Character)
+							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+							task.wait()
+						end
+					elseif _G.OneTeamhit == false and _G.LockOnhit == false then
+						if LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard" then
+							Remotes["UnCuffed"]:FireServer(plr.Character)
+							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+							task.wait()
+						elseif LP.Team.Name ~= "Civilian" then
+							Remotes["UnCuffed"]:FireServer(plr.Character)
+							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+							task.wait()
+						end
+					elseif _G.LockOnhit == true then
+						if plr.Name == _G.targetr then
+							Remotes["UnCuffed"]:FireServer(plr.Character)
+							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+							task.wait()
+						end
+				elseif CFFFFFFFF == true then
+						if plr.Team.Name == _G.OneTeam then
+							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+							task.wait()
+						end
+					elseif _G.OneTeamhit == false and _G.LockOnhit == false then
+						if LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard" then
+							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+							task.wait()
+						elseif LP.Team.Name ~= "Civilian" then
+							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+							task.wait()
+						end
+					elseif _G.LockOnhit == true then
+						if plr.Name == _G.targetr then
+							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+							task.wait()
+						end
 					end
 				end
 			end
@@ -383,25 +407,25 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 end)
 
 local StarterGui = game:GetService("StarterGui")
---[[
+
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.G then
 		if CFFFFFF == true then
 			CFFFFFF = false
 			StarterGui:SetCore("SendNotification", {
-				Title = "Cuff and Hog";
-				Text = "Remove"
+				Title = "Helper Type = Hacker hahahah";
+				Text = "+"
 			})
 		elseif CFFFFFF == false then
 			CFFFFFF = true
 			StarterGui:SetCore("SendNotification", {
-				Title = "Cuff and Hog";
-				Text = "Add"
+				Title = "Helper Type = normal";
+				Text = "-"
 			})
 		end
 	end
 end)
-]]
+
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.V then
 		char = game.Players.LocalPlayer.Character
@@ -523,4 +547,4 @@ end)
 ]]
 
 print("loading Helper completed")
-print("loading hitbox completed")
+--print("loading hitbox completed")
