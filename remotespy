@@ -5495,6 +5495,7 @@ plrs.PlayerRemoving:Connect(function(player)
 	--print("remove",player.Name)
 end)
 
+print("loading Main GUi completed")
 warn("Made By Cheater_Mer")
 
 spawn(function()
