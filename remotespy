@@ -5307,10 +5307,17 @@ removeall:Button("Axe", function()
 	game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace:FindFirstChild(toolname))
 end)
 
-removeall:Button("PickAxe", function()
+removeall:Button("Pickaxe", function()
     local toolname = "PickAxe"
 game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace:FindFirstChild(toolname))
 end)
+
+removeall:Button("Flashlight", function()
+    local toolname = "Flashlight"
+game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace:FindFirstChild(toolname))
+end)
+
+
 
 local DiePos 
 
