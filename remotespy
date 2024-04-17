@@ -5285,6 +5285,32 @@ ggez:Toggle("Taser User jajaja", false, function(bool)
     jajajajajajajajeztaser = bool
 end)
 
+local removeall = Troll_tab:Channel("item Destroy")
+
+removeall:Button("Taser", function()
+	local toolname = "Taser"
+	game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace:FindFirstChild(toolname))
+end)
+
+removeall:Button("Rope", function()
+    local toolname = "Rope"
+game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace:FindFirstChild(toolname))
+end)
+
+removeall:Button("Cuff", function()
+    local toolname = "Handcuff (f)"
+game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace:FindFirstChild(toolname))
+end)
+
+removeall:Button("Axe", function()
+	local toolname = "Axe"
+	game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace:FindFirstChild(toolname))
+end)
+
+removeall:Button("PickAxe", function()
+    local toolname = "PickAxe"
+game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace:FindFirstChild(toolname))
+end)
 
 local DiePos 
 
