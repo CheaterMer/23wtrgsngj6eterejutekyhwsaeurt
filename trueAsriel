@@ -314,13 +314,10 @@ function attack()
 			end
 		end
 		for idx, plr in pairs(Players:GetPlayers()) do
-			if
-				plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
-				 and plr.Character.Hostile.Value and LP.Team ~= plr.Team and plr.Character.Humanoid.Health ~= 0 then
+			if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15) and plr.Character.Hostile.Value and LP.Team ~= plr.Team and plr.Character.Humanoid.Health ~= 0 then
 				if plr.Team.Name == _G.OneTeam then
 						Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
 						task.wait()
-					end
 				elseif _G.OneTeamhit == false and _G.LockOnhit == false then
 					if LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard" then
 						Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
@@ -328,7 +325,6 @@ function attack()
 					elseif LP.Team.Name ~= "Civilian" then
 						Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
 						task.wait()
-					end
 				elseif _G.LockOnhit == true then
 					if plr.Name == _G.targetr then
 						Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
