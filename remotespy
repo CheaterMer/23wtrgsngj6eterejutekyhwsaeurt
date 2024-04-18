@@ -5557,5 +5557,5 @@ print("loading Main GUi completed")
 warn("Made By Cheater_Mer")
 
 spawn(function()
-	--game:GetService("CoreGui").Codex:Destroy()
+	game:GetService("CoreGui").Codex:Destroy()
 end)
