@@ -5308,7 +5308,7 @@ removeall:Button("Axe", function()
 end)
 
 removeall:Button("Pickaxe", function()
-    local toolname = "PickAxe"
+    local toolname = "Pickaxe"
 game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace:FindFirstChild(toolname))
 end)
 
