@@ -5332,13 +5332,13 @@ end)
 
 removeall:Button("gag", function()
 	local toolname = "3"
-game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace:FindFirstChild(toolname))
+game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace.SoftLock.table1:FindFirstChild(toolname))
 
 end)
 
 removeall:Button("StraightJacket", function()
 	local toolname = "StraightJacket"
-game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace:FindFirstChild(toolname))
+game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace.SoftLock:FindFirstChild(toolname))
 
 end)
 
