@@ -5322,6 +5322,7 @@ removeall:Button("Collar", function()
 game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace:FindFirstChild(toolname))
 end)
 
+removeall:Label("VIP SERVER")
 
 removeall:Button("AK-47", function()
 	local toolname = "AK-47"
