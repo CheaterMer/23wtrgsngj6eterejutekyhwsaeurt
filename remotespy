@@ -5289,7 +5289,7 @@ local removeall = Troll_tab:Channel("item Destroy")
 
 removeall:Button("AK-47", function()
 	local toolname = "AK-47"
-game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace:FindFirstChild:FindFirstChild(toolname))
+game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace:FindFirstChild(toolname))
 
 end)
 
