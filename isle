@@ -3305,7 +3305,7 @@ local itemlister = getitem:Dropdown(
 )
 
 getitem:Button("One", function()
-	if getitem = nil then
+	if getitem == nil then
 		return
 	end
 	pos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
