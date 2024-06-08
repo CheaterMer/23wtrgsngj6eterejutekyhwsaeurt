@@ -3324,7 +3324,7 @@ door:Button("Open Docks", function()
 end)
 
 toollocal.ChildAdded:Connect(function(var)
-	print("Added",var)
+	print("tools에 아이템이 들어갔습니다. 이름 : ",var)
 	itemlister:Clear()
 	for i,v in pairs(toollocal:GetChildren()) do
 		itemlister:Add(v.Name)
@@ -3332,7 +3332,7 @@ toollocal.ChildAdded:Connect(function(var)
 end)
 
 toollocal.ChildRemoved:Connect(function(var)
-	print("Removed",var)
+	print("tools에 아이템이 사라졌습니다. 이름 : ",var)
 	itemlister:Clear()
 	for i,v in pairs(toollocal:GetChildren()) do
 		itemlister:Add(v.Name)
