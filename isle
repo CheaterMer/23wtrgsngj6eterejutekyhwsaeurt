@@ -3281,18 +3281,22 @@ local client_tab = win:Server("Client", "http://www.roblox.com/asset/?id=6031075
 local Troll_tab = win:Server("White and Black List", "http://www.roblox.com/asset/?id=6031075938")
 
 local getitem = server_tab:Channel("Tools")
+local door = server_tab:Channel("Door")
 local GUI = client_tab:Channel("Gui")
 
 local LIght = game:GetService("Lighting")
 
+local ai = workspace.AIHunter
+local toollocal = Workspace.Map.Ignore.Tools
+
 local gettool
 local tools = {}
 
-for i,v in pairs(Workspace.Map.Ignore.Tools:GetChildren()) do
+for i,v in pairs(toollocal:GetChildren()) do
 	table.insert(tools, v.Name)
 end
 
-getitem:Dropdown(
+local itemlister = getitem:Dropdown(
     "ListTools",
 	tools,
     function(bool)
@@ -3301,6 +3305,9 @@ getitem:Dropdown(
 )
 
 getitem:Button("One", function()
+	if getitem = nil then
+		return
+	end
 	pos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
 	tpos = Workspace.Map.Ignore.Tools:FindFirstChild(gettool).WorldPivot
 	game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(tpos.Position.X,tpos.Position.Y,tpos.Position.Z)
@@ -3311,4 +3318,25 @@ GUI:Button("Remove Water Blur", function()
 	LIght.Blur.Enabled = false
 end
 )
+
+door:Button("Open Docks", function()
+	fireclickdetector(Workspace.Map.Main.Gate.Buttons.Open.ClickDetector)
+end)
+
+toollocal.ChildAdded:Connect(function(var)
+	print("Added",var)
+	itemlister:Clear()
+	for i,v in pairs(toollocal:GetChildren()) do
+		itemlister:Add(v.Name)
+	end
+end)
+
+toollocal.ChildRemoved:Connect(function(var)
+	print("Removed",var)
+	itemlister:Clear()
+	for i,v in pairs(toollocal:GetChildren()) do
+		itemlister:Add(v.Name)
+	end
+end)
+
 
