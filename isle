@@ -3288,7 +3288,7 @@ local user = client_tab:Channel("User")
 local LIght = game:GetService("Lighting")
 local Players = game:GetService("Players")
 
-local highlight = Instance("Highlight")
+local highlight = Instance.new("Highlight")
 highlight.Name = "Highlight"
 
 local ai = workspace.AIHunter
@@ -3346,7 +3346,7 @@ toollocal.ChildRemoved:Connect(function(var)
 end)
 
 
-user:Button(function()
+user:Button( "User Esp" , function()
 	for i,v in pairs(Players:GetChildren()) do
 		repeat wait() until v.Character
 		if v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") == nil then
