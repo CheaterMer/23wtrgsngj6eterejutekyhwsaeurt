@@ -3283,11 +3283,17 @@ local Troll_tab = win:Server("White and Black List", "http://www.roblox.com/asse
 local getitem = server_tab:Channel("Tools")
 local door = server_tab:Channel("Door")
 local GUI = client_tab:Channel("Gui")
+local user = client_tab:Channel("User")
 
 local LIght = game:GetService("Lighting")
+local Players = game:GetService("Players")
+
+local highlight = Instance("Highlight")
+highlight.Name = "Highlight"
 
 local ai = workspace.AIHunter
 local toollocal = Workspace.Map.Ignore.Tools
+
 
 local gettool
 local tools = {}
@@ -3325,18 +3331,31 @@ end)
 
 toollocal.ChildAdded:Connect(function(var)
 	print("tools에 아이템이 들어갔습니다. 이름 : ",var)
-	itemlister:Clear()
-	for i,v in pairs(toollocal:GetChildren()) do
-		itemlister:Add(v.Name)
-	end
+	--itemlister:Clear()
+	--for i,v in pairs(toollocal:GetChildren()) do
+		--itemlister:Add(v.Name)
+--	end
 end)
 
 toollocal.ChildRemoved:Connect(function(var)
 	print("tools에 아이템이 사라졌습니다. 이름 : ",var)
-	itemlister:Clear()
-	for i,v in pairs(toollocal:GetChildren()) do
-		itemlister:Add(v.Name)
-	end
+	--itemlister:Clear()
+	--for i,v in pairs(toollocal:GetChildren()) do
+		--itemlister:Add(v.Name)
+	--end
 end)
 
 
+user:Button(function()
+	for i,v in pairs(Players:GetChildren()) do
+		repeat wait() until v.Character
+		if v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") == nil then
+			local highlightClone = highlight:Clone()
+			highlightClone.Adornee = v.Character
+			highlightClone.Parent = v.Character
+			highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+			highlightClone.Name = "Highlight"
+			wait(0.5)
+		end
+	end
+end)
