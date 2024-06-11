@@ -3325,6 +3325,12 @@ GUI:Button("Remove Water Blur", function()
 end
 )
 
+GUI:Button("Remove World Shadow", function()
+	LIght.Ambient = Color3.new(255,255,255)
+	LIght.ColorShift_Bottom = Color3.new(255,255,255)
+	LIght.
+end)
+
 door:Button("Open Docks", function()
 	fireclickdetector(Workspace.Map.Main.Gate.Buttons.Open.ClickDetector)
 end)
@@ -3351,6 +3357,39 @@ user:Button( "User Esp" , function()
 		repeat wait() until v.Character
 		if v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") == nil then
 			local highlightClone = highlight:Clone()
+			highlightClone.Adornee = v.Character
+			highlightClone.Parent = v.Character
+			highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+			highlightClone.Name = "Highlight"
+			wait(0.5)
+		end
+	end
+end)
+
+user:Button( "Tool Esp" , function()
+	for i,v in pairs(toollocal:GetChildren()) do
+		-- print(v)
+		 if v.ClassName == "Model" and v:FindFirstChild("Highlight") == nil then
+			 --print("adsf")
+			 local highlightClone = highlight:Clone()
+			 highlightClone.FillColor = Color3.new(255,255,0)
+			 highlightClone.OutlineColor = Color3.new(255,255,0)
+			 highlightClone.Adornee = v
+			 highlightClone.Parent = v
+			 highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+			 highlightClone.Name = "Highlight"
+			 wait(0.5)
+		 end
+	 end 
+end)
+
+user:Button("Mob Esp" , function()
+	for i,v in pairs(ai:GetChildren()) do
+		repeat wait() until v.Character
+		if v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") == nil then
+			local highlightClone = highlight:Clone()
+			highlightClone.FillColor = Color3.new(0,0,255)
+			highlightClone.OutlineColor = Color3.new(0,0,255)
 			highlightClone.Adornee = v.Character
 			highlightClone.Parent = v.Character
 			highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
