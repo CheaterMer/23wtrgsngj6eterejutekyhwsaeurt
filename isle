@@ -3345,6 +3345,11 @@ end)
 
 toollocal.ChildRemoved:Connect(function(var)
 	print("tools에 아이템이 사라졌습니다. 이름 : ",var)
+	for i,v in pairs(Players:GetChildren()) do
+		if v.Backpack:FindFirstChild(var) then
+			print(v.Name, " 이가 tools 에서", var, "를 수집하였습니다.")
+		end
+	end
 	--itemlister:Clear()
 	--for i,v in pairs(toollocal:GetChildren()) do
 		--itemlister:Add(v.Name)
