@@ -582,7 +582,7 @@ end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.G then
-		unitems()
+		unitem()
 	end
 end)
 
