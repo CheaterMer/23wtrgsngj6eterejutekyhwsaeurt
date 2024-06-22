@@ -586,7 +586,12 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		elseif player.Character:FindFirstChild("Rope") then
 			hoglast()
 			--hogcall()
-		--bruhtest:Destroy()
+		elseif player.Character:FindFirstChild("") then
+			if notool == true then
+				cuff()
+			elseif notool == false then
+				hoglast()
+			end
 		end
 	end
 end)
@@ -606,6 +611,16 @@ end)
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.G then
 		unitemss()
+	end
+end)
+
+game:GetService("UserInputService").InputBegan:Connect(function(inp)
+    if inp.KeyCode == Enum.KeyCode.R then
+		if notool == true then
+			notool = false
+		elseif notool == false then
+			notool = true
+		end
 	end
 end)
 
