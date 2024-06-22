@@ -133,10 +133,12 @@ local function spawnRandomCharacter()
 end
 
 -- 일정 시간마다 글자 생성
-while true do
-    wait(1) -- 1초마다 실행
-    spawnRandomCharacter() -- 함수 호출
-end
+spawn(function()
+    while true do
+        wait(1) -- 1초마다 실행
+        spawnRandomCharacter() -- 함수 호출
+    end
+end)
 
 print("loading tail completed")
 print("loading text completed")
