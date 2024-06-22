@@ -4693,6 +4693,7 @@ while task.wait() do
 					plr ~= LP 
 					and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, LPRing)
 					--and LP.Team ~= plr.Team
+					and plr.Character.IsCuffed.Value == false
 				then
 					Remotes["UnCuffed"]:FireServer(plr.Character)
 					task.wait(0.1)
@@ -4713,33 +4714,7 @@ end)
 
 extra_channel:Label("  ")
 
-task.spawn(function()
-	while task.wait() do
-		if safezoneValue == true then
-			pcall(function()
-				for idx, plr in pairs(Players:GetPlayers()) do
-					if
-						plr ~= LP 
-						and CheckRange(safezone, plr.Character.HumanoidRootPart, Ring)
-					then
-						Remotes["UnCuffed"]:FireServer(plr.Character)
-						task.wait(0.1)
-					end
-				end
-			end)
-		end
-	end
-end)
 
-extra_channel:Slider("Range", 0, 50, Ring, function(value)
-	Ring = value
-end)
-
-extra_channel:Toggle("Safezone Enable", false, function (bool)
-	safezoneValue = bool
-end)
-
-extra_channel:Label("  ")
 
 extra_channel:Toggle("Remove A Part", false, function (bool)
 	partdelety = bool
