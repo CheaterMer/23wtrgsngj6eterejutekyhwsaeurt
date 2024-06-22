@@ -166,8 +166,27 @@ end
 
 
 ---CUSTOM CHARACTER TAB -DEATH-
-local Custom = TabC:CreateLabel('Made-Up Customs *Use in-menu*')
---Death
+local LockOn = TabC:CreateLabel('*menu*')
+
+local taser 
+
+TabC:CreateToggle("Taser",false,function(selff)
+    taser = selff
+end)
+
+task.spawn(function()
+    while task.wait() do
+        pcall(function()
+            if taser then
+                Remotes["Tase"]:FireServer("Hit", findtools("Taser"), game:GetService("Players"):WaitForChild(_G.targetr).Character.Head)
+                task.wait()
+                Remotes["Tase"]:FireServer("Recharge", findtools("Taser"))
+                task.wait()
+            end
+        end) 
+    end
+end)
+
 TabC:CreateButton("Taser",function()
         Remotes["Tase"]:FireServer("Hit", findtools("Taser"), game:GetService("Players"):WaitForChild(_G.targetr).Character.Head)
 		task.wait()
