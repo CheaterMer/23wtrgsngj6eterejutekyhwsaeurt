@@ -5,7 +5,7 @@ local Window = library:CreateWindow("Mer-Cute", Enum.KeyCode.RightControl, "Disc
 
 local TabE = Window:CreateTab("Extra", "3192485759")
 local TabU = Window:CreateTab("Update Log", "3192485759")
-local TabC = Window:CreateTab("Custom C", "3192485759")
+local TabC = Window:CreateTab("Lock On", "3192485759")
 local TabS = Window:CreateTab("Custom Stuff", "3192485759")
 local TabM = Window:CreateTab("Damage M", "3192485759")
 local TabMisc = Window:CreateTab("MISC", "3192485759")
@@ -170,13 +170,11 @@ local LockOn = TabC:CreateLabel('*menu*')
 
 local taser 
 
-TabC:CreateToggle("Taser",false,function(selff)
-    taser = selff
-end)
+
 
 task.spawn(function()
     while task.wait() do
-        pcall(function()
+        spawn(function()
             if taser then
                 Remotes["Tase"]:FireServer("Hit", findtools("Taser"), game:GetService("Players"):WaitForChild(_G.targetr).Character.Head)
                 task.wait()
@@ -187,7 +185,11 @@ task.spawn(function()
     end
 end)
 
-TabC:CreateButton("Taser",function()
+TabC:CreateToggle("Loop Taser",false,false,function(asdf)
+    taser = asdf
+end)
+
+TabC:CreateButton("One Taser",function()
         Remotes["Tase"]:FireServer("Hit", findtools("Taser"), game:GetService("Players"):WaitForChild(_G.targetr).Character.Head)
 		task.wait()
 		Remotes["Tase"]:FireServer("Recharge", findtools("Taser"))
