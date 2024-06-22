@@ -401,7 +401,7 @@ function attack()
 end
 ]]
 
-function unitem()
+function unitemss()
 	pcall(function()
 		local tool
 		for i,v in pairs(attack_tools) do
@@ -582,7 +582,7 @@ end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.G then
-		unitem()
+		unitemss()
 	end
 end)
 
