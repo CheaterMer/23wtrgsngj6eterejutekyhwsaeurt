@@ -4664,15 +4664,15 @@ combat_channel:Button("Grab Player", function()
 	--	local cuff = LP.Backpack:FindFirstChild("Handcuffs")
 	--end
 
-	spawn(function()
-		fireclickdetector(workspace.Pickaxe.ClickDetector)
-		fireclickdetector(workspace.Axe.ClickDetector)
-		fireclickdetector(workspace.Taser.ClickDetector)
-		fireclickdetector(workspace.Rope.ClickDetector)
-		fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
-		fireclickdetector(workspace.KeyCard.ClickDetector)
-		fireclickdetector(workspace.Rope.ClickDetector)
-	end)
+--	spawn(function()
+--		fireclickdetector(workspace.Pickaxe.ClickDetector)
+--		fireclickdetector(workspace.Axe.ClickDetector)
+--		fireclickdetector(workspace.Taser.ClickDetector)
+--		fireclickdetector(workspace.Rope.ClickDetector)
+--		fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
+--		fireclickdetector(workspace.KeyCard.ClickDetector)
+--		fireclickdetector(workspace.Rope.ClickDetector)
+--	end)
 
 	--task.wait(1)
 	--do
@@ -4692,9 +4692,9 @@ combat_channel:Button("Grab Player", function()
 
 	--pcall(function()
 		if targasdsdaset.Character.RagDoll.Value == false then
-		Remotes["Tase"]:FireServer("Hit", LP.Backpack.Taser, targasdsdaset.Character.Head)
+		Remotes["Tase"]:FireServer("Hit", findtools("Taser"), targasdsdaset.Character.Head)
 		task.wait(0.5)
-		Remotes["Tase"]:FireServer("Recharge", LP.Backpack.Taser)
+		Remotes["Tase"]:FireServer("Recharge", findtools("Taser"))
 		task.wait()
 		end
 	--end)
@@ -4703,7 +4703,7 @@ combat_channel:Button("Grab Player", function()
 	pcall(function()
     --repeat
 	if targasdsdaset.Character.IsCuffed.Value == false then
-        Remotes["IsCuffed"]:FireServer(cuff, targasdsdaset.Character)
+        Remotes["IsCuffed"]:FireServer(findtool("Handcuffs"), targasdsdaset.Character)
         task.wait(0.1)
 	end
     --until targasdsdaset.Character.IsCuffed.Value
