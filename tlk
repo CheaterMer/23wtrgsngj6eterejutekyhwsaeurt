@@ -3348,6 +3348,27 @@ local function GetPlayer(name)
     return nil
 end
 
+local ToolFinder 
+
+function findtool(toolName)
+	if LP.Backpack:FindFirstChild(toolName) then
+        ToolFinder = LP.Backpack:FindFirstChild(toolName)
+        print("backpack")
+		return ToolFinder
+	elseif workspace:FindFirstChild(toolName) then
+        ToolFinder = workspace:FindFirstChild(toolName)
+        print("workspace")
+		return ToolFinder
+    elseif workspace:FindFirstChild(toolName) == nil then
+        for i,v in pairs(Players:GetChildren()) do
+            if v.Backpack:FindFirstChild(toolName) then
+                ToolFinder = v.Backpack:FindFirstChild(toolName)
+                return ToolFinder
+            end
+        end
+	end
+end
+
 local win = DiscordLib:Window("TLK Panel")
 
 --local server_tab = win:Server("Server", getcustomasset("TLK_ASSETS/"..assets["ServerIcon"]["Name"]))
