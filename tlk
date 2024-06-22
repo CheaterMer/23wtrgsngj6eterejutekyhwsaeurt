@@ -3586,7 +3586,7 @@ for idx, plr in pairs(Players:GetPlayers()) do
 end
 
 task.spawn(function()
-    while task.wait() do
+    while task.wait(0.1) do
 		if BlockTaserhahaha then
 			spawn(function()
 				for i,v in pairs(Players:GetChildren()) do
@@ -3594,7 +3594,7 @@ task.spawn(function()
 					if v.Character.Hostile.Value == false then
 						return
 					end
-					
+
 						if v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true then
 							
 							print(v.Name," Backpack  " , blocktoolNames)
