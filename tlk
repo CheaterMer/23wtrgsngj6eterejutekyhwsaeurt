@@ -3773,7 +3773,7 @@ task.spawn(function()
 						return
 					end
 					if plr ~= LP and plr.Team ~= LP.Team and plr.Character.Hostile.Value == true and plr.Character:FindFirstChild(blockitempick) then
-						for i,v in 0, 5, 1 do
+						for i = 0, 5, 1 do
 							local args = {
 								[1] = "Hit",
 								[2] = findtools("Taser"),
