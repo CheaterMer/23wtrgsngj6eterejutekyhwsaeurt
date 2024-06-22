@@ -4720,7 +4720,7 @@ task.spawn(function()
 				for idx, plr in pairs(Players:GetPlayers()) do
 					if
 						plr ~= LP 
-						and CheckRange(safezone, plr.Character.HumanoidRootPart, 25)
+						and CheckRange(safezone, plr.Character.HumanoidRootPart, Ring)
 					then
 						Remotes["UnCuffed"]:FireServer(plr.Character)
 						task.wait(0.1)
@@ -4732,6 +4732,7 @@ task.spawn(function()
 end)
 
 extra_channel:Slider("Range", 0, 50, Ring, function(value)
+	Ring = value
 end)
 
 extra_channel:Toggle("Safezone Enable", false, function (bool)
