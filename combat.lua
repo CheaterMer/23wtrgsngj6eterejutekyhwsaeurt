@@ -6,7 +6,7 @@ local Window = library:CreateWindow("Mer-Cute", Enum.KeyCode.RightControl, "Disc
 local TabE = Window:CreateTab("Extra", "3192485759")
 local TabU = Window:CreateTab("Update Log", "3192485759")
 local TabC = Window:CreateTab("Lock On", "3192485759")
-local TabS = Window:CreateTab("Custom Stuff", "3192485759")
+local TabS = Window:CreateTab("Range", "3192485759")
 local TabM = Window:CreateTab("Damage M", "3192485759")
 local TabMisc = Window:CreateTab("MISC", "3192485759")
 local TabO = Window:CreateTab("OTHERS", "3192485759")
@@ -163,7 +163,63 @@ function findtools(toolNames)
 	end
 end
 
+function cuffs()
+	pcall(function()
+		for idx, plr in pairs(Players:GetPlayers()) do
+			if
+				plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 10)
+				and plr.Character.Hostile.Value and LP.Team ~= plr.Team and plr.Character.Humanoid.Health ~= 0 
+			then
+				if plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsCuffed.Value == false then
+					Remotes["IsCuffed"]:FireServer(findtool("Handcuffs"), plr.Character)
+						task.wait()
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == true and plr.Character.IsCuffed.Value == false then
+					if plr.Name == _G.targetr then
+						Remotes["IsCuffed"]:FireServer(findtool("Handcuffs"), plr.Character)
+						task.wait()
+					end
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsCuffed.Value == true then
+						Remotes["UnCuffed"]:FireServer(plr.Character)
+						task.wait()
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == true and plr.Character.IsCuffed.Value == true then
+					if plr.Name == _G.targetr then
+						Remotes["UnCuffed"]:FireServer(plr.Character)
+						task.wait()
+					end
+				end
+			end
+		end
+	end) 
+end
 
+function hoglast()
+	pcall(function()
+		for idx, plr in pairs(Players:GetPlayers()) do
+			if
+				plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 10)
+				and plr.Character.Hostile.Value and LP.Team ~= plr.Team and plr.Character.Humanoid.Health ~= 0 
+			then
+				if plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsHogged.Value == false then
+					Remotes["IsHog"]:FireServer(plr.Character,"Hog")
+					task.wait()
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == true and plr.Character.IsHogged.Value == false then
+					if plr.Name == _G.targetr then
+						Remotes["IsHog"]:FireServer(plr.Character,"Hog")
+						task.wait()
+					end
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsHogged.Value == true then
+					Remotes["IsHog"]:FireServer(plr.Character,"UnHog")
+					task.wait()
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == true and plr.Character.IsHogged.Value == true then
+					if plr.Name == _G.targetr then
+						Remotes["IsHog"]:FireServer(plr.Character,"UnHog")
+						task.wait()
+					end
+				end
+			end
+		end
+	end) 
+end
 
 ---CUSTOM CHARACTER TAB -DEATH-
 local LockOn = TabC:CreateLabel('*menu*')
@@ -197,4 +253,10 @@ TabC:CreateButton("One Taser",function()
 end)
 
 
+TabS:CreateButton("Cuffed",function()
+    cuffs()
+end)
 
+TabS:CreateButton("Hogged",function()
+    hoglast()
+end)
