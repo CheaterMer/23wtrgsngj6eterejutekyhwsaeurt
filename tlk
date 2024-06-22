@@ -3370,17 +3370,19 @@ function findtool(toolName)
 	end
 end
 
+local ToolFinders
+
 function findtools(toolNames)
 	if LP.Backpack:FindFirstChild(toolNames) then
-        ToolFinder = LP.Backpack:FindFirstChild(toolNames)
+        ToolFinders = LP.Backpack:FindFirstChild(toolNames)
         print("backpack")
-		return ToolFinder
+		return ToolFinders
     elseif workspace:FindFirstChild(toolNames) == nil then
         for i,v in pairs(Players:GetChildren()) do
             if v.Backpack:FindFirstChild(toolNames) then
 				print(v.Name,"   " , toolNames)
-                ToolFinder = v.Backpack:FindFirstChild(toolNames)
-                return ToolFinder
+                ToolFinders = v.Backpack:FindFirstChild(toolNames)
+                return ToolFinders
             end
         end
 	end
