@@ -3600,7 +3600,7 @@ task.spawn(function()
 
 						elseif v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team == LP.Team then
 
-							print(v.Name," Character  " , blocktoolNames)
+							print(v.Name," Backpack other " , blocktoolNames)
 							ToolFinders = v.Character:FindFirstChild(blocktoolNames)
 
 							for idx, plr in pairs(Players:GetPlayers()) do
@@ -3620,7 +3620,7 @@ task.spawn(function()
 
 					elseif v ~= LP and v.Character:FindFirstChild(blocktoolNames) and v.Character:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team == LP.Team then
 
-						print(v.Name," Character  " , blocktoolNames)
+						print(v.Name," Character other  " , blocktoolNames)
 						ToolFinders = v.Character:FindFirstChild(blocktoolNames)
 
 						for idx, plr in pairs(Players:GetPlayers()) do
