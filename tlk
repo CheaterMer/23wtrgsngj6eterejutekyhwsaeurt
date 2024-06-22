@@ -4057,6 +4057,8 @@ function hoglast()
 	end) 
 end
 
+player_channel:Label("  ")
+
 player_channel:Button("OAC", function()
 	cuffs()
 end)
