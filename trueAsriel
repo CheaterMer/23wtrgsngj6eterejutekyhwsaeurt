@@ -599,18 +599,18 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		spawn(function()
 		anime(7568092298)
 		end)
-          --char.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
-          local tar = char.HumanoidRootPart.CFrame*CFrame.new(0,15,0) + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 60
-          --char.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
-          local v2 = Instance.new('BodyPosition',char.HumanoidRootPart) 
-          local fol = Instance.new('Folder',v2)
-          v2.Name = 'Client' 
-          v2.MaxForce = Vector3.new(1,1,1)*100000 
-          v2.D = 2500 
-          v2.P = 60000 
-          v2.Position = (tar).p
-		  wait(0.2)
-		  v2:Destroy()
+        --char.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+        local tar = char.HumanoidRootPart.CFrame*CFrame.new(0,15,0) + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 60
+        --char.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+        local v2 = Instance.new('BodyPosition',char.HumanoidRootPart) 
+        local fol = Instance.new('Folder',v2)
+        v2.Name = 'Client' 
+        v2.MaxForce = Vector3.new(1,1,1)*100000 
+        v2.D = 2500 
+        v2.P = 60000 
+        v2.Position = (tar).p
+		wait(0.2)
+		v2:Destroy()
 	end
 end)
 
