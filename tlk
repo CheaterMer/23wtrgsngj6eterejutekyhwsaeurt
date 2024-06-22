@@ -4307,7 +4307,7 @@ task.spawn(function()
         if killaura then pcall(function()
             local tool
             for i,v in pairs(attack_tools) do
-                local t = LP.Character:FindFirstChild(v) or LP.Backpack:FindFirstChild(v)
+                local t = LP.Character:FindFirstChild(v) or LP.Backpack:FindFirstChild(v) or workspace:FindFirstChild(v)
                 if t then
                     --t.Parent = LP.Character
                     tool = t
