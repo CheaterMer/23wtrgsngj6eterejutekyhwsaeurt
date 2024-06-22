@@ -3591,7 +3591,7 @@ task.spawn(function()
 			spawn(function()
 				for i,v in pairs(Players:GetChildren()) do
 					
-						if v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team then
+						if v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true then
 							
 							print(v.Name," Backpack  " , blocktoolNames)
 							ToolFinders = v.Backpack:FindFirstChild(blocktoolNames)
