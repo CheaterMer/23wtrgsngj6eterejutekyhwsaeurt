@@ -401,7 +401,7 @@ function attack()
 end
 ]]
 
-function cuffs()
+function unitem()
 	pcall(function()
 		local tool
 		for i,v in pairs(attack_tools) do
@@ -582,8 +582,7 @@ end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.G then
-		local yoooooff = game:GetService("Players"):FindFirstChild(_G.targetr)
-		Remotes["UnCuffed"]:FireServer(yoooooff.Character)
+		unitems()
 	end
 end)
 
