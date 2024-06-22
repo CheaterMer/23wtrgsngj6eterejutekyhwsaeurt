@@ -3370,6 +3370,22 @@ function findtool(toolName)
 	end
 end
 
+function findtool(toolNames)
+	if LP.Backpack:FindFirstChild(toolName) then
+        ToolFinder = LP.Backpack:FindFirstChild(toolName)
+        print("backpack")
+		return ToolFinder
+    elseif workspace:FindFirstChild(toolName) == nil then
+        for i,v in pairs(Players:GetChildren()) do
+            if v.Backpack:FindFirstChild(toolName) then
+				print(v.Name,"   " , toolName)
+                ToolFinder = v.Backpack:FindFirstChild(toolName)
+                return ToolFinder
+            end
+        end
+	end
+end
+
 local win = DiscordLib:Window("TLK Panel")
 
 --local server_tab = win:Server("Server", getcustomasset("TLK_ASSETS/"..assets["ServerIcon"]["Name"]))
@@ -4137,7 +4153,7 @@ task.spawn(function()
 				}
 				
 				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-				
+
 			elseif not LP.Backpack:FindFirstChild("Taesr") and not LP.Character:FindFirstChild("Taser") then
 
 				local args = {
