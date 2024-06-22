@@ -3486,7 +3486,7 @@ end)
 task.spawn(function()
     while task.wait() do
 		if infFoods then
-spawn(function()
+			spawn(function()
 			for i,v in pairs(LP.Character:GetChildren()) do
 				if v.Name == "Food" then
 					task.wait(0.01)
@@ -3573,8 +3573,31 @@ block_tools_channel:Button("Get Tools", function()
 end)
 
 
+block_tools_channel:Toggle("Block Taser", false, function(bool)
+    BlockTaserhahaha = bool
+end)
 
-
+task.spawn(function()
+    while task.wait() do
+		if BlockTaserhahaha then
+			spawn(function()
+				for i,v in pairs(Players:GetChildren()) do
+					if v.Backpack:FindFirstChild(toolNames) then
+						if v ~= LP and v.Backpack:FindFirstChild(toolNames) and v.Backpack:FindFirstChild(toolNames).Charged.Value == true then
+							print(v.Name," Backpack  " , toolNames)
+							ToolFinders = v.Backpack:FindFirstChild(toolNames)
+							Remotes["Tase"]:FireServer("Hit", ToolFinders, v.Character.Head)
+						end
+					elseif v ~= LP and v.Character:FindFirstChild(toolNames) and v.Character:FindFirstChild(toolNames).Charged.Value == true then
+						print(v.Name," Character  " , toolNames)
+						ToolFinders = v.Character:FindFirstChild(toolNames)
+						Remotes["Tase"]:FireServer("Hit", ToolFinders, v.Character.Head)
+					end
+				end
+			end)
+		end
+	end
+end)
 
 block_tools_channel:Label("  ")
 
