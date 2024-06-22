@@ -4722,6 +4722,7 @@ task.spawn(function()
 						and CheckRange(safezone, plr.Character.HumanoidRootPart, 25)
 					then
 						Remotes["UnCuffed"]:FireServer(plr.Character)
+						task.wait(0.1)
 					end
 				end
 			end)
