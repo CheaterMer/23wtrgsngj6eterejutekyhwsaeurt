@@ -4286,6 +4286,23 @@ player_channel:Button("One", function()
 			
 			game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
 		
+			elseif not LP.Backpack:FindFirstChild("Taesr") and not LP.Character:FindFirstChild("Taser") then
+
+				local args = {
+					[1] = "Hit",
+					[2] = findtools("Taser"),
+					[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
+				}
+				
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+				wait()
+				local args = {
+					[1] = "Recharge",
+					[2] = findtools("Taser")
+				}
+				
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+
 
 	end
 end)
