@@ -570,12 +570,6 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		elseif player.Character:FindFirstChild("Rope") then
 			hoglast()
 			--hogcall()
-		elseif player.Character:FindFirstChild("") then
-			if notool == true then
-				cuff()
-			elseif notool == false then
-				hoglast()
-			end
 		end
 	end
 end)
@@ -598,19 +592,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 	end
 end)
 
-local notool 
 
-game:GetService("UserInputService").InputBegan:Connect(function(inp)
-    if inp.KeyCode == Enum.KeyCode.R then
-		if notool == true then
-			notool = false
-			print("False")
-		elseif notool == false then
-			notool = true
-			print("True")
-		end
-	end
-end)
 
 local StarterGui = game:GetService("StarterGui")
 
