@@ -4030,14 +4030,6 @@ end
 
 function hoglast()
 	pcall(function()
-		local tool
-		for i,v in pairs(attack_tools) do
-			local t = LP.Character:FindFirstChild(v)
-			if t then
-				tool = t
-				break
-			end
-		end
 		for idx, plr in pairs(Players:GetPlayers()) do
 			if
 				plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 10)
