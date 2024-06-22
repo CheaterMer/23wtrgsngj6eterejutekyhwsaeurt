@@ -252,6 +252,33 @@ TabC:CreateButton("One Taser",function()
 		task.wait()
 end)
 
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local LP = Players.LocalPlayer
+
+
+local toolNames = "Taser"
+
+
+
+for i,v in pairs(Players:GetChildren()) do
+    if v.Backpack:FindFirstChild(toolNames) then
+        if v ~= LP and v.Backpack:FindFirstChild(toolNames) and v.Backpack:FindFirstChild(toolNames).Charged.Value == true then
+			print(v.Name," Backpack  " , toolNames)
+            ToolFinders = v.Backpack:FindFirstChild(toolNames)
+			Remotes["Tase"]:FireServer("Hit", ToolFinders, targasdsdaset.Character.Head)
+        end
+    elseif v ~= LP and v.Character:FindFirstChild(toolNames) and v.Character:FindFirstChild(toolNames).Charged.Value == true then
+        print(v.Name," Character  " , toolNames)
+        ToolFinders = v.Character:FindFirstChild(toolNames)
+        Remotes["Tase"]:FireServer("Hit", ToolFinders, targasdsdaset.Character.Head)
+    end
+end
+
+
+
+
 
 TabS:CreateButton("Cuffed",function()
     cuffs()
