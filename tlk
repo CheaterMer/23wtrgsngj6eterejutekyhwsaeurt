@@ -3371,15 +3371,15 @@ function findtool(toolName)
 end
 
 function findtools(toolNames)
-	if LP.Backpack:FindFirstChild(toolName) then
-        ToolFinder = LP.Backpack:FindFirstChild(toolName)
+	if LP.Backpack:FindFirstChild(toolNames) then
+        ToolFinder = LP.Backpack:FindFirstChild(toolNames)
         print("backpack")
 		return ToolFinder
-    elseif workspace:FindFirstChild(toolName) == nil then
+    elseif workspace:FindFirstChild(toolNames) == nil then
         for i,v in pairs(Players:GetChildren()) do
-            if v.Backpack:FindFirstChild(toolName) then
-				print(v.Name,"   " , toolName)
-                ToolFinder = v.Backpack:FindFirstChild(toolName)
+            if v.Backpack:FindFirstChild(toolNames) then
+				print(v.Name,"   " , toolNames)
+                ToolFinder = v.Backpack:FindFirstChild(toolNames)
                 return ToolFinder
             end
         end
