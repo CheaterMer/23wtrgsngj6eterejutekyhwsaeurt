@@ -4695,6 +4695,7 @@ while task.wait() do
 					--and LP.Team ~= plr.Team
 				then
 					Remotes["UnCuffed"]:FireServer(plr.Character)
+					task.wait(0.1)
 				end
 			end
 		end)
