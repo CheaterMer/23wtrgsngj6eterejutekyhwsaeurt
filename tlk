@@ -3362,6 +3362,7 @@ function findtool(toolName)
     elseif workspace:FindFirstChild(toolName) == nil then
         for i,v in pairs(Players:GetChildren()) do
             if v.Backpack:FindFirstChild(toolName) then
+				print(v.Name,"   " , toolName)
                 ToolFinder = v.Backpack:FindFirstChild(toolName)
                 return ToolFinder
             end
