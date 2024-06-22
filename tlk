@@ -4137,6 +4137,7 @@ task.spawn(function()
 				}
 				
 				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+				
 			elseif not LP.Backpack:FindFirstChild("Taesr") and not LP.Character:FindFirstChild("Taser") then
 
 				local args = {
