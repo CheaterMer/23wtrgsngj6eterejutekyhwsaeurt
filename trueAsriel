@@ -547,7 +547,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 					task.wait()
 					local args = {
 						[1] = "Hit",
-						[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+						[2] = findtool("Taser"),
 						[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
 					}
 					game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
@@ -556,7 +556,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 				anime(8109052918)
 				local args = {
 					[1] = "Recharge",
-					[2] = game:GetService("Players").LocalPlayer.Character.Taser
+					[2] = findtool("Taser")
 				}
 				
 				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
