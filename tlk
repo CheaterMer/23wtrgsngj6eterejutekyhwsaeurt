@@ -4160,7 +4160,7 @@ task.spawn(function()
 
 				local args = {
 					[1] = "Hit",
-					[2] = findtool("Taser"),
+					[2] = findtools("Taser"),
 					[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
 				}
 				
@@ -4168,7 +4168,7 @@ task.spawn(function()
 				wait()
 				local args = {
 					[1] = "Recharge",
-					[2] = findtool("Taser")
+					[2] = findtools("Taser")
 				}
 				
 				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
