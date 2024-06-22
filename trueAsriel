@@ -586,12 +586,6 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 	end
 end)
 
-game:GetService("UserInputService").InputBegan:Connect(function(inp)
-    if inp.KeyCode == Enum.KeyCode.B then
-		hoglast()
-	end
-end)
-
 local StarterGui = game:GetService("StarterGui")
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
