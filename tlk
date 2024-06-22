@@ -3781,7 +3781,7 @@ task.spawn(function()
 							}
 							
 							game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-							task.wait(0.1)
+							task.wait(0.25)
 							local args = {
 								[1] = "Recharge",
 								[2] = findtools("Taser")
