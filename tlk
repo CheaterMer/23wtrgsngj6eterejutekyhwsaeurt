@@ -3295,51 +3295,6 @@ local vmkey = workspace["Vending Machine"].Keypad.Buttons.Keys
 local vmyes = workspace["Vending Machine"].Keypad.Buttons.Enter
 local vmcen = workspace["Vending Machine"].Keypad.Buttons.Cancel
 
--- 파트 개수 계산 함수
-local function countParts()
-    local parts = Players:GetChildren()  -- 현재 워크스페이스에 있는 모든 오브젝트 가져오기
-    local partCount = 0
-
-	pcall(function()
-	for _, part in pairs(Players:GetPlayers()) do
-        if part ~= LP then
-        for A,B in pairs(part.Character:GetChildren()) do
-        if B.Name == "A" then
-			partCount = partCount + 1
-       	end
-        end
-        end
-        end
-	end)
-
-
-    return partCount
-end
-
--- 파트 삭제 함수
-local function deleteExtraParts()
-    local parts = Players:GetChildren()
-    local extraParts = countParts() - MAX_PART_COUNT  -- 초과된 파트 개수 계산
-    if extraParts > 0 then
-		pcall(function()
-		for _, part in pairs(Players:GetPlayers()) do
-			if part ~= LP then
-			for A,B in pairs(part.Character:GetChildren()) do
-			if B.Name == "A" then
-				part:Destroy()
-				extraParts = extraParts - 1
-				if extraParts <= 0 then
-                    break
-				end
-			end
-			end
-			end
-			end
-		end)
-        print("초과된 파트를 삭제했습니다.")
-    end
-end
-
 local assets = {
     ["ServerIcon"] = {
         ["Name"] = "servericon.png",
@@ -3406,6 +3361,7 @@ local block_tools_channel = server_tab:Channel("Tools")
 local except_friends = false
 local block_tools = false
 local infHamburger = false
+local BlockTaseritTaser = false
 local StarterGui = game: GetService("StarterGui")
 
 _G.forcestop = false
@@ -3443,13 +3399,15 @@ end)
 task.spawn(function()
     while task.wait() do
 		if infHamburger then
+			spawn(function()
 			fireclickdetector(workspace.Hamburger.ClickDetector)
 			for i,v in pairs(LP.Backpack:GetChildren()) do
 				if v.Name == "Hamburger" then
-					--task.wait(0.01)
+					task.wait(0.01)
 				v.Parent = LP.Character
 				end
 			end
+		end)
 		end
 	end
 end)
@@ -3457,12 +3415,14 @@ end)
 task.spawn(function()
     while task.wait() do
 		if infHamburgers then
+			spawn(function()
 			for i,v in pairs(LP.Character:GetChildren()) do
 				if v.Name == "Hamburger" then
-					--task.wait(0.01)
+					task.wait(0.01)
 				v.Parent = game.Workspace
 				end
 			end
+		end)
 		end
 	end
 end)
@@ -3470,13 +3430,15 @@ end)
 task.spawn(function()
     while task.wait() do
 		if infFood then
+spawn(function()
 			fireclickdetector(workspace.Food.Main.ClickDetector)
 			for i,v in pairs(LP.Backpack:GetChildren()) do
 				if v.Name == "Food" then
-					--task.wait(0.01)
+					task.wait(0.01)
 				v.Parent = LP.Character
 				end
 			end
+		end)
 		end
 	end
 end)
@@ -3484,12 +3446,14 @@ end)
 task.spawn(function()
     while task.wait() do
 		if infFoods then
+spawn(function()
 			for i,v in pairs(LP.Character:GetChildren()) do
 				if v.Name == "Food" then
-					--task.wait(0.01)
+					task.wait(0.01)
 				v.Parent = game.Workspace
 				end
 			end
+		end)
 		end
 	end
 end)
@@ -3500,72 +3464,77 @@ end)
 
 block_tools_channel:Button("Get Tools", function()
 
-
-	if LP.Team.Name == "Guard" then
-		LP.Backpack:FindFirstChild("KeyCard"):Destroy()
-		task.wait(0.2)
-		LP.Backpack:FindFirstChild("Handcuffs").Parent = LP
-		task.wait(0.2)
-		LP.Backpack:FindFirstChild("PoliceBaton"):Destroy()
-		task.wait(0.2)
-		LP.Backpack:FindFirstChild("Grab").Parent = LP
-		task.wait(0.2)
-		LP.Backpack:FindFirstChild("Flashlight"):Destroy()
-		task.wait(0.2)
-		fireclickdetector(workspace.Axe.ClickDetector)
-		task.wait(0.2)
-		fireclickdetector(workspace.Pickaxe.ClickDetector)
-		task.wait(0.2)
-		fireclickdetector(workspace.Taser.ClickDetector)
-		task.wait(0.4)
-		LP:FindFirstChild("Handcuffs").Parent = LP.Backpack
-		task.wait(0.2)
-		fireclickdetector(workspace.Rope.ClickDetector)
-	elseif LP.Team.Name == "Prisoner" then
-		fireclickdetector(workspace.Axe.ClickDetector)
-		fireclickdetector(workspace.Pickaxe.ClickDetector)
-		fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
-		fireclickdetector(workspace.Rope.ClickDetector)
-		fireclickdetector(workspace.KeyCard.ClickDetector)
-	elseif LP.Team.Name == "Choosing" then
-		fireclickdetector(workspace.Axe.ClickDetector)
-		fireclickdetector(workspace.Pickaxe.ClickDetector)
-		fireclickdetector(workspace.Taser.ClickDetector)
-		fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
-		fireclickdetector(workspace.Rope.ClickDetector)
-		fireclickdetector(workspace.KeyCard.ClickDetector)
-	elseif LP.Team.Name == "Fugitives" then
-		LP.Backpack:FindFirstChild("Fist"):Destroy()
-		task.wait(0.2)
-		LP.Backpack:FindFirstChild("Grab"):Destroy()
-		task.wait(0.2)
-		fireclickdetector(workspace.Axe.ClickDetector)
-		fireclickdetector(workspace.Pickaxe.ClickDetector)
-		fireclickdetector(workspace.Taser.ClickDetector)
-		fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
-		fireclickdetector(workspace.Rope.ClickDetector)
-		fireclickdetector(workspace.KeyCard.ClickDetector)
-	elseif LP.Team.Name == "Civilian" then
-		--LP.Backpack:FindFirstChild("Fist"):Destroy()
-		--task.wait(0.2)
-		LP.Backpack:FindFirstChild("Grab"):Destroy()
-		task.wait(0.2)
-		fireclickdetector(workspace.Axe.ClickDetector)
-		fireclickdetector(workspace.Pickaxe.ClickDetector)
-		fireclickdetector(workspace.Taser.ClickDetector)
-		fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
-		fireclickdetector(workspace.Rope.ClickDetector)
-		fireclickdetector(workspace.KeyCard.ClickDetector)
-	end
-   -- for i,v in pairs(workspace:GetDescendants()) do
-     --  if v:IsA("Tool") then
-      --      pcall(function ()
-        --        fireclickdetector(v.ClickDetector)
-       --     end)
-     --   end
-  --  end
+	--[[
+		if LP.Team.Name == "Guard" then
+			LP.Backpack:FindFirstChild("KeyCard"):Destroy()
+			task.wait(0.2)
+			LP.Backpack:FindFirstChild("Handcuffs").Parent = LP
+			task.wait(0.2)
+			LP.Backpack:FindFirstChild("PoliceBaton"):Destroy()
+			task.wait(0.2)
+			LP.Backpack:FindFirstChild("Grab").Parent = LP
+			task.wait(0.2)
+			LP.Backpack:FindFirstChild("Flashlight"):Destroy()
+			task.wait(0.2)
+			fireclickdetector(workspace.Axe.ClickDetector)
+			task.wait(0.2)
+			fireclickdetector(workspace.Pickaxe.ClickDetector)
+			task.wait(0.2)
+			fireclickdetector(workspace.Taser.ClickDetector)
+			task.wait(0.4)
+			LP:FindFirstChild("Handcuffs").Parent = LP.Backpack
+			task.wait(0.2)
+			fireclickdetector(workspace.Rope.ClickDetector)
+		elseif LP.Team.Name == "Prisoner" then
+			fireclickdetector(workspace.Axe.ClickDetector)
+			fireclickdetector(workspace.Pickaxe.ClickDetector)
+			fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
+			fireclickdetector(workspace.Rope.ClickDetector)
+			fireclickdetector(workspace.KeyCard.ClickDetector)
+		elseif LP.Team.Name == "Choosing" then
+			fireclickdetector(workspace.Axe.ClickDetector)
+			fireclickdetector(workspace.Pickaxe.ClickDetector)
+			fireclickdetector(workspace.Taser.ClickDetector)
+			fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
+			fireclickdetector(workspace.Rope.ClickDetector)
+			fireclickdetector(workspace.KeyCard.ClickDetector)
+		elseif LP.Team.Name == "Fugitives" then
+			LP.Backpack:FindFirstChild("Fist"):Destroy()
+			task.wait(0.2)
+			LP.Backpack:FindFirstChild("Grab"):Destroy()
+			task.wait(0.2)
+			fireclickdetector(workspace.Axe.ClickDetector)
+			fireclickdetector(workspace.Pickaxe.ClickDetector)
+			fireclickdetector(workspace.Taser.ClickDetector)
+			fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
+			fireclickdetector(workspace.Rope.ClickDetector)
+			fireclickdetector(workspace.KeyCard.ClickDetector)
+		elseif LP.Team.Name == "Civilian" then
+			--LP.Backpack:FindFirstChild("Fist"):Destroy()
+			--task.wait(0.2)
+			LP.Backpack:FindFirstChild("Grab"):Destroy()
+			task.wait(0.2)
+			fireclickdetector(workspace.Axe.ClickDetector)
+			fireclickdetector(workspace.Pickaxe.ClickDetector)
+			fireclickdetector(workspace.Taser.ClickDetector)
+			fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
+			fireclickdetector(workspace.Rope.ClickDetector)
+			fireclickdetector(workspace.KeyCard.ClickDetector)
+		end
+	]]
+		for i,v in pairs(workspace:GetDescendants()) do
+		if v:IsA("Tool") then
+				pcall(function ()
+					fireclickdetector(v.ClickDetector)
+				end)
+			end
+		end
 
 end)
+
+
+
+
 
 block_tools_channel:Label("  ")
 
@@ -3583,7 +3552,7 @@ block_tools_channel:Button("Drop Burger", function()
 
 	for i,v in pairs(LP.Character:GetChildren()) do
 		if v.Name == "Hamburger" then
-			--task.wait(0.01)
+			task.wait(0.01)
 		v.Parent = game.Workspace
 		end
 	end
@@ -3603,7 +3572,7 @@ block_tools_channel:Button("Drop Food", function()
 
 	for i,v in pairs(LP.Character:GetChildren()) do
 		if v.Name == "Food" then
-			--task.wait(0.01)
+			task.wait(0.01)
 		v.Parent = game.Workspace
 		end
 	end
@@ -3618,7 +3587,7 @@ local cooldowns = 0.2
 
 task.spawn(function()
     while task.wait() do
-    --pcall(function()
+    pcall(function()
         i = math.random(1,9)
         if VMR then
             task.wait(cooldowns)
@@ -3661,19 +3630,19 @@ task.spawn(function()
             end
         end
         task.wait(cooldowns)
-        --end) 
+        end) 
     end
 end)
 
 task.spawn(function()
     while task.wait() do
-   -- pcall(function()
+    pcall(function()
         task.wait(cooldowns)
         if VMB then
             fireclickdetector(vmcen.ClickDetector)
         end
         task.wait(cooldowns)
-    --end)
+    end)
 end
 end)
 
@@ -3756,20 +3725,34 @@ block_tools_channel:Toggle("Block Item", false, function(bool)
 end)
 
 task.spawn(function()
-    while task.wait() do
-    pcall(function()
-        if BIT then
-            for idx, plr in pairs(Players:GetPlayers()) do
-                if plr ~= LP and plr.Name ~= userOwner and plr.Character.IsCuffed.Value == false and plr.Character:FindFirstChild(blockitempick) then
-                    if except_friends and not plr:IsFriendsWith(LP.UserId) then
-                        Remotes["UnCuffed"]:FireServer(plr.Character)
-                    else
-                        Remotes["UnCuffed"]:FireServer(plr.Character)
-                    end
-                end
-            end
-        end
-    end) 
+    while task.wait(0.1) do
+		pcall(function()
+			if BIT then
+				for idx, plr in pairs(Players:GetPlayers()) do
+					if plr.Character.Humanoid.Health == 0 then
+						return
+					end
+					if plr ~= LP and plr.Team ~= LP.Team and plr.Character.Hostile.Value == true and plr.Character:FindFirstChild(blockitempick) then
+						local args = {
+							[1] = "Hit",
+							[2] = game:GetService("Players").LocalPlayer.Backpack.Taser,
+							[3] = game:GetService("Players"):WaitForChild(plr.Name).Character.Head
+						}
+						
+						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+						wait()
+						local args = {
+							[1] = "Recharge",
+							[2] = game:GetService("Players").LocalPlayer.Backpack.Taser
+						}
+						
+						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+					elseif plr ~= LP and plr.Team ~= LP.Team and plr.Character.Hostile.Value == false and plr.Character:FindFirstChild(blockitempick) then
+						Remotes["UnCuffed"]:FireServer(plr.Character)
+					end
+				end
+			end
+		end) 
 end
 end)
 
@@ -3811,13 +3794,15 @@ end)
 task.spawn(function()
     while task.wait() do
 		if infFlashlight then
+			spawn(function()
 			fireclickdetector(workspace.Flashlight.ClickDetector)
 			for i,v in pairs(LP.Backpack:GetChildren()) do
 				if v.Name == "Flashlight" then
-					--task.wait(0.01)
-				v.Parent = LP.Character
+					task.wait(0.01)
+					v.Parent = LP.Character
 				end
 			end
+		end)
 		end
 	end
 end)
@@ -3825,12 +3810,14 @@ end)
 task.spawn(function()
     while task.wait() do
 		if infFlashlights then
+			spawn(function()
 			for i,v in pairs(LP.Character:GetChildren()) do
 				if v.Name == "Flashlight" then
-					--task.wait(0.01)
-				v.Parent = game.Workspace
+					task.wait(0.01)
+					v.Parent = game.Workspace
 				end
 			end
+		end)
 		end
 	end
 end)
@@ -4700,7 +4687,7 @@ local LPzoneValue
 task.spawn(function()
 while task.wait() do
 	if LPzoneValue == true then
-		pcall(function()
+		spawn(function()
 			for idx, plr in pairs(Players:GetPlayers()) do
 				if
 					plr ~= LP 
@@ -4752,6 +4739,25 @@ extra_channel:Label("  ")
 
 extra_channel:Toggle("Remove A Part", false, function (bool)
 	partdelety = bool
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if partdelety == true then
+			pcall(function()
+				for _, part in pairs(Players:GetPlayers()) do
+					if part ~= LP then
+						for A,B in pairs(part.Character:GetChildren()) do
+							if B.Name == "A" and B.ClassName == "Accessory" then
+								print(part.Name)
+								B:Destroy()
+							end
+						end
+					end
+				end
+			end)
+		end
+	end
 end)
 
 extra_channel:Label("  ")
@@ -5323,6 +5329,10 @@ LP.CharacterAdded:Connect(function(char)
             ImportAsset(15761210122)
             ImportAsset(11189999097)
             ImportAsset(16680911837)
+
+			ImportAsset(7963938171)
+			ImportAsset(11328204822)
+
             --ImportAsset(16680993249)
            -- ImportAsset(11697630021)
 		elseif CUSKIN == "Maid" then
@@ -5430,18 +5440,6 @@ end)
 
 
 task.spawn(function()
-	while task.wait() do
-		task.wait(0.5) 
-		if partdelety == true then
-			pcall(function() -- 5초마다 반복
-				deleteExtraParts()  -- 초과된 파트 삭제
-			end)
-		end
-	end
-end)
-
-
-task.spawn(function()
 	while task.wait(1) do
 		if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
 			--if DiePos ~= LP.Character.Torso.CFrame then
@@ -5495,5 +5493,9 @@ plrs.PlayerRemoving:Connect(function(player)
 	--print("remove",player.Name)
 end)
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 
-
+--[[
+local toolname = "Taser"
+game.Players.LocalPlayer.character.Humanoid:EquipTool(game.Workspace:FindFirstChild(toolname))
+]]

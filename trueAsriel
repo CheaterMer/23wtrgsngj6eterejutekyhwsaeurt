@@ -45,7 +45,7 @@ local attack_tools = {
 }
 
 local function CheckRange(part1, part2, stud)
-    range = (part1.Position - part2.Position).Magnitude
+    local range = (part1.Position - part2.Position).Magnitude
     if range < stud then
         return true
     end
@@ -190,48 +190,146 @@ function HogRemote()
 end
 
 function hogcall()
-	yooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
-	if CFFFFFF == true then
-	if yooooo.Character.IsHogged.Value == true then
-		Remotes["IsHog"]:FireServer(yooooo.Character,"UnHog")
-	end
-	
-elseif CFFFFFF == false then
-	
-	if yooooo.Character.IsHogged.Value == false then
-		Remotes["IsHog"]:FireServer(yooooo.Character,"Hog")
-	end
-end
-end
-
-function cuffcalls()
-	yooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
-	if CFFFFFF == true then
-		if yooooo.Character.IsCuffed.Value == true then
-			Remotes["UnCuffed"]:FireServer(yooooo.Character)
-		end
-	elseif CFFFFFF == false then
-		if yooooo.Character.IsCuffed.Value == false then
-			Remotes["UnCuffed"]:FireServer(yooooo.Character)
-			task.wait(0.1)
-			Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), yooooo.Character)
-		end
+	local yadsfooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
+	if yadsfooooo.Character.IsHogged.Value == true then
+		Remotes["IsHog"]:FireServer(yadsfooooo.Character,"UnHog")
+	elseif yadsfooooo.Character.IsHogged.Value == false then
+		Remotes["IsHog"]:FireServer(yadsfooooo.Character,"Hog")
 	end
 end
 
+function hoglast()
+	pcall(function()
+		local tool
+		for i,v in pairs(attack_tools) do
+			local t = LP.Character:FindFirstChild(v)
+			if t then
+				tool = t
+				break
+			end
+		end
+		for idx, plr in pairs(Players:GetPlayers()) do
+			if
+				plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 10)
+				and plr.Character.Hostile.Value and LP.Team ~= plr.Team and plr.Character.Humanoid.Health ~= 0 
+			then
+				if plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsHogged.Value == false then
+					Remotes["IsHog"]:FireServer(plr.Character,"Hog")
+					task.wait()
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == true and plr.Character.IsHogged.Value == false then
+					if plr.Name == _G.targetr then
+						Remotes["IsHog"]:FireServer(plr.Character,"Hog")
+						task.wait()
+					end
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsHogged.Value == true then
+					Remotes["IsHog"]:FireServer(plr.Character,"UnHog")
+					task.wait()
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == true and plr.Character.IsHogged.Value == true then
+					if plr.Name == _G.targetr then
+						Remotes["IsHog"]:FireServer(plr.Character,"UnHog")
+						task.wait()
+					end
+				end
+			end
+		end
+	end) 
+end
+
+function cuffcallsf()
+	local yooooos = game:GetService("Players"):FindFirstChild(_G.targetr)
+	if yooooos.Character.IsCuffed.Value == true then
+			Remotes["UnCuffed"]:FireServer(yooooos.Character)
+	elseif yooooos.Character.IsCuffed.Value == false then
+			--Remotes["UnCuffed"]:FireServer(yooooo.Character)
+			--task.wait(0.1)
+			Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), yooooos.Character)
+	end
+end
+
 function cuffcalls()
-	yooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
-	if CFFFFFF == true then
+	local yooooo = game:GetService("Players"):FindFirstChild(_G.targetr)
 		if yooooo.Character.IsCuffed.Value == true then
 			Remotes["UnCuffed"]:FireServer(yooooo.Character)
-		end
-	elseif CFFFFFF == false then
-		if yooooo.Character.IsCuffed.Value == false then
-			Remotes["UnCuffed"]:FireServer(yooooo.Character)
-			task.wait(0.1)
+		elseif yooooo.Character.IsCuffed.Value == false then
+			--Remotes["UnCuffed"]:FireServer(yooooo.Character)
+			--task.wait(0.1)
 			Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs"), yooooo.Character)
-		end
 	end
+end
+
+
+function cuff()
+	pcall(function()
+		local tool
+		for i,v in pairs(attack_tools) do
+			local t = LP.Character:FindFirstChild(v)
+			if t then
+				tool = t
+				break
+			end
+		end
+		for idx, plr in pairs(Players:GetPlayers()) do
+			if
+				plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 10)
+				and plr.Character.Hostile.Value and LP.Team ~= plr.Team and plr.Character.Humanoid.Health ~= 0 
+			then
+				if plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsCuffed.Value == false then
+					Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), plr.Character)
+						task.wait()
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == true and plr.Character.IsCuffed.Value == false then
+					if plr.Name == _G.targetr then
+						Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs (fugitive)"), plr.Character)
+						task.wait()
+					end
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsCuffed.Value == true then
+					Remotes["UnCuffed"]:FireServer(plr.Character)
+						task.wait()
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == true and plr.Character.IsCuffed.Value == true then
+					if plr.Name == _G.targetr then
+						Remotes["UnCuffed"]:FireServer(plr.Character)
+						task.wait()
+					end
+				end
+			end
+		end
+	end) 
+end
+
+function cuffs()
+	pcall(function()
+		local tool
+		for i,v in pairs(attack_tools) do
+			local t = LP.Character:FindFirstChild(v)
+			if t then
+				tool = t
+				break
+			end
+		end
+		for idx, plr in pairs(Players:GetPlayers()) do
+			if
+				plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 10)
+				and plr.Character.Hostile.Value and LP.Team ~= plr.Team and plr.Character.Humanoid.Health ~= 0 
+			then
+				if plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsCuffed.Value == false then
+					Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs"), plr.Character)
+						task.wait()
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == true and plr.Character.IsCuffed.Value == false then
+					if plr.Name == _G.targetr then
+						Remotes["IsCuffed"]:FireServer(LP.Character:WaitForChild("Handcuffs"), plr.Character)
+						task.wait()
+					end
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsCuffed.Value == true then
+						Remotes["UnCuffed"]:FireServer(plr.Character)
+						task.wait()
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == true and plr.Character.IsCuffed.Value == true then
+					if plr.Name == _G.targetr then
+						Remotes["UnCuffed"]:FireServer(plr.Character)
+						task.wait()
+					end
+				end
+			end
+		end
+	end) 
 end
 
 --[[
@@ -318,7 +416,7 @@ function attack()
 		for idx, plr in pairs(Players:GetPlayers()) do
 			if
 				plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15)
-				 and plr.Character.Hostile.Value and LP.Team ~= plr.Team and plr.Character.Humanoid.Health ~= 0 
+				and plr.Character.Hostile.Value and LP.Team ~= plr.Team and plr.Character.Humanoid.Health ~= 0 
 			then
 				if plr.Team.Name == _G.OneTeam then
 						Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
@@ -399,25 +497,26 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 				game:GetService("Players").LocalPlayer.Character.Hamburger,
 				"Heal")
 		elseif player.Character:FindFirstChild("Taser") then
-			pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
-			tpos = game:GetService("Players"):WaitForChild(_G.targetr).Character.Torso.CFrame.Position
+			local pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
+			local tpos = game:GetService("Players"):WaitForChild(_G.targetr).Character.Torso.CFrame.Position
 			if player.Character.Taser.Charged.Value == true then
 				spawn(function()	
-				local args = {
-						[1] = "Generate",
-						[2] = game:GetService("Players").LocalPlayer.Character.Taser,
-						[3] = Vector3.new(pos.X,pos.Y,pos.Z),
-						[4] = Vector3.new(tpos.X,tpos.Y,tpos.Z)
-					}
-					
+					local args = {
+							[1] = "Generate",
+							[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+							[3] = Vector3.new(pos.X,pos.Y,pos.Z),
+							[4] = Vector3.new(tpos.X,tpos.Y,tpos.Z)
+						}
+						
 					game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
 				end)
-				local args = {
-					[1] = "Hit",
-					[2] = game:GetService("Players").LocalPlayer.Character.Taser,
-					[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
-				}
-				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+					task.wait()
+					local args = {
+						[1] = "Hit",
+						[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+						[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
+					}
+					game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
 			elseif player.Character.Taser.Charged.Value == false then
 				--wait(0.5)
 				anime(8109052918)
@@ -427,16 +526,18 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 				}
 				
 				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-		
-				end
 			end
-		--elseif player.Character:FindFirstChild("Handcuffs") then
-		--	cuffcall()
-		--elseif player.Character:FindFirstChild("Handcuffs (fugitive)") then
-		--	cuffcalls()
-		--elseif player.Character:FindFirstChild("Rope") then
-		--	hogcall()
+		elseif player.Character:FindFirstChild("Handcuffs") then
+			--cuffcalls()
+			cuffs()
+		elseif player.Character:FindFirstChild("Handcuffs (fugitive)") then
+			--cuffcallsf()
+			cuff()
+		elseif player.Character:FindFirstChild("Rope") then
+			hoglast()
+			--hogcall()
 		--bruhtest:Destroy()
+		end
 	end
 end)
 
@@ -445,33 +546,22 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		if LP.Character.GrabbingWhom.Value == "" then
 			grabRemote()
 		else
-			GW = LP.Character.GrabbingWhom.Value
-			WTP = Players:FindFirstChild(GW)
+			local GW = LP.Character.GrabbingWhom.Value
+			local WTP = Players:FindFirstChild(GW)
 			Remotes["Grab"]:FireServer(WTP.Character, "Drop")
 		end
 	end
 end)
 
-local StarterGui = game:GetService("StarterGui")
---[[
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.G then
-		if CFFFFFF == true then
-			CFFFFFF = false
-			StarterGui:SetCore("SendNotification", {
-				Title = "Helper Type = Hacker hahahah";
-				Text = "+"
-			})
-		elseif CFFFFFF == false then
-			CFFFFFF = true
-			StarterGui:SetCore("SendNotification", {
-				Title = "Helper Type = normal";
-				Text = "-"
-			})
-		end
+		local yoooooff = game:GetService("Players"):FindFirstChild(_G.targetr)
+		Remotes["UnCuffed"]:FireServer(yoooooff.Character)
 	end
 end)
-]]
+
+local StarterGui = game:GetService("StarterGui")
+
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.V then
 		char = game.Players.LocalPlayer.Character
@@ -484,10 +574,10 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		anime(7568092298)
 		end)
           --char.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
-          tar = char.HumanoidRootPart.CFrame*CFrame.new(0,15,0) + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 60
+          local tar = char.HumanoidRootPart.CFrame*CFrame.new(0,15,0) + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 60
           --char.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
-          v2 = Instance.new('BodyPosition',char.HumanoidRootPart) 
-          fol = Instance.new('Folder',v2)
+          local v2 = Instance.new('BodyPosition',char.HumanoidRootPart) 
+          local fol = Instance.new('Folder',v2)
           v2.Name = 'Client' 
           v2.MaxForce = Vector3.new(1,1,1)*100000 
           v2.D = 2500 
@@ -498,99 +588,27 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 	end
 end)
 
+
+
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.X then
 		if LP.Character.HumanoidRootPart.Anchored == false then
-		local args = {
-			[1] = LP.Character,
-			[2] = "Play"
-		}
-		
-		game:GetService("ReplicatedStorage"):WaitForChild("AnimationAnchor"):FireServer(unpack(args))
-	else
-		local args = {
-			[1] = LP.Character,
-			[2] = "Stop"
-		}
-		
-		game:GetService("ReplicatedStorage"):WaitForChild("AnimationAnchor"):FireServer(unpack(args))
+			local args = {
+				[1] = LP.Character,
+				[2] = "Play"
+			}
+			
+			game:GetService("ReplicatedStorage"):WaitForChild("AnimationAnchor"):FireServer(unpack(args))
+		else
+			local args = {
+				[1] = LP.Character,
+				[2] = "Stop"
+			}
+			
+			game:GetService("ReplicatedStorage"):WaitForChild("AnimationAnchor"):FireServer(unpack(args))
+		end
 	end
-	end
 end)
 
---[[
-local UserInputService = game:GetService("UserInputService")
-
-local speed = 30 -- 이동 속도
-local upwardOffset = 0 -- 위로 이동할 값
-
-UserInputService.InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.R then
-        local character = game.Players.LocalPlayer.Character
-        if character then
-            local humanoid = character:FindFirstChildOfClass("Humanoid")
-            if humanoid then
-                local rootPart = character:FindFirstChild("HumanoidRootPart")
-                if rootPart then
-                    -- R 키를 누를 때마다 캐릭터를 앞으로 이동하고 위로 올립니다.
-                    local moveDirection = rootPart.CFrame.lookVector * speed
-                    rootPart.CFrame = rootPart.CFrame + moveDirection + Vector3.new(0, upwardOffset, 0)
-                end
-            end
-        end
-    end
-end)
-]]
-
---[[
-local UserInputService = game:GetService("UserInputService")
-
-local teleportInterval = 1.5 -- 텔레포트 간격(초)
-local teleportDistance = 5 -- 텔레포트 거리
-
-local isTeleporting = false
-local lastTeleportTime = 0
-
-local function teleport()
-    local character = game.Players.LocalPlayer.Character
-    if character then
-        local humanoid = character:FindFirstChildOfClass("Humanoid")
-        if humanoid then
-            local rootPart = character:FindFirstChild("HumanoidRootPart")
-            if rootPart then
-                local newPosition = rootPart.Position + rootPart.CFrame.lookVector * teleportDistance
-                rootPart.CFrame = CFrame.new(newPosition)
-            end
-        end
-    end
-end
-
-UserInputService.InputBegan:Connect(function(input)
-    local key = input.KeyCode
-    if key == Enum.KeyCode.W or key == Enum.KeyCode.A or key == Enum.KeyCode.S or key == Enum.KeyCode.D then
-        isTeleporting = true
-        teleport()
-        lastTeleportTime = tick()
-    end
-end)
-
-UserInputService.InputEnded:Connect(function(input)
-    local key = input.KeyCode
-    if key == Enum.KeyCode.W or key == Enum.KeyCode.A or key == Enum.KeyCode.S or key == Enum.KeyCode.D then
-        isTeleporting = false
-    end
-end)
-
-game:GetService("RunService").RenderStepped:Connect(function()
-    if isTeleporting then
-        local currentTime = tick()
-        if currentTime - lastTeleportTime >= teleportInterval then
-            teleport()
-            lastTeleportTime = currentTime
-        end
-    end
-end)
-]]
 
 print("loading Helper completed")
-print("loading hitbox completed")
