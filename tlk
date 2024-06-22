@@ -4704,6 +4704,7 @@ end
 end)
 
 extra_channel:Slider("Range", 0, 5000, LPRing, function(value)
+	LPRing = value
 end)
 
 extra_channel:Toggle("LP Zone Enable", false, function (bool)
