@@ -86,6 +86,10 @@ function findtool(toolName)
         ToolFinder = LP.Backpack:FindFirstChild(toolName)
         print("backpack")
 		return ToolFinder
+	elseif LP.Character:FindFirstChild(toolName) then
+		ToolFinder = LP.Character:FindFirstChild(toolName)
+		print("backpack")
+		return ToolFinder
 	elseif workspace:FindFirstChild(toolName) then
         ToolFinder = workspace:FindFirstChild(toolName)
         print("workspace")
