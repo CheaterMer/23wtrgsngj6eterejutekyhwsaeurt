@@ -258,7 +258,7 @@ local RunService = game:GetService("RunService")
 local LP = Players.LocalPlayer
 
 
-local toolNames = "Taser"
+local blocktoolNames = "Taser"
 
 
 task.spawn(function()
