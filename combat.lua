@@ -241,6 +241,10 @@ task.spawn(function()
     end
 end)
 
+TabC:CreateToggle("Block Taser",false,false,function(asdf)
+    blocktasercombat = asdf
+end)
+
 TabC:CreateToggle("Loop Taser",false,false,function(asdf)
     taser = asdf
 end)
