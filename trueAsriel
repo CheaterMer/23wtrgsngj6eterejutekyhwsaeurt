@@ -289,11 +289,11 @@ function cuff()
 				and plr.Character.Hostile.Value and LP.Team ~= plr.Team and plr.Character.Humanoid.Health ~= 0 
 			then
 				if plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsCuffed.Value == false then
-					Remotes["IsCuffed"]:FireServer(player.Character:FindFirstChild("Handcuffs (fugitive)"), plr.Character)
+					Remotes["IsCuffed"]:FireServer(findtool("Handcuffs (fugitive)"), plr.Character)
 						task.wait()
 				elseif plr.Team ~= LP.Team and _G.LockOnhit == true and plr.Character.IsCuffed.Value == false then
 					if plr.Name == _G.targetr then
-						Remotes["IsCuffed"]:FireServer(player.Character:FindFirstChild("Handcuffs (fugitive)"), plr.Character)
+						Remotes["IsCuffed"]:FireServer(findtool("Handcuffs (fugitive)"), plr.Character)
 						task.wait()
 					end
 				elseif plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsCuffed.Value == true then
@@ -318,11 +318,11 @@ function cuffs()
 				and plr.Character.Hostile.Value and LP.Team ~= plr.Team and plr.Character.Humanoid.Health ~= 0 
 			then
 				if plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsCuffed.Value == false then
-					Remotes["IsCuffed"]:FireServer(player.Character:FindFirstChild("Handcuffs"), plr.Character)
+					Remotes["IsCuffed"]:FireServer(findtool("Handcuffs"), plr.Character)
 						task.wait()
 				elseif plr.Team ~= LP.Team and _G.LockOnhit == true and plr.Character.IsCuffed.Value == false then
 					if plr.Name == _G.targetr then
-						Remotes["IsCuffed"]:FireServer(player.Character:FindFirstChild("Handcuffs"), plr.Character)
+						Remotes["IsCuffed"]:FireServer(findtool("Handcuffs"), plr.Character)
 						task.wait()
 					end
 				elseif plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsCuffed.Value == true then
