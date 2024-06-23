@@ -261,23 +261,84 @@ local LP = Players.LocalPlayer
 local toolNames = "Taser"
 
 
+task.spawn(function()
+	while task.wait() do
+		if cuff then
+			for i,v in pairs(Players:GetChildren()) do
+				if v.Backpack:FindFirstChild(toolNames) then
+					if v ~= LP and v.Backpack:FindFirstChild(toolNames) and v.Backpack:FindFirstChild(toolNames).Charged.Value == true then
+						print(v.Name," Backpack  " , toolNames)
+						ToolFinders = v.Backpack:FindFirstChild(toolNames)
+						Remotes["Tase"]:FireServer("Hit", ToolFinders, targasdsdaset.Character.Head)
+					end
+				elseif v ~= LP and v.Character:FindFirstChild(toolNames) and v.Character:FindFirstChild(toolNames).Charged.Value == true then
+					print(v.Name," Character  " , toolNames)
+					ToolFinders = v.Character:FindFirstChild(toolNames)
+					Remotes["Tase"]:FireServer("Hit", ToolFinders, targasdsdaset.Character.Head)
+				end
+			end
+		end
+	end
+end)
 
-for i,v in pairs(Players:GetChildren()) do
-    if v.Backpack:FindFirstChild(toolNames) then
-        if v ~= LP and v.Backpack:FindFirstChild(toolNames) and v.Backpack:FindFirstChild(toolNames).Charged.Value == true then
-			print(v.Name," Backpack  " , toolNames)
-            ToolFinders = v.Backpack:FindFirstChild(toolNames)
-			Remotes["Tase"]:FireServer("Hit", ToolFinders, targasdsdaset.Character.Head)
-        end
-    elseif v ~= LP and v.Character:FindFirstChild(toolNames) and v.Character:FindFirstChild(toolNames).Charged.Value == true then
-        print(v.Name," Character  " , toolNames)
-        ToolFinders = v.Character:FindFirstChild(toolNames)
-        Remotes["Tase"]:FireServer("Hit", ToolFinders, targasdsdaset.Character.Head)
-    end
-end
+task.spawn(function()
+	while task.wait() do
+		if cuff then
+			pcall(function()
+				for idx, plr in pairs(Players:GetPlayers()) do
+					if
+						plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 10)
+						and plr.Character.Hostile.Value and LP.Team ~= plr.Team and plr.Character.Humanoid.Health ~= 0 
+					then
+						if plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsCuffed.Value == false then
+							Remotes["IsCuffed"]:FireServer(findtool("Handcuffs"), plr.Character)
+								task.wait()
+						elseif plr.Team ~= LP.Team and _G.LockOnhit == true and plr.Character.IsCuffed.Value == false then
+							if plr.Name == _G.targetr then
+								Remotes["IsCuffed"]:FireServer(findtool("Handcuffs"), plr.Character)
+								task.wait()
+							end
+						end
+					end
+				end
+			end) 
+		end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if hog then
+			pcall(function()
+				for idx, plr in pairs(Players:GetPlayers()) do
+					if
+						plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 10)
+						and plr.Character.Hostile.Value and LP.Team ~= plr.Team and plr.Character.Humanoid.Health ~= 0 
+					then
+						if plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsHogged.Value == false then
+							Remotes["IsHog"]:FireServer(plr.Character,"Hog")
+							task.wait()
+						elseif plr.Team ~= LP.Team and _G.LockOnhit == true and plr.Character.IsHogged.Value == false then
+							if plr.Name == _G.targetr then
+								Remotes["IsHog"]:FireServer(plr.Character,"Hog")
+								task.wait()
+							end
+						end
+					end
+				end
+			end) 
+		end
+	end
+end)
 
 
+TabS:CreateToggle("cuff",false,false,function(asdf)
+    cuff = asdf
+end)
 
+TabS:CreateToggle("hog Taser",false,false,function(asdf)
+    hog = asdf
+end)
 
 
 TabS:CreateButton("Cuffed",function()
