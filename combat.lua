@@ -264,19 +264,52 @@ local toolNames = "Taser"
 task.spawn(function()
 	while task.wait() do
 		if blocktasercombat then
-			for i,v in pairs(Players:GetChildren()) do
-				if v.Backpack:FindFirstChild(toolNames) then
-					if v ~= LP and v.Backpack:FindFirstChild(toolNames) and v.Backpack:FindFirstChild(toolNames).Charged.Value == true then
-						print(v.Name," Backpack  " , toolNames)
-						ToolFinders = v.Backpack:FindFirstChild(toolNames)
-						Remotes["Tase"]:FireServer("Hit", ToolFinders, targasdsdaset.Character.Head)
+			spawn(function()
+				for i,v in pairs(Players:GetChildren()) do
+
+
+
+						if v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true then
+							
+							print(v.Name," Backpack  " , blocktoolNames)
+							ToolFinders = v.Backpack:FindFirstChild(blocktoolNames)
+							
+							Remotes["Tase"]:FireServer("Hit", ToolFinders, v.Character.Head)
+
+						elseif v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team == LP.Team and v.Character.Hostile.Value == true then
+
+							print(v.Name," Backpack other " , blocktoolNames)
+							ToolFinders = v.Character:FindFirstChild(blocktoolNames)
+
+							for idx, plr in pairs(Players:GetPlayers()) do
+								if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
+									Remotes["Tase"]:FireServer("Hit", ToolFinders, plr.Character.Head)
+								end
+							end
+
+						end
+
+					if v ~= LP and v.Character:FindFirstChild(blocktoolNames) and v.Character:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true then
+						
+						print(v.Name," Character  " , blocktoolNames)
+						ToolFinders = v.Character:FindFirstChild(blocktoolNames)
+
+						Remotes["Tase"]:FireServer("Hit", ToolFinders, v.Character.Head)
+
+					elseif v ~= LP and v.Character:FindFirstChild(blocktoolNames) and v.Character:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team == LP.Team and v.Character.Hostile.Value == true then
+
+						print(v.Name," Character other  " , blocktoolNames)
+						ToolFinders = v.Character:FindFirstChild(blocktoolNames)
+
+						for idx, plr in pairs(Players:GetPlayers()) do
+							if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
+								Remotes["Tase"]:FireServer("Hit", ToolFinders, plr.Character.Head)
+							end
+						end
+
 					end
-				elseif v ~= LP and v.Character:FindFirstChild(toolNames) and v.Character:FindFirstChild(toolNames).Charged.Value == true then
-					print(v.Name," Character  " , toolNames)
-					ToolFinders = v.Character:FindFirstChild(toolNames)
-					Remotes["Tase"]:FireServer("Hit", ToolFinders, targasdsdaset.Character.Head)
 				end
-			end
+			end)
 		end
 	end
 end)
