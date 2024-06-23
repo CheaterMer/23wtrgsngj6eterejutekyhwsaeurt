@@ -285,7 +285,7 @@ function cuffcalls()
 end
 
 
-function cuff()
+function cufff()
 	pcall(function()
 		for idx, plr in pairs(Players:GetPlayers()) do
 			if
@@ -314,7 +314,7 @@ function cuff()
 	end) 
 end
 
-function cuffs()
+function cufffs()
 	pcall(function()
 		for idx, plr in pairs(Players:GetPlayers()) do
 			if
@@ -567,10 +567,10 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 			end
 		elseif player.Character:FindFirstChild("Handcuffs") then
 			--cuffcalls()
-			cuffs()
+			cufffs()
 		elseif player.Character:FindFirstChild("Handcuffs (fugitive)") then
 			--cuffcallsf()
-			cuff()
+			cufff()
 		elseif player.Character:FindFirstChild("Rope") then
 			hoglast()
 			--hogcall()
