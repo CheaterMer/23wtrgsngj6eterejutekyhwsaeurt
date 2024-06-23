@@ -263,7 +263,7 @@ local toolNames = "Taser"
 
 task.spawn(function()
 	while task.wait() do
-		if cuff then
+		if blocktasercombat then
 			for i,v in pairs(Players:GetChildren()) do
 				if v.Backpack:FindFirstChild(toolNames) then
 					if v ~= LP and v.Backpack:FindFirstChild(toolNames) and v.Backpack:FindFirstChild(toolNames).Charged.Value == true then
