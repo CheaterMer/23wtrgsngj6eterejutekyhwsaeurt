@@ -3592,7 +3592,7 @@ task.spawn(function()
 				for i,v in pairs(Players:GetChildren()) do
 
 						if (LP.Team.Name == "Civilian" and v.Team.Name ~= "Guard") or (LP.Team.Name == "Guard" and v.Team.Name ~= "Civilian") or (LP.Team.Name ~= "Guard" or LP.Team.Name ~= "Civilian") then 
-
+							print(v.Team,v.Name)
 							if v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true then
 								
 								print(v.Name," Backpack  " , blocktoolNames)
