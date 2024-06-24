@@ -5681,11 +5681,11 @@ plrs.PlayerRemoving:Connect(function(player)
 	--print("remove",player.Name)
 end)
 
-spawn(function()
-	while wait(1) do
+--spawn(function()
+--	while wait(1) do
 		--loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/bruhskull"))()
-	end
-end)
+--	end
+--end)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 
