@@ -599,7 +599,7 @@ end)
 
 
 local StarterGui = game:GetService("StarterGui")
-
+--[[
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.V then
 		char = game.Players.LocalPlayer.Character
@@ -626,7 +626,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 	end
 end)
 
-
+]]
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.X then
