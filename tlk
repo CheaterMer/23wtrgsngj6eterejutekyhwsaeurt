@@ -3591,7 +3591,7 @@ task.spawn(function()
 			spawn(function()
 				for i,v in pairs(Players:GetChildren()) do
 
-						if (LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard") or (LP.Team.Name == "Guard" and plr.Team.Name ~= "Civilian") or (LP.Team.Name ~= "Guard" and LP.Team.Name ~= "Civilian") then 
+						if (LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard") or (LP.Team.Name == "Guard" and plr.Team.Name ~= "Civilian") or (LP.Team.Name ~= "Guard" or LP.Team.Name ~= "Civilian") then 
 
 							if v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true then
 								
