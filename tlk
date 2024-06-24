@@ -3593,43 +3593,87 @@ task.spawn(function()
 
 					--	if (LP.Team.Name == "Civilian" and v.Team.Name ~= "Guard") or (LP.Team.Name == "Guard" and v.Team.Name ~= "Civilian") or (LP.Team.Name ~= "Guard" or LP.Team.Name ~= "Civilian") then 
 							
-							if v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true and (LP.Team.Name == "Civilian" and v.Team.Name ~= "Guard") or (LP.Team.Name == "Guard" and v.Team.Name ~= "Civilian") then
-								
+					if LP.Team.Name == "Civilian" and v.Team.Name ~= "Guard" then 
+
+							if v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true then
+											
 								print(v.Name, v.Team, " Backpack  " , blocktoolNames)
 								ToolFinders = v.Backpack:FindFirstChild(blocktoolNames)
 								
 								Remotes["Tase"]:FireServer("Hit", ToolFinders, v.Character.Head)
 
-							elseif v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team == LP.Team and v.Character.Hostile.Value == true and (LP.Team.Name == "Civilian" and v.Team.Name ~= "Guard") or (LP.Team.Name == "Guard" and v.Team.Name ~= "Civilian") then
+							elseif v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team == LP.Team and v.Character.Hostile.Value == true then
 
 								print(v.Name, v.Team, " Backpack other " , blocktoolNames)
 								ToolFinders = v.Character:FindFirstChild(blocktoolNames)
 
 								for idx, plr in pairs(Players:GetPlayers()) do
-									if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team and (LP.Team.Name == "Civilian" and v.Team.Name ~= "Guard") or (LP.Team.Name == "Guard" and v.Team.Name ~= "Civilian") then
+									if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
 										Remotes["Tase"]:FireServer("Hit", ToolFinders, plr.Character.Head)
 									end
 								end
 
 							end
 
-						if v ~= LP and v.Character:FindFirstChild(blocktoolNames) and v.Character:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true and (LP.Team.Name == "Civilian" and v.Team.Name ~= "Guard") or (LP.Team.Name == "Guard" and v.Team.Name ~= "Civilian") then
+						if v ~= LP and v.Character:FindFirstChild(blocktoolNames) and v.Character:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true then
 							
 							print(v.Name, v.Team, " Character  " , blocktoolNames)
 							ToolFinders = v.Character:FindFirstChild(blocktoolNames)
 
 							Remotes["Tase"]:FireServer("Hit", ToolFinders, v.Character.Head)
 
-						elseif v ~= LP and v.Character:FindFirstChild(blocktoolNames) and v.Character:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team == LP.Team and v.Character.Hostile.Value == true and (LP.Team.Name == "Civilian" and v.Team.Name ~= "Guard") or (LP.Team.Name == "Guard" and v.Team.Name ~= "Civilian") then
+						elseif v ~= LP and v.Character:FindFirstChild(blocktoolNames) and v.Character:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team == LP.Team and v.Character.Hostile.Value == true then
 
 							print(v.Name, v.Team, " Character other  " , blocktoolNames)
 							ToolFinders = v.Character:FindFirstChild(blocktoolNames)
 
 							for idx, plr in pairs(Players:GetPlayers()) do
-								if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team and (LP.Team.Name == "Civilian" and v.Team.Name ~= "Guard") or (LP.Team.Name == "Guard" and v.Team.Name ~= "Civilian") then
+								if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
 									Remotes["Tase"]:FireServer("Hit", ToolFinders, plr.Character.Head)
 								end
 							end
+
+						elseif LP.Team.Name == "Guard" and v.Team.Name ~= "Civilian" then
+
+							if v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true then
+											
+								print(v.Name, v.Team, " Backpack  " , blocktoolNames)
+								ToolFinders = v.Backpack:FindFirstChild(blocktoolNames)
+								
+								Remotes["Tase"]:FireServer("Hit", ToolFinders, v.Character.Head)
+
+							elseif v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team == LP.Team and v.Character.Hostile.Value == true then
+
+								print(v.Name, v.Team, " Backpack other " , blocktoolNames)
+								ToolFinders = v.Character:FindFirstChild(blocktoolNames)
+
+								for idx, plr in pairs(Players:GetPlayers()) do
+									if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
+										Remotes["Tase"]:FireServer("Hit", ToolFinders, plr.Character.Head)
+									end
+								end
+
+							end
+
+						if v ~= LP and v.Character:FindFirstChild(blocktoolNames) and v.Character:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true then
+							
+							print(v.Name, v.Team, " Character  " , blocktoolNames)
+							ToolFinders = v.Character:FindFirstChild(blocktoolNames)
+
+							Remotes["Tase"]:FireServer("Hit", ToolFinders, v.Character.Head)
+
+						elseif v ~= LP and v.Character:FindFirstChild(blocktoolNames) and v.Character:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team == LP.Team and v.Character.Hostile.Value == true then
+
+							print(v.Name, v.Team, " Character other  " , blocktoolNames)
+							ToolFinders = v.Character:FindFirstChild(blocktoolNames)
+
+							for idx, plr in pairs(Players:GetPlayers()) do
+								if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
+									Remotes["Tase"]:FireServer("Hit", ToolFinders, plr.Character.Head)
+								end
+							end
+
+						end
 
 				--		end
 
