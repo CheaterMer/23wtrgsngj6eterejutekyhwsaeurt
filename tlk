@@ -4652,7 +4652,7 @@ task.spawn(function()
 					Remotes["EatingEvent"]:FireServer(LP.Character, LP.Character:FindFirstChild("Hamburger"), "Heal")
 				end)
 
-			end
+			
 		end	
 	end
 end)
