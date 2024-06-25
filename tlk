@@ -4608,7 +4608,7 @@ function eat()
 			task.wait()
             LP.Backpack.Hamburger.Parent = LP.Character
         end
-
+		task.wait(0.1)
 		spawn(function()
 			Remotes["EatingEvent"]:FireServer(LP.Character, LP.Character.Hamburger, "Heal")
 		end)
