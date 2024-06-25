@@ -4639,10 +4639,10 @@ task.spawn(function()
 			spawn(function()
 				if LP.Character.Humanoid.Health < 100 then
 					if not LP.Backpack:FindFirstChild("Hamburger") and not LP.Character:FindFirstChild("Hamburger") then
-						--task.wait()
+						wait()
 						fireclickdetector(workspace:WaitForChild("Hamburger").ClickDetector)
 					elseif LP.Backpack:FindFirstChild("Hamburger") then
-						--task.wait()
+						wait()
 						LP.Backpack.Hamburger.Parent = LP.Character
 					end
 				wait(0.25)
