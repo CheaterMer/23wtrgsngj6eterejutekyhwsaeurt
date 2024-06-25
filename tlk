@@ -5174,6 +5174,28 @@ end
 	end
 end)
 
+click_channel:Button("Sound", function()
+			spawn(function()
+				for v,b in pairs(workspace.Unfinished:GetChildren()) do
+					if b.Name == "Chamber" then
+						--print(b)
+						--task.wait()
+						fireclickdetector(b.Door.Hat.ClickDetector)
+					end
+				end
+			end)
+
+			spawn(function()
+				for i,v in pairs(workspace.Solitary:GetChildren()) do
+					if v.Name == "Door" then
+						if v:FindFirstChild("Handle1") or v:FindFirstChild("Handle2") then
+							fireclickdetector(v:FindFirstChild("Handle1").ClickDetector)
+						end
+					end
+				end
+			end)
+
+end)
 
 click_channel:Button("Chamber", function()
 	for v,b in pairs(workspace.Unfinished:GetChildren()) do
