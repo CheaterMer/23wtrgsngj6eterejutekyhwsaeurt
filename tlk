@@ -4647,7 +4647,7 @@ task.spawn(function()
 					end
 				wait(0.25)
 						spawn(function()
-							Remotes["EatingEvent"]:FireServer(LP.Character, LP.Character.Hamburger, "Heal")
+							Remotes["EatingEvent"]:FireServer(LP.Character, LP.Character:FindFirstChild("Hamburger"), "Heal")
 						end)
 					end
 				end)
