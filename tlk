@@ -4635,7 +4635,7 @@ end)
 task.spawn(function()
 	while task.wait() do
 		if heal then 
-			pcall(function()
+			
 
 			spawn(function()
 				if LP.Character.Humanoid.Health < 100 then
@@ -4654,8 +4654,7 @@ task.spawn(function()
 				end
 			end)
 
- 		end) 
-	end	
+		end	
 	end
 end)
 	
