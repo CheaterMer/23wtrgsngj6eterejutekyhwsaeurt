@@ -4641,7 +4641,7 @@ task.spawn(function()
 					if not LP.Backpack:FindFirstChild("Hamburger") and not LP.Character:FindFirstChild("Hamburger") then
 						--task.wait()
 						fireclickdetector(workspace:WaitForChild("Hamburger").ClickDetector)
-					elseif LP.Backpack:FindFirstChild("Hamburger") and not LP.Character:FindFirstChild("Hamburger") then
+					elseif LP.Backpack:FindFirstChild("Hamburger") then
 						--task.wait()
 						LP.Backpack.Hamburger.Parent = LP.Character
 					end
