@@ -4636,7 +4636,6 @@ task.spawn(function()
 	while task.wait() do
 		if heal then 
 			
-
 			spawn(function()
 				if LP.Character.Humanoid.Health < 100 then
 				if not LP.Backpack:FindFirstChild("Hamburger") and not LP.Character:FindFirstChild("Hamburger") then
