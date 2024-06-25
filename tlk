@@ -4645,12 +4645,12 @@ task.spawn(function()
 						wait()
 						LP.Backpack.Hamburger.Parent = LP.Character
 					end
-				wait(0.25)
+				end)
+				wait(0.1)
 						spawn(function()
 							Remotes["EatingEvent"]:FireServer(LP.Character, LP.Character:FindFirstChild("Hamburger"), "Heal")
 						end)
 					end
-				end)
 
 		end	
 	end
