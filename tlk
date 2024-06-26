@@ -5567,7 +5567,7 @@ LP.CharacterAdded:Connect(function(char)
 			ImportAsset(11189999097)
 			ImportAsset(16337439844)
 
-			ImportAsset(17448564816)
+			ImportAsset(16631293386)
 
 			--ImportAsset(11697630021)
 		elseif CUSKIN == "PINK" then
