@@ -5621,7 +5621,7 @@ LP.CharacterAdded:Connect(function(char)
 
 end)
 
-plrs.PlayerAdded:Connect(function(player)
+Players.PlayerAdded:Connect(function(player)
 	playerlista:Clear()
 	copy_avatar:Clear()
 	GarbPlayerList:Clear()
@@ -5638,7 +5638,7 @@ plrs.PlayerAdded:Connect(function(player)
 	end
 end)
 
-plrs.PlayerRemoving:Connect(function(player)
+Players.PlayerRemoving:Connect(function(player)
 	playerlista:Clear()
 	copy_avatar:Clear()
 	GarbPlayerList:Clear()
