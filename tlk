@@ -4162,6 +4162,86 @@ task.spawn(function()
     end
 end)
 
+--[random name]--
+
+task.spawn(function()
+	while task.wait(0.5) do
+		if Randoms then 
+			local nicknames = {"NULL", "Hacker", "Unknown", "Anonymous","Non-existent","Error"}
+
+			-- 랜덤으로 닉네임 선택
+			local randomIndex = math.random(1, #nicknames)
+			local selectedNickname = nicknames[randomIndex]
+			Chat["SayMessageRequest"]:FireServer( "/nick "..selectedNickname,"All")
+		 end
+	end
+end)
+
+--[RemoveNonExistingPlayers]--
+
+task.spawn(function()
+	while true do
+		RemoveNonExistingPlayers()
+		wait(5) -- 5초 대기
+	end
+end)
+
+--[while block item]--
+
+task.spawn(function()
+    while task.wait() do
+		pcall(function()
+			if blockitemwl then
+				for idx, plr in pairs(Players:GetPlayers()) do
+					if plr ~= LP and table.find(whitelistuser, plr.Name) then
+						Remotes["UnCuffed"]:FireServer(plr.Character)
+					end
+				end
+			end
+		end) 
+	end
+end)
+
+--[while loop taser]--
+
+task.spawn(function()
+    while task.wait() do
+		--pcall(function()
+			if jajajajajajajajeztaser then
+				for userId, username in pairs(whitelistuser) do
+					local player =  game:GetService("Players"):WaitForChild(username).Character
+					if player == nil then
+						RemoveNonExistingPlayers()
+						return
+					end
+					if player then
+						pcall(function()
+							local args = {
+								[1] = "Hit",
+								[2] = game:GetService("Players").LocalPlayer.Backpack.Taser,
+								[3] = player.Head
+							}
+							
+							game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+							
+							wait(0.1)
+							--TaserRemote:FireServer(	"Recharge", game:GetService("Players").LocalPlayer.Backpack.Taser)
+							
+							local args = {
+								[1] = "Recharge",
+								[2] = game:GetService("Players").LocalPlayer.Backpack.Taser
+							}
+							
+							game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+						end)
+						wait(0.2) -- 0.2초 대기
+					end
+				end
+			end
+		--end) 
+	end
+end)
+
 block_tools_channel:Toggle("My Tool is", false, function(bool)
     backpackistrue = bool
 end)
@@ -5160,7 +5240,7 @@ task.spawn(function()
 	while task.wait() do
 		if HouseLock1 then pcall(function()
 
-for i,v in pairs(workspace.Houses:GetDescendants()) do
+	for i,v in pairs(workspace.Houses:GetDescendants()) do
     if v:IsA("ProximityPrompt") then
     if v.Name == "LockPrompt" then
         if v.Parent.Parent.Click:FindFirstChild("IsLocked").Value == false then
@@ -5170,10 +5250,10 @@ for i,v in pairs(workspace.Houses:GetDescendants()) do
     end
     end
     end
-end
+		end
 
-		end) end
-	end
+			end) end
+		end
 end)
 
 click_channel:Button("Sound", function()
@@ -5339,21 +5419,6 @@ char_channel:Toggle("Faka Name", false, function (bool)
 	Fakename = bool
 end)
 
-
-task.spawn(function()
-	while task.wait(0.5) do
-		if Randoms then 
-			local nicknames = {"NULL", "Hacker", "Unknown", "Anonymous","Non-existent","Error"}
-
-			-- 랜덤으로 닉네임 선택
-			local randomIndex = math.random(1, #nicknames)
-			local selectedNickname = nicknames[randomIndex]
-			Chat["SayMessageRequest"]:FireServer( "/nick "..selectedNickname,"All")
-		 end
-	end
-end)
-
-
 char_channel:Toggle("Random Name", false, function (bool)
 	Randoms = bool
 end)
@@ -5388,13 +5453,6 @@ local function RemoveNonExistingPlayers()
         end
     end
 end
-
-task.spawn(function()
-	while true do
-		RemoveNonExistingPlayers()
-		wait(5) -- 5초 대기
-	end
-end)
 
 local WLT = whitelist:Dropdown(
 	"white List",
@@ -5450,58 +5508,6 @@ Oneteam:Toggle("only hit Locked Player?", false, function(bool)
 end)
 
 local ggez = Troll_tab:Channel("Game Over Yet Kid")
-
-task.spawn(function()
-    while task.wait() do
-		pcall(function()
-			if blockitemwl then
-				for idx, plr in pairs(Players:GetPlayers()) do
-					if plr ~= LP and table.find(whitelistuser, plr.Name) then
-						Remotes["UnCuffed"]:FireServer(plr.Character)
-					end
-				end
-			end
-		end) 
-	end
-end)
-
-task.spawn(function()
-    while task.wait() do
-		--pcall(function()
-			if jajajajajajajajeztaser then
-				for userId, username in pairs(whitelistuser) do
-					local player =  game:GetService("Players"):WaitForChild(username).Character
-					if player == nil then
-						RemoveNonExistingPlayers()
-						return
-					end
-					if player then
-						pcall(function()
-							local args = {
-								[1] = "Hit",
-								[2] = game:GetService("Players").LocalPlayer.Backpack.Taser,
-								[3] = player.Head
-							}
-							
-							game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-							
-							wait(0.1)
-							--TaserRemote:FireServer(	"Recharge", game:GetService("Players").LocalPlayer.Backpack.Taser)
-							
-							local args = {
-								[1] = "Recharge",
-								[2] = game:GetService("Players").LocalPlayer.Backpack.Taser
-							}
-							
-							game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-						end)
-						wait(0.2) -- 0.2초 대기
-					end
-				end
-			end
-		--end) 
-	end
-end)
 
 ggez:Toggle("blocked item jajaja", false, function(bool)
     blockitemwl = bool
