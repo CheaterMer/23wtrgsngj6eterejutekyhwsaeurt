@@ -3947,6 +3947,8 @@ task.spawn(function()
 	end
 end)
 
+--[heal]--
+
 task.spawn(function()
 	while task.wait() do
 		if heal then 
@@ -3972,6 +3974,8 @@ task.spawn(function()
 	end
 end)
 
+--[safezone]--
+
 task.spawn(function()
 	while task.wait() do
 		if LPzoneValue == true then
@@ -3992,6 +3996,8 @@ task.spawn(function()
 	end
 end)
 
+--[anti lag]--
+
 task.spawn(function()
 	while task.wait() do
 		if partdelety == true then
@@ -4009,6 +4015,33 @@ task.spawn(function()
 			end)
 		end
 	end
+end)
+
+--[laging]--
+
+task.spawn(function()
+    while task.wait(delay) do
+        if lagging == "Exploit" then
+			task.spawn(function()
+            ImportAsset(33070696)
+            ImportAsset(150381051)
+			end)
+            for i,a in pairs(LP.Character:GetChildren()) do
+                if a.Name == "A" then
+                    a:Destroy()
+                end
+            end
+        elseif lagging == "Stopping" then
+            local oldPos = LP.Character.HumanoidRootPart.CFrame
+            LP.Character.Humanoid.Health = 0
+            lagging = "Stoped"
+			pcall(function()
+            local char = LP.CharacterAdded:Wait()
+            task.wait(0.45)
+            char.HumanoidRootPart.CFrame = oldPos
+			end)
+        end
+    end
 end)
 
 block_tools_channel:Toggle("My Tool is", false, function(bool)
@@ -4658,15 +4691,15 @@ combat_channel:Button("Grab Player", function()
 	--	local cuff = LP.Backpack:FindFirstChild("Handcuffs")
 	--end
 
---	spawn(function()
---		fireclickdetector(workspace.Pickaxe.ClickDetector)
---		fireclickdetector(workspace.Axe.ClickDetector)
---		fireclickdetector(workspace.Taser.ClickDetector)
---		fireclickdetector(workspace.Rope.ClickDetector)
---		fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
---		fireclickdetector(workspace.KeyCard.ClickDetector)
---		fireclickdetector(workspace.Rope.ClickDetector)
---	end)
+	--	spawn(function()
+	--		fireclickdetector(workspace.Pickaxe.ClickDetector)
+	--		fireclickdetector(workspace.Axe.ClickDetector)
+	--		fireclickdetector(workspace.Taser.ClickDetector)
+	--		fireclickdetector(workspace.Rope.ClickDetector)
+	--		fireclickdetector(workspace:FindFirstChild("Handcuffs (fugitive)").ClickDetector)
+	--		fireclickdetector(workspace.KeyCard.ClickDetector)
+	--		fireclickdetector(workspace.Rope.ClickDetector)
+	--	end)
 
 	--task.wait(1)
 	--do
@@ -4842,30 +4875,6 @@ extra_channel:Label("  ")
 
 local lagging = "Stop"
 local delay = 1
-task.spawn(function ()
-    while task.wait(delay) do
-        if lagging == "Exploit" then
-			task.spawn(function()
-            ImportAsset(33070696)
-            ImportAsset(150381051)
-			end)
-            for i,a in pairs(LP.Character:GetChildren()) do
-                if a.Name == "A" then
-                    a:Destroy()
-                end
-            end
-        elseif lagging == "Stopping" then
-            local oldPos = LP.Character.HumanoidRootPart.CFrame
-            LP.Character.Humanoid.Health = 0
-            lagging = "Stoped"
-			pcall(function()
-            local char = LP.CharacterAdded:Wait()
-            task.wait(0.45)
-            char.HumanoidRootPart.CFrame = oldPos
-			end)
-        end
-    end
-end)
 
 local delay_display = extra_channel:Label("Delay: "..tostring(delay).."s")
 extra_channel:Toggle("Lagging Server", false, function (bool)
