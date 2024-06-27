@@ -27,6 +27,12 @@ local lagging = "Stop"
 local delay = 1
 local LPRing
 local LPzoneValue
+local GetDownitem = false
+local targetr = nil
+local taser = false
+local tuf = false
+local tuc = false
+local plr = Players.LocalPlayer
 
 local attack_tools = {
     "Axe",
@@ -4770,15 +4776,6 @@ end)
 player_channel:Button("OAH", function()
 	hoglast()
 end)
-
-
-local GetDownitem = false
-local targetr = nil
-local taser = false
-local tuf = false
-local tuc = false
-local plrs = game:GetService("Players")
-local plr = plrs.LocalPlayer
 
 local names = {}
 for idx, plr in pairs(game.Players:GetPlayers()) do
