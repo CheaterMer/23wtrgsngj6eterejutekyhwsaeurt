@@ -18,6 +18,8 @@ _G.LockOnhit = false
 local LP = Players.LocalPlayer
 local plr = Players.LocalPlayer
 
+local WLA
+local whitelistuser = {}
 local blocktoolNames = "Taser"
 local cooldowns = 0.2
 local killaura = false
@@ -3473,6 +3475,25 @@ function hoglast()
 	end) 
 end
 
+local function ImportAsset(id)
+    Remotes["Import"]:FireServer(math.random(1, 10), id, tostring({}), tostring(id))
+end
+
+function RemoveCloth(type)
+    Remotes["ImportDelete"]:FireServer(type, "Delete")
+end
+
+local function RemoveNonExistingPlayers()
+    for i = #whitelistuser, 1, -1 do
+        local playerName = whitelistuser[i]
+        local player = Players:FindFirstChild(playerName)
+        if not player then
+            table.remove(whitelistuser, i) -- whitelistuser 테이블에서 해당 플레이어 제거
+			print(whitelistuser,i ,"remove")
+        end
+    end
+end
+
 local win = DiscordLib:Window("TLK Panel")
 
 --local server_tab = win:Server("Server", getcustomasset("TLK_ASSETS/"..assets["ServerIcon"]["Name"]))
@@ -4715,8 +4736,7 @@ block_tools_channel:Dropdown(
     function(bool)
 		print(bool)
         BITL = bool
-    end
-)
+end)
 
 block_tools_channel:Toggle("Team Block Item", false, function(bool)
     TBI = bool
@@ -4979,8 +4999,7 @@ local GarbPlayerList = combat_channel:Dropdown(
 		print(bool)
         TGBP = bool
 		TargetLockons:ChangeText("LockOn: "..tostring(bool))
-    end
-)
+end)
 
 combat_channel:Toggle("Loop Tp", false, function(bool)
     LOOPTP = bool
@@ -5154,14 +5173,6 @@ end)
 
 ]]
 
-local function ImportAsset(id)
-    Remotes["Import"]:FireServer(math.random(1, 10), id, tostring({}), tostring(id))
-end
-
-function RemoveCloth(type)
-    Remotes["ImportDelete"]:FireServer(type, "Delete")
-end
-
 local extra_channel = server_tab:Channel("Extra")
 
 extra_channel:Slider("Range", 0, 5000, LPRing, function(value)
@@ -5173,8 +5184,6 @@ extra_channel:Toggle("LP Zone Enable", false, function (bool)
 end)
 
 extra_channel:Label("  ")
-
-
 
 extra_channel:Toggle("Remove A Part", false, function (bool)
 	partdelety = bool
@@ -5446,19 +5455,6 @@ char_channel:Dropdown(
 )
 
 local whitelist = Troll_tab:Channel("White and Black List")
-local WLA
-local whitelistuser = {}
-
-local function RemoveNonExistingPlayers()
-    for i = #whitelistuser, 1, -1 do
-        local playerName = whitelistuser[i]
-        local player = Players:FindFirstChild(playerName)
-        if not player then
-            table.remove(whitelistuser, i) -- whitelistuser 테이블에서 해당 플레이어 제거
-			print(whitelistuser,i ,"remove")
-        end
-    end
-end
 
 local WLT = whitelist:Dropdown(
 	"white List",
