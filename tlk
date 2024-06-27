@@ -5,10 +5,31 @@ local RunService = game:GetService("RunService")
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
 local pfp
 local user
 local tag
 local userinfo = {}
+
+_G.targetr = nil
+_G.bruhinthelockon = nil
+_G.LockOnhit = false
+
+local LP = Players.LocalPlayer
+
+local blocktoolNames = "Taser"
+
+local choosing_spawn = CFrame.new(282.811157, 5.99613762, -69.6557007, 0.826119781, -6.12301321e-08, 0.563494503, 6.9332371e-09, 1, 9.84968693e-08, -0.563494503, -7.74633762e-08, 0.826119781)
+
+makefolder("TLK_ASSETS")
+
+local MAX_PART_COUNT = 25
+
+local userOwner = {"Meringue_Cookies","Cheater_Mer","thscjsgh1"}
+
+local vmkey = workspace["Vending Machine"].Keypad.Buttons.Keys
+local vmyes = workspace["Vending Machine"].Keypad.Buttons.Enter
+local vmcen = workspace["Vending Machine"].Keypad.Buttons.Cancel
 
 pcall(function()
 	userinfo = HttpService:JSONDecode(readfile("discordlibinfo.txt"));
@@ -3274,27 +3295,6 @@ function DiscordLib:Window(text)
 	return ServerHold
 end
 
-_G.targetr = nil
-_G.bruhinthelockon = nil
-_G.LockOnhit = false
-
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-
-local LP = Players.LocalPlayer
-
-local choosing_spawn = CFrame.new(282.811157, 5.99613762, -69.6557007, 0.826119781, -6.12301321e-08, 0.563494503, 6.9332371e-09, 1, 9.84968693e-08, -0.563494503, -7.74633762e-08, 0.826119781)
-
-makefolder("TLK_ASSETS")
-
-local MAX_PART_COUNT = 25
-
-local userOwner = {"Meringue_Cookies","Cheater_Mer","thscjsgh1"}
-
-local vmkey = workspace["Vending Machine"].Keypad.Buttons.Keys
-local vmyes = workspace["Vending Machine"].Keypad.Buttons.Enter
-local vmcen = workspace["Vending Machine"].Keypad.Buttons.Cancel
-
 local assets = {
     ["ServerIcon"] = {
         ["Name"] = "servericon.png",
@@ -3433,7 +3433,7 @@ task.spawn(function()
 		game.StarterGui: SetCoreGuiEnabled (Enum.CoreGuiType.Backpack, true)
 		end)
 	end
-end
+	end
 end)
 
 task.spawn(function()
@@ -3611,6 +3611,265 @@ task.spawn(function()
 	end
 end)
 
+task.spawn(function()
+    while task.wait() do
+        if _G.forcestop then
+            _G.forcestop = nil
+            break
+        end
+        if killaura then pcall(function()
+            local tool
+            for i,v in pairs(attack_tools) do
+                --local t = LP.Character:FindFirstChild(v) or LP.Backpack:FindFirstChild(v) or workspace:FindFirstChild(v) 
+				local t = findtool(v)
+                if t then
+                    --t.Parent = LP.Character
+                    tool = t
+                    break
+                end
+            end
+            for idx, plr in pairs(Players:GetPlayers()) do
+                	if plr ~= LP 
+					and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 25) 
+					and plr.Character.Hostile.Value 
+					and not table.find(userOwner, plr.Name) 
+					--and not table.find(whitelistuser, plr.Name)
+					and plr.Character.Humanoid.Health ~= 0 
+					then
+						if LP.Team.Name == "Civilian" 
+						and plr.Team.Name ~= "Guard" 
+						then
+							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+							task.wait(0.1)
+						elseif LP.Team.Name ~= "Civilian" then
+							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+							task.wait(0.1)
+						end
+                	end
+            	end
+        end)end
+    end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if UF then pcall(function()
+		if LP.Character.IsCuffed.Value then
+			Remotes["UnCuffed"]:FireServer(LP.Character)
+		end
+		end) end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if UH then pcall(function()
+		if LP.Character.IsHogged.Value then
+			Remotes["IsHog"]:FireServer(LP.Character,"UnHog")
+		end
+		end) end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if Ragdollanti then pcall(function()
+		if LP.Character.RagDoll.Value == true then
+			LP.Character.RagDoll.Value = false
+		end
+		end) end
+	end
+end)
+
+task.spawn(function()
+    while task.wait(0.1) do
+		if BlockTaserhahaha then
+			spawn(function()
+				for i,v in pairs(Players:GetChildren()) do
+
+
+
+						if v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true then
+							
+							print(v.Name," Backpack  " , blocktoolNames)
+							ToolFinders = v.Backpack:FindFirstChild(blocktoolNames)
+							
+							Remotes["Tase"]:FireServer("Hit", ToolFinders, v.Character.Head)
+
+						elseif v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team == LP.Team and v.Character.Hostile.Value == true then
+
+							print(v.Name," Backpack other " , blocktoolNames)
+							ToolFinders = v.Character:FindFirstChild(blocktoolNames)
+
+							for idx, plr in pairs(Players:GetPlayers()) do
+								if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
+									Remotes["Tase"]:FireServer("Hit", ToolFinders, plr.Character.Head)
+								end
+							end
+
+						end
+
+					if v ~= LP and v.Character:FindFirstChild(blocktoolNames) and v.Character:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true then
+						
+						print(v.Name," Character  " , blocktoolNames)
+						ToolFinders = v.Character:FindFirstChild(blocktoolNames)
+
+						Remotes["Tase"]:FireServer("Hit", ToolFinders, v.Character.Head)
+
+					elseif v ~= LP and v.Character:FindFirstChild(blocktoolNames) and v.Character:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team == LP.Team and v.Character.Hostile.Value == true then
+
+						print(v.Name," Character other  " , blocktoolNames)
+						ToolFinders = v.Character:FindFirstChild(blocktoolNames)
+
+						for idx, plr in pairs(Players:GetPlayers()) do
+							if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
+								Remotes["Tase"]:FireServer("Hit", ToolFinders, plr.Character.Head)
+							end
+						end
+
+					end
+				end
+			end)
+		end
+	end
+end)
+
+task.spawn(function()
+    while task.wait() do
+    pcall(function()
+        if TBI then
+            for idx, plr in pairs(Players:GetPlayers()) do
+                if plr ~= LP and plr.Name ~= userOwner and plr.Character.IsCuffed.Value == false and plr.Team.Name == BITL then
+                    if except_friends and not plr:IsFriendsWith(LP.UserId) then
+                        Remotes["UnCuffed"]:FireServer(plr.Character)
+                    else
+                        Remotes["UnCuffed"]:FireServer(plr.Character)
+                    end
+                end
+            end
+        end
+    end) 
+	end
+end)
+
+task.spawn(function()
+    while task.wait() do
+		if infFlashlight then
+			spawn(function()
+			fireclickdetector(workspace.Flashlight.ClickDetector)
+			for i,v in pairs(LP.Backpack:GetChildren()) do
+				if v.Name == "Flashlight" then
+					task.wait(0.01)
+					v.Parent = LP.Character
+				end
+			end
+		end)
+		end
+	end
+end)
+
+task.spawn(function()
+    while task.wait() do
+		if infFlashlights then
+			spawn(function()
+			for i,v in pairs(LP.Character:GetChildren()) do
+				if v.Name == "Flashlight" then
+					task.wait(0.01)
+					v.Parent = game.Workspace
+				end
+			end
+		end)
+		end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if AUC then pcall(function()
+			for idx, plr in pairs(Players:GetPlayers()) do
+                if plr ~= LP and plr.Character.IsLocked.Value == true then
+					Remotes["CollarRemove"]:FireServer(plr.Character,"Collar")
+				end
+				end
+		end) end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if AUF then pcall(function()
+			for idx, plr in pairs(Players:GetPlayers()) do
+                if plr ~= LP and plr.Character.IsCuffed.Value == true then
+					Remotes["UnCuffed"]:FireServer(plr.Character)
+				end
+				end
+		end) end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if AUH then pcall(function()
+			for idx, plr in pairs(Players:GetPlayers()) do
+                if plr ~= LP and plr.Character.IsHogged.Value == true then
+				Remotes["IsHog"]:FireServer(plr.Character,"UnHog")
+		end end
+		end) end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if ATS then pcall(function()
+		for idx, plr in pairs(Players:GetPlayers()) do
+			if plr ~= LP 
+			and not table.find(userOwner, plr.Name) 
+			and plr.Character.Hostile.Value == true 
+			and plr.Team ~= LP.Team 
+			--and not table.find(whitelistuser, plr.Name)
+			then
+					pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
+					tpos = plr.Character.Torso.CFrame.Position
+					--print(name)
+					--print(tpos)
+						--[[
+						spawn(function()
+							local args = {
+									[1] = "Generate",
+									[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+									[3] = Vector3.new(pos.X,pos.Y,pos.Z),
+									[4] = Vector3.new(tpos.X,tpos.Y,tpos.Z)
+								}
+								
+								game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+						end)
+							]]
+						--TaserRemote:FireServer("Hit",game:GetService("Players").LocalPlayer.Backpack.Taser,plr.Character.Head)
+						
+						local args = {
+							[1] = "Hit",
+							[2] = findtools("Taser"),
+							[3] = plr.Character.Head
+						}
+						
+						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+						
+						wait(0.1)
+						--TaserRemote:FireServer(	"Recharge", game:GetService("Players").LocalPlayer.Backpack.Taser)
+						
+						local args = {
+							[1] = "Recharge",
+							[2] = findtools("Taser")
+						}
+						
+						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+						
+					end
+				end
+		end) end
+	end
+end)
+
 block_tools_channel:Toggle("My Tool is", false, function(bool)
     backpackistrue = bool
 end)
@@ -3688,67 +3947,6 @@ end)
 
 block_tools_channel:Toggle("Block Taser", false, function(bool)
     BlockTaserhahaha = bool
-end)
-
-local blocktoolNames = "Taser"
-
---for idx, plr in pairs(Players:GetPlayers()) do
---	if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
-
---	end
---end
-
-task.spawn(function()
-    while task.wait(0.1) do
-		if BlockTaserhahaha then
-			spawn(function()
-				for i,v in pairs(Players:GetChildren()) do
-
-
-
-						if v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true then
-							
-							print(v.Name," Backpack  " , blocktoolNames)
-							ToolFinders = v.Backpack:FindFirstChild(blocktoolNames)
-							
-							Remotes["Tase"]:FireServer("Hit", ToolFinders, v.Character.Head)
-
-						elseif v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team == LP.Team and v.Character.Hostile.Value == true then
-
-							print(v.Name," Backpack other " , blocktoolNames)
-							ToolFinders = v.Character:FindFirstChild(blocktoolNames)
-
-							for idx, plr in pairs(Players:GetPlayers()) do
-								if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
-									Remotes["Tase"]:FireServer("Hit", ToolFinders, plr.Character.Head)
-								end
-							end
-
-						end
-
-					if v ~= LP and v.Character:FindFirstChild(blocktoolNames) and v.Character:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true then
-						
-						print(v.Name," Character  " , blocktoolNames)
-						ToolFinders = v.Character:FindFirstChild(blocktoolNames)
-
-						Remotes["Tase"]:FireServer("Hit", ToolFinders, v.Character.Head)
-
-					elseif v ~= LP and v.Character:FindFirstChild(blocktoolNames) and v.Character:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team == LP.Team and v.Character.Hostile.Value == true then
-
-						print(v.Name," Character other  " , blocktoolNames)
-						ToolFinders = v.Character:FindFirstChild(blocktoolNames)
-
-						for idx, plr in pairs(Players:GetPlayers()) do
-							if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
-								Remotes["Tase"]:FireServer("Hit", ToolFinders, plr.Character.Head)
-							end
-						end
-
-					end
-				end
-			end)
-		end
-	end
 end)
 
 block_tools_channel:Label("  ")
@@ -3990,55 +4188,6 @@ block_tools_channel:Toggle("Team Block Item", false, function(bool)
     TBI = bool
 end)
 
-task.spawn(function()
-    while task.wait() do
-    pcall(function()
-        if TBI then
-            for idx, plr in pairs(Players:GetPlayers()) do
-                if plr ~= LP and plr.Name ~= userOwner and plr.Character.IsCuffed.Value == false and plr.Team.Name == BITL then
-                    if except_friends and not plr:IsFriendsWith(LP.UserId) then
-                        Remotes["UnCuffed"]:FireServer(plr.Character)
-                    else
-                        Remotes["UnCuffed"]:FireServer(plr.Character)
-                    end
-                end
-            end
-        end
-    end) 
-	end
-end)
-
-task.spawn(function()
-    while task.wait() do
-		if infFlashlight then
-			spawn(function()
-			fireclickdetector(workspace.Flashlight.ClickDetector)
-			for i,v in pairs(LP.Backpack:GetChildren()) do
-				if v.Name == "Flashlight" then
-					task.wait(0.01)
-					v.Parent = LP.Character
-				end
-			end
-		end)
-		end
-	end
-end)
-
-task.spawn(function()
-    while task.wait() do
-		if infFlashlights then
-			spawn(function()
-			for i,v in pairs(LP.Character:GetChildren()) do
-				if v.Name == "Flashlight" then
-					task.wait(0.01)
-					v.Parent = game.Workspace
-				end
-			end
-		end)
-		end
-	end
-end)
-
 block_tools_channel:Toggle("Flashlight", false, function(bool)
     infFlashlight = bool
 end)
@@ -4064,94 +4213,6 @@ local player_channel = server_tab:Channel("Character")
 local AUF
 local AUH
 local AUC
-
-task.spawn(function()
-	while task.wait() do
-		if AUC then pcall(function()
-			for idx, plr in pairs(Players:GetPlayers()) do
-                if plr ~= LP and plr.Character.IsLocked.Value == true then
-					Remotes["CollarRemove"]:FireServer(plr.Character,"Collar")
-				end
-				end
-		end) end
-	end
-end)
-
-task.spawn(function()
-	while task.wait() do
-		if AUF then pcall(function()
-			for idx, plr in pairs(Players:GetPlayers()) do
-                if plr ~= LP and plr.Character.IsCuffed.Value == true then
-					Remotes["UnCuffed"]:FireServer(plr.Character)
-				end
-				end
-		end) end
-	end
-end)
-
-task.spawn(function()
-	while task.wait() do
-		if AUH then pcall(function()
-			for idx, plr in pairs(Players:GetPlayers()) do
-                if plr ~= LP and plr.Character.IsHogged.Value == true then
-				Remotes["IsHog"]:FireServer(plr.Character,"UnHog")
-		end end
-		end) end
-	end
-end)
-
-task.spawn(function()
-	while task.wait() do
-		if ATS then pcall(function()
-		for idx, plr in pairs(Players:GetPlayers()) do
-			if plr ~= LP 
-			and not table.find(userOwner, plr.Name) 
-			and plr.Character.Hostile.Value == true 
-			and plr.Team ~= LP.Team 
-			--and not table.find(whitelistuser, plr.Name)
-			then
-					pos = game:GetService("Players").LocalPlayer.Character.Torso.CFrame.Position
-					tpos = plr.Character.Torso.CFrame.Position
-					--print(name)
-					--print(tpos)
-						--[[
-						spawn(function()
-							local args = {
-									[1] = "Generate",
-									[2] = game:GetService("Players").LocalPlayer.Character.Taser,
-									[3] = Vector3.new(pos.X,pos.Y,pos.Z),
-									[4] = Vector3.new(tpos.X,tpos.Y,tpos.Z)
-								}
-								
-								game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-						end)
-							]]
-						--TaserRemote:FireServer("Hit",game:GetService("Players").LocalPlayer.Backpack.Taser,plr.Character.Head)
-						
-						local args = {
-							[1] = "Hit",
-							[2] = findtools("Taser"),
-							[3] = plr.Character.Head
-						}
-						
-						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-						
-						wait(0.1)
-						--TaserRemote:FireServer(	"Recharge", game:GetService("Players").LocalPlayer.Backpack.Taser)
-						
-						local args = {
-							[1] = "Recharge",
-							[2] = findtools("Taser")
-						}
-						
-						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-						
-					end
-				end
-		end) end
-	end
-end)
-
 
 player_channel:Toggle("All Un Cuff", false, function(bool)
 	AUF = bool
@@ -4417,74 +4478,8 @@ local attack_tools = {
     "Fist"
 }
 
-task.spawn(function()
-    while task.wait() do
-        if _G.forcestop then
-            _G.forcestop = nil
-            break
-        end
-        if killaura then pcall(function()
-            local tool
-            for i,v in pairs(attack_tools) do
-                local t = LP.Character:FindFirstChild(v) or LP.Backpack:FindFirstChild(v) or workspace:FindFirstChild(v)
-                if t then
-                    --t.Parent = LP.Character
-                    tool = t
-                    break
-                end
-            end
-            for idx, plr in pairs(Players:GetPlayers()) do
-                	if plr ~= LP 
-					and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 25) 
-					and plr.Character.Hostile.Value 
-					and not table.find(userOwner, plr.Name) 
-					--and not table.find(whitelistuser, plr.Name)
-					and plr.Character.Humanoid.Health ~= 0 
-					then
-						if LP.Team.Name == "Civilian" 
-						and plr.Team.Name ~= "Guard" 
-						then
-							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
-							task.wait(0.1)
-						elseif LP.Team.Name ~= "Civilian" then
-							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
-							task.wait(0.1)
-						end
-                	end
-            	end
-        end)end
-    end
-end)
 
-task.spawn(function()
-	while task.wait() do
-		if UF then pcall(function()
-		if LP.Character.IsCuffed.Value then
-			Remotes["UnCuffed"]:FireServer(LP.Character)
-		end
-		end) end
-	end
-end)
 
-task.spawn(function()
-	while task.wait() do
-		if UH then pcall(function()
-		if LP.Character.IsHogged.Value then
-			Remotes["IsHog"]:FireServer(LP.Character,"UnHog")
-		end
-		end) end
-	end
-end)
-
-task.spawn(function()
-	while task.wait() do
-		if Ragdollanti then pcall(function()
-		if LP.Character.RagDoll.Value == true then
-			LP.Character.RagDoll.Value = false
-		end
-		end) end
-	end
-end)
 
 function eat()
     spawn(function()
