@@ -9,36 +9,16 @@ local Players = game:GetService("Players")
 local pfp
 local user
 local tag
-local userinfo = {}
 
-_G.targetr = nil
-_G.bruhinthelockon = nil
-_G.LockOnhit = false
-
-local LP = Players.LocalPlayer
-local plr = Players.LocalPlayer
-
-local WLA
+local Chat = {}
+local Remotes = {}
 local whitelistuser = {}
-local blocktoolNames = "Taser"
-local cooldowns = 0.2
-local killaura = false
-local LOCKON = false
-local Ragdollanti = false
-local LOCKED 
-local lagging = "Stop"
-local delay = 1
-local LPRing
-local LPzoneValue
-local GetDownitem = false
-local targetr = nil
-local taser = false
-local tuf = false
-local tuc = false
-local AUF
-local AUH
-local AUC
-
+local userinfo = {}
+local userOwner = {
+	"Meringue_Cookies",
+	"Cheater_Mer",
+	"thscjsgh1"
+}
 local attack_tools = {
     "Axe",
     "Pickaxe",
@@ -48,13 +28,40 @@ local attack_tools = {
     "Fist"
 }
 
+_G.targetr = nil
+_G.bruhinthelockon = nil
+_G.LockOnhit = false
+
+local LP = Players.LocalPlayer
+local plr = Players.LocalPlayer
+
+local blocktoolNames = "Taser"
+local cooldowns = 0.2
+local killaura = false
+local LOCKON = false
+local Ragdollanti = false
+local lagging = "Stop"
+local delay = 1
+local GetDownitem = false
+local targetr = nil
+local taser = false
+local tuf = false
+local tuc = false
+local LOCKED 
+local LPRing
+local LPzoneValue
+local WLA
+local AUF
+local AUH
+local AUC
+local ToolFinders
+local ToolFinder 
+
 local choosing_spawn = CFrame.new(282.811157, 5.99613762, -69.6557007, 0.826119781, -6.12301321e-08, 0.563494503, 6.9332371e-09, 1, 9.84968693e-08, -0.563494503, -7.74633762e-08, 0.826119781)
 
 makefolder("TLK_ASSETS")
 
 local MAX_PART_COUNT = 25
-
-local userOwner = {"Meringue_Cookies","Cheater_Mer","thscjsgh1"}
 
 local vmkey = workspace["Vending Machine"].Keypad.Buttons.Keys
 local vmyes = workspace["Vending Machine"].Keypad.Buttons.Enter
@@ -3344,15 +3351,11 @@ for index, value in pairs(assets) do
     repeat task.wait() until isfile("TLK_ASSETS/"..value["Name"])
 end
 
-local Remotes = {}
-
 for idx, val in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
     if val:IsA("RemoteEvent") then
         Remotes[val.Name] = val
     end
 end
-
-local Chat = {}
 
 for idx, val in pairs(game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents:GetChildren()) do
     if val:IsA("RemoteEvent") then
@@ -3377,8 +3380,6 @@ local function GetPlayer(name)
     return nil
 end
 
-local ToolFinder 
-
 function findtool(toolName)
 	if LP.Backpack:FindFirstChild(toolName) then
         ToolFinder = LP.Backpack:FindFirstChild(toolName)
@@ -3398,8 +3399,6 @@ function findtool(toolName)
         end
 	end
 end
-
-local ToolFinders
 
 function findtools(toolNames)
 	if LP.Backpack:FindFirstChild(toolNames) then
