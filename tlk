@@ -3932,6 +3932,46 @@ task.spawn(function()
 	end
 end)
 
+task.spawn(function()
+	while task.wait() do
+		if INFgarb == true then 
+			pcall(function()
+				LP.Character.StaminaSprintClient.Enabled = false
+			end) 
+		else if INFgarb == false then
+			pcall(function()
+				LP.Character.StaminaSprintClient.Enabled = true
+			end) 
+		end
+		end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if heal then 
+			
+			spawn(function()
+				if LP.Character.Humanoid.Health < 100 then
+					if not LP.Backpack:FindFirstChild("Hamburger") and not LP.Character:FindFirstChild("Hamburger") then
+						wait()
+						fireclickdetector(workspace:WaitForChild("Hamburger").ClickDetector)
+					elseif LP.Backpack:FindFirstChild("Hamburger") then
+						wait()
+						LP.Backpack.Hamburger.Parent = LP.Character
+					end
+				end
+			end)
+				wait(0.1)
+				spawn(function()
+					Remotes["EatingEvent"]:FireServer(LP.Character, LP.Character:FindFirstChild("Hamburger"), "Heal")
+				end)
+
+			
+		end	
+	end
+end)
+
 block_tools_channel:Toggle("My Tool is", false, function(bool)
     backpackistrue = bool
 end)
@@ -4498,46 +4538,6 @@ function eat()
 		end
 	end)
 end
-
-task.spawn(function()
-	while task.wait() do
-		if INFgarb == true then 
-			pcall(function()
-				LP.Character.StaminaSprintClient.Enabled = false
-			end) 
-		else if INFgarb == false then
-			pcall(function()
-				LP.Character.StaminaSprintClient.Enabled = true
-			end) 
-		end
-		end
-	end
-end)
-
-task.spawn(function()
-	while task.wait() do
-		if heal then 
-			
-			spawn(function()
-				if LP.Character.Humanoid.Health < 100 then
-					if not LP.Backpack:FindFirstChild("Hamburger") and not LP.Character:FindFirstChild("Hamburger") then
-						wait()
-						fireclickdetector(workspace:WaitForChild("Hamburger").ClickDetector)
-					elseif LP.Backpack:FindFirstChild("Hamburger") then
-						wait()
-						LP.Backpack.Hamburger.Parent = LP.Character
-					end
-				end
-			end)
-				wait(0.1)
-				spawn(function()
-					Remotes["EatingEvent"]:FireServer(LP.Character, LP.Character:FindFirstChild("Hamburger"), "Heal")
-				end)
-
-			
-		end	
-	end
-end)
 	
 combat_channel:Toggle("Anti Ragdoll", false, function(bool)
 	Ragdollanti = bool
