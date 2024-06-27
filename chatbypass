@@ -51,6 +51,8 @@ local replaceMap = {
     [" "] = "   ", -- 공백 문자는 그대로 유지
 }
 
+👆🥵❤️👉👌❤️🥵👆
+
 -- 채팅 입력 변환 함수
 local function replaceText(inputText)
     local replacedText = ""

@@ -3470,7 +3470,7 @@ end)
 task.spawn(function()
     while task.wait() do
 		if infFood then
-spawn(function()
+			spawn(function()
 			fireclickdetector(workspace.Food.Main.ClickDetector)
 			for i,v in pairs(LP.Backpack:GetChildren()) do
 				if v.Name == "Food" then
@@ -3495,6 +3495,119 @@ task.spawn(function()
 			end
 		end)
 		end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if taser then pcall(function()
+			if LP.Character:FindFirstChild("Taser") then
+				spawn(function()	
+				local args = {
+						[1] = "Generate",
+						[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+						[3] = Vector3.new(pos.X,pos.Y,pos.Z),
+						[4] = Vector3.new(tpos.X,tpos.Y,tpos.Z)
+					}
+					
+					game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+				end)
+	
+				local args = {
+					[1] = "Hit",
+					[2] = game:GetService("Players").LocalPlayer.Character.Taser,
+					[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
+				}
+				
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+				wait()
+				local args = {
+					[1] = "Recharge",
+					[2] = game:GetService("Players").LocalPlayer.Character.Taser
+				}
+				
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+			
+			elseif LP.Backpack:FindFirstChild("Taser") then
+	
+				local args = {
+					[1] = "Hit",
+					[2] = game:GetService("Players").LocalPlayer.Backpack.Taser,
+					[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
+				}
+				
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+				wait()
+				local args = {
+					[1] = "Recharge",
+					[2] = game:GetService("Players").LocalPlayer.Backpack.Taser
+				}
+				
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+
+			elseif not LP.Backpack:FindFirstChild("Taesr") and not LP.Character:FindFirstChild("Taser") then
+
+				local args = {
+					[1] = "Hit",
+					[2] = findtools("Taser"),
+					[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
+				}
+				
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+				wait()
+				local args = {
+					[1] = "Recharge",
+					[2] = findtools("Taser")
+				}
+				
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+
+			end
+	
+		end) end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if GetDownitem then pcall(function()
+			if game:GetService("Players"):FindFirstChild(_G.targetr).Character.IsCuffed.Value == false then
+				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(_G.targetr).Character)
+			end
+		end) end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if tuc then pcall(function()
+			if game:GetService("Players"):FindFirstChild(_G.targetr).Character.IsCuffed.Value == true then
+				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(_G.targetr).Character)
+			end
+		end) end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if tuf then pcall(function()
+			if game:GetService("Players"):FindFirstChild(_G.targetr).Character.IsHogged.Value == true then
+				Remotes["IsHog"]:FireServer(game:GetService("Players"):FindFirstChild(_G.targetr).Character,"UnHog")
+			end
+		end) end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if Bruhwhatareyoudoing then pcall(function()
+			for _,fa in pairs(game:GetService("Players"):FindFirstChild(_G.targetr).Character:GetDescendants()) do
+				task.wait(0.1)
+				pcall(function()
+				Remotes["Trail"]:FireServer(fa,true)
+				end)
+			end
+		end) end
 	end
 end)
 
@@ -3579,11 +3692,11 @@ end)
 
 local blocktoolNames = "Taser"
 
-for idx, plr in pairs(Players:GetPlayers()) do
-	if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
+--for idx, plr in pairs(Players:GetPlayers()) do
+--	if plr ~= LP and plr.Character.Hostile.Value == true and plr.Team ~= LP.Team then
 
-	end
-end
+--	end
+--end
 
 task.spawn(function()
     while task.wait(0.1) do
@@ -3745,7 +3858,7 @@ task.spawn(function()
         end
         task.wait(cooldowns)
     end)
-end
+	end
 end)
 
 block_tools_channel:Toggle("Random Food", false, function(bool)
@@ -3892,7 +4005,7 @@ task.spawn(function()
             end
         end
     end) 
-end
+	end
 end)
 
 task.spawn(function()
@@ -4173,119 +4286,6 @@ function item()
 	end
 end
 
-task.spawn(function()
-	while task.wait() do
-		if taser then pcall(function()
-			if LP.Character:FindFirstChild("Taser") then
-				spawn(function()	
-				local args = {
-						[1] = "Generate",
-						[2] = game:GetService("Players").LocalPlayer.Character.Taser,
-						[3] = Vector3.new(pos.X,pos.Y,pos.Z),
-						[4] = Vector3.new(tpos.X,tpos.Y,tpos.Z)
-					}
-					
-					game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-				end)
-	
-				local args = {
-					[1] = "Hit",
-					[2] = game:GetService("Players").LocalPlayer.Character.Taser,
-					[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
-				}
-				
-				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-				wait()
-				local args = {
-					[1] = "Recharge",
-					[2] = game:GetService("Players").LocalPlayer.Character.Taser
-				}
-				
-				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-			
-			elseif LP.Backpack:FindFirstChild("Taser") then
-	
-				local args = {
-					[1] = "Hit",
-					[2] = game:GetService("Players").LocalPlayer.Backpack.Taser,
-					[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
-				}
-				
-				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-				wait()
-				local args = {
-					[1] = "Recharge",
-					[2] = game:GetService("Players").LocalPlayer.Backpack.Taser
-				}
-				
-				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-
-			elseif not LP.Backpack:FindFirstChild("Taesr") and not LP.Character:FindFirstChild("Taser") then
-
-				local args = {
-					[1] = "Hit",
-					[2] = findtools("Taser"),
-					[3] = game:GetService("Players"):WaitForChild(_G.targetr).Character.Head
-				}
-				
-				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-				wait()
-				local args = {
-					[1] = "Recharge",
-					[2] = findtools("Taser")
-				}
-				
-				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-
-			end
-	
-		end) end
-	end
-end)
-
-task.spawn(function()
-	while task.wait() do
-		if GetDownitem then pcall(function()
-			if game:GetService("Players"):FindFirstChild(_G.targetr).Character.IsCuffed.Value == false then
-				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(_G.targetr).Character)
-			end
-		end) end
-	end
-end)
-
-task.spawn(function()
-	while task.wait() do
-		if tuc then pcall(function()
-			if game:GetService("Players"):FindFirstChild(_G.targetr).Character.IsCuffed.Value == true then
-				Remotes["UnCuffed"]:FireServer(game:GetService("Players"):FindFirstChild(_G.targetr).Character)
-			end
-		end) end
-	end
-end)
-
-task.spawn(function()
-	while task.wait() do
-		if tuf then pcall(function()
-			if game:GetService("Players"):FindFirstChild(_G.targetr).Character.IsHogged.Value == true then
-				Remotes["IsHog"]:FireServer(game:GetService("Players"):FindFirstChild(_G.targetr).Character,"UnHog")
-			end
-		end) end
-	end
-end)
-
-task.spawn(function()
-	while task.wait() do
-		if Bruhwhatareyoudoing then pcall(function()
-			for _,fa in pairs(game:GetService("Players"):FindFirstChild(_G.targetr).Character:GetDescendants()) do
-				task.wait(0.1)
-				pcall(function()
-				Remotes["Trail"]:FireServer(fa,true)
-				end)
-			end
-		end) end
-	end
-end)
-
 player_channel:Label("  ")
 
 player_channel:Label("Targeting Only One Player")
@@ -4454,118 +4454,6 @@ task.spawn(function()
             	end
         end)end
     end
-end)
-
-function DontTrykillmeBruh()
-	pcall(function()
-		local tool
-		for i,v in pairs(attack_tools) do
-			local t = LP.Character:FindFirstChild(v)
-			if t then
-				tool = t
-				break
-			end
-		end
-		for idx, plr in pairs(Players:GetPlayers()) do
-			if
-				plr ~= LP 
-                and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 20)
-				and plr.Character.Hostile.Value 
-                and LP.Team ~= plr.Team 
-                --and plr.Name == LOCKED.Name
-                and plr.Character.Humanoid.Health ~= 0 
-			then
-				if LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard" then
-				Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
-				task.wait(0.1)
-				elseif LP.Team.Name ~= "Civilian" then
-					Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
-					task.wait(0.1)
-				end
-			end
-		end
-	end) 
-end
-
-function Getattacker()
-    pcall(function()
-	for idx, plr in pairs(Players:GetPlayers()) do
-		if
-        plr ~= LP 
-        and CheckRange(
-        LP.Character.HumanoidRootPart, 
-        plr.Character.HumanoidRootPart, 
-        15
-        )
-        and plr.Character.Hostile.Value 
-        and LP.Team ~= plr.Team
-        and plr.Character.Humanoid.Health ~= 0 
-    then
-        if LP.Team.Name == "Guard" and plr.Team.Name ~= "Civilian" then
-            if LOCKON == true then
-                LOCKED = plr
-            end
-        elseif LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard" then
-            if LOCKON == true then
-                LOCKED = plr
-            end
-		elseif LP.Team.Name == "Prisoner" then
-            if LOCKON == true then
-                LOCKED = plr
-            end
-		elseif LP.Team.Name == "Choosing" then
-			if LOCKON == true then
-				LOCKED = plr
-			end
-		elseif LP.Team.Name == "Hostage" then
-			if LOCKON == true then
-				LOCKED = plr
-			end
-		elseif LP.Team.Name == "Fugitives" then
-			if LOCKON == true then
-				LOCKED = plr
-			end
-        end
-    end
-	end
-	end)
-end
-
-task.spawn(function()
-    while task.wait() do
-        pcall(function()
-        if donttry == true and LOCKON == true and LOCKED ~= nil then
-        LP.Character.HumanoidRootPart.CFrame = LOCKED.Character.HumanoidRootPart.CFrame + Vector3.new(0 , 5 , 0)
-        end
-    end)
-    end
-end)
-
-task.spawn(function()
-	game.Players.LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
-		if game.Players.LocalPlayer.Character.Humanoid.Health < 100 and LOCKON == false and donttry == true then
-			LOCKON = true
-			task.wait(0.1)
-			Getattacker()
-			local oldPos = LP.Character.HumanoidRootPart.CFrame
-			--local loop_move = RunService.Stepped:Connect(function()
-	
-			print(LOCKED)
-	
-				repeat
-				DontTrykillmeBruh()
-				print(LOCKED.Character.Humanoid.Health)
-				task.wait(0.1)
-				until LOCKED.Character.Humanoid.Health == 0
-	
-				task.wait(0.5)
-	
-			--loop_move:Disconnect()
-			LP.Character.HumanoidRootPart.CFrame = oldPos
-			LOCKON = false
-			LOCKED = nil
-		end
-	end)
 end)
 
 task.spawn(function()
