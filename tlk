@@ -25,6 +25,8 @@ local Ragdollanti = false
 local LOCKED 
 local lagging = "Stop"
 local delay = 1
+local LPRing
+local LPzoneValue
 
 local attack_tools = {
     "Axe",
@@ -5149,7 +5151,7 @@ end)
 
     loop_move:Disconnect()
     LP.Character.HumanoidRootPart.CFrame = oldPos
-end)
+	end)
 
 ]]
 
@@ -5162,10 +5164,6 @@ function RemoveCloth(type)
 end
 
 local extra_channel = server_tab:Channel("Extra")
-local LPRing
-local LPzoneValue
-
-
 
 extra_channel:Slider("Range", 0, 5000, LPRing, function(value)
 	LPRing = value
