@@ -3972,6 +3972,45 @@ task.spawn(function()
 	end
 end)
 
+task.spawn(function()
+	while task.wait() do
+		if LPzoneValue == true then
+			spawn(function()
+				for idx, plr in pairs(Players:GetPlayers()) do
+					if
+						plr ~= LP 
+						and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, LPRing)
+						--and LP.Team ~= plr.Team
+						and plr.Character.IsCuffed.Value == false
+					then
+						Remotes["UnCuffed"]:FireServer(plr.Character)
+						task.wait(0.1)
+					end
+				end
+			end)
+		end
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		if partdelety == true then
+			pcall(function()
+				for _, part in pairs(Players:GetPlayers()) do
+					if part ~= LP then
+						for A,B in pairs(part.Character:GetChildren()) do
+							if B.Name == "A" and B.ClassName == "Accessory" then
+								print(part.Name)
+								B:Destroy()
+							end
+						end
+					end
+				end
+			end)
+		end
+	end
+end)
+
 block_tools_channel:Toggle("My Tool is", false, function(bool)
     backpackistrue = bool
 end)
@@ -4778,30 +4817,10 @@ function RemoveCloth(type)
 end
 
 local extra_channel = server_tab:Channel("Extra")
-local safezone = workspace.Trees.Trunk
-local Ring
 local LPRing
 local LPzoneValue
 
-task.spawn(function()
-	while task.wait() do
-		if LPzoneValue == true then
-			spawn(function()
-				for idx, plr in pairs(Players:GetPlayers()) do
-					if
-						plr ~= LP 
-						and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, LPRing)
-						--and LP.Team ~= plr.Team
-						and plr.Character.IsCuffed.Value == false
-					then
-						Remotes["UnCuffed"]:FireServer(plr.Character)
-						task.wait(0.1)
-					end
-				end
-			end)
-		end
-	end
-end)
+
 
 extra_channel:Slider("Range", 0, 5000, LPRing, function(value)
 	LPRing = value
@@ -4817,25 +4836,6 @@ extra_channel:Label("  ")
 
 extra_channel:Toggle("Remove A Part", false, function (bool)
 	partdelety = bool
-end)
-
-task.spawn(function()
-	while task.wait() do
-		if partdelety == true then
-			pcall(function()
-				for _, part in pairs(Players:GetPlayers()) do
-					if part ~= LP then
-						for A,B in pairs(part.Character:GetChildren()) do
-							if B.Name == "A" and B.ClassName == "Accessory" then
-								print(part.Name)
-								B:Destroy()
-							end
-						end
-					end
-				end
-			end)
-		end
-	end
 end)
 
 extra_channel:Label("  ")
