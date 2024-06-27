@@ -18,6 +18,7 @@ _G.LockOnhit = false
 local LP = Players.LocalPlayer
 
 local blocktoolNames = "Taser"
+local cooldowns = 0.2
 
 local choosing_spawn = CFrame.new(282.811157, 5.99613762, -69.6557007, 0.826119781, -6.12301321e-08, 0.563494503, 6.9332371e-09, 1, 9.84968693e-08, -0.563494503, -7.74633762e-08, 0.826119781)
 
@@ -3870,6 +3871,67 @@ task.spawn(function()
 	end
 end)
 
+task.spawn(function()
+    while task.wait() do
+    pcall(function()
+        i = math.random(1,9)
+        if VMR then
+            task.wait(cooldowns)
+            if i == 1 then
+                fireclickdetector(vmkey["1"].ClickDetector)
+                fireclickdetector(vmkey.A.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            elseif i == 2 then
+                fireclickdetector(vmkey["1"].ClickDetector)
+                fireclickdetector(vmkey.B.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            elseif i == 3 then
+                fireclickdetector(vmkey["1"].ClickDetector)
+                fireclickdetector(vmkey.C.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            elseif i == 4 then 
+                fireclickdetector(vmkey["2"].ClickDetector)
+                fireclickdetector(vmkey.A.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            elseif i == 5 then
+                fireclickdetector(vmkey["2"].ClickDetector)
+                fireclickdetector(vmkey.B.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            elseif i == 6 then
+                fireclickdetector(vmkey["2"].ClickDetector)
+                fireclickdetector(vmkey.C.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            elseif i == 7 then
+                fireclickdetector(vmkey["3"].ClickDetector)
+                fireclickdetector(vmkey.A.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            elseif i == 8 then
+                fireclickdetector(vmkey["3"].ClickDetector)
+                fireclickdetector(vmkey.B.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            elseif i == 9 then
+                fireclickdetector(vmkey["3"].ClickDetector)
+                fireclickdetector(vmkey.C.ClickDetector)
+                fireclickdetector(vmyes.ClickDetector)
+            end
+        end
+        task.wait(cooldowns)
+        end) 
+    end
+end)
+
+task.spawn(function()
+    while task.wait() do
+    pcall(function()
+        task.wait(cooldowns)
+        if VMB then
+            fireclickdetector(vmcen.ClickDetector)
+        end
+        task.wait(cooldowns)
+    end)
+	end
+end)
+
 block_tools_channel:Toggle("My Tool is", false, function(bool)
     backpackistrue = bool
 end)
@@ -3995,69 +4057,6 @@ end)
 block_tools_channel:Label("  ")
 
 block_tools_channel:Label("Vending Machine")
-
-local cooldowns = 0.2
-
-task.spawn(function()
-    while task.wait() do
-    pcall(function()
-        i = math.random(1,9)
-        if VMR then
-            task.wait(cooldowns)
-            if i == 1 then
-                fireclickdetector(vmkey["1"].ClickDetector)
-                fireclickdetector(vmkey.A.ClickDetector)
-                fireclickdetector(vmyes.ClickDetector)
-            elseif i == 2 then
-                fireclickdetector(vmkey["1"].ClickDetector)
-                fireclickdetector(vmkey.B.ClickDetector)
-                fireclickdetector(vmyes.ClickDetector)
-            elseif i == 3 then
-                fireclickdetector(vmkey["1"].ClickDetector)
-                fireclickdetector(vmkey.C.ClickDetector)
-                fireclickdetector(vmyes.ClickDetector)
-            elseif i == 4 then 
-                fireclickdetector(vmkey["2"].ClickDetector)
-                fireclickdetector(vmkey.A.ClickDetector)
-                fireclickdetector(vmyes.ClickDetector)
-            elseif i == 5 then
-                fireclickdetector(vmkey["2"].ClickDetector)
-                fireclickdetector(vmkey.B.ClickDetector)
-                fireclickdetector(vmyes.ClickDetector)
-            elseif i == 6 then
-                fireclickdetector(vmkey["2"].ClickDetector)
-                fireclickdetector(vmkey.C.ClickDetector)
-                fireclickdetector(vmyes.ClickDetector)
-            elseif i == 7 then
-                fireclickdetector(vmkey["3"].ClickDetector)
-                fireclickdetector(vmkey.A.ClickDetector)
-                fireclickdetector(vmyes.ClickDetector)
-            elseif i == 8 then
-                fireclickdetector(vmkey["3"].ClickDetector)
-                fireclickdetector(vmkey.B.ClickDetector)
-                fireclickdetector(vmyes.ClickDetector)
-            elseif i == 9 then
-                fireclickdetector(vmkey["3"].ClickDetector)
-                fireclickdetector(vmkey.C.ClickDetector)
-                fireclickdetector(vmyes.ClickDetector)
-            end
-        end
-        task.wait(cooldowns)
-        end) 
-    end
-end)
-
-task.spawn(function()
-    while task.wait() do
-    pcall(function()
-        task.wait(cooldowns)
-        if VMB then
-            fireclickdetector(vmcen.ClickDetector)
-        end
-        task.wait(cooldowns)
-    end)
-	end
-end)
 
 block_tools_channel:Toggle("Random Food", false, function(bool)
     VMR = bool
