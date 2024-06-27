@@ -4784,23 +4784,23 @@ local LPRing
 local LPzoneValue
 
 task.spawn(function()
-while task.wait() do
-	if LPzoneValue == true then
-		spawn(function()
-			for idx, plr in pairs(Players:GetPlayers()) do
-				if
-					plr ~= LP 
-					and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, LPRing)
-					--and LP.Team ~= plr.Team
-					and plr.Character.IsCuffed.Value == false
-				then
-					Remotes["UnCuffed"]:FireServer(plr.Character)
-					task.wait(0.1)
+	while task.wait() do
+		if LPzoneValue == true then
+			spawn(function()
+				for idx, plr in pairs(Players:GetPlayers()) do
+					if
+						plr ~= LP 
+						and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, LPRing)
+						--and LP.Team ~= plr.Team
+						and plr.Character.IsCuffed.Value == false
+					then
+						Remotes["UnCuffed"]:FireServer(plr.Character)
+						task.wait(0.1)
+					end
 				end
-			end
-		end)
+			end)
+		end
 	end
-end
 end)
 
 extra_channel:Slider("Range", 0, 5000, LPRing, function(value)
