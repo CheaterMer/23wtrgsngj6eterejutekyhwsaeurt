@@ -3612,6 +3612,8 @@ task.spawn(function()
 	end
 end)
 
+--[kill aura (maybe need fix)]--
+
 task.spawn(function()
     while task.wait() do
         if _G.forcestop then
@@ -3630,16 +3632,9 @@ task.spawn(function()
                 end
             end
             for idx, plr in pairs(Players:GetPlayers()) do
-                	if plr ~= LP 
-					and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 25) 
-					and plr.Character.Hostile.Value 
-					and not table.find(userOwner, plr.Name) 
-					--and not table.find(whitelistuser, plr.Name)
-					and plr.Character.Humanoid.Health ~= 0 
-					then
-						if LP.Team.Name == "Civilian" 
-						and plr.Team.Name ~= "Guard" 
-						then
+                if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 25) and plr.Character.Hostile.Value and not table.find(userOwner, plr.Name) and plr.Character.Humanoid.Health ~= 0 then
+					--and not table.find(whitelistuser, plr.Name) 
+						if LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard" then
 							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
 							task.wait(0.1)
 						elseif LP.Team.Name ~= "Civilian" then
@@ -3648,9 +3643,12 @@ task.spawn(function()
 						end
                 	end
             	end
-        end)end
+        	end)
+		end
     end
 end)
+
+--[looped un cuff]--
 
 task.spawn(function()
 	while task.wait() do
@@ -3662,6 +3660,8 @@ task.spawn(function()
 	end
 end)
 
+--[looped un hog]--
+
 task.spawn(function()
 	while task.wait() do
 		if UH then pcall(function()
@@ -3672,6 +3672,8 @@ task.spawn(function()
 	end
 end)
 
+--[anti Ragdoll (not working)]--
+
 task.spawn(function()
 	while task.wait() do
 		if Ragdollanti then pcall(function()
@@ -3681,6 +3683,8 @@ task.spawn(function()
 		end) end
 	end
 end)
+
+--[block Taser use a toolfinds]--
 
 task.spawn(function()
     while task.wait(0.1) do
@@ -3735,6 +3739,8 @@ task.spawn(function()
 	end
 end)
 
+--[Team block Item]--
+
 task.spawn(function()
     while task.wait() do
     pcall(function()
@@ -3753,6 +3759,8 @@ task.spawn(function()
 	end
 end)
 
+--[item]--
+
 task.spawn(function()
     while task.wait() do
 		if infFlashlight then
@@ -3769,6 +3777,8 @@ task.spawn(function()
 	end
 end)
 
+--[item]--
+
 task.spawn(function()
     while task.wait() do
 		if infFlashlights then
@@ -3784,6 +3794,8 @@ task.spawn(function()
 	end
 end)
 
+--[all un collar]--
+
 task.spawn(function()
 	while task.wait() do
 		if AUC then pcall(function()
@@ -3795,6 +3807,8 @@ task.spawn(function()
 		end) end
 	end
 end)
+
+--[all un cuffs]--
 
 task.spawn(function()
 	while task.wait() do
@@ -3808,6 +3822,8 @@ task.spawn(function()
 	end
 end)
 
+--[all un hogs]--
+
 task.spawn(function()
 	while task.wait() do
 		if AUH then pcall(function()
@@ -3818,6 +3834,8 @@ task.spawn(function()
 		end) end
 	end
 end)
+
+--[all player taser]--
 
 task.spawn(function()
 	while task.wait() do
@@ -3871,6 +3889,8 @@ task.spawn(function()
 	end
 end)
 
+--[vmcen]--
+
 task.spawn(function()
     while task.wait() do
     pcall(function()
@@ -3920,6 +3940,8 @@ task.spawn(function()
     end
 end)
 
+--[vmcen]--
+
 task.spawn(function()
     while task.wait() do
     pcall(function()
@@ -3931,6 +3953,8 @@ task.spawn(function()
     end)
 	end
 end)
+
+--[StaminaSprintClient]--
 
 task.spawn(function()
 	while task.wait() do
