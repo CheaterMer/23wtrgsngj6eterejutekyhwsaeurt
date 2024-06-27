@@ -19,6 +19,21 @@ local LP = Players.LocalPlayer
 
 local blocktoolNames = "Taser"
 local cooldowns = 0.2
+local killaura = false
+local LOCKON = false
+local Ragdollanti = false
+local LOCKED 
+local lagging = "Stop"
+local delay = 1
+
+local attack_tools = {
+    "Axe",
+    "Pickaxe",
+    "Crowbar",
+    "Hammer",
+    "Knife",
+    "Fist"
+}
 
 local choosing_spawn = CFrame.new(282.811157, 5.99613762, -69.6557007, 0.826119781, -6.12301321e-08, 0.563494503, 6.9332371e-09, 1, 9.84968693e-08, -0.563494503, -7.74633762e-08, 0.826119781)
 
@@ -4278,6 +4293,125 @@ task.spawn(function()
 	end
 end)
 
+--[door]--
+
+task.spawn(function()
+	while task.wait() do
+		if opendoor then pcall(function()
+		for v,b in pairs(workspace.Doors:GetChildren()) do
+    	if b.Value.Value == false then
+        task.wait()
+        Remotes["DoorOpener"]:FireServer(b.Name, "Open")
+		end
+		end
+		end) 
+		end
+	end
+end)
+
+--[door]--
+
+task.spawn(function()
+	while task.wait() do
+		if closedoor then pcall(function()
+		for v,b in pairs(workspace.Doors:GetChildren()) do
+    	if b.Value.Value == true then
+        task.wait()
+        Remotes["DoorOpener"]:FireServer(b.Name, "Close")
+		end
+		end
+		end) end
+	end
+end)
+
+--[door]--
+
+task.spawn(function()
+	while task.wait() do
+		if HouseOpen then pcall(function()
+
+			for i,v in pairs(workspace.Houses:GetDescendants()) do
+				if v:IsA("ProximityPrompt") then
+				if v.Name == "OpenPrompt" then
+					if v.Parent:FindFirstChild("IsOpen").Value == false then
+					pcall(function ()
+						fireproximityprompt(v)
+					end)
+				end
+				end
+				end
+			end
+
+		end) end
+	end
+end)
+
+--[door]--
+
+task.spawn(function()
+	while task.wait() do
+		if HouseClose then pcall(function()
+
+			for i,v in pairs(workspace.Houses:GetDescendants()) do
+				if v:IsA("ProximityPrompt") then
+				if v.Name == "OpenPrompt" then
+					if v.Parent:FindFirstChild("IsOpen").Value == true then
+					pcall(function ()
+						fireproximityprompt(v)
+					end)
+				end
+				end
+				end
+			end
+
+		end) end
+	end
+end)
+
+--[door]--
+
+task.spawn(function()
+	while task.wait() do
+		if HouseLock2 then pcall(function()
+
+			for i,v in pairs(workspace.Houses:GetDescendants()) do
+				if v:IsA("ProximityPrompt") then
+				if v.Name == "LockPrompt" then
+					if v.Parent.Parent.Click:FindFirstChild("IsLocked").Value == true then
+					pcall(function ()
+						fireproximityprompt(v)
+					end)
+				end
+				end
+				end
+			end
+
+		end) end
+	end
+end)
+
+--[door]--
+
+task.spawn(function()
+	while task.wait() do
+		if HouseLock1 then pcall(function()
+
+	for i,v in pairs(workspace.Houses:GetDescendants()) do
+    if v:IsA("ProximityPrompt") then
+    if v.Name == "LockPrompt" then
+        if v.Parent.Parent.Click:FindFirstChild("IsLocked").Value == false then
+        pcall(function ()
+            fireproximityprompt(v)
+        end)
+    end
+    end
+    end
+		end
+
+			end) end
+		end
+end)
+
 block_tools_channel:Toggle("My Tool is", false, function(bool)
     backpackistrue = bool
 end)
@@ -4769,21 +4903,6 @@ end)
 --end)
 
 local combat_channel = server_tab:Channel("Combat")
-local killaura = false
-local LOCKON = false
-local Ragdollanti = false
-local LOCKED 
-local attack_tools = {
-    "Axe",
-    "Pickaxe",
-    "Crowbar",
-    "Hammer",
-    "Knife",
-    "Fist"
-}
-
-
-
 
 function eat()
     spawn(function()
@@ -5066,10 +5185,8 @@ end)
 
 extra_channel:Label("  ")
 
-local lagging = "Stop"
-local delay = 1
-
 local delay_display = extra_channel:Label("Delay: "..tostring(delay).."s")
+
 extra_channel:Toggle("Lagging Server", false, function (bool)
     if bool then
         lagging = "Exploit"
@@ -5108,13 +5225,14 @@ choosing_stay_button = team_channel:Button("Stay on the Choosing", function ()
     choosing_stay_button:Delete()
 end)
 
-local civilian_click = (function ()
+local civilian_click = (function()
     for i,v in pairs(workspace:GetChildren()) do
         if v:FindFirstChild("LeaveTeamHostage") and v:FindFirstChild("ClickDetector") then
             return v.ClickDetector
         end
     end
 end)()
+
 team_channel:Button("Change to Guard", function()
     local police_gui = LP.PlayerGui.TeamChangePolice.Frame
     police_gui.Visible = true
@@ -5146,117 +5264,6 @@ if LP.Team.Name ~= "Choosing" then
 end
 
 local click_channel = client_tab:Channel("Door ClickDetector")
-
-task.spawn(function()
-	while task.wait() do
-		if opendoor then pcall(function()
-		for v,b in pairs(workspace.Doors:GetChildren()) do
-    	if b.Value.Value == false then
-        task.wait()
-        Remotes["DoorOpener"]:FireServer(b.Name, "Open")
-		end
-		end
-		end) 
-		end
-	end
-end)
-
-
-task.spawn(function()
-	while task.wait() do
-		if closedoor then pcall(function()
-		for v,b in pairs(workspace.Doors:GetChildren()) do
-    	if b.Value.Value == true then
-        task.wait()
-        Remotes["DoorOpener"]:FireServer(b.Name, "Close")
-		end
-		end
-		end) end
-	end
-end)
-
-
-
-task.spawn(function()
-	while task.wait() do
-		if HouseOpen then pcall(function()
-
-			for i,v in pairs(workspace.Houses:GetDescendants()) do
-				if v:IsA("ProximityPrompt") then
-				if v.Name == "OpenPrompt" then
-					if v.Parent:FindFirstChild("IsOpen").Value == false then
-					pcall(function ()
-						fireproximityprompt(v)
-					end)
-				end
-				end
-				end
-			end
-
-		end) end
-	end
-end)
-
-task.spawn(function()
-	while task.wait() do
-		if HouseClose then pcall(function()
-
-			for i,v in pairs(workspace.Houses:GetDescendants()) do
-				if v:IsA("ProximityPrompt") then
-				if v.Name == "OpenPrompt" then
-					if v.Parent:FindFirstChild("IsOpen").Value == true then
-					pcall(function ()
-						fireproximityprompt(v)
-					end)
-				end
-				end
-				end
-			end
-
-		end) end
-	end
-end)
-
-
-task.spawn(function()
-	while task.wait() do
-		if HouseLock2 then pcall(function()
-
-			for i,v in pairs(workspace.Houses:GetDescendants()) do
-				if v:IsA("ProximityPrompt") then
-				if v.Name == "LockPrompt" then
-					if v.Parent.Parent.Click:FindFirstChild("IsLocked").Value == true then
-					pcall(function ()
-						fireproximityprompt(v)
-					end)
-				end
-				end
-				end
-			end
-
-		end) end
-	end
-end)
-
-task.spawn(function()
-	while task.wait() do
-		if HouseLock1 then pcall(function()
-
-	for i,v in pairs(workspace.Houses:GetDescendants()) do
-    if v:IsA("ProximityPrompt") then
-    if v.Name == "LockPrompt" then
-        if v.Parent.Parent.Click:FindFirstChild("IsLocked").Value == false then
-        pcall(function ()
-            fireproximityprompt(v)
-        end)
-    end
-    end
-    end
-		end
-
-			end) end
-		end
-end)
 
 click_channel:Button("Sound", function()
 			spawn(function()
