@@ -3947,6 +3947,62 @@ task.spawn(function()
 	end
 end)
 
+--[remove hostile Border]--
+
+task.spawn(function()
+	for v,b in pairs(workspace:GetChildren()) do
+		if b.Name == "Border" then
+			task.wait()
+			b:Destroy()
+		end
+	end
+end)
+
+--[remove FeadlyFloor]--
+
+task.spawn(function()
+	for v,b in pairs(workspace.Unfinished:GetChildren()) do
+		if b.Name == "DeadlyFloor" then
+			task.wait()
+			b:Destroy()
+		end
+	end
+end)
+
+--[remove Cave Fog]--
+
+task.spawn(function()
+	for v,b in pairs(workspace.Unfinished:GetChildren()) do
+		if b.Name == "Cave Fog" then
+			task.wait()
+			b:Destroy()
+		end
+	end
+end)
+
+--[back to dead pos]--
+
+task.spawn(function()
+	while task.wait(1) do
+		if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
+			--if DiePos ~= LP.Character.Torso.CFrame then
+			DiePos = LP.Character.Torso.CFrame
+			--end
+		end
+	end
+end)
+
+--[Lock On String]--
+
+task.spawn(function()
+	while task.wait() do
+		pcall(function()
+			TargetLockon:ChangeText("LockOn: "..tostring(_G.targetr))
+			TargetLockons:ChangeText("LockOn: "..tostring(_G.targetr))
+		end)
+	end
+end)
+
 --[heal]--
 
 task.spawn(function()
@@ -4448,13 +4504,6 @@ local names = {}
 for idx, plr in pairs(game.Players:GetPlayers()) do
 	if not table.find(userOwner, plr.Name) then
     table.insert(names, plr.Name)
-	end
-end
-
-function item()
-	if plr.Character:FindFirstChild("Taser") then
-	else 
-	plr.Backpack.Taser.Parent = plr.Character
 	end
 end
 
@@ -5520,55 +5569,6 @@ LP.CharacterAdded:Connect(function(char)
 		ci.Indicator.Position = UDim2.new(0.5,0,0.93,0)
 	end)
 
-end)
-
-task.spawn(function()
-	for v,b in pairs(workspace:GetChildren()) do
-		if b.Name == "Border" then
-			task.wait()
-			b:Destroy()
-		end
-	end
-end)
-
---workspace["Cave Fog"]
-
-task.spawn(function()
-	for v,b in pairs(workspace.Unfinished:GetChildren()) do
-		if b.Name == "DeadlyFloor" then
-			task.wait()
-			b:Destroy()
-		end
-	end
-end)
-
-task.spawn(function()
-	for v,b in pairs(workspace.Unfinished:GetChildren()) do
-		if b.Name == "Cave Fog" then
-			task.wait()
-			b:Destroy()
-		end
-	end
-end)
-
-
-task.spawn(function()
-	while task.wait(1) do
-		if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
-			--if DiePos ~= LP.Character.Torso.CFrame then
-			DiePos = LP.Character.Torso.CFrame
-			--end
-		end
-	end
-end)
-
-task.spawn(function()
-	while task.wait() do
-		pcall(function()
-			TargetLockon:ChangeText("LockOn: "..tostring(_G.targetr))
-			TargetLockons:ChangeText("LockOn: "..tostring(_G.targetr))
-		end)
-	end
 end)
 
 plrs.PlayerAdded:Connect(function(player)
