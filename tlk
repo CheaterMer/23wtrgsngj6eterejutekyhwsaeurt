@@ -16,6 +16,7 @@ _G.bruhinthelockon = nil
 _G.LockOnhit = false
 
 local LP = Players.LocalPlayer
+local plr = Players.LocalPlayer
 
 local blocktoolNames = "Taser"
 local cooldowns = 0.2
@@ -32,7 +33,9 @@ local targetr = nil
 local taser = false
 local tuf = false
 local tuc = false
-local plr = Players.LocalPlayer
+local AUF
+local AUH
+local AUC
 
 local attack_tools = {
     "Axe",
@@ -4663,9 +4666,6 @@ block_tools_channel:Button("eat all Flashlight", function()
 end)
 
 local player_channel = server_tab:Channel("Character")
-local AUF
-local AUH
-local AUC
 
 player_channel:Toggle("All Un Cuff", false, function(bool)
 	AUF = bool
