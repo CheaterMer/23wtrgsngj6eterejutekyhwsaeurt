@@ -4320,7 +4320,7 @@ task.spawn(function()
 					if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, LPRing) and LP.Team ~= plr.Team and plr.Character.IsCuffed.Value == false then
                         for i,p in pairs(plr.Character:GetChildren()) do
 							if table.find(itemlist, p.Name) then
-								print(plr.Name, " 가 툴을 소지하고 있음")
+								--print(plr.Name, " 가 툴을 소지하고 있음")
 								if taserorcuff == false then
 									--	print(plr.Name)
 									Remotes["UnCuffed"]:FireServer(plr.Character)
