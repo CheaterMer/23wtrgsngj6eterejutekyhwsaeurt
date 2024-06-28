@@ -63,21 +63,7 @@ function anime(id)
 				task.wait()
 				anim1:Play()
 end
---[[
-	task.spawn(function()
-	while task.wait() do
-	task.wait(0.1)
-		--if char:FindFirstChild("Animate") then
-			for i,v in ipairs(char.Humanoid:GetPlayingAnimationTracks()) do
-				--print(v)
-				if LP.Character.IsCuffed.Value == false then
-				v:Stop()
-				end 
-			end 
-		--end
-	end
-	end)
-]]
+
 
 local ToolFinder 
 
@@ -103,6 +89,44 @@ function findtool(toolName)
         end
 	end
 end
+
+--[[
+
+task.spawn(function()
+	while task.wait() do
+	task.wait(0.1)
+		--if char:FindFirstChild("Animate") then
+			for i,v in ipairs(char.Humanoid:GetPlayingAnimationTracks()) do
+				--print(v)
+				if LP.Character.IsCuffed.Value == false then
+				v:Stop()
+				end 
+			end 
+		--end
+	end
+end)
+
+]]
+
+function onChildRemoved(instance)
+	print(instance.Name .. " removed from the workspace")
+	local removedtool = instance.Name
+	return finedremovedtool(removedtool)
+end
+
+function findRemovedTool(toolName)
+	for _, player in pairs(game.Players:GetPlayers()) do
+		if player.Backpack:FindFirstChild(toolName) then -- 플레이어의 백팩에서 툴을 찾음
+			for _, tool in pairs(player.Character:GetChildren()) do
+				if tool:FindFirstChild("ClickDetector") then -- ClickDetector가 있는지 확인
+					print(player.Name .. " has the tool with ClickDetector")
+					-- 추가 작업을 여기에 추가할 수 있음
+				end
+			end
+		end
+	end
+end
+
 
 
 function grabRemote()
@@ -648,5 +672,6 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 	end
 end)
 
+workspace.ChildRemoved:Connect(onChildRemoved)
 
 print("loading Helper completed")
