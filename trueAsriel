@@ -109,6 +109,9 @@ end)
 ]]
 
 function onChildRemoved(instance)
+	if instance.ClassName == "Player" then
+		return
+	end
 	print(instance.Name .. " removed from the workspace")
 	local removedtool = instance.Name
 	return finedremovedtool(removedtool)
