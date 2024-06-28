@@ -3830,7 +3830,7 @@ task.spawn(function()
 						spawn(function()
 							local tool
 							for i,v in pairs(attack_tools) do
-								local t = LP.Character:FindFirstChild(v) 
+								local t = LP.Backpack:FindFirstChild(v) 
 								--or LP.Backpack:FindFirstChild(v) or workspace:FindFirstChild(v) 
 								--local t = findtool(v)
 								if t then
