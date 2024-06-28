@@ -4998,7 +4998,7 @@ combat_channel:Toggle("KillAura", false, function(bool)
     killaura = bool
 end)
 
-combat_channel:Toggle("Don't try kill me", false, function(bool)
+combat_channel:Toggle("Don't try cuff me", false, function(bool)
     donttry = bool
 end)
 
