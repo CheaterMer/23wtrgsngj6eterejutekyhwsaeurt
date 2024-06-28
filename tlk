@@ -3833,7 +3833,7 @@ task.spawn(function()
 
 								for i,p in pairs(LP.Character:GetChildren()) do
 									if table.find(attack_tools, p.Name) then
-										return print(p.Name, " 이미 장착되되어 있음")
+										return --print(p.Name, " 이미 장착되되어 있음")
 									end
 								end
 
