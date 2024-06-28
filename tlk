@@ -4317,7 +4317,7 @@ task.spawn(function()
 		if LPzoneValue == true then
 			spawn(function()
 				for idx, plr in pairs(Players:GetPlayers()) do
-					if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 100000)and LP.Team ~= plr.Teamand plr.Character.IsCuffed.Value == false then
+					if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, LPRing)and LP.Team ~= plr.Teamand plr.Character.IsCuffed.Value == false then
                         for i,p in pairs(plr.Character:GetChildren()) do
 							if table.find(itemlist, p.Name) then
 								print(plr.Name, " 가 툴을 소지하고 있음")
