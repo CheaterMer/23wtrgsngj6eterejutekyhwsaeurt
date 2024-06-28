@@ -14,6 +14,7 @@ local Chat = {}
 local Remotes = {}
 local whitelistuser = {}
 local userinfo = {}
+local itemlist = {}
 local userOwner = {
 	"Meringue_Cookies",
 	"Cheater_Mer",
@@ -3366,6 +3367,16 @@ for idx, val in pairs(game:GetService("ReplicatedStorage").DefaultChatSystemChat
     end
 end
 
+for i,v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Tool") then
+        --pcall(function ()
+        if not table.find(itemlist, v.Name) then
+        table.insert(itemlist, v.Name)
+        end
+        --end)
+    end
+end
+
 local function CheckRange(part1, part2, stud)
     range = (part1.Position - part2.Position).Magnitude
     if range < stud then
@@ -4762,17 +4773,7 @@ local itemlist = {
     "Bag"
 }
 ]]
-local itemlist = {}
 
-for i,v in pairs(workspace:GetDescendants()) do
-    if v:IsA("Tool") then
-        --pcall(function ()
-        if not table.find(itemlist, v.Name) then
-        table.insert(itemlist, v.Name)
-        end
-        --end)
-    end
-end
 
 
 block_tools_channel:Label("  ")
