@@ -3476,6 +3476,35 @@ function hoglast()
 	end) 
 end
 
+function gaglast()
+	pcall(function()
+		for idx, plr in pairs(Players:GetPlayers()) do
+			if
+				plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 10)
+				and plr.Character.Hostile.Value and LP.Team ~= plr.Team and plr.Character.Humanoid.Health ~= 0 
+			then
+				if plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsGagged.Value == false then
+					Remotes["IsG"]:FireServer(plr.Character, "3")
+					task.wait()
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == true and plr.Character.IsGagged.Value == false then
+					if plr.Name == _G.targetr then
+						Remotes["IsG"]:FireServer(plr.Character, "3")
+						task.wait()
+					end
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == false and plr.Character.IsGagged.Value == true then
+					Remotes["UnG"]:FireServer(plr.Character, "3")
+					task.wait()
+				elseif plr.Team ~= LP.Team and _G.LockOnhit == true and plr.Character.IsGagged.Value == true then
+					if plr.Name == _G.targetr then
+						Remotes["UnG"]:FireServer(plr.Character, "3")
+						task.wait()
+					end
+				end
+			end
+		end
+	end) 
+end
+
 local function ImportAsset(id)
     Remotes["Import"]:FireServer(math.random(1, 10), id, tostring({}), tostring(id))
 end
@@ -4817,6 +4846,11 @@ end)
 player_channel:Button("OAH", function()
 	hoglast()
 end)
+
+player_channel:Button("OAG", function()
+	gaglast()
+end)
+
 
 local names = {}
 for idx, plr in pairs(game.Players:GetPlayers()) do
