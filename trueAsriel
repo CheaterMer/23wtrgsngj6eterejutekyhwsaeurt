@@ -109,7 +109,7 @@ end)
 ]]
 
 function onChildRemoved(instance)
-	if instance.ClassName == "Player" then
+	if instance == "Player" then
 		return
 	end
 	print(instance.Name .. " removed from the workspace")
