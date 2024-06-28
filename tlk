@@ -5261,7 +5261,7 @@ extra_channel:Toggle("LP Zone Enable", false, function (bool)
 	LPzoneValue = bool
 end)
 
-extra_channel:Toggle("LP Zone Enable", false, function (bool)
+extra_channel:Toggle("Taser or UnCuff?", false, function (bool)
 	taserorcuff = bool
 end)
 
