@@ -46,6 +46,7 @@ local lagging = "Stop"
 local delay = 1
 local GetDownitem = false
 local targetr = nil
+local taserorcuff = false
 local taser = false
 local tuf = false
 local tuc = false
@@ -5258,6 +5259,10 @@ end)
 
 extra_channel:Toggle("LP Zone Enable", false, function (bool)
 	LPzoneValue = bool
+end)
+
+extra_channel:Toggle("LP Zone Enable", false, function (bool)
+	taserorcuff = bool
 end)
 
 extra_channel:Label("  ")
