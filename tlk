@@ -4307,12 +4307,38 @@ task.spawn(function()
 				for idx, plr in pairs(Players:GetPlayers()) do
 					if
 						plr ~= LP 
-						and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, LPRing)
+						and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 100000)
 						--and LP.Team ~= plr.Team
 						and plr.Character.IsCuffed.Value == false
 					then
-						Remotes["UnCuffed"]:FireServer(plr.Character)
-						task.wait(0.1)
+                        for i,p in pairs(plr.Character:GetChildren()) do
+							if table.find(itemlist, p.Name) then
+								print(plr.Name, " 가 툴을 소지하고 있음")
+								if taserorcuff == false then
+								--	print(plr.Name)
+								Remotes["UnCuffed"]:FireServer(plr.Character)
+								task.wait(0.1)
+								elseif taserorcuff == true then
+								--	print(plr.Name)
+
+									local args = {
+										[1] = "Hit",
+										[2] = findtools("Taser"),
+										[3] = game:GetService("Players"):WaitForChild(plr.Name).Character.Head
+									}
+									
+									game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+									task.wait(0.25)
+									local args = {
+										[1] = "Recharge",
+										[2] = findtools("Taser")
+									}
+									
+									game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+
+                            	end
+                        	end
+						end
 					end
 				end
 			end)
