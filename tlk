@@ -3825,11 +3825,17 @@ task.spawn(function()
     while task.wait() do
         if donttry then pcall(function()
             for idx, plr in pairs(Players:GetPlayers()) do
-                if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 25) then
+                if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 15) then
 					--and not table.find(whitelistuser, plr.Name) 
 						spawn(function()
 							local tool
 							for i,v in pairs(attack_tools) do
+								for i,p in pairs(LP.Character:GetChildren()) do
+									if table.find(attack_tools, p.Name) then
+										return print(p.Name, " 이미 장착되되어 있음")
+									end
+								end
+
 								local t = LP.Backpack:FindFirstChild(v) 
 								--or LP.Backpack:FindFirstChild(v) or workspace:FindFirstChild(v) 
 								--local t = findtool(v)
