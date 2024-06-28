@@ -4326,7 +4326,7 @@ task.spawn(function()
 									Remotes["UnCuffed"]:FireServer(plr.Character)
 									task.wait(0.1)
 								elseif taserorcuff == true then
-									--	print(plr.Name)
+									if plr.Character.Hostile.Value == true then
 
 									local args = {
 										[1] = "Hit",
@@ -4342,6 +4342,8 @@ task.spawn(function()
 									}
 									
 									game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
+								elseif plr.Character.Hostile.Value == false then
+									Remotes["UnCuffed"]:FireServer(plr.Character)
 								end
                         	end
 						end
