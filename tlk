@@ -4342,8 +4342,9 @@ task.spawn(function()
 									}
 									
 									game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(unpack(args))
-								elseif plr.Character.Hostile.Value == false then
-									Remotes["UnCuffed"]:FireServer(plr.Character)
+									elseif plr.Character.Hostile.Value == false then
+										Remotes["UnCuffed"]:FireServer(plr.Character)
+									end
 								end
                         	end
 						end
