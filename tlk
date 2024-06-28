@@ -3819,6 +3819,46 @@ task.spawn(function()
     end
 end)
 
+--[don't try cuff me]--
+
+task.spawn(function()
+    while task.wait() do
+        if _G.forcestop then
+            _G.forcestop = nil
+            break
+        end
+        if donttry then pcall(function()
+            for idx, plr in pairs(Players:GetPlayers()) do
+                if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 25) and plr.Character.Hostile.Value and not table.find(userOwner, plr.Name) and plr.Character.Humanoid.Health ~= 0 then
+					--and not table.find(whitelistuser, plr.Name) 
+						spawn(function()
+							local tool
+							for i,v in pairs(attack_tools) do
+								local t = LP.Character:FindFirstChild(v) 
+								--or LP.Backpack:FindFirstChild(v) or workspace:FindFirstChild(v) 
+								--local t = findtool(v)
+								if t then
+									t.Parent = LP.Character
+									tool = t
+									break
+								end
+							end
+						end)
+
+						if LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard" then
+							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+							task.wait(0.1)
+						elseif LP.Team.Name ~= "Civilian" then
+							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
+							task.wait(0.1)
+						end
+                	end
+            	end
+        	end)
+		end
+    end
+end)
+
 --[looped un cuff]--
 
 task.spawn(function()
