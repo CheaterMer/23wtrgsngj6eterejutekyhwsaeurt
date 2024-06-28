@@ -108,6 +108,11 @@ end)
 
 ]]
 
+--for i,v in pairs(LP.Backpack:GetChildren()) do
+--    scripts = v:FindFirstChildOfClass("LocalScript") 
+--    scripts.Enabled = false
+--end
+
 function onChildRemoved(instance)
 	if instance.ClassName ~= "Tool" then
 		return
@@ -512,7 +517,7 @@ function attack()
 	end) 
 end
 
-
+--[[
 local userInput = game:GetService("UserInputService")
 userInput.InputEnded:Connect(function(key, processed) 
 	if processed then
@@ -611,6 +616,8 @@ userInput.InputEnded:Connect(function(key, processed)
 		end
 	end 
 end)
+]]
+
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.Q then
