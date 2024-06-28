@@ -3823,10 +3823,6 @@ end)
 
 task.spawn(function()
     while task.wait() do
-        if _G.forcestop then
-            _G.forcestop = nil
-            break
-        end
         if donttry then pcall(function()
             for idx, plr in pairs(Players:GetPlayers()) do
                 if plr ~= LP and CheckRange(LP.Character.HumanoidRootPart, plr.Character.HumanoidRootPart, 25) then
