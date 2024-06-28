@@ -114,7 +114,7 @@ function onChildRemoved(instance)
 	return finedremovedtool(removedtool)
 end
 
-function findRemovedTool(finers)
+function finedremovedtool(finers)
     for _, player in pairs(game.Players:GetPlayers()) do
 		if player.Backpack:FindFirstChild(finers) then
             for _, tool in pairs(player.Backpack:GetDescendants()) do
