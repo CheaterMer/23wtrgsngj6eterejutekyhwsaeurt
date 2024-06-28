@@ -4310,7 +4310,7 @@ task.spawn(function()
 	end
 end)
 
---[safezone]--
+--[safezone cuff or taser?]--
 
 task.spawn(function()
 	while task.wait() do
