@@ -3830,7 +3830,7 @@ task.spawn(function()
 						spawn(function()
 							local tool
 							for i,v in pairs(attack_tools) do
-								
+
 								for i,p in pairs(LP.Character:GetChildren()) do
 									if table.find(attack_tools, p.Name) then
 										return print(p.Name, " 이미 장착되되어 있음")
@@ -3847,14 +3847,6 @@ task.spawn(function()
 								end
 							end
 						end)
-
-						if LP.Team.Name == "Civilian" and plr.Team.Name ~= "Guard" then
-							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
-							task.wait(0.1)
-						elseif LP.Team.Name ~= "Civilian" then
-							Remotes["Combat"]:FireServer(LP.Character, plr.Character.Head, tool)
-							task.wait(0.1)
-						end
                 	end
             	end
         	end)
