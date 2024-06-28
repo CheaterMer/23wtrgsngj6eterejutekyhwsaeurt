@@ -136,7 +136,7 @@ end
 spawn(function()
     while true do
         wait(1) -- 1초마다 실행
-        spawnRandomCharacter() -- 함수 호출
+        --spawnRandomCharacter() -- 함수 호출
     end
 end)
 
