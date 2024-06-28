@@ -4847,7 +4847,7 @@ player_channel:Button("OAH", function()
 	hoglast()
 end)
 
-player_channel:Button("OAG", function()
+player_channel:Button("OAG (only work to vip server)", function()
 	gaglast()
 end)
 
