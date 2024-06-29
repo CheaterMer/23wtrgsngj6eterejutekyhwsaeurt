@@ -3966,7 +3966,7 @@ task.spawn(function()
     pcall(function()
         if TBI then
             for idx, plr in pairs(Players:GetPlayers()) do
-                if plr ~= LP and plr.Name ~= userOwner and plr.Character.IsCuffed.Value == false and plr.Team.Name == BITL then
+                if plr ~= LP and not table.find(userOwner, plr.Name) and plr.Character.IsCuffed.Value == false and plr.Team.Name == BITL then
                     if except_friends and not plr:IsFriendsWith(LP.UserId) then
                         Remotes["UnCuffed"]:FireServer(plr.Character)
                     else
@@ -3989,7 +3989,7 @@ task.spawn(function()
 					if plr.Character.Humanoid.Health == 0 then
 						return
 					end
-					if plr ~= LP and plr.Team ~= LP.Team and plr.Character.Hostile.Value == true and plr.Character:FindFirstChild(blockitempick) then
+					if plr ~= LP and not table.find(userOwner, plr.Name) and plr.Team ~= LP.Team and plr.Character.Hostile.Value == true and plr.Character:FindFirstChild(blockitempick) then
 						for i = 0, 5, 1 do
 							local args = {
 								[1] = "Hit",
