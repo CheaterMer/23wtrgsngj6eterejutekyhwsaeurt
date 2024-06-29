@@ -5623,8 +5623,12 @@ LP.CharacterAdded:Connect(function(char)
             ImportAsset(12333523895)
             ImportAsset(12339085834)
             ImportAsset(12339086845)
-            ImportAsset(11190054343)
+			ImportAsset(15029689207)
+
+            ImportAsset(12900028002)
+
             ImportAsset(11284310004)
+
            -- ImportAsset(11697630021)
         elseif CUSKIN == "FurryGirl" then
             ImportAsset(12669535992)
