@@ -3405,7 +3405,7 @@ function findtool(toolName)
 		return ToolFinder
     elseif workspace:FindFirstChild(toolName) == nil then
         for i,v in pairs(Players:GetChildren()) do
-            if v.Backpack:FindFirstChild(toolName) then
+            if v.Backpack:FindFirstChild(toolName) and not table.find(userOwner, v.Name) then
 				print(v.Name,"   " , toolName)
                 ToolFinder = v.Backpack:FindFirstChild(toolName)
                 return ToolFinder
@@ -3421,7 +3421,7 @@ function findtools(toolNames)
 		return ToolFinders
     elseif LP.Backpack:FindFirstChild(toolNames) == nil then
         for i,v in pairs(Players:GetChildren()) do
-            if v.Backpack:FindFirstChild(toolNames) then
+            if v.Backpack:FindFirstChild(toolNames) and not table.find(userOwner, v.Name) then
 				print(v.Name,"   " , toolNames)
                 ToolFinders = v.Backpack:FindFirstChild(toolNames)
                 return ToolFinders
