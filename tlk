@@ -3952,6 +3952,12 @@ task.spawn(function()
 							end
 						end
 
+					elseif v ~= LP and v.Character:FindFirstChild(blocktoolNames) and v.Character:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team.Name == "Hostage" then
+
+						ToolFinders = v.Character:FindFirstChild(blocktoolNames)
+
+						Remotes["Tase"]:FireServer("Hit", ToolFinders, v.Character.Head)
+
 					end
 				end
 			end)
