@@ -3536,7 +3536,7 @@ local function RemoveNonExistingPlayers()
     end
 end
 
-local win = DiscordLib:Window("TLK Panel")
+local win = DiscordLib:Window("Mer's TLK Panel")
 
 --local server_tab = win:Server("Server", getcustomasset("TLK_ASSETS/"..assets["ServerIcon"]["Name"]))
 --local client_tab = win:Server("Client", getcustomasset("TLK_ASSETS/"..assets["ClientIcon"]["Name"]))
