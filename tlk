@@ -5624,7 +5624,7 @@ ToolRemover:Button("Remove", function()
 	end
 end)
 
-ToolRemover:Label("  ")
+ToolRemover:Label(" Warning This is a Broken All Tools ")
 
 ToolRemover:Button("Remove all", function()
 	local humanoid=game.Players.LocalPlayer.Character.Humanoid 
