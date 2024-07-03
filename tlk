@@ -5615,7 +5615,7 @@ ToolRemover:Dropdown(
     end
 )
 
-ToolRemover:Button("Remove all", function()
+ToolRemover:Button("Remove", function()
 	local humanoid=game.Players.LocalPlayer.Character.Humanoid 
 		for i,v in workspace:GetChildren() do
 				if v:IsA("Tool") and v.Name == RemoveToollistup then
