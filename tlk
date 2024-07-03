@@ -5624,6 +5624,8 @@ ToolRemover:Button("Remove", function()
 	end
 end)
 
+ToolRemover:Label("  ")
+
 ToolRemover:Button("Remove all", function()
 	local humanoid=game.Players.LocalPlayer.Character.Humanoid 
 		for i,v in workspace:GetChildren() do
