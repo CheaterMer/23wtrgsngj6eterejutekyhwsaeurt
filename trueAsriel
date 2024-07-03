@@ -634,12 +634,33 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 	end
 end)
 
+game:GetService("UserInputService").InputBegan:Connect(function(inp)
+    if inp.KeyCode == Enum.KeyCode.M then
+		if dash == true  then
+			dash = false
 
+			game:GetService("StarterGui"):SetCore("SendNotification",{
+				Title = "dash is false", -- Required
+				Text = "Notification Description", -- Required
+				Icon = "rbxassetid://1234567890" -- Optional
+			})
+
+		elseif dash == false then
+
+			game:GetService("StarterGui"):SetCore("SendNotification",{
+				Title = "dash is true", -- Required
+				Text = "Notification Description", -- Required
+				Icon = "rbxassetid://1234567890" -- Optional
+			})
+
+			dash = true
+	end
+end)
 
 local StarterGui = game:GetService("StarterGui")
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
-    if inp.KeyCode == Enum.KeyCode.V then
+    if inp.KeyCode == Enum.KeyCode.V and dash == true then
 		char = game.Players.LocalPlayer.Character
 		spawn(function()
 			if char.HumanoidRootPart:FindFirstChild("Client") then
