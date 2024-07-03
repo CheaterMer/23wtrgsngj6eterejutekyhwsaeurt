@@ -3544,6 +3544,7 @@ local win = DiscordLib:Window("TLK Panel")
 local server_tab = win:Server("Server", "http://www.roblox.com/asset/?id=6031075938")
 local client_tab = win:Server("Client", "http://www.roblox.com/asset/?id=6031075938")
 local Troll_tab = win:Server("White and Black List", "http://www.roblox.com/asset/?id=6031075938")
+local Ezwin_tab = win:Server("White and Black List", "http://www.roblox.com/asset/?id=6031075938")
 
 local block_tools_channel = server_tab:Channel("Tools")
 local except_friends = false
@@ -5601,6 +5602,35 @@ end)
 
 ggez:Toggle("Taser User jajaja", false, function(bool)
     jajajajajajajajeztaser = bool
+end)
+
+local ToolRemover = Ezwin_tab:Channel("Nah i'd win")
+
+ToolRemover:Dropdown(
+    "Pick Item",
+		itemlist,
+    function(bool)
+		print(bool)
+        RemoveToollistup = bool
+    end
+)
+
+ToolRemover:Button("Remove all", function()
+	local humanoid=game.Players.LocalPlayer.Character.Humanoid 
+		for i,v in workspace:GetChildren() do
+				if v:IsA("Tool") and v.Name == RemoveToollistup then
+			humanoid:EquipTool(v)
+		end 
+	end
+end)
+
+ToolRemover:Button("Remove all", function()
+	local humanoid=game.Players.LocalPlayer.Character.Humanoid 
+		for i,v in workspace:GetChildren() do
+				if v:IsA("Tool") then
+			humanoid:EquipTool(v)
+		end 
+	end
 end)
 
 
