@@ -5619,7 +5619,7 @@ ToolRemover:Button("Remove", function()
 	local humanoid=game.Players.LocalPlayer.Character.Humanoid 
 		for i,v in workspace:GetChildren() do
 				if v:IsA("Tool") and v.Name == RemoveToollistup then
-			humanoid:EquipTool(v)
+			--humanoid:EquipTool(v)
 		end 
 	end
 end)
@@ -5630,7 +5630,7 @@ ToolRemover:Button("Remove all", function()
 	local humanoid=game.Players.LocalPlayer.Character.Humanoid 
 		for i,v in workspace:GetChildren() do
 				if v:IsA("Tool") then
-			humanoid:EquipTool(v)
+			--humanoid:EquipTool(v)
 		end 
 	end
 end)
