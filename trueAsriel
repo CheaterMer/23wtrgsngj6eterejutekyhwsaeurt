@@ -634,6 +634,8 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 	end
 end)
 
+local dash = false
+
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
     if inp.KeyCode == Enum.KeyCode.M then
 		if dash == true  then
