@@ -3541,9 +3541,9 @@ local win = DiscordLib:Window("TLK Panel")
 --local server_tab = win:Server("Server", getcustomasset("TLK_ASSETS/"..assets["ServerIcon"]["Name"]))
 --local client_tab = win:Server("Client", getcustomasset("TLK_ASSETS/"..assets["ClientIcon"]["Name"]))
 
-local server_tab = win:Server("Server", "http://www.roblox.com/asset/?id=7074019231")
-local client_tab = win:Server("Client", "http://www.roblox.com/asset/?id=7074019231")
-local Troll_tab = win:Server("White and Black List", "http://www.roblox.com/asset/?id=7074019231")
+local server_tab = win:Server("Server", "http://www.roblox.com/asset/?id=7074019216")
+local client_tab = win:Server("Client", "http://www.roblox.com/asset/?id=7074019216")
+local Troll_tab = win:Server("White and Black List", "http://www.roblox.com/asset/?id=7074019216")
 local Ezwin_tab = win:Server("nah i'd win", "http://www.roblox.com/asset/?id=17453328242")
 
 local block_tools_channel = server_tab:Channel("Tools")
