@@ -656,6 +656,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 			})
 
 			dash = true
+		end
 	end
 end)
 
