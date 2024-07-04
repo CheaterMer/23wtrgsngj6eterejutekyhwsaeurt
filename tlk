@@ -5762,7 +5762,7 @@ LP.CharacterAdded:Connect(function(char)
 		end
 
 
-		dpname = Players:GetNameFromUserIdAsync(bool).DisplayName
+		dpname = Players:GetNameFromUserIdAsync(copyuserid)
 		
 		Chat["SayMessageRequest"]:FireServer( "/nick "..dpname,"All")
 
