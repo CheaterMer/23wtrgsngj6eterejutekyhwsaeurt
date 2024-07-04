@@ -612,6 +612,16 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		elseif player.Character:FindFirstChild("Rope") then
 			hoglast()
 			--hogcall()
+		elseif player.Character:FindFirstChild("Bat") then
+			if m3 == true then
+				anime(7567312569)
+				attack()
+				m3 = false
+			else
+				anime(6934391028)
+				attack()
+				m3 = true
+			end
 		end
 	end
 end)
