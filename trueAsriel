@@ -41,6 +41,7 @@ local attack_tools = {
     "Crowbar",
     "Hammer",
     "Knife",
+	"Bat",
     "Fist"
 }
 
