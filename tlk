@@ -5445,7 +5445,7 @@ end)
 
 avatar_channel:Textbox("Copy Player Avatar", "Enter username or userid", true, function(text)
 
-copyuserid = text
+	copyuserid = text
 
     for _, _ in pairs(LP.Character:GetChildren()) do
         RemoveCloth(_.Name)
@@ -5760,6 +5760,12 @@ LP.CharacterAdded:Connect(function(char)
 			ImportAsset(Players:GetHumanoidDescriptionFromUserId(copyuserid).Shirt)
 			ImportAsset(Players:GetHumanoidDescriptionFromUserId(copyuserid).Pants)
 		end
+
+
+		dpname = Players:GetNameFromUserIdAsync(bool).DisplayName
+		
+		Chat["SayMessageRequest"]:FireServer( "/nick "..dpname,"All")
+
 	end
 
 	if spawnfun == true then
