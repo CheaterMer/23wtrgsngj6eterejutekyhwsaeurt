@@ -5444,6 +5444,9 @@ avatar_channel:Button("Naked", function()
 end)
 
 avatar_channel:Textbox("Copy Player Avatar", "Enter username or userid", true, function(text)
+
+copyuserid = text
+
     for _, _ in pairs(LP.Character:GetChildren()) do
         RemoveCloth(_.Name)
     end
@@ -5515,6 +5518,10 @@ end)
 
 char_channel:Toggle("MY SKIN", false, function (bool)
 	NOsdfadfa = bool
+end)
+
+char_channel:Toggle("Copy other SKIN", false, function (bool)
+	copyavatarplayer = bool
 end)
 
 char_channel:Toggle("Faka Name", false, function (bool)
@@ -5729,6 +5736,30 @@ LP.CharacterAdded:Connect(function(char)
     	end
     	ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Shirt)
     	ImportAsset(Players:GetHumanoidDescriptionFromUserId(LP.UserId).Pants)
+	end
+
+	if copyavatarplayer == true then
+		task.wait(0.5)
+		for _, _ in pairs(LP.Character:GetChildren()) do
+			RemoveCloth(_.Name)
+		end
+		if not tonumber(copyuserid) then
+			local target = GetPlayer(copyuserid)
+			if not target then return end
+			local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(target.UserId):GetAccessories(true)
+			for _, accessoryInfo in ipairs(accessoriesTable) do 
+				ImportAsset(accessoryInfo.AssetId)
+			end
+			ImportAsset(Players:GetHumanoidDescriptionFromUserId(target.UserId).Shirt)
+			ImportAsset(Players:GetHumanoidDescriptionFromUserId(target.UserId).Pants)
+		else
+			local accessoriesTable = Players:GetHumanoidDescriptionFromUserId(copyuserid):GetAccessories(true)
+			for _, accessoryInfo in ipairs(accessoriesTable) do 
+				ImportAsset(accessoryInfo.AssetId)
+			end
+			ImportAsset(Players:GetHumanoidDescriptionFromUserId(copyuserid).Shirt)
+			ImportAsset(Players:GetHumanoidDescriptionFromUserId(copyuserid).Pants)
+		end
 	end
 
 	if spawnfun == true then
