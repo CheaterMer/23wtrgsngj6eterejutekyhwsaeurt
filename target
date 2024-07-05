@@ -184,6 +184,10 @@ UserInputService.InputBegan:Connect(function(input)
             -- 타겟을 찾았을 때의 동작을 여기에 추가하세요.
             print("Target found: " .. target.Name)
             _G.targetr = target.Name
+
+            for i,v in ipairs(Players:WaitForChild(_G.targetr).Backpack:GetChildren()) do
+				print(v)
+			end
         else
             -- 타겟을 찾지 못했을 때의 동작을 여기에 추가하세요.
             print("No target found")
