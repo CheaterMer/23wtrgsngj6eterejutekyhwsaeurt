@@ -5648,17 +5648,6 @@ local DiePos
 LP.CharacterAdded:Connect(function(char)
     if LP.Team.Name ~= "Choosing" then choosing_stay_button:Delete() end
 
-    if Fakename == true then 
-		if aONT == nil then 
-			--DiscordLib:Notification("Notification", "Fakename is Nil Brb", "Okay!")
-			Chat["SayMessageRequest"]:FireServer( "/nick ❤️","All")
-		else
-		task.wait(0.2)
-		--DiscordLib:Notification("Notification", "Fakename is "..aONT, "Okay!")
-		Chat["SayMessageRequest"]:FireServer( "/nick "..aONT,"All")
-		end
-	end
-
 	if Furry == true then
 		task.wait(0.7)
 		for _, _ in pairs(LP.Character:GetChildren()) do
@@ -5795,6 +5784,17 @@ LP.CharacterAdded:Connect(function(char)
 		ci:WaitForChild("Indicator").AnchorPoint = Vector2.new(0.5,0.5)
 		ci.Indicator.Position = UDim2.new(0.5,0,0.93,0)
 	end)
+
+	if Fakename == true then 
+		if aONT == nil then 
+			--DiscordLib:Notification("Notification", "Fakename is Nil Brb", "Okay!")
+			Chat["SayMessageRequest"]:FireServer( "/nick ❤️","All")
+		else
+		task.wait(0.2)
+		--DiscordLib:Notification("Notification", "Fakename is "..aONT, "Okay!")
+		Chat["SayMessageRequest"]:FireServer( "/nick "..aONT,"All")
+		end
+	end
 
 end)
 
