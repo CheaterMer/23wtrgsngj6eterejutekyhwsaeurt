@@ -702,7 +702,7 @@ end)
 
 
 game:GetService("UserInputService").InputBegan:Connect(function(inp)
-    if inp.KeyCode == Enum.KeyCode.X then
+    if inp.KeyCode == Enum.KeyCode.X and dash == true then
 		if LP.Character.HumanoidRootPart.Anchored == false then
 			local args = {
 				[1] = LP.Character,
@@ -720,6 +720,8 @@ game:GetService("UserInputService").InputBegan:Connect(function(inp)
 		end
 	end
 end)
+
+
 
 workspace.ChildRemoved:Connect(onChildRemoved)
 
