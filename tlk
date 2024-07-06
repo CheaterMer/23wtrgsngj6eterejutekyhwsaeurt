@@ -18,7 +18,8 @@ local itemlist = {}
 local userOwner = {
 	"Meringue_Cookies",
 	"Cheater_Mer",
-	"thscjsgh1"
+	"thscjsgh1",
+	"asdgrehyqaeh"
 }
 local attack_tools = {
     "Axe",
