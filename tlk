@@ -3911,9 +3911,9 @@ task.spawn(function()
 			spawn(function()
 				for i,v in pairs(Players:GetChildren()) do
 
-					--	if not table.find(userOwner, v.Name) then
-					--		return
-					--	end
+						if table.find(userOwner, v.Name) then
+							return
+						end
 
 						if v ~= LP and v.Backpack:FindFirstChild(blocktoolNames) and v.Backpack:FindFirstChild(blocktoolNames).Charged.Value == true and v.Team ~= LP.Team and v.Character.Hostile.Value == true then
 							
