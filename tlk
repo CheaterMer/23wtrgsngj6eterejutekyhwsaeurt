@@ -5273,7 +5273,7 @@ end)
 
 extra_channel:Label("  ")
 
-extra_channel:Toggle("Remove A Part", false, function (bool)
+extra_channel:Toggle("Remove A Part", true, function (bool)
 	partdelety = bool
 end)
 
