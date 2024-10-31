@@ -9,7 +9,7 @@ local TabC = Window:CreateTab("Lock On", "3192485759")
 local TabS = Window:CreateTab("Range", "3192485759")
 local TabM = Window:CreateTab("Damage M", "3192485759")
 local TabMisc = Window:CreateTab("MISC", "3192485759")
-local TabO = Window:CreateTab("OTHERS", "3192485759")
+local TabO = Window:CreateTab("OTHERS Script", "3192485759")
 
 
 
@@ -384,4 +384,16 @@ end)
 
 TabS:CreateButton("Hogged",function()
     hoglast()
+end)
+
+TabO:CreateButton("Zeouron's GUI",function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/voidy434343/Zeouron-Mainiatic/main/Tlk%20prison%20obf.txt"))()
+end)
+
+TabO:CreateButton("Red's GUI",function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/bryntt-hub/Red-Gui/main/Red"))()
+end)
+
+TabO:CreateButton("bryntt's GUI",function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/bryntt-hub/TLKGUI-20/refs/heads/main/brynttTLKGUI"))()
 end)
