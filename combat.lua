@@ -397,3 +397,5 @@ end)
 TabO:CreateButton("bryntt's GUI",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/bryntt-hub/TLKGUI-20/refs/heads/main/brynttTLKGUI"))()
 end)
+
+print("my power is max!!!")
