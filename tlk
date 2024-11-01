@@ -5726,7 +5726,7 @@ LP.CharacterAdded:Connect(function(char)
 			ImportAsset(17442090429)
 		elseif CUSKIN == "Slut" then
 
-			ImportAsset(83816941548566)
+			ImportAsset(18906304951)
 			ImportAsset(7121163644)
 
 			ImportAsset(94941438360122)
