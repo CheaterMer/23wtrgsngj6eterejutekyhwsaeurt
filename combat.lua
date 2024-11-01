@@ -386,6 +386,8 @@ TabS:CreateButton("Hogged",function()
     hoglast()
 end)
 
+local UPGRADE = false
+
 TabMisc:CreateToggle("Upgrade TOOL",false,false,function(asdf)
 	UPGRADE = asdf
 end)
@@ -405,37 +407,49 @@ end)
 	local UserInputService = game:GetService("UserInputService")
 		
 	
-UserInputService.InputBegan:Connect(function(input, processed)
-	if processed then 
-		return 
-	end 
-	if input.UserInputType == Enum.UserInputType.MouseButton1 then
-	while UPGRADE do -- 여기에 반복할 동작을 넣어주세요 print("Repeating action!") wait(1) -- 1초 대기 
+local player = game.Players.LocalPlayer 
+local mouse = player:GetMouse()
+
+spawn(function()
+	while true do -- 여기에 반복할 동작을 넣어주세요 print("Repeating action!") wait(1) -- 1초 대기 
+		if UPGRADE == true and looped == true then
 		wait()
+		print("loop")
 		pcall(function()
-						local mouse = game:GetService("Players").LocalPlayer:GetMouse()
-						local CFRAME = mouse.hit
-						local Target = mouse.target
-						local pos = Vector3.new(CFRAME.X, CFRAME.Y, CFRAME.Z)
-						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(
-							"Hit",
-							game:GetService("Players").LocalPlayer.Character:FindFirstChild("Taser"),
-							Target.Parent.Torso
-						)
-						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(
-							"Generate",
-							game:GetService("Players").LocalPlayer.Character.Taser,
-							game:GetService("Players").LocalPlayer.Character.Taser.Handle.Position,
-							pos
-						)
-						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(
-							"Recharge",
-							game:GetService("Players").LocalPlayer.Character:FindFirstChild("Taser")
-						)
-				end)
-			end
+			local mouse = game:GetService("Players").LocalPlayer:GetMouse()
+			local CFRAME = mouse.hit
+			local Target = mouse.target
+			local pos = Vector3.new(CFRAME.X, CFRAME.Y, CFRAME.Z)
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(
+					"Hit",
+					game:GetService("Players").LocalPlayer.Character:FindFirstChild("Taser"),
+					Target.Parent.Torso
+				)
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(
+					"Generate",
+					game:GetService("Players").LocalPlayer.Character.Taser,
+					game:GetService("Players").LocalPlayer.Character.Taser.Handle.Position,
+					pos
+				)
+				game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(
+					"Recharge",
+					game:GetService("Players").LocalPlayer.Character:FindFirstChild("Taser")
+				)
+			end)
 		end
+	end
+end)
+
+local looped = false
+
+mouse.Button1Down:Connect(function()
+	looped = true
+	print("true")
 end) 
+mouse.Button1Up:Connect(function()
+	looped = false
+	print("false")
+end)
 
 
 print("my power is max!!!")
