@@ -3328,7 +3328,7 @@ end
 GUI:Button("Remove World Shadow", function()
 	LIght.Ambient = Color3.new(255,255,255)
 	LIght.ColorShift_Bottom = Color3.new(255,255,255)
-	LIght.
+	--LIght.
 end)
 
 door:Button("Open Docks", function()
