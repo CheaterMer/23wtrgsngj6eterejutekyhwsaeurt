@@ -33,8 +33,8 @@ local LabelO = TabO:CreateLabel('OTHER SCRIPTS')
 ---Extra Tab Stuff
 local Credits = TabE:CreateLabel('~Credits~')
 local Credits = TabE:CreateLabel('~​Mene Brother​ - For the UI *on gitbook.io*~')
-local Credits = TabE:CreateLabel('​shifter#4049​ - Fixing scripts!')
-local Credits = TabE:CreateLabel('​void#3308​ - Giving Customs/Attack/Misc Ideas')
+local Credits = TabE:CreateLabel('Mer - Main scripts!')
+local Credits = TabE:CreateLabel('enjoy - for your tlk prions!')
 
 
 
@@ -373,7 +373,7 @@ TabS:CreateToggle("cuff",false,false,function(asdf)
     cuff = asdf
 end)
 
-TabS:CreateToggle("hog Taser",false,false,function(asdf)
+TabS:CreateToggle("hog",false,false,function(asdf)
     hog = asdf
 end)
 
