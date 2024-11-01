@@ -104,7 +104,7 @@ function createweight()
 
 Player.CharacterAdded:Connect(function(char)
         task.wait(2)
-    createweight()
+    --createweight()
 end)
 
 
