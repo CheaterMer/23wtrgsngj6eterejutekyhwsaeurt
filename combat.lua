@@ -386,6 +386,10 @@ TabS:CreateButton("Hogged",function()
     hoglast()
 end)
 
+TabMisc:CreateToggle("Upgrade TOOL",false,false,function(asdf)
+	UPGRADE = asdf
+end)
+
 TabO:CreateButton("Zeouron's GUI",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/voidy434343/Zeouron-Mainiatic/main/Tlk%20prison%20obf.txt"))()
 end)
@@ -397,5 +401,41 @@ end)
 TabO:CreateButton("bryntt's GUI",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/bryntt-hub/TLKGUI-20/refs/heads/main/brynttTLKGUI"))()
 end)
+
+	local UserInputService = game:GetService("UserInputService")
+		
+	
+UserInputService.InputBegan:Connect(function(input, processed)
+	if processed then 
+		return 
+	end 
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+	while UPGRADE do -- 여기에 반복할 동작을 넣어주세요 print("Repeating action!") wait(1) -- 1초 대기 
+		wait()
+		pcall(function()
+						local mouse = game:GetService("Players").LocalPlayer:GetMouse()
+						local CFRAME = mouse.hit
+						local Target = mouse.target
+						local pos = Vector3.new(CFRAME.X, CFRAME.Y, CFRAME.Z)
+						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(
+							"Hit",
+							game:GetService("Players").LocalPlayer.Character:FindFirstChild("Taser"),
+							Target.Parent.Torso
+						)
+						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(
+							"Generate",
+							game:GetService("Players").LocalPlayer.Character.Taser,
+							game:GetService("Players").LocalPlayer.Character.Taser.Handle.Position,
+							pos
+						)
+						game:GetService("ReplicatedStorage"):WaitForChild("Tase"):FireServer(
+							"Recharge",
+							game:GetService("Players").LocalPlayer.Character:FindFirstChild("Taser")
+						)
+				end)
+			end
+		end
+end) 
+
 
 print("my power is max!!!")
