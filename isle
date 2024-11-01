@@ -3274,7 +3274,7 @@ function DiscordLib:Window(text)
 	return ServerHold
 end
 
-local win = DiscordLib:Window("TLK Panel")
+local win = DiscordLib:Window("isle Panel")
 
 local server_tab = win:Server("Server", "http://www.roblox.com/asset/?id=6031075938")
 local client_tab = win:Server("Client", "http://www.roblox.com/asset/?id=6031075938")
@@ -3310,7 +3310,7 @@ local itemlister = getitem:Dropdown(
     end
 )
 
-getitem:Button("One", function()
+getitem:Button("Get Item", function()
 	if getitem == nil then
 		return
 	end
@@ -3403,3 +3403,4 @@ user:Button("Mob Esp" , function()
 		end
 	end
 end)
+
