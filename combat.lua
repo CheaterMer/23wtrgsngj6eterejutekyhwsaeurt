@@ -413,7 +413,7 @@ local mouse = player:GetMouse()
 spawn(function()
 	while true do -- 여기에 반복할 동작을 넣어주세요 print("Repeating action!") wait(1) -- 1초 대기 
 		if UPGRADE == true and looped == true then
-		wait()
+		wait(0.0000000000001)
 		print("loop")
 		pcall(function()
 			local mouse = game:GetService("Players").LocalPlayer:GetMouse()
