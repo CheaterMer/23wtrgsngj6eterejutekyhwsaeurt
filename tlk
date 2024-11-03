@@ -5749,7 +5749,7 @@ LP.CharacterAdded:Connect(function(char)
 			ImportAsset(9959703351)
 			ImportAsset(18371460843)
 
-			ImportAsset(18268451930)
+			--ImportAsset(18268451930)
 			--ImportAsset(137405125595886)
 
 			--ImportAsset(16846343979)
