@@ -5749,6 +5749,9 @@ LP.CharacterAdded:Connect(function(char)
 			ImportAsset(9959703351)
 			ImportAsset(18371460843)
 
+			ImportAsset(18268451930)
+			ImportAsset(137405125595886)
+
 			--ImportAsset(16846343979)
 
 			ImportAsset(18813910229)
@@ -5762,7 +5765,7 @@ LP.CharacterAdded:Connect(function(char)
 
 			ImportAsset(12728193301)
 			ImportAsset(5620418160)
-			ImportAsset(17448564816)
+			--ImportAsset(17448564816)
 			
 		elseif CUSKIN == "IDK" then
 
