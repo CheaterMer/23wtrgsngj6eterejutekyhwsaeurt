@@ -2392,7 +2392,7 @@ end)
 local DiePos 
 
 LP.CharacterAdded:Connect(function(char)
-    if LP.Team.Name ~= "Choosing" then choosing_stay_button:Delete() end
+   -- if LP.Team.Name ~= "Choosing" then choosing_stay_button:Delete() end
 
 	if Furry == true then
 		task.wait(0.7)
