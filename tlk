@@ -961,22 +961,21 @@ end)
 task.spawn(function()
 	while task.wait() do
 		pcall(function()
-		if INFgarb == true then 
-			if LP.Character.StaminaSprintClient.Enabled == false then
-				LP.Character.StaminaSprintClient.Enabled = true
-			elseif LP.Character.StaminaSprintClient.Enabled == true then
-				LP.Character.StaminaSprintClient.Enabled = false 
-			end
-			wait(0.5)
-		elseif INFgarb == false then
-			--pcall(function()
-			if LP.Character.StaminaSprintClient.Enabled == true then break end
-			if LP.Character.StaminaSprintClient.Enabled == false then
-				LP.Character.StaminaSprintClient.Enabled = true
+			if INFgarb == true then 
+				if LP.Character.StaminaSprintClient.Enabled == false then
+					LP.Character.StaminaSprintClient.Enabled = true
+				elseif LP.Character.StaminaSprintClient.Enabled == true then
+					LP.Character.StaminaSprintClient.Enabled = false 
+				end
+				wait(0.5)
+			elseif INFgarb == false then
+				--pcall(function()
+				if LP.Character.StaminaSprintClient.Enabled == true then break end
+				if LP.Character.StaminaSprintClient.Enabled == false then
+					LP.Character.StaminaSprintClient.Enabled = true
+				end
 			end
 		end)
-		end
-		end
 	end
 end)
 
