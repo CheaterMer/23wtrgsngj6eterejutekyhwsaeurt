@@ -960,6 +960,7 @@ end)
 
 task.spawn(function()
 	while task.wait() do
+		pcall(function()
 		if INFgarb == true then 
 			if LP.Character.StaminaSprintClient.Enabled == false then
 				LP.Character.StaminaSprintClient.Enabled = true
@@ -973,7 +974,7 @@ task.spawn(function()
 			if LP.Character.StaminaSprintClient.Enabled == false then
 				LP.Character.StaminaSprintClient.Enabled = true
 			end
-			--end) 
+		end)
 		end
 		end
 	end
