@@ -2538,8 +2538,8 @@ LP.CharacterAdded:Connect(function(char)
 			ImportAsset(7960468107)
 		elseif CUSKIN == "Femboy" then
 
-			ImportAsset(9959703351)
-			ImportAsset(18528175023)
+			ImportAsset(17431706309)
+			ImportAsset(7121163644)
 
 			--ImportAsset(18268451930)
 			--ImportAsset(137405125595886)
