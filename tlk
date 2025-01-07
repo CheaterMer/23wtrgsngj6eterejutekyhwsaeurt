@@ -63,7 +63,6 @@ local ToolFinders
 local ToolFinder 
 
 local choosing_spawn = CFrame.new(282.811157, 5.99613762, -69.6557007, 0.826119781, -6.12301321e-08, 0.563494503, 6.9332371e-09, 1, 9.84968693e-08, -0.563494503, -7.74633762e-08, 0.826119781)
-local url = "https://discord.com/api/webhooks/1318060197482205244/1yTmPQQTbSeU_vP_tpUAJ5oEDY1PKOdtWuM0-FiD8NhyfPWKcYeLt4-gjWRiW4Qjf7-E"
 
 local MAX_PART_COUNT = 25
 
@@ -274,52 +273,6 @@ local function RemoveNonExistingPlayers()
 			print(whitelistuser,i ,"remove")
         end
     end
-end
-
-function SendMessage(url, message)
-    local http = game:GetService("HttpService")
-    local headers = {
-        ["Content-Type"] = "application/json"
-    }
-    local data = {
-        ["content"] = message
-    }
-    local body = http:JSONEncode(data)
-    local response = request({
-        Url = url,
-        Method = "POST",
-        Headers = headers,
-        Body = body
-    })
-    print("Sent")
-end
-
-function SendMessageEMBED(url, embed)
-    local http = game:GetService("HttpService")
-    local headers = {
-        ["Content-Type"] = "application/json"
-    }
-    local data = {
-        ["embeds"] = {
-            {
-                ["title"] = embed.title,
-                ["description"] = embed.description,
-                ["color"] = embed.color,
-                ["fields"] = embed.fields,
-                ["footer"] = {
-                    ["text"] = embed.footer.text
-                }
-            }
-        }
-    }
-    local body = http:JSONEncode(data)
-    local response = request({
-        Url = url,
-        Method = "POST",
-        Headers = headers,
-        Body = body
-    })
-    print("Sent")
 end
 
 local win = DiscordLib:Window("Mer's TLK Panel")
@@ -2699,10 +2652,6 @@ spawn(function()
 	while wait(1) do
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/bruhskull"))()
 	end
-end)
-
-spawn(function()
-	SendMessage(url, "tlk Panel active User : "..tostring(LP.Name))
 end)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
