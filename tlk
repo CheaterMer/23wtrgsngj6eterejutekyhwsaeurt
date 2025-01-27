@@ -1438,7 +1438,7 @@ block_tools_channel:Button("Get Tools", function()
 			fireclickdetector(workspace.KeyCard.ClickDetector)
 		end
 	]]
-		for i,v in pairs(workspace:GetDescendants()) do
+		for i,v in pairs(workspace.Tools:GetDescendants()) do
 		if v:IsA("Tool") then
 				pcall(function ()
 					fireclickdetector(v.ClickDetector)
@@ -2525,15 +2525,14 @@ LP.CharacterAdded:Connect(function(char)
 
 			ImportAsset(17274655265)
 
-			elseif CUSKIN == "wndrnr" then
+		elseif CUSKIN == "wndrnr" then
 
-				ImportAsset(11948620594)
+			ImportAsset(11948620594)
 				ImportAsset(12265484911)
 	
-				ImportAsset(17637720483)
-	
-				ImportAsset(125209843097889)
-				ImportAsset(84005087457673)
+			ImportAsset(17637720483)
+			ImportAsset(125209843097889)
+			ImportAsset(84005087457673)
 				--ImportAsset(16139148510)
 	
 			--	ImportAsset(17274655265)
@@ -2661,11 +2660,7 @@ Players.PlayerRemoving:Connect(function(player)
 	--print("remove",player.Name)
 end)
 
-spawn(function()
-	while wait(1) do
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/CheaterMer/23wtrgsngj6eterejutekyhwsaeurt/main/bruhskull"))()
-	end
-end)
+
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 
