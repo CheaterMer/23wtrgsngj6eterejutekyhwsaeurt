@@ -1441,7 +1441,7 @@ block_tools_channel:Button("Get Tools", function()
 		for i,v in pairs(workspace.Tools:GetDescendants()) do
 		if v:IsA("Tool") then
 				pcall(function ()
-					fireclickdetector(v.ClickDetector)
+				--	fireclickdetector(v.ClickDetector)
 				end)
 			end
 		end
